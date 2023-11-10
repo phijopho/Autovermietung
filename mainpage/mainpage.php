@@ -33,9 +33,9 @@
 
     <!-- Footer -->
     <footer>
-        <div id="impressum"><a href="impressum.html">Impressum</a></div>
-        <div id="datenschutz"><a href="datenschutz.html">Datenschutz</a></div>
-        <div id="agb"><a href="agb.html">AGB</a></div>
+        <div id="impressum"><a href="footer/impressum.html">Impressum</a></div>
+        <div id="datenschutz"><a href="footer/datenschutz.html">Datenschutz</a></div>
+        <div id="agb"><a href="footer/agb.html">AGB</a></div>
     </footer>
 </body>
 </html>
