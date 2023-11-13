@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autovermietung</title> <!--Wird innerhalb des geöffneten Tabs oben in der Taskleiste angezeigt. Nutzer kann leichter Website wiederfinden,falls mehrere unterschiedliche Tabs geöffnet sind.   ggf. mit Logo ergänzen-->
+    <link rel="stylesheet" href="Startseite.css"> <!--damit die css datei in dieser html datei gelesen werden kann-->
+</head>
+
+
+<header> <!--mit php programmieren,dass sich der header etwas verkleinert beim runterscrollen-->
+  <div class="header-content">
+      <div class="logo">
+        <a href="#">
+          <img src="Bilder/prozrachniy-logo-1-800x575.png" alt="#" height="80px">
+        </a> <!--href um beim klicken des Logos auf die Stratseite zu gelanden-->
+      </div>
+
+      <ul class="navigation"> <!--Navigationsleiste im Header-->
+          <li><a href="#" style="padding: 5px 10px; margin-right: 10px; border-radius: 5px">Über uns</a></li>
+          <li><a href="#" style="margin-right: 10px;">Miete</a></li>
+          <li><a href="#" style="margin-right: 10px;">Preise</a></li>
+          <li><a href="#">FAQ</a></li>
+
+          <li><a href="#" class="BuchungenInNavigation">Buchungen verwalten</a></li> <!--Klasse existiert noch nicht-->
+
+          <li><a href="#" class="login">Anmelden/Registrieren</a></li> <!--neue Klasse für Login,da andere zusätzliche  Bedarfe als bei der Klasse Navigation notwendig sind--> 
+        </ul>
+
+  </div>
+</header>
+
+
+<body>
+
+<div class="body">
+
+    <center> <!--Zum zentireren der QuickSearchBar-->
+      <div class="boxQuickSearch">
+        <form id="quickSearchForm"> <!--hover hinzufügen wie bei header--> 
+          <label for="city">Abholung & Rückgabe:</label>
+          <select id="carType" name="carType"> <!--beliebige anklickbare Funktionen können ausgewählt werden-->
+              <option><a href="#">Platzhalter</a></option> <!--muss optimiert werden-->
+              <option value="#">Platzhalter</option>
+              <option value="#">Platzhalter</option>
+          </select>
+
+          <label for="pickupDate">Abholdatum:</label>
+          <input type="date" id="pickupDate" name="pickupDate">
+
+          <label for="returnDate">Rückgabedatum:</label>
+          <input type="date" id="returnDate" name="returnDate">
+
+          <button type="submit">Suchen</button>
+        </form>
+      </div>
+    </center>
+    </div>
+</body>
+
+
+<footer>
+
+
+
+</footer>
+
+</html>
