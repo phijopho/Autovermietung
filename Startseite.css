@@ -1,0 +1,93 @@
+
+  /* Header-Stile */
+  header {
+    background-color: #0174DF;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+
+
+
+      /* Header-Inhalt-Stile */
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+          }
+  
+          /* Logo im Header */
+          .logo {
+            font-size: 24px;
+            font-weight: bold;
+            order: 1; /* Damit Logo auf linker Seite im Header */
+          }
+  
+
+          /* Navigation Stile */
+
+            /* gesamte Navigationsleiste (allgemein) */
+              .navigation {
+                list-style: none;
+                display: flex;
+                order: 2; /* Damit Navigation rechts von Logo dargestellt wird */
+                padding-right: 200px;
+              }
+              
+              .navigation li {
+                margin-right: 60px;
+                text-align: right;
+                white-space: nowrap;
+              }
+              
+              .navigation a {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                transition: color 0.3s ease;
+              }
+              
+              .navigation a:hover { /* Farbe ändert sich zu rot, wenn man mit dem Mauszeiger über einen Hyperlink in Textform geht. Verbessert die Nutzererfahrung. */
+                color: #FF0000; /* Rot Farbe für Hover-Effekt */
+              }
+
+          .login {
+                padding-right: 300px;
+              
+              }
+              
+  
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 80px; /* Add padding to the top to account for the fixed header */
+  background-image: url('Bilder/sportwagen-des-jahres-2021-01.jpg');
+  background-size: cover;
+ 
+}
+
+  h1 {
+    color: #333;
+    font-size: 36px;
+    margin-top: 60px;
+}
+
+/* Weiße Fläche für QuickSearch designen */
+.boxQuickSearch {
+  width: 900px;
+  height: 100px;
+  padding: 40px;
+  border: 2px solid white;
+  margin:120px 30px 30px 30px; /* Adjust the top margin as needed */
+  background-color: white;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
