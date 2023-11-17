@@ -5,174 +5,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWIFT Rentals</title>
 
-  <style>
-    body {
-      margin: 0px;
-      padding: 0;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
-      background-repeat: no-repeat; /* Bild wiederholt sich nicht */
-    
-    }
-    header {
-      background-color: #525252;
-      padding: 0px;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
-      margin-bottom: -2%;
-    }
-   
-    .box:hover a {
-            color: #ABA6A1; /* Farbe ändern, wenn der Text gehovert wird */
-        }
-        .box a {
-            text-decoration: none;
+    <style>
+
+      /* Style des Headers */
+      
+      header {
+            background-color: #525252;
+            padding: 0px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            margin-bottom: -2%;
+          }
+         
+      /* Style des Hovermenüs */
+      
+      /* Farbe ändern, wenn der Text gehovert wird */
+          .box:hover a {
+                  color: #ABA6A1; 
+              }
+      
+      /* Übergangseffekt hinzufügen */
+              .box a {
+                  text-decoration: none;
+                  color: #F7F2EF;
+                  transition: color 0.3s; 
+              }
+      
+          /* Style der Links mit Platzhalter */
+          a:link {
+              text-decoration: none;
             color: #F7F2EF;
-            transition: color 0.3s; /* Übergangseffekt hinzufügen */
-        }
-    a:link {
-  			text-decoration: none;
-			color: #F7F2EF;
-			font-family:"Montserrat", sans-serif;
-			font: 20px;
-			font-weight: 600;
-			}
-
-			a:visited {
-  			text-decoration: none;
-			color: #F7F2EF;
-			font-family:"Montserrat", sans-serif;
-			font: 20px;
-			font-weight: 600;
-			}
-
-			a:hover {
-  			text-decoration: none;
-			color:#ABA6A1;
-			}
-
-			a:active {
-  			text-decoration: underline;
-			color:#F7F2EF;
-			}
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding: 50px;
-      font-family: "Montserrat", sans-serif;
-      color: #F7F2EF;
-      margin-top: 0%;
-    }
-    .box {
-      flex: 1;
-      background-color: #525252;
-      margin-right: 50px;
-      color:#F7F2EF;
-    }
-    .box:last-child {
-      margin-right: 0;
-    }
-
-      /* Stile für die Buchungsmaske */
-      .containerBookingform {
-      display: flex;
-      justify-content: center;
-      padding: 15%;
-      font-family: "Montserrat", sans-serif;;
-      color: #F7F2EF;
-      margin-top: 0px;
-    }
-      #booking-form {
-            height: 150px;
-            width: 994px;
-            border-radius: 25px;
-            background: rgba(14, 14, 14, 0.58);
+            font-family:"Montserrat", sans-serif;
+            font: 20px;
+            font-weight: 600;
+            }
+      
+            a:visited {
+              text-decoration: none;
+            color: #F7F2EF;
+            font-family:"Montserrat", sans-serif;
+            font: 20px;
+            font-weight: 600;
+            }
+      
+            a:hover {
+              text-decoration: none; /* ob der Link beim Hovern einen Strich unter der Schrift bekommt*/
+            color:#ABA6A1;
+            }
+      
+      /* Wenn über link gehovert wird, dann wird der Text unterstrichen */
+            a:active {
+              text-decoration: underline;
+            color:#F7F2EF;
+            }
+      
+      /* Style Body*/
+      
+          body {
+            margin: 0px;
+            padding: 0;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            background-repeat: no-repeat; /* Bild wiederholt sich nicht */
+          
+          }
+      
+        /* Style und Klassen der Boxen und Container */  
+          .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            font-family: "Montserrat", sans-serif;
+            color: #F7F2EF;
+            margin-top: 0%;
+          }
+          .box {
+            flex: 1;
+            background-color: #525252;
+            margin-right: 50px;
+            color:#F7F2EF;
+          }
+          .box:last-child {
+            margin-right: 0;
+          }
+      
+            /* Style für die Buchungsmaske */
+      
+            .containerBookingform {
+            display: flex;
+            justify-content: center;
+            padding: 15%;
+            font-family: "Montserrat", sans-serif;;
+            color: #F7F2EF;
+            margin-top: 0px;
+          }
+            #booking-form {
+                  height: 150px;
+                  width: 994px;
+                  border-radius: 25px;
+                  background: rgba(14, 14, 14, 0.58);
+                  padding: 0px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  font-family: "Montserrat", sans-serif;
+                  color: #F7F2EF;
+      
+              }
+      
+              #booking-form h2 {
+                  margin-bottom: 20px;
+                  margin-top: 5px;
+                  font-family: "Montserrat", sans-serif;
+                  color: #F7F2EF;
+              }
+      
+              .form-row {
+                  display: flex;
+                  justify-content: center;
+                  width: 100%;
+                  margin-bottom: 10px;
+              }
+      
+              .form-row select,
+              .form-row input {
+                  flex: 1;
+                  padding: 8px;
+                  border-radius: 5px;
+                  border: none;
+                  margin-right: 10px;
+                  box-sizing: border-box;
+              }
+      
+              #search-button {
+                  width: 20%;
+                  padding: 10px;
+                  margin-top: 20px;
+                  margin-left: 40%;
+                  border-radius: 5px;
+                  border: none;
+                  background-color: #676967;
+                  font-family: "Montserrat", sans-serif;
+                  color: #F7F2EF;
+                  font-size: 16px;
+      
+                  cursor: pointer;
+              }
+      
+          /* Style des Mains im Body (Hintergrundbild) */
+          main {
+            padding: 0px;
+            margin-top: -15px;
+            width: 100%;
+            height: 682px;
+          }
+      
+      /* Style des Footers */
+      
+          footer {
+            background-color: #1A1818;
+            color: #F7F2EF;
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+            margin-top: 0%;
             padding: 0px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: "Montserrat", sans-serif;
-            color: #F7F2EF;
-
-        }
-
-        #booking-form h2 {
-            margin-bottom: 20px;
-            margin-top: 5px;
-            font-family: "Montserrat", sans-serif;
-            color: #F7F2EF;
-        }
-
-        .form-row {
+          }
+          footer p {
+                  font-size: 16px; 
+                  line-height: 1.5;
+                  font-family: "Montserrat", sans-serif;
+                  color: #F7F2EF;       
+              }
+      
+              .containerFooter {
             display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .form-row select,
-        .form-row input {
-            flex: 1;
-            padding: 8px;
-            border-radius: 5px;
-            border: none;
-            margin-right: 10px;
-            box-sizing: border-box;
-        }
-
-        #search-button {
-            width: 20%;
-            padding: 10px;
-            margin-top: 20px;
-            margin-left: 40%;
-            border-radius: 5px;
-            border: none;
-            background-color: #676967;
-            font-family: "Montserrat", sans-serif;
+            justify-content: space-between;
+            padding: 50px;
+            font-family: 'Montserrat', sans-serif;
             color: #F7F2EF;
-            font-size: 16px;
-
-            cursor: pointer;
-        }
-    main {
-      padding: 0px;
-      margin-top: -15px;
-      width: 100%;
-      height: 682px;
-    }
-    footer {
-      background-color: #1A1818;
-      color: #F7F2EF;
-      font-family: "Montserrat", sans-serif;
-      text-align: center;
-      margin-top: 0%;
-      padding: 0px;
-      display: flex;
-    }
-    footer p {
-            font-size: 16px; 
-            line-height: 1.5;
-            font-family: "Montserrat", sans-serif;
-            color: #F7F2EF;       
-        }
-
-        .containerFooter {
-      display: flex;
-      justify-content: space-between;
-      padding: 50px;
-      font-family: 'Montserrat', sans-serif;
-      color: #F7F2EF;
-      margin-top: 0px;
-    }
-
-        .boxFooter {
-      flex: 1;
-      background-color: #1A1818;
-      margin-right: 50px;
-    }
-    
-  </style>
+            margin-top: 0px;
+          }
+      
+              .boxFooter {
+            flex: 1;
+            background-color: #1A1818;
+            margin-right: 50px;
+          }
+          
+        </style>
   <header>
     <div class="container">
         <div class="box" style="margin-right: 50px; margin-left: 0px;"><a href="#"><img src="SWIFT.svg" alt=""></a></div>
