@@ -62,26 +62,36 @@ a:hover {
     padding-right: 200px;
 }
 
+/* Copyright mit Firmenname einfügen */
 .footerboxCopyRight {
     font-weight: 100;
 }
 
+/* Einstellungen der div's im Footer */
 .footerbox {
     float: left;
 }
 
 /* Homepage: */
+/* Hintergrundbild anzeigen */
 .BackgroundAudi {
     background-image: url('../images/Hintergrund.svg');
     background-size: cover; 
     height: 750px;
     background-position: center; 
     width: 100%;
+    background-repeat: no-repeat;
     /* background-attachment: fixed; */
 }
 
+/* Buchungsformular erstellen */
 .containerBookingForm {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 150px;
+    border-radius: 25px;
     color: #F7F2EF;
+    background: rgba(14, 14, 14, 0.58);
+    padding: 20px;
 }
