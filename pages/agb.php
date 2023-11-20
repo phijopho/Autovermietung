@@ -14,7 +14,6 @@
 
 include('../includes/header.html'); // Einbinden des Headers
 ?>
-
 <!-- Hier könnte der Hauptinhalt der AGB stehen -->
 <p> hier könnte eine agb stehen </p>
 <?php
