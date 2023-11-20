@@ -70,3 +70,18 @@ a:hover {
 .footerbox {
     float: left;
 }
+
+/* Homepage: */
+.BackgroundAudi {
+    background-image: url(/images/Hintergrund.svg);
+    background-size: 100%; 
+    background-position: center; 
+    background-attachment: fixed; 
+}
+
+.containerBookingform {
+    display: flex;
+    justify-content: center;
+    color: #F7F2EF;
+    margin-top: 0px;
+}
