@@ -18,7 +18,7 @@
       
       /* Farbe ändern, wenn der Text gehovert wird */
           .box:hover a {
-                  color: #ABA6A1; 
+                  color: #00d9ff; 
               }
       
       /* Übergangseffekt hinzufügen */
