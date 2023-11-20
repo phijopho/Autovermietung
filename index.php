@@ -11,16 +11,12 @@
 <body>
 
 <?php
-// Hier könnten Sie ggf. Session-Logik oder andere Initialisierungen einfügen
-include('includes/header.html'); // Einbinden des Headers
-?>
 
-<!-- Hier könnte der Hauptinhalt der Homepage stehen -->
-<?php include('pages/homepage.html'); ?>
+include('includes/header.html'); // Einbindung des Headers
 
-<?php
-// Einbinden des Footers
-include('includes/footer.html');
+include('pages/homepage.html'); // Einbindung des Bodys
+
+include('includes/footer.html'); // Einbindung des Footers
 ?>
 
 </body>
