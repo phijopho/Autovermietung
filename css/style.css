@@ -1,7 +1,9 @@
 /* Allgemeine Einstellungen zu Schrift und Hintergrund */
-body, h1, h2, h3 {
+body {
     font-family: "Montserrat", sans-serif;
     color: #f7f2ef;
+    margin: 0;
+    padding: 0;
     background-color: #2f2e2c;
 }
 
@@ -60,6 +62,7 @@ a:hover {
     font-weight: 300;
     padding-left: 200px;
     padding-right: 200px;
+    position: fixed;
 }
 
 /* Copyright mit Firmenname einfügen */
@@ -75,20 +78,24 @@ a:hover {
 /* Homepage: */
 /* Hintergrundbild anzeigen */
 .BackgroundAudi {
+    /* backround settings */
     background-image: url('../images/Hintergrund.svg');
-    background-size: cover; 
+    background-size: cover;
     height: 750px;
     background-position: center; 
-    width: 100%;
     background-repeat: no-repeat;
+    /* content settings */
+    justify-content: center;
+    align-items: center;
+    display: flex;
     /* background-attachment: fixed; */
 }
 
 /* Buchungsformular erstellen */
 .containerBookingForm {
-    display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 150px;
     border-radius: 25px;
     color: #F7F2EF;
