@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autovermietung</title>
-    <link rel="stylesheet" href="Produktdetaillseite.css">
+    <title>Unsere Flotte</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+<?php
+include('includes/header.html'); // Einbindung des Headers
+?>
 
-<header>
-    <!-- Header wird später eingebunden -->
-</header>
 
-    <div class="fixedBox">
+ <div class="fixedBox">
     
         <!--Ort-->
         <p style="padding-top: 30px;">Ort</p>
@@ -121,7 +121,10 @@
         
     </div>
 
+<?php
 
+    include('includes/footer.html'); // Einbindung des Footers
+?>
 </body>
 
 </html>
