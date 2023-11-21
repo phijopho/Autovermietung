@@ -16,11 +16,15 @@
 <body>
 
 <?php
+
+include('dbConnection.php');
+
 include('includes/header.html'); // Einbindung des Headers
 
 include('pages/homepage.php'); // Einbindung des Bodys
 
 include('includes/footer.html'); // Einbindung des Footers
+
 ?>
 
 </body>
