@@ -89,47 +89,6 @@ ul li ul li {
   }
   ul li ul li a {display:block !important;} 
 
-/* Header angemeldet*/
-/*Style des Hover-Menüs*/
-.divhover {
-    margin-right: 20px;
-    margin-left: 200px;
-    background-color: #525252 ;
-}
-
-.divhover a {
-    text-decoration: none;
-    color: #f7f2ef;
-    font-size: 20px;
-    padding: 15px;
-    display:inline-block;
-}
-
-a:hover {
-    /* Schriftfarbe ändern */
-    color: aqua;
-}
-
-ul {
-    display: inline;
-    margin: 0;
-    padding: 0;
-  }
-
-ul li {display: inline-block;}
-ul li:hover {background: #525252;}
-ul li:hover ul {display: block;}
-ul li ul {
-  position: absolute;
-  width: 200px;
-  display: none;
-}
-
-ul li ul li { 
-    background: #525252;
-    display: block; 
-  }
-  ul li ul li a {display:block !important;} 
 
 /* Footer: */
 /* Allgemeine Einstellungen zum Footer */
