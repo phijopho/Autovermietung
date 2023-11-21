@@ -9,7 +9,7 @@
 
 <body>
 <?php
-include('includes/header.html'); // Einbindung des Headers
+include('../includes/header.html'); // Einbindung des Headers
 ?>
 
 
@@ -123,7 +123,7 @@ include('includes/header.html'); // Einbindung des Headers
 
 <?php
 
-    include('includes/footer.html'); // Einbindung des Footers
+    include('../includes/footer.html'); // Einbindung des Footers
 ?>
 </body>
 
