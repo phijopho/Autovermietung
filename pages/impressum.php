@@ -12,4 +12,12 @@
 </head>
 <body>
 
+<?php
+
+include('../includes/header.html'); // Einbinden des Headers
+?>
+<?php
+include('../includes/footer.html'); // Einbindung des Footers
+?>
 </body>
+</html>
