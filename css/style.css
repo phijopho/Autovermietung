@@ -61,12 +61,17 @@ a:hover {
     padding: 15px;
     display:inline-block;
 }
+a:hover {
+    /* Schriftfarbe noch aussuchen */
+    color: aqua;
+}
 
 ul {
     display: inline;
     margin: 0;
     padding: 0;
   }
+  
 
 ul li {display: inline-block;}
 ul li:hover {background: #525252;}
