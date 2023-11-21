@@ -75,7 +75,7 @@ ul {
     padding: 0;
   }
 
-  ul li {display: inline-block;}
+ul li {display: inline-block;}
 ul li:hover {background: #525252;}
 ul li:hover ul {display: block;}
 ul li ul {
