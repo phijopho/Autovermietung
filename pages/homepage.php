@@ -1,4 +1,6 @@
 <?php 
+include('dbConnection.php');
+
 $pickUpLocation=array("Hamburg");
 $stmtGetCities = $conn->query("SELECT City FROM Location");
 while($row = $stmtGetCities->fetch()){

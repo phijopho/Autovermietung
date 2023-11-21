@@ -25,7 +25,7 @@ include('pages/homepage.php'); // Einbindung des Bodys
 
 include('includes/footer.html'); // Einbindung des Footers
 
-?>
+?> 
 
 </body>
 </html>
