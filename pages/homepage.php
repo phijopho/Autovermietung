@@ -2,7 +2,7 @@
 include('dbConnection.php');
 
 $pickUpLocation = array("Hamburg");
-$stmtGetCities = $conn->query("SELECT City FROM Location");
+$stmtGetCities = $conn->query("SELECT City FROM Location WHERE City != 'Hamburg'");
 while($row = $stmtGetCities->fetch()){
     $pickUpLocation[] = $row['City'];
 }
