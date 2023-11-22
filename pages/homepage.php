@@ -14,7 +14,8 @@ while($row = $stmtGetCities->fetch()){
 <div class="BackgroundAudi">
     <div class="containerBookingForm">
         <!-- <h1>Buchung</h1> -->
-        <form action="produktuebersichtsseite.php" method="post">
+        <!-- Link zur Produktübersichtseite statt index -->
+        <form action="./index.php" method="post"> 
             <label for="Abholort">Abholort:</label>
                 <select id="Abholort" name="Abholort">
                     <?php //aus Datenbank ziehen, außer HH
@@ -29,6 +30,11 @@ while($row = $stmtGetCities->fetch()){
                 <input type="date" name="Rueckgabedatum" value="<?php echo date('Y-m-d'); ?>" /><br><br>
             <input type="submit" value="Suchen">
         </form>
+
+        <!-- Zum zeigen, danach löschen: -->
+        <?php echo "<br> Abholort: ".$_POST["Abholort"];
+        echo "<br> Abholdatum: ".$_POST["Abholdatum"];
+        echo "<br> R&uuml;ckgabedatum: ".$_POST["Rueckgabedatum"];?>
     </div>
 </div>
 
