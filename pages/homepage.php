@@ -26,8 +26,8 @@ while($row = $stmtGetCities->fetch()){
             <label for "Abholdatum">Abholdatum:</label>
                 <input type="date" name="Abholdatum" value="<?php echo date('Y-m-d'); ?>" />
             <label for "Rueckgabedatum">R&uuml;ckgabedatum:</label>
-                <input type="date" name="Rueckgabedatum" value="<?php echo date('Y-m-d'); ?>" />
-
+                <input type="date" name="Rueckgabedatum" value="<?php echo date('Y-m-d'); ?>" /><br><br>
+            <input type="submit" value="Suchen">
         </form>
     </div>
 </div>
