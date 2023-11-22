@@ -17,7 +17,7 @@
 
 <?php
 
-include('dbConnection.php');
+include('includes/dbConnection.php');
 
 include('includes/header.html'); // Einbindung des Headers
 
