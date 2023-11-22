@@ -1,6 +1,6 @@
 <?php
     // Connection Datenbank
-    $username="Admin";
+    $username="admin";
     $password="sicheresPasswort";
     $servername="localhost";
     $dbname="Autovermietung";
