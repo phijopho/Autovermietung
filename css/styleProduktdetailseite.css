@@ -1,9 +1,10 @@
 /* Produktdetailseite */
-body {
+
+.div {
     font-family: "Montserrat", sans-serif;
     color: #f7f2ef;
     margin: 0;
     padding: 0;
-    background-color: #2f2e2c;
+    background-color: #2f2e2c;   
 }
 
