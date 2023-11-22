@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +19,35 @@ include('/includes/header.html'); // Einbindung des Headers
 
 include('/includes/footer.html'); // Einbindung des Footers
 ?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="divbody"></div>
+<table>
+        <thead>
+            <tr>
+                <th colspan="2"><h1>Hamburg</h1></th> <!-- colspan="2" kombiniert zwei Zellen zu einer einzigen in der ersten Zeile -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Farheugmodell</td>
+                <td>Ihr ausgewählter Zeitraum</td>
+            </tr>
+            <tr>
+                <td><img src="images/cabrio-mercedes-benz-2845333_1920.png" alt="Photo"></td>
+                <td><h3>Fahrzeugtyp: <br> Anzahlsitze: </h3></td>
+            </tr>
+            <!-- Weitere Zeilen können nach Bedarf hinzugefügt werden -->
+        </tbody>
+    </table>
 
-<div>
-    <h1>Hallo</h1>
-</div>
+    </div>
+
 </body>
  
 </html>

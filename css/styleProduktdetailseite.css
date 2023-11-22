@@ -1,10 +1,18 @@
 /* Produktdetailseite */
-
-.div {
-    font-family: "Montserrat", sans-serif;
-    color: #f7f2ef;
-    margin: 0;
-    padding: 0;
-    background-color: #2f2e2c;   
+.divbody {
+    width: 100%;
+    align-content: center;
+    margin: 10px;
 }
 
+table {
+    width: 100%; /* Breite der gesamten Tabelle */
+    border-collapse: collapse; /* Zusammenführen der Zellenränder */
+    align-content: center;
+}
+
+th, td {
+    border: 1px solid #000; /* Rahmen um die Zellen */
+    padding: 8px; /* Abstand innerhalb der Zellen */
+    text-align: center; /* Linksbündige Ausrichtung des Textes */
+}

@@ -18,7 +18,7 @@
 <?php
 include('includes/headerangemeldet.html'); // Einbindung des Headers
 
-include('pages/homepage.php'); // Einbindung des Bodys
+include('pages/produktdetailseite.php'); // Einbindung des Bodys
 
 include('includes/footer.html'); // Einbindung des Footers
 ?>
