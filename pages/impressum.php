@@ -18,7 +18,7 @@ include('../includes/header.html'); // Including the header
 ?>
 
 <div class="ImpressumContainer"> <!--Class to position text in the body -->
-    <h1 class="ImpressumUeberschrift"> Allgemeine Geschäftsbedingungen für SWIFT rentals </h1>
+    <h1 class="ImpressumUeberschrift"> Impressum</h1>
 
     <b>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:  </b> <br>
 
