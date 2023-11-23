@@ -12,73 +12,34 @@ function getCities(){
     return $location;    
 }
 
-function getCategories(){
-    include('dbConnection.php');
-    $categories=array();
-    $stmtGetCategories = $conn->query("SELECT DISTINCT Typ FROM CarType");
-    while($row = $stmtGetCategories->fetch()){
-        $categories[] = $row['Typ'];
+function selectDistinctColumn($column, $table){
+    include('dbConnection.php');  
+    $result=array();  
+    $stmt = $conn->query("SELECT DISTINCT $column FROM $table");
+    while($row = $stmt->fetch()){
+        $array[] = $row[$column];
     }
-    return $categories;    
+    return $array;    
 }
 
-function getVendors(){
+function selectMinAndMaxFromColumn($column, $table){
     include('dbConnection.php');
-    $vendors=array();
-    $stmtGetVendors = $conn->query("SELECT Abbreviation FROM Vendor");
-    while($row = $stmtGetVendors->fetch()){
-        $vendors[] = $row['Abbreviation'];
+    $result=array();
+    $stmt = $conn->query("SELECT MIN($column), MAX($column) FROM $table");
+    $row = $stmt->fetch();
+        $result['min'] = $row['MIN('.$column.')'];
+        $result['max'] = $row['MAX('.$column.')'];
+    return $result;    
+
+}
+
+function selectColumn($column, $table){
+    include('dbConnection.php');
+    $result=array();
+    $stmt = $conn->query("SELECT $column FROM $table");
+    while($row = $stmt->fetch()){
+        $result[] = $row[$column];
     }
-    return $vendors;    
-}
-
-function getSeats(){
-    include('dbConnection.php');
-    $seats=array();
-    $stmtGetSeats = $conn->query("SELECT MIN(Seats), MAX(Seats) FROM CarType");
-    $row = $stmtGetSeats->fetch();
-        $seats['min'] = $row['MIN(Seats)'];
-        $seats['max'] = $row['MAX(Seats)'];
-    return $seats;    
-}
-
-function getDoors(){
-    include('dbConnection.php');
-    $doors=array();
-    $stmtGetDoors = $conn->query("SELECT MIN(Doors), MAX(Doors) FROM CarType");
-    $row = $stmtGetDoors->fetch();
-        $seats['min'] = $row['MIN(Doors)'];
-        $seats['max'] = $row['MAX(Doors)'];
-    return $doors;    
-}
-
-function getAge(){
-    include('dbConnection.php');
-    $age=array();
-    $stmtGetAge = $conn->query("SELECT MIN(Min_Age), MAX(Min_Age) FROM CarType");
-    $row = $stmtGetAge->fetch();
-        $seats['min'] = $row['MIN(Min_Age)'];
-        $seats['max'] = $row['MAX(Min_Age)'];
-    return $age;    
-}
-
-function getPrice(){
-    include('dbConnection.php');
-    $price=array();
-    $stmtGetPrice = $conn->query("SELECT MIN(price), MAX(price) FROM CarType");
-    $row = $stmtGetPrice->fetch();
-        $price['min'] = $row['MIN(price)'];
-        $price['max'] = $row['MAX(price)'];
-    return $price;
-}
-
-function getDrive(){
-    include('dbConnection.php');
-    $drives=array();
-    $stmtGetDrive = $conn->query("SELECT DISTINCT Drive FROM CarType");
-    while($row = $stmtGetDrive->fetch()){
-        $drives[] = $row['Drive'];
-    }
-    return $drives;    // evtl auf deutsch übersetzen
+    return $result;    
 }
 ?>

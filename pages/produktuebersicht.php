@@ -40,7 +40,7 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <lable for="category">Fahrzeugkategorie: </lable><br>
             <?php 
-            $categories=getCategories();
+            $categories=selectDistinctColumn("Typ", "CarType");
             foreach($categories as $category){
                 echo "<input type='checkbox' id='".$category."' name='".$category." value='".$category."'>";
                 echo "<label for '".$catgeory."'>".$category."</label><br>";
@@ -51,7 +51,7 @@ include('../includes/functions.php'); // get functions
             <label for="vendor">Hersteller:</label><br>
             <select id="vendor" name="vendor">
                 <?php 
-                $vendors=getVendors();
+                $vendors=selectColumn("Abbreviation", "Vendor");
                 foreach($vendors as $vendor){
                     echo "<option value='$vendor'>$vendor</option>";
                 }
@@ -61,7 +61,7 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <label for "seats">Sitze:</label><br>
             <?php
-            $seats=getSeats();
+            $seats=selectMinAndMaxFromColumn("Seats", "CarType");
             echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='0' class='slider' id='seats'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
@@ -69,7 +69,7 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <label for "doors">T&uuml;ren:</label><br>
             <?php
-            $doors=getDoors();
+            $doors=selectMinAndMaxFromColumn("Doors", "CarType");
             echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' value='0' class='slider' id='doors'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
@@ -77,7 +77,7 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <label for "age">Alter:</label><br>
             <?php
-            $doors=getAge();
+            $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
             echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='0' class='slider' id='doors'>";
             //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)
             ?>
@@ -85,8 +85,8 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <label for "price">Preis:</label><br>
             <?php
-            $price=getPrice();
-            echo "<input type='range' min='".$price['min']."' max='".$price['max']."' value = '0' class='slider' id='price'>";
+            $price=selectMinAndMaxFromColumn("Price", "CarType");
+            echo "<input type='range' min='".$price['min']."' max='".$price['max']."' class='slider' value='0' id='price'>";
             //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)
             ?>
         </div>
@@ -95,7 +95,7 @@ include('../includes/functions.php'); // get functions
             <select id="drive" name="drive">
                 <option value="all">Alle auswählen</option>
                 <?php 
-                $drives=getDrive();
+                $drives=selectDistinctColumn("Drive", "CarType");
                 foreach($drives as $drive){
                     echo "<option value='$drive'>$drive</option>";
                 }
