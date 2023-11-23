@@ -2,7 +2,6 @@
 /* Einstellungen für den Datenschutz container */
 .DatenschutzUeberschrift {
     font-weight: 700;
-    font-size: 600;
 }
 
 .DatenschutzContainer {
@@ -28,7 +27,7 @@
 
 
 .bulletPoint {
-    color: ##f7f2ef;
+    color: #f7f2ef;
   }
 
   .blocksatz {
