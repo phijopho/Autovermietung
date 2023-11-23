@@ -72,3 +72,4 @@ include('../includes/footer.html'); // Einbinden des Footers
 ?>
 
 </body>
+</html>

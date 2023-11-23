@@ -7,7 +7,7 @@ $location=getCities();
     <div class="containerBookingForm">
         <!-- <h1>Buchung</h1> -->
         <!-- Link zur Produktübersichtseite statt index -->
-        <form action="./index.php" method="post"> 
+        <form action="pages/produktuebersicht.php" method="post"> 
             <label for="location">Standort:</label>
                 <select id="location" name="Standort">
                     <?php //aus Datenbank ziehen, außer HH
