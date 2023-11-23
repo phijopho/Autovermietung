@@ -6,10 +6,20 @@
 }
 
 .AGBContainer {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 50px;
     padding-top: 100px;
     padding-bottom: 100px;
     line-height: 2;
+}
+
+/* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
+.AGBtext {
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+.blocksatz {
+    text-align: justify;
 }
