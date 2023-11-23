@@ -16,7 +16,7 @@
 <body>
 
 <?php
-include('includes/header.html'); // Einbindung des Headers
+include('includes/headerangemeldet.html'); // Einbindung des Headers
 
 include('pages/homepage.php'); // Einbindung des Bodys
 
