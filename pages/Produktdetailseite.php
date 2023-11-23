@@ -54,10 +54,11 @@ include('/includes/header.html'); // Einbindung des Headers
             <h2>"Variable Abholdatum" bis "Variable Rückgabedatum" </h2>
                 <h2> Standort des Fahrzeugs: "Variable Standort"</h2>
                     <h3>Mindestalter: "Variable Alter"</h3>
-<!-- User is Old enough an signed in. -->
-                    <div class="divbutton">
-                        <a href="#" class="button">Buchen</a>
-                    </div>
+
+                    <!-- User is Old enough an signed in. -->
+                        <div class="divbutton">
+                            <a href="#" class="button">Buchen</a>
+                        </div>
 
                     <!-- If User is not Old enough Errormessage appears -->
 
