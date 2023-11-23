@@ -59,6 +59,14 @@ include('../includes/functions.php'); // get functions
                 ?>
             </select>
         </div>
+        <div class="itemBox">
+            <label for "seats">Sitze:</label>
+            <?php
+            $seats=getSeats();
+            echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='4' class='slider' id='seats'>";
+            //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
+            ?>
+        </div>
 </form>
         </div>
     </div>
