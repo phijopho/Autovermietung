@@ -17,6 +17,10 @@ a:hover {
     color: aqua;
 }
 
+a.active {
+    color: aqua;
+}
+
 /* Überschriften stylen */
 
 /* Header: */
