@@ -30,11 +30,11 @@ include('../includes/functions.php'); // get functions
             </select>
         </div>
         <div class="itemBox">
-            <label for="pickUpDate">Abholdatum:</label>
+            <label for="pickUpDate">Abholdatum:</label><br>
                     <input type="date" name="pickUpDate" value="<?php echo date('Y-m-d'); ?>" />
         </div>
         <div class="itemBox">
-            <label for ="returnDate">R&uuml;ckgabedatum:</label>
+            <label for ="returnDate">R&uuml;ckgabedatum:</label><br>
                 <input type="date" name="returnDate" value="<?php echo date('Y-m-d'); ?>" />
         </div>
         <div class="itemBox">
@@ -62,7 +62,7 @@ include('../includes/functions.php'); // get functions
             <label for "seats">Sitze:</label><br>
             <?php
             $seats=getSeats();
-            echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='5' class='slider' id='seats'>";
+            echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='0' class='slider' id='seats'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
         </div>
@@ -70,7 +70,7 @@ include('../includes/functions.php'); // get functions
             <label for "doors">T&uuml;ren:</label><br>
             <?php
             $doors=getDoors();
-            echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' value='5' class='slider' id='doors'>";
+            echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' value='0' class='slider' id='doors'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
         </div>
@@ -78,18 +78,36 @@ include('../includes/functions.php'); // get functions
             <label for "age">Alter:</label><br>
             <?php
             $doors=getAge();
-            echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='18' class='slider' id='doors'>";
-            //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
+            echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='0' class='slider' id='doors'>";
+            //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)
             ?>
         </div>
-
-</form>
+        <div class="itemBox">
+            <label for "price">Preis:</label><br>
+            <?php
+            $price=getPrice();
+            echo "<input type='range' min='".$price['min']."' max='".$price['max']."' value = '0' class='slider' id='price'>";
+            //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)
+            ?>
         </div>
+        <div class="itemBox">
+            <label for="drive">Antrieb:</label><br>
+            <select id="drive" name="drive">
+                <option value="all">Alle auswählen</option>
+                <?php 
+                $drives=getDrive();
+                foreach($drives as $drive){
+                    echo "<option value='$drive'>$drive</option>";
+                }
+                ?>
+            </select>
+        </div>
+
     </div>
+</form>
     <div class="resultBox">
     <h1> Ergebnisse: </h1>
     </div>
-</form>
 
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
