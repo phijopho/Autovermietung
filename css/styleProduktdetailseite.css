@@ -58,6 +58,7 @@ th, td {
     padding-left: 15%;
     align-content: center;
 }
+
 .button {
     background-color: aqua;
     border: none;
@@ -76,6 +77,7 @@ th, td {
     cursor: pointer;
   }
 
+  /* If user is not logged in*/
   .buttonNotSignedIn {
     background-color: aqua;
     border: none;
@@ -94,9 +96,9 @@ th, td {
     cursor: pointer;
   }
 
-  /* Wenn nicht alt genug ist dan erscheint dieser Button mit dem Hover: buttonNotSignedIn */
+  /* If User is not Old enough: hover.buttonNotOldEnough */
 
-  /* .buttonNotOldEnough {
+  .buttonNotOldEnough {
     background-color: grey;
     border: none;
     width: 40%;
@@ -112,7 +114,7 @@ th, td {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-  } */
+  }
 
   a:hover.button {
     color: #1a1818;
@@ -122,21 +124,21 @@ th, td {
     opacity: 100%;
 }
 
-/* Wenn nicht altgenug ist dan erscheint dieser Hover Stil zu dem buttonNotOldEnough */
+/* If User is not Old enough: buttonNotOldEnough*/
 
-/* a:hover.buttonNotOldEnough {
+a:hover.buttonNotOldEnough {
     color: #1a1818;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
-} */
+}
 
-/* Style of Button if user is not logged in */
+/* Style of hover Button if user is not logged in */
 
-/* a:hover.buttonNotSignedIn {
+a:hover.buttonNotSignedIn {
     color: #1a1818;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     opacity: 100%;
-} */
+}
