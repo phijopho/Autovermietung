@@ -4,7 +4,6 @@
 .divbody {
     width: 100%;
     margin-top: 100px;
-    overflow-x: hidden;
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
@@ -12,6 +11,7 @@
     float: left;
     width: 60%;
     margin-left: 20px;
+    margin-bottom: 100px;
 }
 
 /* Box with Image and Imagedescription */

@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2f2e2c;
+    min-height: 100%;
 }
 
 a {
@@ -120,7 +121,7 @@ ul li ul li {
     font-weight: 300;
     padding-left: 200px;
     padding-right: 200px;
-    position: fixed;
+    position: relative;
 }
 
 /* Copyright mit Firmenname einfügen */
