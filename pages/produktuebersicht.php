@@ -59,7 +59,7 @@ include('../includes/functions.php'); // get functions
             </select>
         </div>
         <div class="itemBox">
-            <label for "seats">Sitze:</label>
+            <label for="seats">Sitze:</label>
             <?php
             $seats=getSeats();
             echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='4' class='slider' id='seats'>";
