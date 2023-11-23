@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unsere Flotte</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styleProduktuebersichtsseite.css">
     <title>Unsere Flotte</title>
@@ -31,15 +30,15 @@ include('../includes/functions.php'); // get functions
             </select>
         </div>
         <div class="itemBox">
-            <label for "pickUpDate">Abholdatum:</label><br>
+            <label for="pickUpDate">Abholdatum:</label>
                     <input type="date" name="pickUpDate" value="<?php echo date('Y-m-d'); ?>" />
         </div>
         <div class="itemBox">
-            <label for "returnDate">R&uuml;ckgabedatum:</label><br>
+            <label for ="returnDate">R&uuml;ckgabedatum:</label>
                 <input type="date" name="returnDate" value="<?php echo date('Y-m-d'); ?>" />
         </div>
         <div class="itemBox">
-            <lable for "category">Fahrzeugkategorie: </lable><br>
+            <lable for="category">Fahrzeugkategorie: </lable><br>
             <?php 
             $vendors=getVendors();
             foreach($vendors as $vendor){
