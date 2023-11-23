@@ -1,33 +1,38 @@
-/* Produktdetailseite */
+/* Productdetail page */
+
+/* Box which covers the entire Body */
 .divbody {
     width: 100%;
     margin-top: 100px;
     overflow-x: hidden;
 }
 
+/* Box which includes the Model and Pictureframe including details of selected car */
 .divgallery {
     float: left;
     width: 60%;
     margin-left: 20px;
 }
 
+/* Box with Image and Imagedescription */
 div.foto {
     border: none;
     float: left;
     width: 90%;
   }
   
-  
+  /* Image Box */
   div.foto img {
     width: 100%;
   }
   
+  /* Image descriptionbox */
   div.desc {
     padding: 0px;
     text-align: center;
   }
 
-
+/* Table which is included in the image description box */
 table, th, td {
     border: none;
     padding: 15px;
@@ -36,15 +41,18 @@ table, th, td {
      
   }
 
+  /* Table Style */
 table {
     border-collapse: collapse;
     width: 50%;
   }
   
+  /* Style of table header and table data */
 th, td {
     padding: 15px;
   }
 
+  /* box on the right side with selected filters */
   .divinfo {
     float: left;
     width: 35%;
@@ -52,6 +60,7 @@ th, td {
     padding-top:3%;
 }
 
+/* Box for button */
 .divbutton {
     width: 100%;
     padding-top:30%;
@@ -59,11 +68,12 @@ th, td {
     align-content: center;
 }
 
+/* Button style if user is logged in and old enough to book the car */
 .button {
     background-color: aqua;
     border: none;
     width: 40%;
-    opacity: 50%;
+    opacity: 50%; 
     transform: scale(150%);
     font-weight: 600;
     color: #1a1818;
@@ -77,7 +87,7 @@ th, td {
     cursor: pointer;
   }
 
-  /* If user is not logged in*/
+  /* Button if user is not logged in*/
   .buttonNotSignedIn {
     background-color: aqua;
     border: none;
