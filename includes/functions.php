@@ -15,9 +15,9 @@ function getCities(){
 function getCategories(){
     include('dbConnection.php');
     $categories=array();
-    $stmtGetCategories = $conn->query("SELECT DISTINCT Type FROM Vendor");
+    $stmtGetCategories = $conn->query("SELECT DISTINCT Typ FROM CarType");
     while($row = $stmtGetCategories->fetch()){
-        $categories[] = $row['Type'];
+        $categories[] = $row['Typ'];
     }
     return $categories;    
 }
@@ -79,6 +79,6 @@ function getDrive(){
     while($row = $stmtGetDrive->fetch()){
         $drives[] = $row['Drive'];
     }
-    return $drives;    
+    return $drives;    // evtl auf deutsch übersetzen
 }
 ?>

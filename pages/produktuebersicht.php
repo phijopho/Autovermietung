@@ -40,10 +40,10 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <lable for="category">Fahrzeugkategorie: </lable><br>
             <?php 
-            $vendors=getVendors();
-            foreach($vendors as $vendor){
-                echo "<input type='checkbox' id='".$vendor."' name='".$vendor." value='".$vendor."'>";
-                echo "<label for '".$vendor."'>".$vendor."</label><br>";
+            $categories=getCategories();
+            foreach($categories as $category){
+                echo "<input type='checkbox' id='".$category."' name='".$category." value='".$category."'>";
+                echo "<label for '".$catgeory."'>".$category."</label><br>";
             }
             ?>
         </div>
