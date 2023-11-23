@@ -107,7 +107,6 @@ include('../includes/header.html'); // Including the header
         Diese Datenschutzerklärung wird regelmäßig überprüft und bei Bedarf aktualisiert, um den aktuellen rechtlichen Anforderungen gerecht zu werden. Änderungen werden auf unserer Website veröffentlicht, um Nutzer darüber zu informieren.
 
         Diese Datenschutzerklärung dient als allgemeine Orientierung und kann je nach individuellen Anforderungen angepasst werden. Bei Fragen stehen wir Ihnen gerne zur Verfügung.
-        </div>
     </div>
 </div>
 
@@ -118,6 +117,6 @@ include('../includes/footer.html');
 ?>
 
 </body>
-
+</html>
 
 </html>
