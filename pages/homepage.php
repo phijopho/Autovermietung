@@ -1,14 +1,6 @@
 <?php 
-include('dbConnection.php');
-
-$pickUpLocation = array("Hamburg");
-$default="Hamburg";
-$stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
-$stmtGetCities->bindParam(':cityIdent', $default);
-$stmtGetCities->execute();
-while($row = $stmtGetCities->fetch()){
-    $pickUpLocation[] = $row['City'];
-}
+include('./includes/functions.php');
+locationDropdown() 
 ?>
 
 <div class="BackgroundAudi">
@@ -16,10 +8,10 @@ while($row = $stmtGetCities->fetch()){
         <!-- <h1>Buchung</h1> -->
         <!-- Link zur Produktübersichtseite statt index -->
         <form action="./index.php" method="post"> 
-            <label for="Abholort">Abholort:</label>
-                <select id="Abholort" name="Abholort">
+            <label for="location">Standort:</label>
+                <select id="location" name="Standort">
                     <?php //aus Datenbank ziehen, außer HH
-                    foreach($pickUpLocation as $city){
+                    foreach($location as $city){
                         echo "<option value='$city'>$city</option>";
                     }
                     ?>
