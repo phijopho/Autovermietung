@@ -1,5 +1,5 @@
 <?php 
-include('dbConnection.php');
+include('includes/dbConnection.php');
 
 $pickUpLocation = array("Hamburg");
 $default="Hamburg";
