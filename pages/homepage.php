@@ -30,29 +30,5 @@ while($row = $stmtGetCities->fetch()){
                 <input type="date" name="Rueckgabedatum" value="<?php echo date('Y-m-d'); ?>" /><br><br>
             <input type="submit" value="Suchen">
         </form>
-
-        <!-- Zum zeigen, danach löschen: -->
-        <?php echo "<br> Abholort: ".$_POST["Abholort"];
-        echo "<br> Abholdatum: ".$_POST["Abholdatum"];
-        echo "<br> R&uuml;ckgabedatum: ".$_POST["Rueckgabedatum"];?>
     </div>
 </div>
-
-<!-- <div class="BackgroundAudi">
-    <div class="containerBookingForm">
-        <h1>Buchung</h1>
-        <form action="#" method="post">
-            <label>Abholort:</label>
-            <select name="pickup-location">
-                <option value="Hamburg">Hamburg</option>
-                <option value="Berlin">Berlin</option>
-                <option value="München">München</option>
-            </select>
-            <label>Abholdatum</label>
-            <input type="date" name="pickup-date" value="
-            <label>Rückgabedatum</label>
-            <input type="date" name="return-date" value="
-            <button type="button">Mietwagen suchen</button>
-        </form>
-    </div>
-</div> -->
