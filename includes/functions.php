@@ -1,8 +1,8 @@
 <?php 
-function locationDropdown(){
+function getCities(){
     include('dbConnection.php');
-    $location = array("Hamburg");
     $default="Hamburg";
+    $location = array($default);
     $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
     $stmtGetCities->bindParam(':cityIdent', $default);
     $stmtGetCities->execute();

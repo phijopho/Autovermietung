@@ -1,7 +1,6 @@
 <?php 
-// include('./includes/dbConnection.php');
 include('./includes/functions.php');
-locationDropdown();
+getCities();
 ?>
 
 <div class="BackgroundAudi">
