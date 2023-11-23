@@ -2,8 +2,7 @@
 .divbody {
     width: 100%;
     margin-top: 100px;
-    
-    
+    overflow-x: hidden;
 }
 
 .divgallery {
@@ -15,7 +14,7 @@
 div.foto {
     border: none;
     float: left;
-    width: 60%;
+    width: 90%;
   }
   
   
@@ -33,7 +32,7 @@ table, th, td {
     border: none;
     padding: 15px;
     text-align: left;
-    width: 50%;
+    width: 100%;
      
   }
 
@@ -52,3 +51,92 @@ th, td {
     text-align: left;
     padding-top:3%;
 }
+
+.divbutton {
+    width: 100%;
+    padding-top:30%;
+    padding-left: 15%;
+    align-content: center;
+}
+.button {
+    background-color: aqua;
+    border: none;
+    width: 40%;
+    opacity: 50%;
+    transform: scale(150%);
+    font-weight: 600;
+    color: #1a1818;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .buttonNotSignedIn {
+    background-color: aqua;
+    border: none;
+    width: 40%;
+    opacity: 50%;
+    transform: scale(150%);
+    font-weight: 600;
+    color: #1a1818;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  /* Wenn nicht alt genug ist dan erscheint dieser Button mit dem Hover: buttonNotSignedIn */
+
+  /* .buttonNotOldEnough {
+    background-color: grey;
+    border: none;
+    width: 40%;
+    opacity: 50%;
+    transform: scale(150%);
+    font-weight: 600;
+    color: #1a1818;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  } */
+
+  a:hover.button {
+    color: #1a1818;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    opacity: 100%;
+}
+
+/* Wenn nicht altgenug ist dan erscheint dieser Hover Stil zu dem buttonNotOldEnough */
+
+/* a:hover.buttonNotOldEnough {
+    color: #1a1818;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+} */
+
+/* Style of Button if user is not logged in */
+
+/* a:hover.buttonNotSignedIn {
+    color: #1a1818;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    opacity: 100%;
+} */

@@ -20,7 +20,7 @@ include('/includes/header.html'); // Einbindung des Headers
 
 <div class="divbody">
     <div class="divgallery">
-        <h1>"Farzeugmodell"</h1>
+        <h1>"Fahrzeugmodell"</h1>
         <div class="foto">
   
         <img src="images/cabrio-mercedes-benz-2845333_1920.png" alt="Auto">
@@ -52,10 +52,24 @@ include('/includes/header.html'); // Einbindung des Headers
     <div class="divinfo">
         <h2>Ihr ausgewählter Zeitraum: </h2> <br> 
             <h2>"Variable Abholdatum" bis "Variable Rückgabedatum" </h2>
-                <h2> Standort des Fahrzeugs: "Varable Standort"</h2>
+                <h2> Standort des Fahrzeugs: "Variable Standort"</h2>
                     <h3>Mindestalter: "Variable Alter"</h3>
-        
+<!-- User is Old enough an signed in. -->
+                    <div class="divbutton">
+                        <a href="#" class="button">Buchen</a>
+                    </div>
 
+                    <!-- If User is not Old enough Errormessage appears -->
+
+                    <!-- <div class="divbutton">
+                        <a href="#" class="buttonNotOldEnough">Buchen</a>
+                    </div> -->
+
+                    <!-- If User not signed in, link to login page -->
+
+                    <!-- <div class="divbutton">
+                        <a href="#" class="buttonNotSignedIn">Bitte Anmelden</a>
+                    </div> -->
     </div>
 
 
