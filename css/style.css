@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2f2e2c;
+    min-height: 100%;
 }
 
 a {
@@ -60,13 +61,15 @@ a:hover {
 .divhover a {
     text-decoration: none;
     color: #f7f2ef;
-    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
     padding: 15px;
     display:inline-block;
 }
 a:hover {
-    /* Schriftfarbe noch aussuchen */
     color: aqua;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
 }
 
 ul {
@@ -118,7 +121,7 @@ ul li ul li {
     font-weight: 300;
     padding-left: 200px;
     padding-right: 200px;
-    position: fixed;
+    position: relative;
 }
 
 /* Copyright mit Firmenname einfügen */
