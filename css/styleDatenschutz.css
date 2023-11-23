@@ -28,5 +28,9 @@
 
 
 .bulletPoint {
-    color: ##f7f2ef; 
+    color: ##f7f2ef;
   }
+
+  .blocksatz {
+    text-align: justify;
+}
