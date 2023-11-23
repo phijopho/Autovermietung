@@ -1,6 +1,6 @@
 <?php 
 include('./includes/functions.php');
-getCities();
+$location=getCities();
 ?>
 
 <div class="BackgroundAudi">

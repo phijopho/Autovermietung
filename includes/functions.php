@@ -8,6 +8,7 @@ function getCities(){
     $stmtGetCities->execute();
     while($row = $stmtGetCities->fetch()){
         $location[] = $row['City'];
-    }    
+    }
+    return $location;    
 }
 ?>
