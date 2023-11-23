@@ -1,0 +1,32 @@
+/* Datenschutz */
+/* Einstellungen für den Datenschutz container */
+.DatenschutzUeberschrift {
+    font-weight: 700;
+    font-size: 600;
+}
+
+.DatenschutzContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    line-height: 2;
+}
+
+/* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
+.DatenschutzText {
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+/* Klasse um den Text unter 1.1 etc. weiter nach rechts zu verschieben */
+.DatenschutzText2 {
+    margin-left: 30px;
+    margin-top: 0;
+}
+
+
+.bulletPoint {
+    color: ##f7f2ef; 
+  }
