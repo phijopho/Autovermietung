@@ -41,4 +41,24 @@ function getSeats(){
         $seats['max'] = $row['MAX(Seats)'];
     return $seats;    
 }
+
+function getDoors(){
+    include('dbConnection.php');
+    $doors=array();
+    $stmtGetDoors = $conn->query("SELECT MIN(Doors), MAX(Doors) FROM CarType");
+    $row = $stmtGetDoors->fetch();
+        $seats['min'] = $row['MIN(Doors)'];
+        $seats['max'] = $row['MAX(Doors)'];
+    return $doors;    
+}
+
+function getAge(){
+    include('dbConnection.php');
+    $age=array();
+    $stmtGetAge = $conn->query("SELECT MIN(Min_Age), MAX(Min_Age) FROM CarType");
+    $row = $stmtGetAge->fetch();
+        $seats['min'] = $row['MIN(Min_Age)'];
+        $seats['max'] = $row['MAX(Min_Age)'];
+    return $age;    
+}
 ?>

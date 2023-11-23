@@ -19,7 +19,7 @@ include('../includes/functions.php'); // get functions
     <div class="filterBox">
     <h1> Filter: </h1>
         <div class="itemBox">
-            <label for="location">Standort:</label>
+            <label for="location">Standort:</label><br>
             <select id="location" name="Standort">
                 <?php 
                 $location=getCities();
@@ -48,7 +48,7 @@ include('../includes/functions.php'); // get functions
             ?>
         </div>
         <div class="itemBox">
-            <label for="vendor">Hersteller:</label>
+            <label for="vendor">Hersteller:</label><br>
             <select id="vendor" name="vendor">
                 <?php 
                 $vendors=getVendors();
@@ -59,13 +59,30 @@ include('../includes/functions.php'); // get functions
             </select>
         </div>
         <div class="itemBox">
-            <label for="seats">Sitze:</label>
+            <label for "seats">Sitze:</label><br>
             <?php
             $seats=getSeats();
-            echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='4' class='slider' id='seats'>";
+            echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='5' class='slider' id='seats'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
         </div>
+        <div class="itemBox">
+            <label for "doors">T&uuml;ren:</label><br>
+            <?php
+            $doors=getDoors();
+            echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' value='5' class='slider' id='doors'>";
+            //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
+            ?>
+        </div>
+        <div class="itemBox">
+            <label for "age">Alter:</label><br>
+            <?php
+            $doors=getAge();
+            echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='18' class='slider' id='doors'>";
+            //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
+            ?>
+        </div>
+
 </form>
         </div>
     </div>
