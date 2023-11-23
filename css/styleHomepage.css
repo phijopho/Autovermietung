@@ -1,0 +1,27 @@
+/* Homepage: */
+/* Hintergrundbild anzeigen */
+.BackgroundAudi {
+    /* backround settings */
+    background-image: url('../images/Hintergrund.svg');
+    background-size: cover;
+    height: 1000px;
+    background-position: center; 
+    background-repeat: no-repeat;
+    /* content settings */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-attachment: fixed;
+}
+
+/* Buchungsformular erstellen */
+.containerBookingForm {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 150px;
+    border-radius: 25px;
+    color: #F7F2EF;
+    background: rgba(14, 14, 14, 0.58);
+    padding: 20px;
+}
