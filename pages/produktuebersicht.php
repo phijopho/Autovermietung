@@ -84,20 +84,12 @@ include('../includes/functions.php'); // get functions
         </div>
 
 </form>
-
         </div>
     </div>
     <div class="resultBox">
-        <h1> Ergebnisse: </h1>
-        <div class="resultItemBox">
-        
-        <?php
-// Output messages
-
-/
-}
-?>
+    <h1> Ergebnisse: </h1>
     </div>
+</form>
 
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
