@@ -15,7 +15,7 @@
  
 <body>
 <?php
-include('/includes/header.html'); // Einbindung des Headers
+include('../includes/header.html'); // Einbindung des Headers
 ?>
 
 <div class="divbody">
@@ -76,11 +76,9 @@ include('/includes/header.html'); // Einbindung des Headers
 
 </div>
 
-<?php    include('/includes/footer.html'); // Einbindung des Footers
+<?php include('../includes/footer.html'); // Einbindung des Footers
 ?>
-
 </body>
- 
 </html>
  
  
