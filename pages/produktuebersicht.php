@@ -79,8 +79,19 @@ include('../includes/functions.php'); // get functions
             <?php
             $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
             echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='18' class='slider' id='doors'>";
-            //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
-            ?>
+            //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)            ?>
+        </div>
+        <div class="itemBox">
+            <label for="drive">Antrieb:</label><br>
+            <select id="drive" name="drive">
+                <option value="all">Alle auswählen</option>
+                <?php 
+                $drives=selectDistinctColumn("Drive", "CarType");
+                foreach($drives as $drive){
+                    echo "<option value='$drive'>$drive</option>";
+                }
+                ?>
+            </select>
         </div>
     </div>
 </form>
