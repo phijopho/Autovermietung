@@ -1,1 +1,8 @@
 /* style Filter und Ergebnisse */
+
+.divBody {
+    width: 100%;
+    margin-top: 30%;
+    padding: 50px;
+}
+

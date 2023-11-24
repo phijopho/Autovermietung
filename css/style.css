@@ -17,9 +17,12 @@ a:hover {
     color: aqua;
 }
 
-a.active {
-    color: aqua;
-}
+
+/* a:visited {
+    color: aqua; /* Ändert die Farbe besuchter Links */
+    /* text-underline-position: below;
+  } */ 
+  
 
 /* Überschriften stylen */
 
