@@ -18,3 +18,10 @@
     background-color: #2f2e2c;
     margin-top: 80px;
 }
+.resultItemBox {
+    float: left;
+    background-color: black;
+    width: 400px;
+    height: 400px;
+    margin: 40px;
+}
