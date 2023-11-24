@@ -93,6 +93,27 @@ include('../includes/functions.php'); // get functions
                 ?>
             </select>
         </div>
+        <div class="itemBox">
+            <label for"automatic">Nur Automatik</label>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="sliderRound"></span>
+            </label>
+        </div>
+        <div class="itemBox">
+            <label for"AC">Klima</label>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="sliderRound"></span>
+            </label>
+        </div>
+        <div class="itemBox">
+            <label for"gps">GPS</label>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="sliderRound"></span>
+            </label>
+        </div>
     </div>
 </form>
 
