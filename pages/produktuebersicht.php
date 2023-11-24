@@ -40,10 +40,10 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <lable for="category">Fahrzeugkategorie: </lable><br>
             <?php 
-            $vendors=getVendors();
-            foreach($vendors as $vendor){
-                echo "<input type='checkbox' id='".$vendor."' name='".$vendor." value='".$vendor."'>";
-                echo "<label for '".$vendor."'>".$vendor."</label><br>";
+            $categories=selectDistinctColumn("Typ", "CarType");
+            foreach($categories as $category){
+                echo "<input type='checkbox' id='".$category."' name='".$category." value='".$category."'>";
+                echo "<label for '".$category."'>".$category."</label><br>";
             }
             ?>
         </div>
@@ -51,7 +51,7 @@ include('../includes/functions.php'); // get functions
             <label for="vendor">Hersteller:</label><br>
             <select id="vendor" name="vendor">
                 <?php 
-                $vendors=getVendors();
+                $vendors=selectColumn("Abbreviation", "Vendor");
                 foreach($vendors as $vendor){
                     echo "<option value='$vendor'>$vendor</option>";
                 }
@@ -61,7 +61,7 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <label for "seats">Sitze:</label><br>
             <?php
-            $seats=getSeats();
+            $seats=selectMinAndMaxFromColumn("Seats", "CarType");
             echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='5' class='slider' id='seats'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
@@ -69,7 +69,7 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <label for "doors">T&uuml;ren:</label><br>
             <?php
-            $doors=getDoors();
+            $doors=selectMinAndMaxFromColumn("Doors", "CarType");
             echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' value='5' class='slider' id='doors'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
@@ -77,27 +77,20 @@ include('../includes/functions.php'); // get functions
         <div class="itemBox">
             <label for "age">Alter:</label><br>
             <?php
-            $doors=getAge();
+            $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
             echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='18' class='slider' id='doors'>";
             //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
             ?>
         </div>
-
+    </div>
 </form>
 
-        </div>
+<div class="resultBox">
+    <h1> Ergebnisse: </h1>
+    <div class="resultItemBox">
+        // Output messages
     </div>
-    <div class="resultBox">
-        <h1> Ergebnisse: </h1>
-        <div class="resultItemBox">
-        
-        <?php
-// Output messages
-
-/
-}
-?>
-    </div>
+</div>
 
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
