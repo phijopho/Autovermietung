@@ -5,7 +5,7 @@
     <!-- image upload form -->
     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
         <label>Select Image File:</label>
-        <input type="file" name="image">
+        <input type="file" name="image" multiple>
         <!-- type "file" => show as file select button; store file in global variable $_FILES -->
         <input type="submit" name="submitUploadImage" value="Upload">
     </form>
@@ -27,7 +27,7 @@
             if(in_array($fileType, $allowTypes)){
                 $image=$_FILES['image']['tmp_name'];
                 $imgContent = addslashes(file_get_contents($image));
-                echo $fileName;
+                echo $fileName.'<br>';
                 try {
                     $insert = $conn->exec("UPDATE CarType SET Image='$imgContent' WHERE Img_File_Name='$fileName'");
                     if($insert){
