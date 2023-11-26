@@ -20,7 +20,7 @@ include('../includes/functions.php'); // get functions
     <h1> Filter: </h1>
         <div class="itemBox">
             <label for="location">Standort:</label><br>
-            <select id="location" name="Standort">
+            <select class="customSelect" name="Standort">
                 <?php 
                 $location=getCities();
                 foreach($location as $city){
@@ -39,17 +39,19 @@ include('../includes/functions.php'); // get functions
         </div>
         <div class="itemBox">
             <lable for="category">Fahrzeugkategorie: </lable><br>
-            <?php 
-            $categories=selectDistinctColumn("Typ", "CarType");
-            foreach($categories as $category){
-                echo "<input type='checkbox' id='".$category."' name='".$category." value='".$category."'>";
-                echo "<label for '".$category."'>".$category."</label><br>";
-            }
-            ?>
+            <div class="categoryBox">
+                <?php 
+                $categories=selectDistinctColumn("Typ", "CarType");
+                foreach($categories as $category){
+                    echo "<input type='checkbox' id='".$category."' name='".$category." value='".$category."'>";
+                    echo "<label for '".$category."'>".$category."</label><br>";
+                }
+                ?>
+            </div>
         </div>
         <div class="itemBox">
             <label for="vendor">Hersteller:</label><br>
-            <select id="vendor" name="vendor">
+            <select class="customSelect" name="vendor">
                 <?php 
                 $vendors=selectColumn("Abbreviation", "Vendor");
                 foreach($vendors as $vendor){
@@ -83,7 +85,7 @@ include('../includes/functions.php'); // get functions
         </div>
         <div class="itemBox">
             <label for="drive">Antrieb:</label><br>
-            <select id="drive" name="drive">
+            <select class="customSelect" name="drive">
                 <option value="all">Alle auswählen</option>
                 <?php 
                 $drives=selectDistinctColumn("Drive", "CarType");
