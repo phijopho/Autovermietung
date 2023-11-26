@@ -5,7 +5,8 @@
     height: 100vh;
     background-color: #aba6a1;
     margin-top: 80px;
-}
+    padding-left: 20px;
+  }
 
 .itemBox {
     height:fit-content;
