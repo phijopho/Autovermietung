@@ -17,7 +17,6 @@ include('../includes/functions.php'); // get functions
 
 <form method="post" action= <?php $_SERVER["PHP_SELF"]?>>
     <div class="filterBox">
-    <h1> Filter: </h1>
         <div class="itemBox">
             <label for="location">Standort:</label><br>
             <select class="customSelect" name="Standort">
@@ -29,17 +28,16 @@ include('../includes/functions.php'); // get functions
                 ?>
             </select>
         </div>
-        <div class="itemBox">
+        <div class="twoSidedBox">
             <label for="pickUpDate">Abholdatum:</label>
                     <input type="date" name="pickUpDate" value="<?php echo date('Y-m-d'); ?>" />
         </div>
-        <div class="itemBox">
+        <div class="twoSidedBox">
             <label for ="returnDate">R&uuml;ckgabedatum:</label>
                 <input type="date" name="returnDate" value="<?php echo date('Y-m-d'); ?>" />
         </div>
         <div class="itemBox">
             <lable for="category">Fahrzeugkategorie: </lable><br>
-            <div class="categoryBox">
                 <?php 
                 $categories=selectDistinctColumn("Typ", "CarType");
                 foreach($categories as $category){
@@ -47,7 +45,6 @@ include('../includes/functions.php'); // get functions
                     echo "<label for '".$category."'>".$category."</label><br>";
                 }
                 ?>
-            </div>
         </div>
         <div class="itemBox">
             <label for="vendor">Hersteller:</label><br>
@@ -95,21 +92,21 @@ include('../includes/functions.php'); // get functions
                 ?>
             </select>
         </div>
-        <div class="itemBox">
+        <div class="twoSidedBox">
             <label for"automatic">Nur Automatik</label>
             <label class="switch">
                 <input type="checkbox">
                 <span class="sliderRound"></span>
             </label>
         </div>
-        <div class="itemBox">
+        <div class="twoSidedBox">
             <label for"AC">Klima</label>
             <label class="switch">
                 <input type="checkbox">
                 <span class="sliderRound"></span>
             </label>
         </div>
-        <div class="itemBox">
+        <div class="twoSidedBox">
             <label for"gps">GPS</label>
             <label class="switch">
                 <input type="checkbox">
