@@ -26,6 +26,11 @@
   padding-top: 15px;
 }
 
+/* checkboxes with categories style */
+input[type="checkbox"] {
+ margin-top: 7px; 
+}
+
 /* Toggle */
 /* The switch - the box around the slider */
 .switch {

@@ -41,7 +41,7 @@ include('../includes/functions.php'); // get functions
                 <?php 
                 $categories=selectDistinctColumn("Typ", "CarType");
                 foreach($categories as $category){
-                    echo "<input type='checkbox' id='".$category."' name='".$category." value='".$category."'>";
+                    echo "<input type='checkbox' name='".$category." value='".$category."'>";
                     echo "<label for '".$category."'>".$category."</label><br>";
                 }
                 ?>
