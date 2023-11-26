@@ -5,11 +5,12 @@
     height: 100vh;
     background-color: #aba6a1;
     margin-top: 80px;
-    padding-left: 20px;
+    padding-left: 10px;
   }
 
 .itemBox {
     height:fit-content;
+    padding-bottom: 10px;
 }
 
 /* Toggle */
