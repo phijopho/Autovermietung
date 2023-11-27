@@ -59,3 +59,14 @@ function showImage($CarType_ID){
         echo "<div class='pictureBox'>Image(s) not found...</div>";
     }
 }
+
+function getPrice($CarType_ID){
+    include('dbConnection.php');
+    $getPrice = $conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $getPrice->bindParam(':CarTypeIdent', $CarType_ID);
+    $getPrice->execute();
+    while($row=$getPrice->fetch()){
+        $price[]=$row['Price'];
+    }
+    return $price;    
+}
