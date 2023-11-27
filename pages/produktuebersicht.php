@@ -117,9 +117,19 @@ include('../includes/functions.php'); // get functions
 </form>
 
 <div class="resultBox">
-    <h1> Ergebnisse: </h1>
+    <div class="topBox">
+        <label for="available">Verf&uuml;gbare Fahrzeuge: 10</label>
+        <div class="sortBox">
+            <label for="sort" >Sortierung: </label>
+            <select class="customSelectSort" name="sort">
+                <option value="alphabetic">Alphabetisch</option>
+                <option value="priceExpensive">Preis aufsteigend</option>
+                <option value="priceCheap">Preis absteigend</option>
+            </select>
+        </div>
+    </div>
     <div class="resultItemBox">
-        // Output messages
+        
     </div>
 </div>
 

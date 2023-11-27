@@ -1,12 +1,13 @@
 /* style Filter und Ergebnisse */
 .filterBox {
     float: left;
-    width: 20%;
+    width: 250px;
     height: 100vh;
     background-color: #aba6a1;
     margin-top: 80px;
     padding-left: 10px;
     padding-right: 10px;
+    position: fixed;
   }
 
 .itemBox {
@@ -96,14 +97,34 @@ input[type="range"] {
 /* Result area: */
 .resultBox {
     float: left;
-    width: 70%;
+    margin-left: 270px;
+    width: 1170px;
     height: 100vh;
     background-color: #2f2e2c;
     margin-top: 80px;
 }
+
+.topBox {
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #aba6a1;
+}
+
+.sortBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.customSelectSort {
+  width: 100%;
+  margin-left: 7px;
+}
+
+
 .resultItemBox {
     float: left;
-    background-color: black;
+    background-color: #aba6a1;
     width: 400px;
     height: 400px;
     margin: 40px;
