@@ -13,9 +13,9 @@ include('../includes/htmlhead.php')
  
 <body>
 <?php
-include('../includes/header.html'); // include header
 include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
+include('../includes/header.html'); // include header
 ?>
 
 <form method="post" action= <?php $_SERVER["PHP_SELF"]?>>
