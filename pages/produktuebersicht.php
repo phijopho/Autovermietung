@@ -156,16 +156,16 @@ include('../includes/header.html'); // include header
                 <div class="modelBox">
                     <label>                    
                         <?php 
-                            $model=getModel("25");
+                            $model=getModel("32");
                             echo $model[0]." ".$model[1];
                         ?>
                     </label>
                 </div>
                 <?php
-                    showImage("25");
+                    showImage("32");
                 ?>
                 <div class="carDataBox">
-                    <?php $price=getPrice("25"); ?>
+                    <?php $price=getPrice("32"); ?>
                     Preis pro Tag: <?php echo $price[0]; ?> €<br>
                     Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
                 </div>
@@ -174,16 +174,16 @@ include('../includes/header.html'); // include header
                 <div class="modelBox">
                     <label>
                         <?php 
-                            $model=getModel("25");
+                            $model=getModel("57");
                             echo $model[0]." ".$model[1];
                         ?>
                     </label>
                 </div>
                 <?php
-                    showImage("25");
+                    showImage("57");
                 ?>
                 <div class="carDataBox">
-                    <?php $price=getPrice("25"); ?>
+                    <?php $price=getPrice("57"); ?>
                     Preis pro Tag: <?php echo $price[0]; ?> €<br>
                     Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
                 </div>
