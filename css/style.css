@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2f2e2c;
+    height: 10000px;
 }
 
 a {
@@ -31,6 +32,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 
 /* Einstellungen des Logos im Header */
@@ -118,6 +120,7 @@ ul li ul li {
     font-weight: 300;
     padding-left: 200px;
     padding-right: 200px;
+    position: fixed;
 }
 
 /* Copyright mit Firmenname einfügen */

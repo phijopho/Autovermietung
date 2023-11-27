@@ -2,13 +2,14 @@
 .filterBox {
     float: left;
     width: 250px;
-    height: 100vh;
-    background-color: #525252;
-    margin-top: 80px;
+    height: fit-content;
+    background-color: #272626;
+    margin-top: 100px;
+    margin-left: 40px;
     padding-left: 10px;
     padding-right: 10px;
-    position: relative;
-    border-top: 5px solid #2f2e2c;
+    padding-bottom: 50px;
+    position: fixed;
   }
 
 .itemBox {
@@ -101,6 +102,7 @@ input[type="range"] {
     width: 1170px;
     background-color: #2f2e2c;
     margin-top: 80px;
+    margin-left: 350px;
 }
 
 .topBox {
@@ -108,6 +110,10 @@ input[type="range"] {
   display: flex;
   justify-content: space-between;
   border-bottom: 3px solid #525252;
+  background-color: #272626;
+  margin-top: 50px;
+  position: relative;
+  z-index: 0;
 }
 
 .sortBox {
