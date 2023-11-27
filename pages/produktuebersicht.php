@@ -132,6 +132,9 @@ include('../includes/functions.php'); // get functions
         </div>
     </div>
     <div class="resultItemBox">
+        <div class="modelBox">
+            <label>Fahrzeugmodell</label>
+        </div>
         
     </div>
 </div>
