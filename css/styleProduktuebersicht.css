@@ -129,15 +129,21 @@ input[type="range"] {
 }
 
 /* Result Area */
+.resultWrapBox {
+  background-color: #272626;
+  max-width: 1050px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding-top: 20px;
+}
 .resultItemBox {
     float: left;
     background-color: #525252;
     width: 400px;
     height: auto;
-    margin: 10px 10px 10px 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .modelBox {

@@ -132,59 +132,61 @@ include('../includes/header.html'); // include header
                 </select>
             </div>
         </div>
-
-        <div class="resultItemBox">
-            <div class="modelBox">
-                <label>
-                    <?php 
-                        $model=getModel("25");
-                        echo $model[0]." ".$model[1];
-                    ?>
-                </label>
+        
+        <div class="resultWrapBox">
+            <div class="resultItemBox">
+                <div class="modelBox">
+                    <label>
+                        <?php 
+                            $model=getModel("25");
+                            echo $model[0]." ".$model[1];
+                        ?>
+                    </label>
+                </div>
+                <?php
+                    showImage("25");
+                ?>
+                <div class="carDataBox">
+                    <?php $price=getPrice("25"); ?>
+                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
+                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+                </div>
             </div>
-            <?php
-                showImage("25");
-            ?>
-            <div class="carDataBox">
-                <?php $price=getPrice("25"); ?>
-                Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+            <div class="resultItemBox">
+                <div class="modelBox">
+                    <label>                    
+                        <?php 
+                            $model=getModel("25");
+                            echo $model[0]." ".$model[1];
+                        ?>
+                    </label>
+                </div>
+                <?php
+                    showImage("25");
+                ?>
+                <div class="carDataBox">
+                    <?php $price=getPrice("25"); ?>
+                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
+                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+                </div>
             </div>
-        </div>
-        <div class="resultItemBox">
-            <div class="modelBox">
-                <label>                    
-                    <?php 
-                        $model=getModel("25");
-                        echo $model[0]." ".$model[1];
-                    ?>
-                </label>
-            </div>
-            <?php
-                showImage("25");
-            ?>
-            <div class="carDataBox">
-                <?php $price=getPrice("25"); ?>
-                Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
-            </div>
-        </div>
-        <div class="resultItemBox">
-            <div class="modelBox">
-                <label>
-                    <?php 
-                        $model=getModel("25");
-                        echo $model[0]." ".$model[1];
-                    ?>
-                </label>
-            </div>
-            <?php
-                showImage("25");
-            ?>
-            <div class="carDataBox">
-                <?php $price=getPrice("25"); ?>
-                Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+            <div class="resultItemBox">
+                <div class="modelBox">
+                    <label>
+                        <?php 
+                            $model=getModel("25");
+                            echo $model[0]." ".$model[1];
+                        ?>
+                    </label>
+                </div>
+                <?php
+                    showImage("25");
+                ?>
+                <div class="carDataBox">
+                    <?php $price=getPrice("25"); ?>
+                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
+                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+                </div>
             </div>
         </div>
     </div>
