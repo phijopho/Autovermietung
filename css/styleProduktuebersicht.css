@@ -5,7 +5,7 @@
     height: fit-content;
     background-color: #272626;
     margin-top: 100px;
-    margin-left: 40px;
+    margin-left: 20px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 50px;
@@ -132,7 +132,7 @@ input[type="range"] {
 .resultItemBox {
     float: left;
     background-color: #525252;
-    width: 545px;
+    width: 400px;
     height: auto;
     margin: 10px 10px 10px 0px;
     padding-top: 10px;
