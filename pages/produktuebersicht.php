@@ -136,7 +136,7 @@ include('../includes/functions.php'); // get functions
             <label>Fahrzeugmodell</label>
         </div>
         <?php
-        showImage(25);
+        showImage("25");
         ?>
         </div>
 

@@ -49,12 +49,12 @@ function showImage($CarType_ID){
     $image->bindParam(':CarTypeIdent', $CarType_ID);
     $image->execute();
 
-    if($result->rowCount()>0){ 
+    if($image->rowCount()>0){ 
         echo "<div class='pictureBox'>";
             while($row=$image->fetch()){
-                echo "<img src='data:image/pnh;charset=utf8;base64,'".base64_encode($row['Image'])."'>'";
+                echo "<img src='data:image/pnh;charset=utf8;base64,'".base64_encode($row['Image']).">";
             }
-        echo"</div>";
+        echo "</div>";
     } else { 
         echo "<div class='pictureBox'>Image(s) not found...</div>";
     }
