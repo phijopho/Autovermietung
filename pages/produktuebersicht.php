@@ -135,7 +135,10 @@ include('../includes/functions.php'); // get functions
         <div class="modelBox">
             <label>Fahrzeugmodell</label>
         </div>
-        
+        <div class="pictureBox">
+            <img >
+        </div>
+
     </div>
 </div>
 
