@@ -70,3 +70,15 @@ function getPrice($CarType_ID){
     }
     return $price;    
 }
+
+function getModel($CarType_ID){
+    include('dbConnection.php');
+    $getModel=$conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
+    $getModel->bindParam(':CarTypeIdent', $CarType_ID);
+    $getModel->execute();
+    while($row=$getModel->fetch()){
+        $model[]=$row['Brand'];
+        $model[]=$row['Model'];
+    }
+    return $model;    
+}

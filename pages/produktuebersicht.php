@@ -132,9 +132,15 @@ include('../includes/header.html'); // include header
                 </select>
             </div>
         </div>
+
         <div class="resultItemBox">
             <div class="modelBox">
-                <label>Fahrzeugmodell</label>
+                <label>
+                    <?php 
+                        $model=getModel("25");
+                        echo $model[0]." ".$model[1];
+                    ?>
+                </label>
             </div>
             <?php
                 showImage("25");
@@ -147,7 +153,12 @@ include('../includes/header.html'); // include header
         </div>
         <div class="resultItemBox">
             <div class="modelBox">
-                <label>Fahrzeugmodell</label>
+                <label>                    
+                    <?php 
+                        $model=getModel("25");
+                        echo $model[0]." ".$model[1];
+                    ?>
+                </label>
             </div>
             <?php
                 showImage("25");
@@ -157,9 +168,15 @@ include('../includes/header.html'); // include header
                 Preis pro Tag: <?php echo $price[0]; ?> €<br>
                 Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
             </div>
-            <div class="resultItemBox">
+        </div>
+        <div class="resultItemBox">
             <div class="modelBox">
-                <label>Fahrzeugmodell</label>
+                <label>
+                    <?php 
+                        $model=getModel("25");
+                        echo $model[0]." ".$model[1];
+                    ?>
+                </label>
             </div>
             <?php
                 showImage("25");
@@ -170,9 +187,6 @@ include('../includes/header.html'); // include header
                 Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
             </div>
         </div>
-
-        </div>
-
     </div>
 </div>
 
