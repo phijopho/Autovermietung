@@ -11,7 +11,7 @@
     if($result->rowCount()>0){ ?>
         <div class="gallery">
             <?php while($row=$result->fetch()){ ?>
-                <img src="data:image/pnh;charset=utf8;base64, <?php echo base64_encode($row['Image']); ?>" />
+                <img src="data:image/pnh;charset=utf8;base64, <?php echo base64_encode($row['Image']); ?>" >
             <?php } ?>
         </div>
     <?php } else { ?>

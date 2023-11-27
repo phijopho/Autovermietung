@@ -42,4 +42,20 @@ function selectColumn($column, $table){
     }
     return $result;    
 }
-?>
+
+function showImage($CarType_ID){
+    include('dbConnection.php');
+    $image=$conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $image->bindParam(':CarTypeIdent', $CarType_ID);
+    $image->execute();
+
+    if($result->rowCount()>0){ 
+        echo "<div class='pictureBox'>";
+            while($row=$image->fetch()){
+                echo "<img src='data:image/pnh;charset=utf8;base64,'".base64_encode($row['Image'])."'>'";
+            }
+        echo"</div>";
+    } else { 
+        echo "<div class='pictureBox'>Image(s) not found...</div>";
+    }
+}

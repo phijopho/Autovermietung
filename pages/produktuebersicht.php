@@ -136,20 +136,7 @@ include('../includes/functions.php'); // get functions
             <label>Fahrzeugmodell</label>
         </div>
         <?php
-            $currentTypeID=25; // Wert aus Filter ziehen
-            $image=$conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
-            $image->bindParam(':CarTypeIdent', $currentTypeID);
-            $image->execute();
-
-            if($result->rowCount()>0){ ?>
-                <div class="pictureBox">
-                    <?php while($row=$result->fetch()){ ?>
-                        <img src="data:image/png;charset=utf8;base64, <?php echo base64_encode($row['Image']); ?>"/>
-                    <?php } ?>
-                </div>
-            <?php } else { ?>
-                <div class="pictureBox">Image(s) not found...</div>
-            <?php } 
+        showImage(25);
         ?>
         </div>
 
