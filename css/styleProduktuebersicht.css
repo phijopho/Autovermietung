@@ -139,7 +139,6 @@ input[type="range"] {
 .pictureBox {
   max-width: 700px;
   height: auto;
-  display: flex;
   margin-bottom: 10px;
 }
 

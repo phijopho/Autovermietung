@@ -62,7 +62,7 @@ function showImage($CarType_ID){
 
 function getPrice($CarType_ID){
     include('dbConnection.php');
-    $getPrice = $conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $getPrice=$conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
     $getPrice->bindParam(':CarTypeIdent', $CarType_ID);
     $getPrice->execute();
     while($row=$getPrice->fetch()){

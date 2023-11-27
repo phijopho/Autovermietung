@@ -139,9 +139,9 @@ include('../includes/functions.php'); // get functions
             showImage("25");
         ?>
         <div class="carDataBox">
-            <?php $price=getPrice("25");  $price; ?>
-            Preis pro Tag: <?php $price; ?> €<br>
-            Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php $price; ?> € <br>
+            <?php $price=getPrice("25"); ?>
+            Preis pro Tag: <?php echo $price[0]; ?> €<br>
+            Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
         </div>
     </div>
 </div>
