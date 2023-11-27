@@ -130,26 +130,30 @@ input[type="range"] {
 .resultItemBox {
     float: left;
     background-color: #525252;
-    width: 585px;
-    height: 400px;
+    width: 565px;
+    height: auto;
     margin: 10px;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
 .modelBox {
   width: 100%;
-  padding: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
 }
 
 .pictureBox {
-  max-width: 585px;
+  max-width: 565px;
   height: auto;
   margin-bottom: 10px;
+  border-top: 3px solid #2f2e2c;
+  border-bottom: 3px solid #2f2e2c;
 }
 
 .pictureBox img {
-  max-width: 585px;
+  max-width: 565px;
 	/* SCALE */
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
@@ -172,5 +176,8 @@ input[type="range"] {
 }
 
 .carDataBox {
-  max-width: 585px;
+  max-width: 565px;
+  line-height: 25px;
+  padding-top: 5px;
+  padding-left: 10px;
 }
