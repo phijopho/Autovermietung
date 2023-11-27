@@ -42,4 +42,43 @@ function selectColumn($column, $table){
     }
     return $result;    
 }
-?>
+
+function showImage($CarType_ID){
+    include('dbConnection.php');
+    $image=$conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $image->bindParam(':CarTypeIdent', $CarType_ID);
+    $image->execute();
+
+    if($image->rowCount()>0){ 
+        echo "<div class='pictureBox'>";
+            while($row=$image->fetch()){
+                echo "<img src='data:image/png;charset=utf8;base64,".base64_encode($row['Image'])."'>";
+            }
+        echo "</div>";
+    } else { 
+        echo "<div class='pictureBox'>Image(s) not found...</div>";
+    }
+}
+
+function getPrice($CarType_ID){
+    include('dbConnection.php');
+    $getPrice=$conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $getPrice->bindParam(':CarTypeIdent', $CarType_ID);
+    $getPrice->execute();
+    while($row=$getPrice->fetch()){
+        $price[]=$row['Price'];
+    }
+    return $price;    
+}
+
+function getModel($CarType_ID){
+    include('dbConnection.php');
+    $getModel=$conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
+    $getModel->bindParam(':CarTypeIdent', $CarType_ID);
+    $getModel->execute();
+    while($row=$getModel->fetch()){
+        $model[]=$row['Brand'];
+        $model[]=$row['Model'];
+    }
+    return $model;    
+}
