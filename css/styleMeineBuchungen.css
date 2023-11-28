@@ -1,1 +1,40 @@
 /* Meine Buchungen style */
+
+.tabelle {
+    margin-top: 100px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    height: 40px;
+    color: black; /* Schwarze Schriftfarbe für alle Zellen */
+}
+
+th {
+    background-color: aqua; /* Farbige Hintergrundfarbe für die erste Zeile */
+}
+
+tr:nth-child(even) td {
+    background-color: white; /* Weiße Farbe für gerade Zeilen */
+}
+
+tr:nth-child(odd) td {
+    background-color: #f0f0f0; /* Helle Grau-Farbe für ungerade Zeilen */
+}
+
+tr.active td {
+    background-color: lightblue; /* Farbe für aktive Zeilen */
+}
+
