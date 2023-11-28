@@ -42,7 +42,7 @@ include('../includes/header.html'); // include header
             <div class="itemBox">
                 <lable for="category">Fahrzeugkategorie: </lable><br>
                     <?php 
-                    $categories=selectDistinctColumn("Typ", "CarType");
+                    $categories=selectDistinctColumn("Type", "CarType");
                     foreach($categories as $category){
                         echo "<input type='checkbox' name='".$category." value='".$category."'>";
                         echo "<label for '".$category."'>".$category."</label><br>";

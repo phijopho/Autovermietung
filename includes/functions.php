@@ -82,3 +82,17 @@ function getModel($CarType_ID){
     }
     return $model;    
 }
+
+function showResults($location, $pickUpDate, $returndate, $categories, $vendors, $seats, $doors, $age, $drive, $automatic, $AC, $GPS){
+    include('dbConnection.php');
+    
+    $getResults=$conn->prepare("SELECT CarType_ID, FROM CarType WHERE Location=:Location AND ");
+    $getModel->bindParam(':CarTypeIdent', $CarType_ID);
+    $getModel->execute();
+    while($row=$getModel->fetch()){
+        $model[]=$row['Brand'];
+        $model[]=$row['Model'];
+    }
+    return $model;    
+
+}
