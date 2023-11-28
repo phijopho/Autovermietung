@@ -18,7 +18,7 @@ include('../includes/header.html'); // include header
 ?>
 
 <div class="contentBox">
-    <form method="post" action= <?php $_SERVER["PHP_SELF"]?>>
+    <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">
         <div class="filterBox">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
