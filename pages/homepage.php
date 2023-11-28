@@ -59,63 +59,80 @@ include("./includes/functions.php");
     <div class="divModels">
 
         <div class="gallery">
-            <?php 
+
+       
+         <?php
             $type=array("Cabrio", "Combi", "Mehrt&uuml;rer", "SUV", "Coupé", "Limousine");
             for ($i=1; $i<=6; $i++){
-                echo "<div class='imageContainer'>";
-                    echo "<img src='images/cabrio-mercedes-benz-2845333_1920.png' alt='Bild 1'>";
-                        echo "<div class='caption'>";
-                        $MinPrice=getMinMaxPrice($type[$i-1]);
-                        echo $type[$i-1]." ab: ".$MinPrice['min']." &euro;";
-                        echo "</div>";
+                       echo "<div class='imageContainer'>";
+                       echo "<img src='images/cabrio-mercedes-benz-2845333_1920.png' alt='Bild 1'>";
+                       echo "<div class='caption'>";
+                           $MinPrice=getMinMaxPrice($type[$i-1]);
+                       echo $type[$i-1]." ab: ".$MinPrice['min']." &euro;";
+                       echo "</div>";
                 echo "</div>";
-            }
+          }
+           
             ?>
         </div>
 
-
-<div>
-  <button class="prev-button">Vorheriges Bild</button>
-  <button class="next-button">Nächstes Bild</button>
-</div>
-
-<script>
-  const images = ["images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png",]; // Fügen Sie Ihre Bildquellen hinzu
-
-let currentIndex = 0;
-const totalImages = images.length;
-
-// Funktion zum Anzeigen des aktuellen Bildes
-function showImage(index) {
-  const imgElement = document.getElementById('currentImg');
-  imgElement.src = images[index];
-}
-
-// Funktion für das nächste Bild
-function nextImage() {
-  currentIndex = (currentIndex + 1) % totalImages;
-  showImage(currentIndex);
-}
-
-// Funktion für das vorherige Bild
-function prevImage() {
-  currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-  showImage(currentIndex);
-}
-
-// Eventlistener für die Buttons
-document.getElementById('nextBtn').addEventListener('click', nextImage);
-document.getElementById('prevBtn').addEventListener('click', prevImage);
-
-// Initial das erste Bild anzeigen
-showImage(currentIndex);
-
-</script>
     </div> 
 
 </div>
 </div>
 <br>
+<br>
+<br>
+<br>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var scrollLink = document.querySelector('.scroll-link');
+
+      scrollLink.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        var targetSection = document.querySelector('.divModels');
+
+        if (targetSection) {
+          var headerHeight = document.querySelector('.headerbox').offsetHeight;
+          var targetOffset = targetSection.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetOffset,
+            behavior: 'smooth' // Glatte Scrollanimation
+          });
+        }
+      });
+    });
+
+    
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".gallery .imageContainer");
+    let currentImageIndex = 0;
+
+    // Hide all images except the first one
+    images.forEach((image, index) => {
+      if (index !== currentImageIndex) {
+        image.style.display = "none";
+      }
+    });
+
+    function showNextImage() {
+      images[currentImageIndex].style.display = "none";
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      images[currentImageIndex].style.display = "block";
+    }
+
+    // Add click event listener to show the next image
+    document.querySelector('.gallery').addEventListener("click", showNextImage);
+  });
+
+
+  </script>
+
 </body>
 
 </html>

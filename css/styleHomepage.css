@@ -72,18 +72,11 @@
 
 .gallery {
   display: flex;
+  width: 100%;
+  height: 500px;
   flex-direction: row;
   align-items: center;
-}
-
-/* Verstecke alle Bilder außer dem aktuellen */
-.gallery img {
-  display: none;
-}
-
-/* Zeige das aktuelle Bild */
-.gallery img#currentImg {
-  display: block;
+  overflow-y: hidden;
 }
 
 .imageContainer {
@@ -92,15 +85,9 @@
   position: relative;
 }
 
-/* .image-container img {
-  max-width: 100%;
-  height: auto;
-} */
-
 .caption {
   margin-top: 10px;
 }
+ 
 
-.show {
-  display: block;
-}
+

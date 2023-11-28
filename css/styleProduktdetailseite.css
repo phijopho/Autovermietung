@@ -12,6 +12,7 @@
     width: 60%;
     margin-left: 20px;
     margin-bottom: 100px;
+    border-right: 3px solid aqua;
 }
 
 /* Box with Image and Imagedescription */
@@ -58,6 +59,7 @@ th, td {
     width: 35%;
     text-align: left;
     padding-top:3%;
+    margin-left: 30px;
 }
 
 /* Box for button */

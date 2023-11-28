@@ -95,4 +95,15 @@ function getMinMaxPrice($Type) {
 }
 
 
+
+function selectCarType($Type, $CarType){
+    include('dbConnection.php');  
+    $result = array();  
+    $stmt = $conn->query("SELECT DISTINCT $Type FROM $CarType WHERE Type=TypeIdent");
+    while($row = $stmt->fetch()){
+        $result[] = $row[$Type];
+    }
+    return $result;    
+}
+
 ?>
