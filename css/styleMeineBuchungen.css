@@ -36,12 +36,89 @@ tr.active td {
     background-color: lightblue; /* Farbe für aktive Zeilen */
 }
 
-.accordion-content {
-    background-color: #f9f9f9; /* Hintergrundfarbe für aufklappbare Inhalte */
-    border-top: none;
+article {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 0 auto;
+  padding-top: 150px;
+  margin-bottom: 150px;
 }
 
-.accordion-content p {
-    margin: 10px;
+.ud_active {
+  background: #ff6e48;
+  padding: 4% 0 4% 4%;
+}
+dt {
+  transition: all 300ms;
+  -webkit-transition: all 300ms;
 }
 
+dt,
+dd {
+  width: 96%;
+  float: left;
+  padding: 2%;
+  margin: 0;
+}
+dt {
+  font-family: "Oswald", sans-serif;
+  background: #33455e;
+  color: #fff;
+  text-transform: uppercase;
+  border-top: 1px solid #222;
+  cursor: pointer;
+}
+
+dt:first-child {
+  border-top: none;
+}
+dt:hover {
+  background: #ff6e48;
+}
+dd {
+  font-family: "Lato", sans-serif;
+  background: #ffffff;
+  line-height: 25px;
+  font-size: 16px;
+  word-spacing: 3px;
+  color: #999;
+  display: none;
+}
+
+
+/*Buchungselemente Leiste oben*/
+.onTopContainer {
+    background: #33455e;
+    color: #fff;
+    text-transform: uppercase;
+    border-top: 1px solid #222;
+    cursor: pointer;
+    width: 98%;
+    display: flex;
+    justify-content: space-around; /* Hier wurde der Raum zwischen den h4-Elementen gleichmäßig verteilt */
+    align-items: center;
+    padding: 10px; /* Hier wurde ein Padding für den gesamten Container hinzugefügt */
+  }
+  
+  .onTopContainer h4 {
+    margin: 0; /* Hier wird der Standardmargin des h4-Elements entfernt */
+  }
+  
+
+
+
+
+  .dataBuchung {
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 98%;
+    display: flex;
+    justify-content: space-around; /* Hier wurde der Raum zwischen den h4-Elementen gleichmäßig verteilt */
+    align-items: center;
+  }
+  
+  .onTopContainer h4 {
+    margin: 0; /* Hier wird der Standardmargin des h4-Elements entfernt */
+  }
+  

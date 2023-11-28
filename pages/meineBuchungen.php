@@ -15,84 +15,87 @@
 include('../includes/header.html');
 ?>
 
-<h1>Buchungsübersicht</h1>
+<article>
+    
+    <div class="onTopContainer">
+        <h4>Buchungs-ID</h4>
+        <h4>Abholdatum</h4>
+        <h4>Rückgabedatum</h4>
+        <h4>Hersteller</h4>
+        <h4>Modell</h4>
+        <h4>Buchungsdatum</h4>
+    </div>
 
-<div class="tabelle">
-    <table>
-        <thead>
-            <tr>
-                <th>Buchungs-ID</th>
-                <th>Abholdatum</th>
-                <th>Rückgabedatum</th>
-                <th>Hersteller</th>
-                <th>Modell</th>
-                <th>Buchungsdatum</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="accordion-toggle">
-                <td>001</td>
-                <td>23.12.2023</td>
-                <td>25.12.2023</td>
-                <td>Audi</td>
-                <td>A3</td>
-                <td>29.11.2023</td>
-            </tr>
-            <!-- Weitere Buchungen hier einfügen -->
-            <tr class="accordion-content">
-                <td colspan="6">
-                    <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
-                    <p>Zusätzliche Informationen zur Buchung 001.</p>
-                </td>
-            </tr>
-            <tr class="accordion-toggle">
-                <td>002</td>
-                <td>26.12.2023</td>
-                <td>28.12.2023</td>
-                <td>BMW</td>
-                <td>3er</td>
-                <td>30.11.2023</td>
-            </tr>
 
-            <tr class="accordion-content">
-                <td colspan="6">
-                    <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
-                    <p>Zusätzliche Informationen zur Buchung 002.</p>
-                </td>
-            </tr>
+    <dl id="ud_accordion">
 
-            <tr class="accordion-toggle">
-                <td>002</td>
-                <td>26.12.2023</td>
-                <td>28.12.2023</td>
-                <td>BMW</td>
-                <td>3er</td>
-                <td>30.11.2023</td>
-            </tr>
+        <dt>
+    <div class="dataBuchung">
+        <h4>2023281101</h4>
+        <h4>30.11.2023</h4>
+        <h4>02.12.2023</h4>
+        <h4>Audi</h4>
+        <h4>A8</h4>
+        <h4>28.11.2023</h4>
+    </div>
+        </dt>
 
-            <tr class="accordion-content">
-                <td colspan="6">
-                    <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
-                    <p>Zusätzliche Informationen zur Buchung 003.</p>
-            </tr>
-            <!-- Füge weitere Buchungen und Inhalte hier ein -->
-        </tbody>
-    </table>
-</div>
+        <!--scroll down element infos-->
+        <dd>x</dd>
+
+
+
+
+        <dt>x</dt>
+        <dd>x</dd>
+
+        <dt>x</dt>
+        <dd>x</dd>
+
+        <dt>x</dt>
+        <dd>x</dd>
+
+        <dt>x</dt>
+        <dd>x</dd>
+
+        <dt>x</dt>
+        <dd>x</dd>
+    </dl>
+    </article>
 
 <script>
-    $(document).ready(function(){
-        $(".accordion-content").hide(); // Verstecke alle Inhalte zu Beginn
-
-        $(".accordion-toggle").click(function(){
-            if ($(this).hasClass("active")) {
-                $(this).removeClass("active").next(".accordion-content").slideUp();
-            } else {
-                $(".accordion-toggle.active").removeClass("active").next(".accordion-content").slideUp();
-                $(this).addClass("active").next(".accordion-content").slideDown();
-            }
-        });
+   $(document).ready(function() {
+  $("#ud_accordion dt")
+    .stop()
+    .click(function() {
+      if ($(this).hasClass("ud_active")) {
+        $(this).removeClass("ud_active");
+        $(this)
+          .next()
+          .slideUp(300);
+      } else {
+        $(this)
+          .parent()
+          .children()
+          .removeClass("ud_active");
+        $(this).addClass("ud_active");
+        if (
+          $(this)
+            .next()
+            .is("dd")
+        ) {
+          $(this)
+            .parent()
+            .children("dd")
+            .slideUp(300);
+          $(this)
+            .next()
+            .slideDown(300);
+        }
+      }
     });
+});
+
 </script>
 
 <?php
