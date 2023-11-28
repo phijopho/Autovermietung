@@ -76,18 +76,31 @@
   align-items: center;
 }
 
+/* Verstecke alle Bilder außer dem aktuellen */
+.gallery img {
+  display: none;
+}
+
+/* Zeige das aktuelle Bild */
+.gallery img#currentImg {
+  display: block;
+}
+
 .imageContainer {
   width: 100%;
   text-align: center;
   position: relative;
 }
 
-.image-container img {
+/* .image-container img {
   max-width: 100%;
   height: auto;
-}
+} */
 
 .caption {
   margin-top: 10px;
 }
 
+.show {
+  display: block;
+}

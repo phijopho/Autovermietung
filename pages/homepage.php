@@ -60,7 +60,7 @@ include("./includes/functions.php");
 
         <div class="gallery">
             <?php 
-            $type=array("Cabrio", "Combi", "Mehrt&uuml;rer");
+            $type=array("Cabrio", "Combi", "Mehrt&uuml;rer", "SUV", "Coupé", "Limousine");
             for ($i=1; $i<=6; $i++){
                 echo "<div class='imageContainer'>";
                     echo "<img src='images/cabrio-mercedes-benz-2845333_1920.png' alt='Bild 1'>";
@@ -72,11 +72,50 @@ include("./includes/functions.php");
             }
             ?>
         </div>
+
+
+<div>
+  <button class="prev-button">Vorheriges Bild</button>
+  <button class="next-button">Nächstes Bild</button>
+</div>
+
+<script>
+  const images = ["images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png", "images/cabrio-mercedes-benz-2845333_1920.png",]; // Fügen Sie Ihre Bildquellen hinzu
+
+let currentIndex = 0;
+const totalImages = images.length;
+
+// Funktion zum Anzeigen des aktuellen Bildes
+function showImage(index) {
+  const imgElement = document.getElementById('currentImg');
+  imgElement.src = images[index];
+}
+
+// Funktion für das nächste Bild
+function nextImage() {
+  currentIndex = (currentIndex + 1) % totalImages;
+  showImage(currentIndex);
+}
+
+// Funktion für das vorherige Bild
+function prevImage() {
+  currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+  showImage(currentIndex);
+}
+
+// Eventlistener für die Buttons
+document.getElementById('nextBtn').addEventListener('click', nextImage);
+document.getElementById('prevBtn').addEventListener('click', prevImage);
+
+// Initial das erste Bild anzeigen
+showImage(currentIndex);
+
+</script>
     </div> 
 
 </div>
 </div>
-
+<br>
 </body>
 
 </html>
