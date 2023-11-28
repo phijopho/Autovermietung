@@ -1,5 +1,3 @@
-<!-- Meine Buchungen -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +30,7 @@ include('../includes/header.html');
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr class="accordion-toggle">
                 <td>001</td>
                 <td>23.12.2023</td>
                 <td>25.12.2023</td>
@@ -41,51 +39,42 @@ include('../includes/header.html');
                 <td>29.11.2023</td>
             </tr>
             <!-- Weitere Buchungen hier einfügen -->
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr class="accordion-content">
+                <td colspan="6">
+                    <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
+                    <p>Zusätzliche Informationen zur Buchung 001.</p>
+                    <p>Dies könnte der Ort für weitere Details sein.</p>
+                </td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr class="accordion-toggle">
+                <td>002</td>
+                <td>26.12.2023</td>
+                <td>28.12.2023</td>
+                <td>BMW</td>
+                <td>3er</td>
+                <td>30.11.2023</td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr class="accordion-content">
+                <td colspan="6">
+                    <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
+                    <p>Zusätzliche Informationen zur Buchung 002.</p>
+                    <p>Weitere Details könnten hier stehen.</p>
+                </td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <!-- Füge weitere Buchungen und Inhalte hier ein -->
         </tbody>
     </table>
 </div>
 
 <script>
     $(document).ready(function(){
-        $(".tabelle tbody tr").click(function(){
-            $(this).toggleClass("active").siblings().removeClass("active");
+        $(".accordion-content").hide(); // Verstecke alle Inhalte zu Beginn
+
+        $(".accordion-toggle").click(function(){
+            $(this).next(".accordion-content").slideToggle().siblings(".accordion-content").slideUp();
         });
     });
 </script>
-
-
 
 <?php
 include('../includes/footer.html');
@@ -93,3 +82,4 @@ include('../includes/footer.html');
 
 </body>
 </html>
+
