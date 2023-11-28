@@ -107,6 +107,7 @@ ul li ul li {
 /* Footer: */
 /* Allgemeine Einstellungen zum Footer */
 .footercontainer {
+    position: fixed;
     background-color: #1a1818;
     box-sizing: border-box;
     position: relative;
@@ -120,7 +121,6 @@ ul li ul li {
     font-weight: 300;
     padding-left: 50px;
     padding-right: 50px;
-    position: relative;
 }
 
 /* Copyright mit Firmenname einfügen */
