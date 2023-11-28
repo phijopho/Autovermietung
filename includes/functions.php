@@ -82,3 +82,4 @@ function getModel($CarType_ID){
     }
     return $model;    
 }
+?>
