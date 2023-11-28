@@ -6,32 +6,34 @@
   background-position: center; 
   background-repeat: no-repeat;
   height: 100%;
-  z-index: -1;
+
 
   /* content settings */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex;
   overflow: hidden; /* Verhindert, dass der Hintergrund scrollt */
 }
 
 /* Container für den Inhalt */
 .ContentContainer {
+  margin-top: 30%;
   width: 100%;
-  height: calc(100vh - 100px); /* Hier wird die Höhe des fixierten Formulars und des scrollbaren Bereichs berechnet */
+  height: 100%; /* Hier wird die Höhe des fixierten Formulars und des scrollbaren Bereichs berechnet */
   overflow-y: auto; /* Scrollen aktivieren, wenn der Inhalt die Höhe überschreitet */
   padding-top: 100px; /* Platz für das fixierte Formular */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex;
 }
 
 /* Buchungsformular erstellen */
 .divBookingForm {
-  width: 80%; /* Anpassen der Breite nach Bedarf */
-  margin: 20px auto;
+  margin-top: 30%;
+  width: 100%; 
+  margin: 20px;
   background: rgba(14, 14, 14, 0.58);
   padding: 20px;
   border-radius: 10px;
@@ -40,7 +42,7 @@
 
 /* Tabelle und Preisinformationen */
 .divPrices {
-  width: 80%; /* Anpassen der Breite nach Bedarf */
+  width: 100%; 
   margin: 20px auto;
   background: rgba(14, 14, 14, 0.58);
   padding: 20px;
@@ -50,7 +52,8 @@
 
 /* Table Style */
 .tablePrice {
-  border-collapse: collapse;
+  border-color: #F7F2EF;
+  border: 1px;
   width: 100%;
 }
 
@@ -58,3 +61,4 @@
 th, td {
   padding: 15px;
 }
+
