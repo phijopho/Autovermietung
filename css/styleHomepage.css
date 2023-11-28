@@ -6,13 +6,11 @@
   background-position: center; 
   background-repeat: no-repeat;
   height: 100%;
-
   /* content settings */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  overflow: hidden; /* Verhindert, dass der Hintergrund scrollt */
+  align-items: center;
+  display: flex;
+  background-attachment: fixed;
 }
 
 /* Container für den Inhalt */
@@ -29,27 +27,23 @@
 }
 
 /* Buchungsformular erstellen */
-.divBookingForm {
-  margin-top: 50%;
-  width: 40%; 
-  margin: 20px;
-  background: rgba(14, 14, 14, 0.58);
-  padding: 20px;
-  border-radius: 10px;
-  color: #F7F2EF;
+.containerBookingForm {
+  margin-top: 20%;
+  margin-bottom: 20%;
+  width: 60%;
   justify-content: center;
   align-items: center;
-}
-
-.ContainerBookingForm {
-  width: 30%;
-  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  color: #F7F2EF;
+  background: rgba(14, 14, 14, 0.58);
+  padding: 20px;
 }
 
 /* Tabelle und Preisinformationen */
-.divPrices {
-  width: 40%; 
-  margin: 20px auto;
+/* .divPrices {
+  width: 800px; 
+  margin-top: 300px;
   background: rgba(14, 14, 14, 0.58);
   padding: 20px;
   border-radius: 10px;
@@ -57,14 +51,43 @@
 }
 
 /* Table Style */
-.tablePrice {
+/* .tablePrice {
   border-color: #F7F2EF;
   border: 1px;
   width: 100%;
 }
 
 /* Style of table header and table data */
-th, td {
+/* th, td {
   padding: 15px;
+} */ 
+
+.divModels {
+  background-color: #1a1818;
+  width: 100%;
+  height: 500px; 
+  border-top: 3px solid aqua;
+  border-bottom: 3px solid aqua;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.imageContainer {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.caption {
+  margin-top: 10px;
 }
 

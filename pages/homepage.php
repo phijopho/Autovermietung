@@ -21,23 +21,23 @@ include("./includes/functions.php");
 </head>
 <body>
 
-<div class="divBackgroundAudi"> 
+<div class="BackgroundAudi"> 
     <div class="divContentContainer">
-        <div class="divBookingForm">
-            <div class="ContainerBookingForm">
-            <!-- <h1>Buchung</h1> -->
-            <h1>Buchung</h1>
-            <?php 
-                $pickUpLocation = array("Hamburg");
-                $default="Hamburg";
-                $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
-                $stmtGetCities->bindParam(':cityIdent', $default);
-                $stmtGetCities->execute();
-                while($row = $stmtGetCities->fetch()){
-                    $pickUpLocation[] = $row['City'];
-                }
-                ?>
-            <!-- Link zur Produktübersichtseite statt index -->
+        <!-- <div class="divBookingForm"> -->
+            <div class="containerBookingForm">
+                <!-- <h1>Buchung</h1> -->
+                <h1>Buchung</h1>
+                    <?php 
+                    $pickUpLocation = array("Hamburg");
+                    $default="Hamburg";
+                    $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
+                    $stmtGetCities->bindParam(':cityIdent', $default);
+                    $stmtGetCities->execute();
+                    while($row = $stmtGetCities->fetch()){
+                        $pickUpLocation[] = $row['City'];
+                    }
+                    ?>
+        <!-- Link zur Produktübersichtseite statt index -->
             <form action="./index.php" method="post"> 
                 <label for="Abholort">Abholort:</label>
                     <select id="Abholort" name="Abholort">
@@ -55,80 +55,28 @@ include("./includes/functions.php");
             </form>
         </div>
 
-    </div>
 
+    <div class="divModels">
 
-    <div class="divPrices">
-            <table>
-                <tr>
-                    <th>Klasse </th>
-                    <th>Preis von</th>
-                    <th>bis</th>
-                </tr>
-                <tr>
-                    <td>Combi</td>
-                    <td>
-                        <?php $MinPriceCombi=getMinMaxPrice("Combi");
-                        echo "".$MinPriceCombi['min'];
-                        ?> 
-                    </td>
-                    <td>
-                        <?php 
-                        $MinPriceCabrio=getMinMaxPrice("Combi");
-                        echo "".$MinPriceCombi['max'];
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Cabrio</td>
-                    <td>
-                        <?php 
-                            $MinPriceCabrio=getMinMaxPrice("Cabrio");
-                            echo "".$MinPriceCabrio['min'];
-                        ?> 
-                    </td>
-                    <td>
-                        <?php 
-                            $MinPriceCabrio=getMinMaxPrice("Cabrio");
-                            echo "".$MinPriceCabrio['max'];
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Limousine</td>
-                    <td>
-                        <?php 
-                            $MinPriceLimousine=getMinMaxPrice("Limousine");
-                            echo "".$MinPriceLimousine['min'];
-                        ?>
-                    </td>
-                    <td>
-                        <?php 
-                            $MinPriceLimousine=getMinMaxPrice("Limousine");
-                            echo "".$MinPriceLimousine['max'];
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>SUV</td>
-                    <td>
-                        <?php 
-                            $MinPriceLimousine=getMinMaxPrice("SUV");
-                            echo "".$MinPriceLimousine['min'];
-                        ?>
-                    </td>
-                    <td>
-                        <?php 
-                            $MinPriceLimousine=getMinMaxPrice("SUV");
-                            echo "".$MinPriceLimousine['max'];
-                        ?>
-                    </td>
-                </tr>
-                
-            </table>
+        <div class="gallery">
+            <?php 
+            $type=array("Cabrio", "Combi", "Mehrt&uuml;rer");
+            for ($i=1; $i<=6; $i++){
+                echo "<div class='imageContainer'>";
+                    echo "<img src='images/cabrio-mercedes-benz-2845333_1920.png' alt='Bild 1'>";
+                        echo "<div class='caption'>";
+                        $MinPrice=getMinMaxPrice($type[$i-1]);
+                        echo $type[$i-1]." ab: ".$MinPrice['min']." &euro;";
+                        echo "</div>";
+                echo "</div>";
+            }
+            ?>
         </div>
-    </div>
+    </div> 
+
 </div>
+</div>
+
 </body>
 
-
+</html>

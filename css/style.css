@@ -38,6 +38,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid aqua;
 }
 
 /* Einstellungen des Logos im Header */
@@ -128,6 +129,7 @@ ul li ul li {
     padding-left: 200px;
     padding-right: 200px;
     position: relative;
+    border-top: 2px solid aqua;
 }
 
 /* Copyright mit Firmenname einfügen */
