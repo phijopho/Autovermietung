@@ -6,7 +6,7 @@
     <!-- Einbinden der style.css -->
     <link rel="stylesheet" href="../css/style.css"> 
     <link rel="stylesheet" href="../css/styleStandorte.css">
-    <title>SWIFT rentals</title>
+    <title>Standorte</title>
     <base href="/Autovermietung/">
 
 </head>
