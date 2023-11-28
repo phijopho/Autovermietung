@@ -92,7 +92,7 @@ include("./includes/functions.php");
             $type=array("Cabrio", "Combi", "Mehrt&uuml;rer", "SUV", "Coupé", "Limousine");
             for ($i=1; $i<=6; $i++){
                        echo "<div class='imageContainer'>";
-                       echo "<img src='images/cabrio-mercedes-benz-2845333_1920.png' alt='Bild 1'>";
+                       echo "<img src='images/Default_Car_Cabrio_from_mercedes_no_car_brand_visible_silver_n_0_3ab7f2a6-a473-48dc-ba48-421b05e7453f_0.png' alt='Bild 1'>";
                        echo "<div class='caption'>";
                            $MinPrice=getMinMaxPrice($type[$i-1]);
                        echo $type[$i-1]." ab: ".$MinPrice['min']." &euro;";
@@ -108,20 +108,9 @@ include("./includes/functions.php");
 </div>
 </div>
 
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    $('.jcarousel').on('jcarousel:create jcarousel:reload', function () {
-      var element = $(this),
-        width = element.innerWidth();
-
-      element.find('.imageContainer').css('width', width + 'px');
-    }).jcarousel({
-      // Hier kannst du deine Konfigurationsoptionen für jcarousel hinzufügen
-    });
-  });
-</script>
-
+<br>
+<br>
+<br>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
       var scrollLink = document.querySelector('.scroll-link');
