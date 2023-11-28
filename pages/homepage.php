@@ -55,12 +55,39 @@ include("./includes/functions.php");
             </form>
         </div>
 
+<div class="divAboutUs">
+  <div class="divGoal1">
+    <p> Every single detail of  SWIFT rentals  is
+        measured against our continuing goal: to
+        enhance costumer enjoyment.
+    </p>
+  </div>
+
+  <div class="divGoal2">
+    <p> Every single detail of  SWIFT rentals  is
+        measured against our continuing goal: to
+        enhance costumer enjoyment.
+    </p>
+  </div>
+
+  <div class="divGoal3">
+    <p> Every single detail of  SWIFT rentals  is
+        measured against our continuing goal: to
+        enhance costumer enjoyment.
+    </p>
+  </div>
+
+  <div class="divGoal4">
+    <p> Every single detail of  SWIFT rentals  is
+        measured against our continuing goal: to
+        enhance costumer enjoyment.
+    </p>
+  </div>
+</div>
 
     <div class="divModels">
 
         <div class="gallery">
-
-       
          <?php
             $type=array("Cabrio", "Combi", "Mehrt&uuml;rer", "SUV", "Coupé", "Limousine");
             for ($i=1; $i<=6; $i++){
@@ -80,11 +107,20 @@ include("./includes/functions.php");
 
 </div>
 </div>
-<br>
-<br>
-<br>
-<br>
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    $('.jcarousel').on('jcarousel:create jcarousel:reload', function () {
+      var element = $(this),
+        width = element.innerWidth();
+
+      element.find('.imageContainer').css('width', width + 'px');
+    }).jcarousel({
+      // Hier kannst du deine Konfigurationsoptionen für jcarousel hinzufügen
+    });
+  });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -125,6 +161,7 @@ include("./includes/functions.php");
       currentImageIndex = (currentImageIndex + 1) % images.length;
       images[currentImageIndex].style.display = "block";
     }
+
 
     // Add click event listener to show the next image
     document.querySelector('.gallery').addEventListener("click", showNextImage);
