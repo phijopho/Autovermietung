@@ -83,6 +83,10 @@ include("./includes/functions.php");
         enhance costumer enjoyment.
     </p>
   </div>
+  <br>
+      <div class="divbutton">
+          <a href="http://localhost/Autovermietung/pages/aboutus.php" class="button">Discover more</a>
+      </div>
 </div>
 
     <div class="divModels">

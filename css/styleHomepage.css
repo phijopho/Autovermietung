@@ -90,7 +90,46 @@
   padding: 20px;
   margin-left: 10px;
   margin-top: 50px;
+  margin-bottom: 50px;
   float:left;
+}
+.divButton{
+    width: 150px;
+    height: 100px;
+    padding-top:30%;
+    padding-left: 15%;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    float: left;
+}
+.button {
+  background-color: aqua;
+  border: none;
+  width: 150px;
+  opacity: 70%; 
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 200px;
+  margin-bottom: 10px;
+}
+
+a:hover.button {
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  opacity: 100%;
 }
 
 .divModels {
