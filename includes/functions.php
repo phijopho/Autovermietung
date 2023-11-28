@@ -93,4 +93,6 @@ function getMinMaxPrice($Type) {
         $result['max'] = $row['MAX(Price)'];
     return $result; 
 }
+
+
 ?>
