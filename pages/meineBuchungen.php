@@ -43,7 +43,6 @@ include('../includes/header.html');
                 <td colspan="6">
                     <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
                     <p>Zusätzliche Informationen zur Buchung 001.</p>
-                    <p>Dies könnte der Ort für weitere Details sein.</p>
                 </td>
             </tr>
             <tr class="accordion-toggle">
@@ -54,12 +53,27 @@ include('../includes/header.html');
                 <td>3er</td>
                 <td>30.11.2023</td>
             </tr>
+
             <tr class="accordion-content">
                 <td colspan="6">
                     <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
                     <p>Zusätzliche Informationen zur Buchung 002.</p>
-                    <p>Weitere Details könnten hier stehen.</p>
                 </td>
+            </tr>
+
+            <tr class="accordion-toggle">
+                <td>002</td>
+                <td>26.12.2023</td>
+                <td>28.12.2023</td>
+                <td>BMW</td>
+                <td>3er</td>
+                <td>30.11.2023</td>
+            </tr>
+
+            <tr class="accordion-content">
+                <td colspan="6">
+                    <!-- Hier kommt der Inhalt des aufklappbaren Elements -->
+                    <p>Zusätzliche Informationen zur Buchung 003.</p>
             </tr>
             <!-- Füge weitere Buchungen und Inhalte hier ein -->
         </tbody>
@@ -71,7 +85,12 @@ include('../includes/header.html');
         $(".accordion-content").hide(); // Verstecke alle Inhalte zu Beginn
 
         $(".accordion-toggle").click(function(){
-            $(this).next(".accordion-content").slideToggle().siblings(".accordion-content").slideUp();
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active").next(".accordion-content").slideUp();
+            } else {
+                $(".accordion-toggle.active").removeClass("active").next(".accordion-content").slideUp();
+                $(this).addClass("active").next(".accordion-content").slideDown();
+            }
         });
     });
 </script>

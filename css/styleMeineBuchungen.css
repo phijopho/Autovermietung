@@ -25,11 +25,11 @@ th {
 }
 
 tr:nth-child(even) td {
-    background-color: white; /* Weiße Farbe für gerade Zeilen */
+    background-color: #f0f0f0; /* Helle Grau-Farbe für gerade Zeilen */
 }
 
 tr:nth-child(odd) td {
-    background-color: #f0f0f0; /* Helle Grau-Farbe für ungerade Zeilen */
+    background-color: white; /* Weiße Farbe für ungerade Zeilen */
 }
 
 tr.active td {
@@ -44,3 +44,4 @@ tr.active td {
 .accordion-content p {
     margin: 10px;
 }
+
