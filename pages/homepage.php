@@ -1,22 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 <?php 
 include('includes/dbConnection.php');
 include("./includes/functions.php");
-
-$pickUpLocation = array("Hamburg");
-$default="Hamburg";
-$stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
-$stmtGetCities->bindParam(':cityIdent', $default);
-$stmtGetCities->execute();
-while($row = $stmtGetCities->fetch()){
-    $pickUpLocation[] = $row['City'];
-}
 ?>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Einbinden der style.css -->
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/styleHomepage.css">
+    <title>SWIFT rentals</title>
+    <base href="/Autovermietung/">
+
+</head>
+
+
+</head>
+<body>
 
 <div class="divBackgroundAudi"> 
     <div class="divContentContainer">
         <div class="divBookingForm">
-            <div class="divContainerBookingForm">
+            <div class="ContainerBookingForm">
             <!-- <h1>Buchung</h1> -->
+            <h1>Buchung</h1>
+            <?php 
+                $pickUpLocation = array("Hamburg");
+                $default="Hamburg";
+                $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
+                $stmtGetCities->bindParam(':cityIdent', $default);
+                $stmtGetCities->execute();
+                while($row = $stmtGetCities->fetch()){
+                    $pickUpLocation[] = $row['City'];
+                }
+                ?>
             <!-- Link zur Produktübersichtseite statt index -->
             <form action="./index.php" method="post"> 
                 <label for="Abholort">Abholort:</label>
@@ -109,5 +129,6 @@ while($row = $stmtGetCities->fetch()){
         </div>
     </div>
 </div>
+</body>
 
 

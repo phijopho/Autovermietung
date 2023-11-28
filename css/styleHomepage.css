@@ -7,18 +7,17 @@
   background-repeat: no-repeat;
   height: 100%;
 
-
   /* content settings */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex;
+  justify-content: center;
   overflow: hidden; /* Verhindert, dass der Hintergrund scrollt */
 }
 
 /* Container für den Inhalt */
-.ContentContainer {
-  margin-top: 30%;
+.divContentContainer {
+  margin: 0;
   width: 100%;
   height: 100%; /* Hier wird die Höhe des fixierten Formulars und des scrollbaren Bereichs berechnet */
   overflow-y: auto; /* Scrollen aktivieren, wenn der Inhalt die Höhe überschreitet */
@@ -26,23 +25,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex;
+  justify-content: center;
 }
 
 /* Buchungsformular erstellen */
 .divBookingForm {
-  margin-top: 30%;
-  width: 100%; 
+  margin-top: 50%;
+  width: 40%; 
   margin: 20px;
   background: rgba(14, 14, 14, 0.58);
   padding: 20px;
   border-radius: 10px;
   color: #F7F2EF;
+  justify-content: center;
+  align-items: center;
+}
+
+.ContainerBookingForm {
+  width: 30%;
+  align-items: center;
 }
 
 /* Tabelle und Preisinformationen */
 .divPrices {
-  width: 100%; 
+  width: 40%; 
   margin: 20px auto;
   background: rgba(14, 14, 14, 0.58);
   padding: 20px;
