@@ -11,8 +11,8 @@ while($row = $stmtGetCities->fetch()){
 }
 ?>
 
-<div class="BackgroundAudi">
-    <div class="containerBookingForm">
+<div class="BackgroundAudi"> 
+<div class="containerBookingForm">
         <!-- <h1>Buchung</h1> -->
         <!-- Link zur Produktübersichtseite statt index -->
         <form action="./index.php" method="post"> 
@@ -30,5 +30,26 @@ while($row = $stmtGetCities->fetch()){
                 <input type="date" name="Rueckgabedatum" value="<?php echo date('Y-m-d'); ?>" /><br><br>
             <input type="submit" value="Suchen">
         </form>
-    </div>
+        </div>
+
+  
+    <div class="divPrices">
+<table class="tablePrice">
+                    <tr>
+                        <th>Klasse</th>
+                        <td>ab 18 Jahre</td>
+                        <td>ab 21 Jahre</td>
+                        <td>ab 25 Jahre</td>
+                    </tr>
+                    <tr>
+                        <th>Preis ab</th>
+                        <td>"Variable"</td>
+                        <td>"Variable"</td>
+                        <td>"Variable"</td>
+                    </tr>
+                    
+</table>
 </div>
+</div>
+
+
