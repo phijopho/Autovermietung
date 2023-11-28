@@ -1,49 +1,60 @@
-/* Homepage: */
 /* Hintergrundbild anzeigen */
 .BackgroundAudi {
-    /* backround settings */
-    background-image: url('../images/Hintergrund.svg');
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-    height: 800px;
-    /* content settings */
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-attachment: fixed;
+  /* backround settings */
+  background-image: url('../images/Hintergrund.svg');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 100%;
+  z-index: -1;
+
+  /* content settings */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden; /* Verhindert, dass der Hintergrund scrollt */
+}
+
+/* Container für den Inhalt */
+.ContentContainer {
+  width: 100%;
+  height: calc(100vh - 100px); /* Hier wird die Höhe des fixierten Formulars und des scrollbaren Bereichs berechnet */
+  overflow-y: auto; /* Scrollen aktivieren, wenn der Inhalt die Höhe überschreitet */
+  padding-top: 100px; /* Platz für das fixierte Formular */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* Buchungsformular erstellen */
-/* .divBookingform {
-  width: 100%;
-} */
-.containerBookingForm {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 25px;
-    color: #F7F2EF;
-    background: rgba(14, 14, 14, 0.58);
-    padding: 20px;
+.divBookingForm {
+  width: 80%; /* Anpassen der Breite nach Bedarf */
+  margin: 20px auto;
+  background: rgba(14, 14, 14, 0.58);
+  padding: 20px;
+  border-radius: 10px;
+  color: #F7F2EF;
 }
 
-
+/* Tabelle und Preisinformationen */
 .divPrices {
-    float: left;
-    text-align: center;
-    background: rgba(14, 14, 14, 0.58);
-    padding: 20px;
-    margin-top: 300px;
+  width: 80%; /* Anpassen der Breite nach Bedarf */
+  margin: 20px auto;
+  background: rgba(14, 14, 14, 0.58);
+  padding: 20px;
+  border-radius: 10px;
+  color: #F7F2EF;
 }
 
-  /* Table Style */
+/* Table Style */
 .tablePrice {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  /* Style of table header and table data */
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Style of table header and table data */
 th, td {
-    padding: 15px;
-  }
+  padding: 15px;
+}
