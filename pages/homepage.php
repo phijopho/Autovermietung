@@ -74,11 +74,12 @@ include("./includes/functions.php");
         </div>
 
         <div class="divModels">
-            <div class="gallery">
+            <div class="slideshow-container">
+                <div class="my Slides fade">
             <?php
                 $type=selectDistinctColumn('Type', 'CarType');
-                for ($i=0; $i<=5; $i++){
-                    echo "<div class='imageContainer'>";
+                for ($i=1; $i<=5; $i++){
+                    echo "<div class='mySlides'>";
                         echo "<img src='images/Default_Car_Cabrio_from_mercedes_no_car_brand_visible_silver_n_0_3ab7f2a6-a473-48dc-ba48-421b05e7453f_0.png' alt='Bild 1'>";
                         echo "<div class='caption'>";
                             $MinPrice=getMinMaxPrice($type[$i]);
@@ -87,14 +88,29 @@ include("./includes/functions.php");
                     echo "</div>";
                 }         
             ?>
+            
+<!--  Next and previous buttons --> 
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+
+                    <!-- The dots/circles -->
+                    <div class="divDots">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span>  
+                    </div>
             </div>
         </div> 
     </div>
-</div>
+ </div>
 
-<br>
-<br>
-<br>
+    <br>
+    <br>
 
 <!-- including Java Script scoll style for anchor and slide effects for gallery -->
 <script>
@@ -120,25 +136,36 @@ include("./includes/functions.php");
       });
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".gallery .imageContainer");
-    let currentImageIndex = 0;
 
-    // Hide all images except the first one
-    images.forEach((image, index) => {
-      if (index !== currentImageIndex) {
-        image.style.display = "none";
-      }
-    });
+    // Slideshow
 
-    function showNextImage() {
-      images[currentImageIndex].style.display = "none";
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-      images[currentImageIndex].style.display = "block";
-    }
+    let slideIndex = 1;
+showSlides(slideIndex);
 
-    // Add click event listener to show the next image
-    document.querySelector('.gallery').addEventListener("click", showNextImage);
-  });
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none"; 
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block"; 
+  dots[slideIndex-1].className += " active";
+}
 
 </script>

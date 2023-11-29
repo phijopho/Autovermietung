@@ -17,7 +17,7 @@
 
             include('includes/header.html'); // include header
 
-            include('pages/Produktdetailseite.php'); // include body content
+            include('pages/Homepage.php'); // include body content
 
             include('includes/footer.html'); // include footers
 
