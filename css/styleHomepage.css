@@ -40,6 +40,7 @@
   padding: 20px;
 }
 
+/* general box for reviews and goals */
 .divAboutUs {
   width: 100%;
   height: 1000px;
@@ -47,6 +48,7 @@
   border-bottom: 3px solid aqua;
 }
 
+/* short reviews and/or Goals of Swift Rental */
 .divGoal1 {
   width: 499px;
   height: 135px;
@@ -93,6 +95,8 @@
   margin-bottom: 50px;
   float:left;
 }
+
+/* Button style with link to page About us */
 .divButton{
     width: 150px;
     height: 100px;
@@ -132,6 +136,7 @@ a:hover.button {
   opacity: 100%;
 }
 
+/* Div for image gallery and image container and image caption*/
 .divModels {
   background-color: #1a1818;
   width: 100%;
@@ -144,9 +149,9 @@ a:hover.button {
   display: flex;
   width: 100%;
   height: 800px;
-  flex-direction: row;
+  flex-direction: row;  /* all items are horzontally organised */
   align-items: center;
-  overflow-y: hidden;
+  overflow-y: hidden; /* just one imgage is shown */
 }
 
 .imageContainer {
