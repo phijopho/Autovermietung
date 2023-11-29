@@ -67,6 +67,7 @@ include("./includes/functions.php");
                 </p>
             </div>
             <br>
+            <!-- When click on button, then AboutUs page opens -->
             <div class="divbutton">
                 <a href="http://localhost/Autovermietung/pages/aboutus.php" class="button">Discover more</a>
             </div>
@@ -90,10 +91,15 @@ include("./includes/functions.php");
         </div> 
     </div>
 </div>
+
 <br>
 <br>
 <br>
+
+<!-- including Java Script scoll style for anchor and slide effects for gallery -->
 <script>
+
+
     document.addEventListener('DOMContentLoaded', function() {
       var scrollLink = document.querySelector('.scroll-link');
 

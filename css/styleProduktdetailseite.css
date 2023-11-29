@@ -58,7 +58,7 @@ th, td {
     padding: 15px;
   }
 
-  /* box on the right side with selected filters */
+  /* Box below photo and table */
   .divInfo {
     width: 100%;
     text-align: left;
@@ -67,6 +67,7 @@ th, td {
     margin-top: 30px;
 }
 
+/* Textbox with additional Information */
 .divText {
   width: 60%;
   height: 350px;
@@ -80,6 +81,8 @@ th, td {
   padding: 20px;
 }
 
+
+/* Booking form */
 .containerBookingForm {
   float: right;
   margin-top: 30px;
@@ -94,6 +97,8 @@ th, td {
   padding: 20px;
 }
 
+
+/* Eventuell Löschen falls das neue Format Behalten werden soll */
 /* Box for button */
 .divButton {
     width: 100%;
