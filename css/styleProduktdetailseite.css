@@ -2,192 +2,155 @@
 
 /* Box which covers the entire Body */
 .divbody {
-    width: 100%;
-    margin-top: 100px;
-    overflow-y: scroll;
+  width: 100%;
+  margin-top: 100px;
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
 .divgallery {
-    float: left;
-    width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    border-bottom: 3px solid aqua;
-    align-content: center;
+  float: left;
+  width: 60%;
+  margin-left: 20px;
+  margin-bottom: 100px;
+  border-right: 3px solid aqua;
 }
 
 /* Box with Image and Imagedescription */
 div.foto {
-    border: none;
-    
-    width: 70%;
-  }
-  
-  /* Image Box */
-  div.foto img {
-    width: 100%;
-  }
-  
-  /* Image descriptionbox */
-  div.desc {
-    padding: 0px;
-    text-align: center;
-  }
+  border: none;
+  float: left;
+  width: 90%;
+}
+
+/* Image Box */
+div.foto img {
+  width: 100%;
+}
+
+/* Image descriptionbox */
+div.desc {
+  padding: 0px;
+  text-align: center;
+}
 
 /* Table which is included in the image description box */
 table, th, td {
-    border: none;
-    padding: 15px;
-    text-align: left;
-    width: 100%;
-     
-  }
-
-  /* Table Style */
-table {
-    border-collapse: collapse;
-    width: 50%;
-    margin-left: 30%;
-    margin-bottom: 20px;
-  }
-  
-  /* Style of table header and table data */
-th, td {
-    padding: 15px;
-  }
-
-  /* Box below photo and table */
-  .divInfo {
-    width: 100%;
-    text-align: left;
-    padding-top: 3%;
-    margin-left: 30px;
-    margin-top: 30px;
-}
-
-/* Textbox with additional Information */
-.divText {
-  width: 60%;
-  height: 350px;
-  margin: 30px;
-  background-color: rgba(14, 14, 14, 0.683);
-  border-radius: 25px;
-  align-content: center;
-  padding-top: 20px;
-  float: left;
-  align-items: center;
-  padding: 20px;
-}
-
-
-/* Booking form */
-.containerBookingForm {
-  float: right;
-  margin-top: 30px;
-  margin-right: 50px;
-  width: 300px;
-  height: 300px;
-  align-items: center;
+  border: none;
+  padding: 15px;
   text-align: left;
-  border-radius: 25px;
-  color: #F7F2EF;
-  background: rgba(14, 14, 14, 0.58);
-  padding: 20px;
+  width: 100%;
+   
 }
 
+/* Table Style */
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
 
-/* Eventuell Löschen falls das neue Format Behalten werden soll */
+/* Style of table header and table data */
+th, td {
+  padding: 15px;
+}
+
+/* box on the right side with selected filters */
+.divinfo {
+  float: left;
+  width: 35%;
+  text-align: left;
+  padding-top:3%;
+  margin-left: 30px;
+}
+
 /* Box for button */
-.divButton {
-    width: 100%;
-    padding-top:30%;
-    padding-left: 15%;
-    align-content: center;
+.divbutton {
+  width: 100%;
+  padding-top:30%;
+  padding-left: 15%;
+  align-content: center;
 }
 
 /* Button style if user is logged in and old enough to book the car */
 .button {
-    background-color: aqua;
-    border: none;
-    width: 40%;
-    opacity: 50%; 
-    transform: scale(150%);
-    font-weight: 600;
-    color: #1a1818;
-    padding: 15px 32px;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+  background-color: aqua;
+  border: none;
+  width: 40%;
+  opacity: 50%; 
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-  /* Button if user is not logged in*/
-  .buttonNotSignedIn {
-    background-color: aqua;
-    border: none;
-    width: 40%;
-    opacity: 50%;
-    transform: scale(150%);
-    font-weight: 600;
-    color: #1a1818;
-    padding: 15px 32px;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+/* Button if user is not logged in*/
+.buttonNotSignedIn {
+  background-color: aqua;
+  border: none;
+  width: 40%;
+  opacity: 50%;
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-  /* If User is not Old enough: hover.buttonNotOldEnough */
+/* If User is not Old enough: hover.buttonNotOldEnough */
 
-  .buttonNotOldEnough {
-    background-color: grey;
-    border: none;
-    width: 40%;
-    opacity: 50%;
-    transform: scale(150%);
-    font-weight: 600;
-    color: #1a1818;
-    padding: 15px 32px;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+.buttonNotOldEnough {
+  background-color: grey;
+  border: none;
+  width: 40%;
+  opacity: 50%;
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-  a:hover.button {
-    color: #1a1818;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    opacity: 100%;
+a:hover.button {
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  opacity: 100%;
 }
 
 /* If User is not Old enough: buttonNotOldEnough*/
 
 a:hover.buttonNotOldEnough {
-    color: #1a1818;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
 }
 
 /* Style of hover Button if user is not logged in */
 
 a:hover.buttonNotSignedIn {
-    color: #1a1818;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    opacity: 100%;
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  opacity: 100%;
 }

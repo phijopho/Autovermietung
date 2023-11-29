@@ -17,9 +17,9 @@
 .divContentContainer {
   margin: 0;
   width: 100%;
-  height: 100%; /* Hier wird die Höhe des fixierten Formulars und des scrollbaren Bereichs berechnet */
-  overflow-y: auto; /* Scrollen aktivieren, wenn der Inhalt die Höhe überschreitet */
-  padding-top: 100px; /* Platz für das fixierte Formular */
+  height: 100%; 
+  overflow-y: auto; /* activate scrolling if height is exceeded */
+  padding-top: 150px; /* Platz für das fixierte Formular */
   display: flex;
   flex-direction: column;
   align-items: center;

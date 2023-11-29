@@ -108,10 +108,6 @@ include("./includes/functions.php");
         </div> 
     </div>
  </div>
-
-    <br>
-    <br>
-
 <!-- including Java Script scoll style for anchor and slide effects for gallery -->
 <script>
 

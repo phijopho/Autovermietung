@@ -1,7 +1,8 @@
+<div id="header">
 <div class="headercontainer">
     <div class="logobox"><a href="index.php"><img src="./images/SWIFT.svg" alt="SWIFT logo"></a></div>
     <div class="headerbox"><a href="#">Auto mieten</a></div>
-    <div class="headerbox"><a href="#">Preise</a></div>
+    <div class="headerbox"><a href="#" class="scroll-link">Preise</a></div>
     <div class="headerbox"><a href="location.html">Standorte</a></div>
     <div class="divhover">
         <ul>
@@ -16,3 +17,17 @@
           </ul>
         </div>
     </div>
+  </div>
+
+    <script>
+// When the user scrolls down 50px from the top of the document, resize the header's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("header").style.fontSize = "20px";
+  } else {
+    document.getElementById("header").style.fontSize = "25px";
+  }
+}
+</script>
