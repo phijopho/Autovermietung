@@ -13,6 +13,7 @@ form {
     overflow-x: hidden; /* Verhindert waagerechtes Scrollen */
 }
 
+
 /* headline with gradient underlining */
 h1 {
     color: #f7f2ef;
@@ -70,6 +71,7 @@ button {
     height: 50px;
     width: 150px;
     border-radius: 25px;
+    padding-top: 200px;
     border: none;
 
     font-family: "Montserrat", sans-serif;

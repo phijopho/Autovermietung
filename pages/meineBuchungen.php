@@ -15,8 +15,10 @@
 include('../includes/header.html');
 ?>
 
+<!--Buchungsübersicht gesamt-->
 <article>
     
+    <!--Orientierungsleiste-->
     <div class="onTopContainer">
         <h4>Buchungs-ID</h4>
         <h4>Abholdatum</h4>
@@ -26,9 +28,10 @@ include('../includes/header.html');
         <h4>Buchungsdatum</h4>
     </div>
 
-
+    <!--Accordion beginnt-->
     <dl id="ud_accordion">
 
+    <!--erste Zeile-->
         <dt>
     <div class="dataBuchung">
         <h4>2023281101</h4>
@@ -41,11 +44,10 @@ include('../includes/header.html');
         </dt>
 
         <!--scroll down element infos-->
-        <dd>x</dd>
+        <dd>Beliebiger Text</dd>
 
 
-
-
+  
         <dt>x</dt>
         <dd>x</dd>
 
@@ -62,6 +64,10 @@ include('../includes/header.html');
         <dd>x</dd>
     </dl>
     </article>
+
+
+
+
 
 <script>
    $(document).ready(function() {

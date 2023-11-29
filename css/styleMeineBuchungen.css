@@ -20,28 +20,12 @@ th, td {
     color: black; /* Schwarze Schriftfarbe für alle Zellen */
 }
 
-th {
-    background-color: aqua; /* Farbige Hintergrundfarbe für die erste Zeile */
-}
-
-tr:nth-child(even) td {
-    background-color: #f0f0f0; /* Helle Grau-Farbe für gerade Zeilen */
-}
-
-tr:nth-child(odd) td {
-    background-color: white; /* Weiße Farbe für ungerade Zeilen */
-}
-
-tr.active td {
-    background-color: lightblue; /* Farbe für aktive Zeilen */
-}
 
 article {
   width: 90%;
   max-width: 1000px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 20px auto; 
   padding-top: 150px;
-  margin-bottom: 150px;
 }
 
 .ud_active {
