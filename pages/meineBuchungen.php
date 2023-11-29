@@ -12,65 +12,32 @@
 <body>
 
 <?php
-include('../includes/header.html');
-?>
+    include('../includes/header.html'); // Einbinden des Headers
+    ?>
 
-<!--Buchungsübersicht gesamt-->
 <article>
-    
-    <!--Orientierungsleiste-->
-    <div class="onTopContainer">
-        <h4>Buchungs-ID</h4>
-        <h4>Abholdatum</h4>
-        <h4>Rückgabedatum</h4>
-        <h4>Hersteller</h4>
-        <h4>Modell</h4>
-        <h4>Buchungsdatum</h4>
-    </div>
-
-    <!--Accordion beginnt-->
-    <dl id="ud_accordion">
-
-    <!--erste Zeile-->
-        <dt>
-    <div class="dataBuchung">
-        <h4>2023281101</h4>
-        <h4>30.11.2023</h4>
-        <h4>02.12.2023</h4>
-        <h4>Audi</h4>
-        <h4>A8</h4>
-        <h4>28.11.2023</h4>
-    </div>
-        </dt>
-
-        <!--scroll down element infos-->
-        <dd>Beliebiger Text</dd>
-
-
+  <dl id="ud_accordion">
+    <dt>Buchungszeile 1</dt>
+    <dd>Platz für weitere Informationen</dd>
   
-        <dt>x</dt>
-        <dd>x</dd>
+    <dt>Buchungszeile 2</dt>
+    <dd>Platz für weitere Informationen</dd>
 
-        <dt>x</dt>
-        <dd>x</dd>
+    <dt>Buchungszeile 3</dt>
+    <dd>Platz für weitere Informationen</dd>
 
-        <dt>x</dt>
-        <dd>x</dd>
+    <dt>Buchungszeile 4</dt>
+    <dd>Platz für weitere Informationen</dd>
 
-        <dt>x</dt>
-        <dd>x</dd>
-
-        <dt>x</dt>
-        <dd>x</dd>
-    </dl>
-    </article>
+    <dt>Buchungszeile 5</dt>
+    <dd>Platz für weitere Informationen</dd>
+  </dl>
+</article>
 
 
-
-
-
+<!--js code for accordion--> 
 <script>
-   $(document).ready(function() {
+$(document).ready(function() {
   $("#ud_accordion dt")
     .stop()
     .click(function() {
@@ -101,12 +68,7 @@ include('../includes/header.html');
       }
     });
 });
-
 </script>
-
-<?php
-include('../includes/footer.html');
-?>
 
 </body>
 </html>

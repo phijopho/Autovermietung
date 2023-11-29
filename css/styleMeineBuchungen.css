@@ -1,37 +1,29 @@
-.tabelle {
-    margin-top: 100px;
-    margin-bottom: 200px;
-    display: flex;
-    justify-content: center;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
-table {
-    border-collapse: collapse;
-    width: 70%;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-    height: 40px;
-    color: black; /* Schwarze Schriftfarbe für alle Zellen */
-}
-
-
+/*article settings*/
 article {
   width: 90%;
   max-width: 1000px;
-  margin: 0 auto 20px auto; 
-  padding-top: 150px;
+  margin: 0 auto 0 auto;
+  padding: 200px 0 0 0;
 }
 
+/*settings when button is clicked*/
 .ud_active {
-  background: #ff6e48;
+  background: aqua;
   padding: 4% 0 4% 4%;
+  color: black;
+
 }
+
+/*settings fpr smooth open*/
 dt {
   transition: all 300ms;
   -webkit-transition: all 300ms;
@@ -44,8 +36,8 @@ dd {
   padding: 2%;
   margin: 0;
 }
+
 dt {
-  font-family: "Oswald", sans-serif;
   background: #33455e;
   color: #fff;
   text-transform: uppercase;
@@ -56,9 +48,12 @@ dt {
 dt:first-child {
   border-top: none;
 }
+
 dt:hover {
-  background: #ff6e48;
+  background: aqua;
 }
+
+
 dd {
   font-family: "Lato", sans-serif;
   background: #ffffff;
@@ -67,42 +62,20 @@ dd {
   word-spacing: 3px;
   color: #999;
   display: none;
+  color: black;
 }
 
+.dataBuchung {
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 98%;
+  display: flex;
+  justify-content: space-around; /* Hier wurde der Raum zwischen den h4-Elementen gleichmäßig verteilt */
+  align-items: center;
+}
 
-/*Buchungselemente Leiste oben*/
 .onTopContainer {
-    background: #33455e;
-    color: #fff;
-    text-transform: uppercase;
-    border-top: 1px solid #222;
-    cursor: pointer;
-    width: 98%;
-    display: flex;
-    justify-content: space-around; /* Hier wurde der Raum zwischen den h4-Elementen gleichmäßig verteilt */
-    align-items: center;
-    padding: 10px; /* Hier wurde ein Padding für den gesamten Container hinzugefügt */
-  }
-  
-  .onTopContainer h4 {
-    margin: 0; /* Hier wird der Standardmargin des h4-Elements entfernt */
-  }
-  
-
-
-
-
-  .dataBuchung {
-    color: #fff;
-    text-transform: uppercase;
-    cursor: pointer;
-    width: 98%;
-    display: flex;
-    justify-content: space-around; /* Hier wurde der Raum zwischen den h4-Elementen gleichmäßig verteilt */
-    align-items: center;
-  }
-  
-  .onTopContainer h4 {
-    margin: 0; /* Hier wird der Standardmargin des h4-Elements entfernt */
-  }
+  margin: 0;
+}
   
