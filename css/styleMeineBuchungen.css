@@ -10,10 +10,16 @@ html {
 /*article settings*/
 article {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1300px;
   margin: 0 auto 0 auto;
   padding: 200px 0 0 0;
 }
+
+/*Page spacing of the font in the accordion dt element*/
+#ud_accordion h4 {
+    margin-right: 35px;
+    margin-bottom: 15px;
+  }
 
 /*settings when button is clicked*/
 .ud_active {
@@ -31,7 +37,7 @@ dt {
 
 dt,
 dd {
-  width: 96%;
+  width: 95%;
   float: left;
   padding: 2%;
   margin: 0;
@@ -43,12 +49,28 @@ dt {
   text-transform: uppercase;
   border-top: 1px solid #222;
   cursor: pointer;
+
+    margin: 0;
+    display: flex;
+    padding: 25px;
+    background: #33455e;
+    color: #fff;
+    text-transform: uppercase;
+    border-top: 1px solid #222;
+    justify-content: space-between; /* Gleichmäßiger Abstand zwischen den Elementen */
+    width: 95%; /* Füllt die gesamte Breite der Klasse aus */
+
+}
+
+dt h4 {
+    margin: 0; 
 }
 
 dt:first-child {
   border-top: none;
 }
 
+/*hover effect*/
 dt:hover {
   background: aqua;
 }
@@ -71,11 +93,36 @@ dd {
   cursor: pointer;
   width: 98%;
   display: flex;
-  justify-content: space-around; /* Hier wurde der Raum zwischen den h4-Elementen gleichmäßig verteilt */
+  justify-content: space-around;
   align-items: center;
 }
 
+/*booking detail names container*/
 .onTopContainer {
-  margin: 0;
-}
+    margin: 0;
+    display: flex;
+    padding: 25px;
+    background: #33455e;
+    color: #fff;
+    text-transform: uppercase;
+    border-top: 1px solid #222;
+    justify-content: space-between; /* Gleichmäßiger Abstand zwischen den Elementen */
+    width: 95%; /* Füllt die gesamte Breite der Klasse aus */
+  }
   
+  .onTopContainer h3 {
+    margin: 0; /* Entfernt den standardmäßigen Abstand der h3-Elemente */
+  }
+
+/* headline with gradient underlining */
+h1 {
+    color: #f7f2ef;
+    font-size: 45px;
+    align-items: center;
+
+    background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 30%, transparent 30%);
+    background-size: 100% 4px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    line-height: 42px;
+}
