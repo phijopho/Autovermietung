@@ -75,17 +75,17 @@ include("./includes/functions.php");
         <div class="divModels">
             <div class="gallery">
             <?php
-                $type=array("Cabrio", "Combi", "Mehrt&uuml;rer", "SUV", "Coupé", "Limousine");
-                for ($i=1; $i<=6; $i++){
+                $type=selectDistinctColumn('Type', 'CarType');
+                for ($i=0; $i<=5; $i++){
                     echo "<div class='imageContainer'>";
                         echo "<img src='images/Default_Car_Cabrio_from_mercedes_no_car_brand_visible_silver_n_0_3ab7f2a6-a473-48dc-ba48-421b05e7453f_0.png' alt='Bild 1'>";
                         echo "<div class='caption'>";
-                            $MinPrice=getMinMaxPrice($type[$i-1]);
-                            echo $type[$i-1]." ab: ".$MinPrice['min']." &euro;";
+                            $MinPrice=getMinMaxPrice($type[$i]);
+                            echo $type[$i]." ab: ".$MinPrice['min']." &euro;";
                         echo "</div>";
                     echo "</div>";
                 }         
-                ?>
+            ?>
             </div>
         </div> 
     </div>
