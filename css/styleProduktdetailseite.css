@@ -4,22 +4,25 @@
 .divbody {
     width: 100%;
     margin-top: 100px;
+    overflow-y: scroll;
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
 .divgallery {
     float: left;
-    width: 60%;
-    margin-left: 20px;
-    margin-bottom: 100px;
-    border-right: 3px solid aqua;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    border-bottom: 3px solid aqua;
+    align-content: center;
 }
 
 /* Box with Image and Imagedescription */
 div.foto {
     border: none;
-    float: left;
-    width: 90%;
+    
+    width: 70%;
   }
   
   /* Image Box */
@@ -46,6 +49,8 @@ table, th, td {
 table {
     border-collapse: collapse;
     width: 50%;
+    margin-left: 30%;
+    margin-bottom: 20px;
   }
   
   /* Style of table header and table data */
@@ -54,16 +59,43 @@ th, td {
   }
 
   /* box on the right side with selected filters */
-  .divinfo {
-    float: left;
-    width: 35%;
+  .divInfo {
+    width: 100%;
     text-align: left;
-    padding-top:3%;
+    padding-top: 3%;
     margin-left: 30px;
+    margin-top: 30px;
+}
+
+.divText {
+  width: 60%;
+  height: 350px;
+  margin: 30px;
+  background-color: rgba(14, 14, 14, 0.683);
+  border-radius: 25px;
+  align-content: center;
+  padding-top: 20px;
+  float: left;
+  align-items: center;
+  padding: 20px;
+}
+
+.containerBookingForm {
+  float: right;
+  margin-top: 30px;
+  margin-right: 50px;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+  text-align: left;
+  border-radius: 25px;
+  color: #F7F2EF;
+  background: rgba(14, 14, 14, 0.58);
+  padding: 20px;
 }
 
 /* Box for button */
-.divbutton {
+.divButton {
     width: 100%;
     padding-top:30%;
     padding-left: 15%;
