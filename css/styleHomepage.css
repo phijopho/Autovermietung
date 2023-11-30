@@ -6,12 +6,16 @@
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
-    height: 800px;
+    height: 100%;
     /* content settings */
     justify-content: center;
     align-items: center;
     display: flex;
     background-attachment: fixed;
+}
+
+.divContentContainer {
+  
 }
 
 /* Buchungsformular erstellen */
