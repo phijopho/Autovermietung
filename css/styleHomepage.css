@@ -14,8 +14,17 @@
     background-attachment: fixed;
 }
 
+/* Container für den Inhalt */
 .divContentContainer {
-  
+  margin: 0;
+  width: 100%;
+  height: 100%; 
+  overflow-y: auto; /* activate scrolling if height is exceeded */
+  padding-top: 150px; /* Platz für das fixierte Formular */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Buchungsformular erstellen */
