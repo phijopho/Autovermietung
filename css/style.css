@@ -20,19 +20,24 @@ a:hover {
 
 /* Header: */
 /* Allgemeine Einstellungen zum Header */
-.headercontainer {
-    background-color: #525252;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    border-bottom: 2px solid aqua;
+
+    /* Einstellungen des Logos im Header */
+.logobox {
+  margin-left: 20px;
+} 
+
+/* Einstellungen der div's im Header */
+.headerbox {
+  float: left;
+  margin-top: 10px;
 }
+
+/* Einstellungen des Logins im Header */
+.loginbox {
+  margin-right: 20px;
+  margin-left: 200px;
+}
+
 #navbar {
     overflow: hidden;
     background-color: #525252;
@@ -124,6 +129,33 @@ a:hover {
 
 /* Header angemeldet*/
 
+/* .topnavSignedIn {
+  overflow: hidden;
+  background-color: #525252;
+  float: left;
+}
+
+.topnavSignedIn a {
+  float: left;
+  color: #f7f2ef;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnavSignedIn a:hover {
+  background-color: #525252;
+  color: aqua;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+/* .topnavSignedIn a.split {
+  float: right;
+  background-color: #525252;
+  color: #f7f2ef;
+} */ */
+
 /* #header {
     background-color: #525252;
     padding: 50px 10px;
@@ -139,73 +171,20 @@ a:hover {
     border-bottom: 2px solid aqua;
   } */
 
-/* Einstellungen des Logos im Header */
-.logobox {
-    margin-left: 20px;
-} 
+  /* .headerContainer {
+    background-color: #525252;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 2px solid aqua;
+    } */
 
-/* Einstellungen der div's im Header */
-.headerbox {
-    float: left;
-    margin-top: 10px;
-}
-
-/* Einstellungen des Logins im Header */
-.loginbox {
-    margin-right: 20px;
-    margin-left: 200px;
-}
-
-/*Style des Hover-Menüs*/
-.divhover {
-    margin-right: 20px;
-    margin-left: 200px;
-    background-color: #525252 ;
-}
-
-.divhover a {
-    text-decoration: none;
-    color: #f7f2ef;
-    font-size: 16px;
-    padding: 15px;
-    display:inline-block;
-}
-a:hover {
-    color: aqua;
-}
-
-ul {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-  
-
-ul li {
-    display: inline-block;
-}
-
-ul li:hover {
-    background: #525252;
-}
-
-ul li:hover ul {
-    display: block;
-
-}
-ul li ul {
-  position: absolute;
-  width: 200px;
-  display: none;
-}
-
-ul li ul li { 
-    background: #525252;
-    display: block; 
-}
-  ul li ul li a {
-    display:block !important;
-} 
 
 
 /* Footer: */
