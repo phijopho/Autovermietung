@@ -1,46 +1,56 @@
+
 <div id="navbar">
-    <div 
-      id="navbar logo"><a href="index.php"><img src="images/SWIFT.svg" alt="SWIFT logo"></a>
-    </div>
+      <div 
+        id="navbar logo"><a href="index.php"><img src="images/SWIFT.svg" alt="SWIFT logo"></a>
+      </div>
     <div class="topnav">
-      <div class="headerbox"><a class="nav-link" href="./pages/produktuebersicht.php">Auto mieten</a></div>
-      <div class="headerbox"><a href="#" class="scroll-link nav-link">Preise</a></div>
-      <div class="headerbox"><a href="location.html" class="nav-link">Standorte</a></div>
-      <div id="navbar-right"><a href="../Autovermietung/pages/login.php" class="nav-link">Login</a><a href="../Autovermietung/pages/registration.php" class="nav-link">Registrieren</a></div>
+        <div class="headerbox">
+          <a class="nav-link" href="./pages/produktuebersicht.php">Auto mieten</a>
+        </div>
+        <div class="headerbox">
+          <a href="#" class="scroll-link nav-link">Preise</a>
+        </div>
+        <div class="headerbox">
+          <a href="location.html" class="nav-link">Standorte</a>
+        </div>
+      <div id="navbar-right">
+          <a href="../Autovermietung/pages/login.php" class="nav-link">Login</a>
+          <a href="../Autovermietung/pages/registration.php" class="nav-link">Registrieren</a>
+      </div>
     </div>
   </div>
 
 
 <script>
-// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = function() {scrollFunction()};
+  // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+  window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    document.getElementById("navbar").style.padding = "20px 10px";
-    document.getElementById("logo").style.fontSize = "18px";
-  } else {
-    document.getElementById("navbar").style.padding = "30px 10px";
-    document.getElementById("logo").style.fontSize = "25px";
+  function scrollFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      document.getElementById("navbar").style.padding = "5px 10px";
+      document.getElementById("logo").style.fontSize = "18px";
+    } else {
+      document.getElementById("navbar").style.padding = "30px 10px";
+      document.getElementById("logo").style.fontSize = "25px";
+    }
   }
-}
 </script>
 
 <script>
     // JavaScript-Code
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Füge jedem Link einen Event-Listener hinzu, um auf Klicks zu reagieren
+    // Event-Listener i clicked links
     navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        e.preventDefault(); // Verhindert das Standardverhalten des Links
+        e.preventDefault(); // avoids standard behaviour of links
 
-        // Entferne die Klasse 'active' von allen Links
+        // remove all active classes
         navLinks.forEach(item => {
           item.classList.remove('active');
         });
 
-        // Markiere den angeklickten Link als aktiv
+        // underline active link
         this.classList.add('active');
       });
     });
