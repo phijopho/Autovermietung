@@ -1,3 +1,13 @@
 /* Standorte */
 /* Settings for the standorte container */
 
+body {
+    overflow-x: hidden;
+}
+
+.verkleinertesBild {
+    width: 100px;
+    height: auto; 
+    display: block; 
+    margin: 0 auto;
+}
