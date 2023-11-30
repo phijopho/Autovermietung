@@ -3,7 +3,6 @@ include('includes/dbConnection.php');
 include("./includes/functions.php");
 ?>
 
-<body>
 <div class="BackgroundAudi"> 
     <div class="divContentContainer">
         <!-- <div class="divBookingForm"> -->
@@ -74,4 +73,3 @@ include("./includes/functions.php");
         </div>        
     </div>
 </div>
-</body>
