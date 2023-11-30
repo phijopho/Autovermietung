@@ -57,5 +57,6 @@ $location=getCities();
         <div class="divbutton">
             <a href="http://localhost/Autovermietung/pages/aboutus.php" class="button">Discover more</a>
         </div>
+        
     </div>
 </div>

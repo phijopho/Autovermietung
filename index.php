@@ -9,19 +9,25 @@
         <title>SWIFT rentals</title>
 
     </head>
+
+    <?php
+    include('includes/header.html'); // include header
+    ?>
+
     <body>
 
         <?php
 
             include('includes/dbConnection.php'); // connect database
 
-            include('includes/header.html'); // include header
-
             include('pages/homepage.php'); // include body content
-
-            include('includes/footer.html'); // include footers
 
         ?> 
 
     </body>
+
+<?php
+    include('includes/footer.html'); // include footers
+?>
+
 </html>
