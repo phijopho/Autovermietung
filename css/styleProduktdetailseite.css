@@ -33,6 +33,7 @@ div.foto {
   border: none;
   text-align: center;
   font-size: 30px;
+  font-weight: bold;
   opacity: 0.6;
   transition: 0.3s;
 }
