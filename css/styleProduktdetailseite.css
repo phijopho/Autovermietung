@@ -29,9 +29,10 @@ div.foto {
   background-color: #525252;
   color: aqua;
   margin-left: 45%;
+  margin-top: -3%;
   border: none;
   text-align: center;
-  font-size: 16px;
+  font-size: 30px;
   opacity: 0.6;
   transition: 0.3s;
 }
