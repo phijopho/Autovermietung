@@ -12,7 +12,6 @@
   width: 60%;
   margin-left: 20px;
   margin-bottom: 100px;
-  border-right: 3px solid aqua;
 }
 
 /* Box with Image and Imagedescription */
@@ -20,7 +19,24 @@ div.foto {
   border: none;
   float: left;
   width: 90%;
+  height: 72%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  background-color: #525252;
+  border-radius: 30px;
 }
+.buttonToggle {
+  background-color: #525252;
+  color: aqua;
+  margin-left: 45%;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.buttonToggle:hover {opacity: 1}
 
 /* Image Box */
 div.foto img {
@@ -29,9 +45,16 @@ div.foto img {
 
 /* Image descriptionbox */
 div.desc {
-  padding: 0px;
   text-align: center;
+  height: 35%;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 10px 20px;
+  color: #1a1818;
+  background: linear-gradient(to bottom, #525252, rgb(18, 162, 162));
+  opacity: 0;
 }
+
 
 /* Table which is included in the image description box */
 table, th, td {
@@ -39,18 +62,20 @@ table, th, td {
   padding: 15px;
   text-align: left;
   width: 100%;
-   
+  color: #1a1818;
 }
 
 /* Table Style */
 table {
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
+  margin-top: 50px;
 }
 
 /* Style of table header and table data */
 th, td {
   padding: 15px;
+  width: 30%;
 }
 
 /* box on the right side with selected filters */

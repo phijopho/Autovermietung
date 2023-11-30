@@ -7,18 +7,23 @@
     <title>Produktdetails</title> 
 </head>
  
-<body>
 <?php
     include('../includes/header.html'); // Einbindung des Headers
 ?>
+
+<body>
+
 
 <div class="divbody">
     <div class="divgallery">
         <h1>"Fahrzeugmodell"</h1>
         <div class="foto">
   
-            <img src="images/cabrio-mercedes-benz-2845333_1920.png" alt="Auto">
-            <div class="desc">
+            <img src="images/Default_Car_Cabrio_from_mercedes_no_car_brand_visible_silver_n_0_3ab7f2a6-a473-48dc-ba48-421b05e7453f_0.png" alt="Auto">
+
+            <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
+
+            <div class="desc" id="desc">
                 <table>
                     <tr>
                         <th>Fahrzeugtyp</th>
@@ -56,11 +61,30 @@
     </div>
 </div>
 
+
+
+</body>
+
+<script> 
+
+function togglemenu() {
+    var table=document.getElementById("desc");
+    if (table.style.opacity == 0){
+        table.style.opacity = "1.0" ;
+    } else {
+        table.style.opacity = "0.0";
+    }
+}
+
+
+</script>
+
 <?php 
     include('../includes/footer.html'); // Einbindung des Footers
 ?>
 
-</body>
+
+
 </html>
  
  
