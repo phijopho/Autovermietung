@@ -11,6 +11,7 @@
   align-items: center;
   display: flex;
   background-attachment: fixed;
+  scroll-behavior: smooth;
 }
 
 /* Container für den Inhalt */
