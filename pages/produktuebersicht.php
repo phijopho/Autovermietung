@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 <head>
 <!-- include html head -->
@@ -6,11 +7,8 @@ include('../includes/htmlhead.php');
 include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
-session_start();
-
 if (isset($_REQUEST['quickSearch'])){
-    if (isset($_POST['Standort'])) {
-        $selectedLocation = $_SESSION['Standort'];
+    $selectedLocation=$_SESSION["location"];
 }
 ?>
 
