@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+?>
+
 <html lang="en">
 <head>
 <!-- include html head -->
@@ -8,12 +10,17 @@ include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
 if (isset($_POST['quickSearch'])){
-    $_SESSION['location']=$_POST['location'];
-    $_SESSION['pickUpDate']=$_POST['pickUpDate'];
-    $_SESSION['returnDate']=$_POST['returnDate'];
+     $_SESSION['location']=$_POST['location'];
+     $_SESSION['pickUpDate']=$_POST['pickUpDate'];
+     $_SESSION['returnDate']=$_POST['returnDate'];
 } else {
-    echo "Session Variablen nicht definiert.";
+         echo "Session Variablen nicht definiert.";
 }
+
+if (isset($_POST['filter'])){
+    $_SESSION['categeries']=$_POST['categories'];
+}
+
 ?>
 
 <!-- page specific head elements -->
@@ -46,11 +53,11 @@ include('../includes/header.html'); // include header
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
-                        <input type="date" name="pickUpDate" value="<?php echo date('Y-m-d'); ?>" />
+                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
             </div>
             <div class="twoSidedBox">
-                <label for ="returnDate">R&uuml;ckgabedatum:</label>
-                    <input type="date" name="returnDate" value="<?php echo date('Y-m-d'); ?>" />
+                <label for="returnDate">R&uuml;ckgabedatum:</label>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" />
             </div>
             <div class="itemBox">
                 <lable for="category">Fahrzeugkategorie: </lable><br>
@@ -129,6 +136,7 @@ include('../includes/header.html'); // include header
                     <span class="sliderRound"></span>
                 </label>
             </div>
+            <br><br><input type="submit" value="Filtern" name="filter">
         </div>
     </form>
 

@@ -5,7 +5,7 @@ include('./includes/functions.php');
 $location=getCities();
 
 $today=date("Y-m-d");
-$tomorrow=date("Y-m-d", strtotime($today . " +1 day"));
+$tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
 
 if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
     $_SESSION['location']="Hamburg";
