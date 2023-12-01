@@ -3,14 +3,12 @@ session_start();
 include('./includes/functions.php');
 $location=getCities();
 
-$today=date("d.m.Y");
-$tomorrow=date("d.m.Y", strtotime($today . " +1 day"));
+$today=date("Y-m-d");
+$tomorrow=date("Y-m-d", strtotime($today . " +1 day"));
 
 $_SESSION['location']="Hamburg";
 $_SESSION['pickUpDate']=$today;
 $_SESSION['returnDate']=$tomorrow;
-echo "<br><br><br><br><br><br><br><br><br><br>";
-print_r($_SESSION);
 ?>
 
 <div class="BackgroundAudi">
