@@ -2,20 +2,27 @@
 <head>
 <!-- include html head -->
 <?php
-include('../includes/htmlhead.php')
+include('../includes/htmlhead.php');
+include('../includes/dbConnection.php'); // connect database
+include('../includes/functions.php'); // get functions
+
+session_start();
+
+if (isset($_REQUEST['quickSearch'])){
+    if (isset($_POST['Standort'])) {
+        $selectedLocation = $_SESSION['Standort'];
+}
 ?>
+
 <!-- page specific head elements -->
 <title>Unsere Flotte</title>
 <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
-
 </head>
- 
-<body>
+
 <?php
-include('../includes/dbConnection.php'); // connect database
-include('../includes/functions.php'); // get functions
 include('../includes/header.html'); // include header
 ?>
+<body>
 
 <div class="contentBox">
     <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">

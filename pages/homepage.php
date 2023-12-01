@@ -1,13 +1,25 @@
 <?php 
+session_start();
 include('./includes/functions.php');
 $location=getCities();
+
+$today=date("d.m.Y");
+$tomorrow=date("d.m.Y", strtotime($today . " +1 day"));
+
+$_SESSION["location"]="Hamburg";
+$_SESSION["pickUpDate"]=$today;
+$_SESSION["returnDate"]=$tomorrow;
+
+if (isset($_REQUEST['quickSearch'])){
+    $_SESSION['location']=$_REQUEST['location'];
+    $_SESSION['pickUpDate']=$_REQUEST['pickUpDate'];
+    $_SESSION['returnDate']=$_REQUEST['returnDate'];
+}
 ?>
 
 <div class="BackgroundAudi">
     <div class="divContentContainer">
         <div class="containerBookingForm">
-            <!-- <h1>Buchung</h1> -->
-            <!-- Link zur Produktübersichtseite statt index -->
             <form action="pages/produktuebersicht.php" method="post"> 
                 <label for="location">Standort:</label>
                     <select id="location" name="Standort">
@@ -21,7 +33,7 @@ $location=getCities();
                     <input type="date" name="pickUpDate" value="<?php echo date('Y-m-d'); ?>" />
                 <label for "returnDate">R&uuml;ckgabedatum:</label>
                     <input type="date" name="returnDate" value="<?php echo date('Y-m-d'); ?>" /><br><br>
-                <input type="submit" value="Suchen">
+                <input type="submit" value="Suchen" name="quickSearch">
             </form>
         </div>
 
