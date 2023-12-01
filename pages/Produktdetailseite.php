@@ -4,6 +4,7 @@
         include('../includes/htmlhead.php')
     ?>
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
+    <script src="includes/funktions.js"></script> 
     <title>Produktdetails</title> 
 </head>
 
@@ -72,22 +73,6 @@
 
 </body>
 
-<script> 
-
-function togglemenu() {
-    var table=document.getElementById("desc");
-    var button = document.querySelector('.buttonToggle');
-    if (table.style.opacity == 0){
-        table.style.opacity = "1.0" ;
-        button.classList.add('rotated'); // Fügt die CSS-Klasse hinzu, um den Button zu drehen
-    } else {
-        table.style.opacity = "0.0";
-        button.classList.remove('rotated'); // Entfer
-    }
-}
-
-
-</script>
 
 <footer>
 <?php 
