@@ -7,8 +7,12 @@ include('../includes/htmlhead.php');
 include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
-if (isset($_REQUEST['quickSearch'])){
-    $selectedLocation=$_SESSION["location"];
+if (isset($_POST['quickSearch'])){
+    $_SESSION['location']=$_POST['location'];
+    $_SESSION['pickUpDate']=$_POST['pickUpDate'];
+    $_SESSION['returnDate']=$_POST['returnDate'];
+} else {
+    echo "Session Variablen nicht definiert.";
 }
 ?>
 
@@ -27,11 +31,15 @@ include('../includes/header.html'); // include header
         <div class="filterBox">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
-                <select class="customSelect" name="Standort">
+                <select class="customSelect" name="location">
                     <?php 
                     $location=getCities();
-                    foreach($location as $city){
-                        echo "<option value='$city'>$city</option>";
+                    foreach ($location as $city) {
+                        if ($_SESSION['location'] == $city) {
+                            echo "<option value='$city' selected>$city</option>";
+                        } else {
+                            echo "<option value='$city'>$city</option>";
+                        }
                     }
                     ?>
                 </select>

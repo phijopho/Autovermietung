@@ -6,20 +6,26 @@ $location=getCities();
 $today=date("Y-m-d");
 $tomorrow=date("Y-m-d", strtotime($today . " +1 day"));
 
-$_SESSION['location']="Hamburg";
-$_SESSION['pickUpDate']=$today;
-$_SESSION['returnDate']=$tomorrow;
+if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
+    $_SESSION['location']="Hamburg";
+    $_SESSION['pickUpDate']=$today;
+    $_SESSION['returnDate']=$tomorrow;
+}
 ?>
 
 <div class="BackgroundAudi">
     <div class="divContentContainer">
         <div class="containerBookingForm">
-            <form action="pages/testSession.php" method="post"> 
+            <form action="pages/produktuebersicht.php" method="post"> 
                 <label for="location">Standort:</label>
                     <select id="location" name="location">
                         <?php //aus Datenbank ziehen, außer HH
-                        foreach($location as $city){
-                            echo "<option value='$city'>$city</option>";
+                        foreach ($location as $city) {
+                            if ($_SESSION['location'] == $city) {
+                                echo "<option value='$city' selected>$city</option>";
+                            } else {
+                                echo "<option value='$city'>$city</option>";
+                            }
                         }
                         ?>
                     </select>
