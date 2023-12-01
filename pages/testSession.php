@@ -11,6 +11,5 @@ if (isset($_REQUEST['quickSearch'])){
 } else {
     echo "Session Variablen nicht definiert.";
 }
-
 print_r($_SESSION)."<br>";
 ?>

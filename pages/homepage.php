@@ -9,6 +9,8 @@ $tomorrow=date("d.m.Y", strtotime($today . " +1 day"));
 $_SESSION['location']="Hamburg";
 $_SESSION['pickUpDate']=$today;
 $_SESSION['returnDate']=$tomorrow;
+echo "<br><br><br><br><br><br><br><br><br><br>";
+print_r($_SESSION);
 ?>
 
 <div class="BackgroundAudi">
@@ -24,9 +26,9 @@ $_SESSION['returnDate']=$tomorrow;
                         ?>
                     </select>
                 <label for "pickUpDate">Abholdatum:</label>
-                    <input type="date" name="pickUpDate" value="<?php echo $today; ?>" />
+                    <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
                 <label for "returnDate">R&uuml;ckgabedatum:</label>
-                    <input type="date" name="returnDate" value="<?php echo $tomorrow; ?>" /><br><br>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" /><br><br>
                 <input type="submit" value="Suchen" name="quickSearch">
             </form>
         </div>
