@@ -2,6 +2,8 @@
 include('includes/dbConnection.php');
 include("./includes/functions.php");
 ?>
+<header>
+    
 
 <div class="BackgroundAudi"> 
     <div class="divContentContainer">
@@ -73,3 +75,5 @@ include("./includes/functions.php");
         </div>        
     </div>
 </div>
+
+

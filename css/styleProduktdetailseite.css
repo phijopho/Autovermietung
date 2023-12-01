@@ -38,7 +38,14 @@ div.foto {
   transition: 0.3s;
 }
 
-.buttonToggle:hover {opacity: 1}
+.buttonToggle:hover {
+  opacity: 1
+}
+
+.rotated {
+
+  transform: rotate(180deg);
+}
 
 /* Image Box */
 div.foto img {
@@ -115,6 +122,7 @@ th, td {
   margin: 4px 2px;
   cursor: pointer;
 }
+
 
 /* Button if user is not logged in*/
 .buttonNotSignedIn {
