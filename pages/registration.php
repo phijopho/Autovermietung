@@ -26,7 +26,7 @@
         <h1>Registrieren</h1>
         <!-- <div class="comment">Mit * gekennzeichnete Felder müssen ausgefüllt werden</div> -->
         <div class="inputbox">
-            <input type="text" required placeholder="Vorname*">
+            <input type="text" required autofocus placeholder="Vorname*">
             <input type="text" required placeholder="Nachname*">
             <input type="number" required min="18" max="150" placeholder="Alter*">
             <input type="email" required placeholder="Email*">

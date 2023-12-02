@@ -26,7 +26,7 @@
         <h1>Anmelden</h1>
         <!-- <div class="comment">Mit * gekennzeichnete Felder müssen ausgefüllt werden</div> -->
         <div class="inputbox">
-            <input type="text" required placeholder="Username">
+            <input type="text" required autofocus placeholder="Username">
             <input type="password" required placeholder="Password">
         </div>
         <button>Login</button>
