@@ -54,31 +54,31 @@
 
 <!--js code for accordion--> 
 <script>
-$(document).ready(function() {
-  $("#ud_accordion dt")
+$(document).ready(function() { //code execudes when document is fully loaded
+  $("#ud_accordion dt") //selects all elements within the accordion
     .stop()
     .click(function() {
-      if ($(this).hasClass("ud_active")) {
-        $(this).removeClass("ud_active");
+      if ($(this).hasClass("ud_active")) { //checking if the clicked <dt> has the class ud_active
+        $(this).removeClass("ud_active"); //current element "this" is removed from ud_active
         $(this)
           .next()
           .slideUp(300);
-      } else {
+      } else { //if the clicked <dt> has not ud_active, all <dt> elements are removed from ud_active
         $(this)
           .parent()
           .children()
           .removeClass("ud_active");
-        $(this).addClass("ud_active");
-        if (
+        $(this).addClass("ud_active"); //adds the class ud_active to the current element "this"
+        if ( //check if the next element of <dt> is a <dd>element
           $(this)
             .next()
             .is("dd")
         ) {
-          $(this)
+          $(this) //search for all <dd> elements in the container <dt> and close them by sliding up
             .parent()
             .children("dd")
             .slideUp(300);
-          $(this)
+          $(this) //when <dt> element is clicked, the next element is faded in.the animation duration is 300 milliseconds 
             .next()
             .slideDown(300);
         }
