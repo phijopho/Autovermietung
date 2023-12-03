@@ -1,6 +1,7 @@
-<?php session_start(); 
-session_unset();
-session_destroy();
+<?php 
+session_start(); 
+// session_unset();
+// session_destroy();
 ?>
 
 <html lang="en">
@@ -11,6 +12,7 @@ include('../includes/htmlhead.php');
 include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
+// Sessions and variables
 $today=date("Y-m-d");
 $tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
 if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
@@ -23,33 +25,38 @@ if (isset($_POST['quickSearch'])){
      $_SESSION['location']=$_POST['location'];
      $_SESSION['pickUpDate']=$_POST['pickUpDate'];
      $_SESSION['returnDate']=$_POST['returnDate'];
-} else {
-         echo "Session Variablen nicht definiert.";
 }
+
 
 $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
-echo "<br><br><br><br>";
 
-if (isset($_POST['filter'])){
-    echo "filter isset <br>";
-    $_SESSION['categories']=array();
-    foreach($categories as $category){
-        if (isset($_POST[$category])){
-            $_SESSION['categories'][] = $_POST[$category];
-            echo $category." isset <br>";
-        }
-    }   
-} else {
-    echo "filter not posted <br>";
-}
-
-if (empty($_SESSION['categories'])){
+// if first visit on site check no boxes but select all categories
+if(!isset($_SESSION['categories'])){
+    $checkedCategories=array();
     $_SESSION['categories'] = $categories;
 }
 
-print_r($_SESSION);
-
+// if filter is set add categories to session
+if (isset($_POST['filter'])){
+    $_SESSION['categories']=array();
+    foreach($categories as $category){
+        if (isset($_POST[$category])){
+            $_SESSION['categories'][] = $category;
+            $checkedCategories[]=$category;
+        }
+    }
+    // if no categories were checked add all to session
+    if(empty($_SESSION['categories'])){
+        $_SESSION['categories'] = $categories;
+    }
+}
+// Check Arrays:
+// echo "<br><br><br><br>";
+// echo "Session Category: ";
+// print_r($_SESSION['categories']);
+// echo "<br> Checked Categories: ";
+// echo var_dump($checkedCategories);
 ?>
 
 <!-- page specific head elements -->
@@ -90,10 +97,15 @@ include('../includes/header.html'); // include header
             <div class="itemBox">
                 <lable for="category">Fahrzeugkategorie: </lable><br>
                     <?php 
-                    foreach($categories as $category){
-                        echo "<input type='checkbox' name=".$category." value='".$category."'>";
-                        echo "<label for '".$category."'>".$category."</label><br>";
-                    }
+                        foreach($categories as $category){
+                            if(in_array($category, $checkedCategories)){
+                                echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
+                                echo "<label for '".$category."'>".$category."</label><br>"; 
+                            } else {
+                                echo "<input type='checkbox' name=".$category." value='".$category."'>";
+                                echo "<label for '".$category."'>".$category."</label><br>";    
+                            }    
+                        }
                     ?>
             </div>
             <div class="itemBox">
