@@ -1,4 +1,6 @@
 <?php session_start(); 
+session_unset();
+session_destroy();
 ?>
 
 <html lang="en">
@@ -9,6 +11,14 @@ include('../includes/htmlhead.php');
 include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
+$today=date("Y-m-d");
+$tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
+if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
+    $_SESSION['location']="Hamburg";
+    $_SESSION['pickUpDate']=$today;
+    $_SESSION['returnDate']=$tomorrow;
+}
+
 if (isset($_POST['quickSearch'])){
      $_SESSION['location']=$_POST['location'];
      $_SESSION['pickUpDate']=$_POST['pickUpDate'];
@@ -17,9 +27,28 @@ if (isset($_POST['quickSearch'])){
          echo "Session Variablen nicht definiert.";
 }
 
+$location=getCities();
+$categories=selectDistinctColumn("Type", "CarType");
+echo "<br><br><br><br>";
+
 if (isset($_POST['filter'])){
-    $_SESSION['categeries']=$_POST['categories'];
+    echo "filter isset <br>";
+    $_SESSION['categories']=array();
+    foreach($categories as $category){
+        if (isset($_POST[$category])){
+            $_SESSION['categories'][] = $_POST[$category];
+            echo $category." isset <br>";
+        }
+    }   
+} else {
+    echo "filter not posted <br>";
 }
+
+if (empty($_SESSION['categories'])){
+    $_SESSION['categories'] = $categories;
+}
+
+print_r($_SESSION);
 
 ?>
 
@@ -40,7 +69,6 @@ include('../includes/header.html'); // include header
                 <label for="location">Standort:</label><br>
                 <select class="customSelect" name="location">
                     <?php 
-                    $location=getCities();
                     foreach ($location as $city) {
                         if ($_SESSION['location'] == $city) {
                             echo "<option value='$city' selected>$city</option>";
@@ -62,9 +90,8 @@ include('../includes/header.html'); // include header
             <div class="itemBox">
                 <lable for="category">Fahrzeugkategorie: </lable><br>
                     <?php 
-                    $categories=selectDistinctColumn("Type", "CarType");
                     foreach($categories as $category){
-                        echo "<input type='checkbox' name='".$category." value='".$category."'>";
+                        echo "<input type='checkbox' name=".$category." value='".$category."'>";
                         echo "<label for '".$category."'>".$category."</label><br>";
                     }
                     ?>
@@ -136,7 +163,8 @@ include('../includes/header.html'); // include header
                     <span class="sliderRound"></span>
                 </label>
             </div>
-            <br><br><input type="submit" value="Filtern" name="filter">
+            <br><br>
+            <input type="submit" value="Filtern" name="filter">
         </div>
     </form>
 

@@ -1,7 +1,6 @@
 <?php 
 function getCities(){
     include('dbConnection.php');
-    $location = array($default);
     $stmtGetCities = $conn->query("SELECT City FROM Location");
     while($row = $stmtGetCities->fetch()){
         $location[] = $row['City'];
