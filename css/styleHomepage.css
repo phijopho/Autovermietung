@@ -28,6 +28,9 @@
 }
 
 /* Buchungsformular erstellen */
+
+
+
 .containerBookingForm {
   margin-top: 20%;
   margin-bottom: 20%;
@@ -40,6 +43,7 @@
   background: rgba(14, 14, 14, 0.58);
   padding: 20px;
 }
+
 
 /* general box for reviews and goals */
 .divAboutUs {
