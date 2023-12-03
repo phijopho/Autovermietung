@@ -60,7 +60,6 @@
         } else { //add include file with error message
         }
     }
-
     ?>
 
     <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
