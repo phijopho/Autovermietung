@@ -1,5 +1,6 @@
 <?php 
 session_start(); 
+// show error messages
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 // session_unset();
@@ -10,20 +11,23 @@ ini_set('display_errors', 1);
 <head>
 <!-- include html head -->
 <?php
-include('../includes/htmlhead.php');
+include('../includes/htmlhead.php'); // include head
 include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
 // Sessions and variables
-//Quick Search Filters: Location, pick-ip date, return date
+
+//Quick Search Filters: Location, pick-up date, return date
 $today=date("Y-m-d");
 $tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
+// set default values if nothing else is specified
 if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
     $_SESSION['location']="Hamburg";
     $_SESSION['pickUpDate']=$today;
     $_SESSION['returnDate']=$tomorrow;
 }
 
+// use user input 
 if (isset($_POST['quickSearch'])){
      $_SESSION['location']=$_POST['location'];
      $_SESSION['pickUpDate']=$_POST['pickUpDate'];
@@ -34,15 +38,15 @@ if (isset($_POST['quickSearch'])){
 $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
-//category filter
+//category checkbox filter
 $checkedCategories=array();
-// if first visit on site check no boxes but select all categories
+    // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories'])){
     $checkedCategories=array();
     $_SESSION['categories'] = $categories;
 }
 
-// if filter is set add categories to session
+    // if filter is set add categories to session
 if (isset($_POST['filter'])){
     $_SESSION['categories']=array();
     foreach($categories as $category){
@@ -57,17 +61,31 @@ if (isset($_POST['filter'])){
     }
 }
 
-//car brand filter
+// car brand dropdown filter
 if (isset($_POST['filter'])){
     $_SESSION['vendor']=$_POST['vendor'];
 }
+// seats slider filter 
+if (isset($_POST['filter'])) {
+    $_SESSION['seats'] = $_POST['seats'];
+}
 
-// drive filter
+// doors slider filter
+if (isset($_POST['filter'])) {
+    $_SESSION['doors'] = $_POST['doors'];
+}
+
+// age slider filter
+if (isset($_POST['filter'])) {
+    $_SESSION['age'] = $_POST['age'];
+}
+
+// drive dropdown filter
 if (isset($_POST['filter'])){
     $_SESSION['drive']=$_POST['drive'];
 }
 
-// transmission filter
+// transmission toggle filter
 if (isset($_POST['filter'])) {
     // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
     if (isset($_POST['transmission'])) {
@@ -77,7 +95,7 @@ if (isset($_POST['filter'])) {
     }
 }
 
-// AC filter
+// AC toggle filter
 if (isset($_POST['filter'])) {
     // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
     if (isset($_POST['ac'])) {
@@ -87,7 +105,7 @@ if (isset($_POST['filter'])) {
     }
 }
 
-// GPS filter
+// GPS toggle filter
 if (isset($_POST['filter'])) {
     // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
     if (isset($_POST['gps'])) {
@@ -172,7 +190,11 @@ include('../includes/header.html'); // include header
                 <label for="seats">Sitze:</label><br>
                 <?php
                 $seats=selectMinAndMaxFromColumn("Seats", "CarType");
-                echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='5' class='slider' id='seats'>";
+                $selectedSeats=5;
+                if(isset($_SESSION['seats'])){
+                    $selectedSeats=$_SESSION['seats'];
+                }
+                echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' class='slider' value='".$selectedSeats."' name='seats'>";
                 //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
                 ?>
             </div>
@@ -180,7 +202,11 @@ include('../includes/header.html'); // include header
                 <label for="doors">T&uuml;ren:</label><br>
                 <?php
                 $doors=selectMinAndMaxFromColumn("Doors", "CarType");
-                echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' value='5' class='slider' id='doors'>";
+                $selectedDoors=5;
+                if(isset($_SESSION['doors'])){
+                    $selectedDoors=$_SESSION['doors'];
+                }
+                echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' class='slider' value='".$selectedDoors."' name='doors'>";
                 //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
                 ?>
             </div>
@@ -188,8 +214,13 @@ include('../includes/header.html'); // include header
                 <label for="age">Alter:</label><br>
                 <?php
                 $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
-                echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='18' class='slider' id='doors'>";
-                //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)            ?>
+                $selectedAge=18;
+                if(isset($_SESSION['age'])){
+                    $selectedAge=$_SESSION['age'];
+                }
+                echo "<input type='range' min='".$age['min']."' max='".$age['max']."' class='slider' value='".$selectedAge."' name='age'>";
+                //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)
+                ?>
             </div>
             <div class="itemBox">
                 <label for="drive">Antrieb:</label><br>
