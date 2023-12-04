@@ -52,11 +52,11 @@ if (isset($_POST['filter'])){
     }
 }
 // Check Arrays:
-// echo "<br><br><br><br>";
-// echo "Session Category: ";
-// print_r($_SESSION['categories']);
-// echo "<br> Checked Categories: ";
-// echo var_dump($checkedCategories);
+ echo "<br><br><br><br>";
+ echo "Session Category: ";
+ print_r($_SESSION['categories']);
+ echo "<br> Checked Categories: ";
+ echo var_dump($checkedCategories);
 ?>
 
 <!-- page specific head elements -->
@@ -68,7 +68,6 @@ if (isset($_POST['filter'])){
 include('../includes/header.html'); // include header
 ?>
 <body>
-
 <div class="contentBox">
     <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">
         <div class="filterBox">
