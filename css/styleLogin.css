@@ -5,9 +5,8 @@ form {
     height: 650px;
     width: 700px;
     border-radius: 10px;
-    margin-top: 125px;
-    margin-bottom: 75px;
-    margin-left: 600px;
+    margin: auto;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

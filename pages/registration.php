@@ -23,7 +23,6 @@
 
 
     if (isset($_POST["register"])) {
-        var_dump($_POST);
         $firstName = $_POST["firstName"];
         $lastName = $_POST["lastName"];
         $age = $_POST["age"];
@@ -39,9 +38,16 @@
         $userExists = $stmt->fetchColumn();
 
         if (!$userExists) {
-            register($firstName, $lastName, $age, $email, $username, $password);
+        register($firstName, $lastName, $age, $email, $username, $password);
+        ?> <div class="success">
+            <p class="textSuccess"> Erfolgreich registriert, <a href="./pages/login.php" class="linkHere"> jetzt Anmelden! </a></p>
+        </div> <?php
         } else {
-            echo "<br> Es existiert bereits ein Account mit diesem Username oder dieser Email.";
+    ?>
+            <div class="error">
+                <p class="textError"> Der Username oder die Email ist bereits vergeben. </p>
+            </div>
+    <?php
         }
     }
 
@@ -55,12 +61,11 @@
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $password);
-        if ($stmt->execute()) {
-            header("Location: ../index.php");
-        } else { //add include file with error message
-        }
+        $stmt->execute();
     }
     ?>
+
+
 
     <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
         <h1>Registrieren</h1>
