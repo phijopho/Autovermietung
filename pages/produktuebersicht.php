@@ -1,5 +1,7 @@
 <?php 
 session_start(); 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // session_unset();
 // session_destroy();
 ?>
@@ -33,6 +35,7 @@ $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
 //category filter
+$checkedCategories=array();
 // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories'])){
     $checkedCategories=array();
@@ -54,17 +57,52 @@ if (isset($_POST['filter'])){
     }
 }
 
-//car brand filter:
+//car brand filter
 if (isset($_POST['filter'])){
     $_SESSION['vendor']=$_POST['vendor'];
 }
 
+// drive filter
+if (isset($_POST['filter'])){
+    $_SESSION['drive']=$_POST['drive'];
+}
+
+// transmission filter
+if (isset($_POST['filter'])) {
+    // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
+    if (isset($_POST['transmission'])) {
+        $_SESSION['transmission'] = 'on';
+    } else {
+        $_SESSION['transmission'] = 'off';
+    }
+}
+
+// AC filter
+if (isset($_POST['filter'])) {
+    // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
+    if (isset($_POST['ac'])) {
+        $_SESSION['ac'] = 'on';
+    } else {
+        $_SESSION['ac'] = 'off';
+    }
+}
+
+// GPS filter
+if (isset($_POST['filter'])) {
+    // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
+    if (isset($_POST['gps'])) {
+        $_SESSION['gps'] = 'on';
+    } else {
+        $_SESSION['gps'] = 'off';
+    }
+}
+
 // Check Arrays:
- echo "<br><br><br><br>";
- echo "Session Category: ";
- print_r($_SESSION['categories']);
- echo "<br> Checked Categories: ";
- echo var_dump($checkedCategories);
+//  echo "<br><br><br><br>";
+//  echo "Session Categories: ";
+//  print_r($_SESSION['categories']);
+//  echo "<br> Checked Categories: ";
+//  echo var_dump($checkedCategories);
 ?>
 
 <!-- page specific head elements -->
@@ -102,7 +140,7 @@ include('../includes/header.html'); // include header
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" />
             </div>
             <div class="itemBox">
-                <lable for="category">Fahrzeugkategorie: </lable><br>
+                <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
                             if(in_array($category, $checkedCategories)){
@@ -131,7 +169,7 @@ include('../includes/header.html'); // include header
                 </select>
             </div>
             <div class="itemBox">
-                <label for "seats">Sitze:</label><br>
+                <label for="seats">Sitze:</label><br>
                 <?php
                 $seats=selectMinAndMaxFromColumn("Seats", "CarType");
                 echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' value='5' class='slider' id='seats'>";
@@ -139,7 +177,7 @@ include('../includes/header.html'); // include header
                 ?>
             </div>
             <div class="itemBox">
-                <label for "doors">T&uuml;ren:</label><br>
+                <label for="doors">T&uuml;ren:</label><br>
                 <?php
                 $doors=selectMinAndMaxFromColumn("Doors", "CarType");
                 echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' value='5' class='slider' id='doors'>";
@@ -147,7 +185,7 @@ include('../includes/header.html'); // include header
                 ?>
             </div>
             <div class="itemBox">
-                <label for "age">Alter:</label><br>
+                <label for="age">Alter:</label><br>
                 <?php
                 $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
                 echo "<input type='range' min='".$age['min']."' max='".$age['max']."' value='18' class='slider' id='doors'>";
@@ -160,29 +198,48 @@ include('../includes/header.html'); // include header
                     <?php 
                     $drives=selectDistinctColumn("Drive", "CarType");
                     foreach($drives as $drive){
+                        if($_SESSION['drive'] == $drive){
+                            echo "<option value='$drive' selected>$drive</option>";
+                        } else {
                         echo "<option value='$drive'>$drive</option>";
+                        }
                     }
                     ?>
                 </select>
             </div>
             <div class="twoSidedBox">
-                <label for"automatic">Nur Automatik</label>
+                <label for="transmission">Nur Automatik</label>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" name="transmission" 
+                    <?php 
+                        if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
+                                echo 'checked';
+                        }
+                    ?>>
                     <span class="sliderRound"></span>
                 </label>
             </div>
             <div class="twoSidedBox">
-                <label for"AC">Klima</label>
+                <label for="AC">Klima</label>
                 <label class="switch">
-                    <input type="checkbox">
+                <input type="checkbox" name="ac" 
+                    <?php 
+                        if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
+                                echo 'checked';
+                        }
+                    ?>>                    
                     <span class="sliderRound"></span>
                 </label>
             </div>
             <div class="twoSidedBox">
-                <label for"gps">GPS</label>
+                <label for="gps">GPS</label>
                 <label class="switch">
-                    <input type="checkbox">
+                <input type="checkbox" name="gps" 
+                    <?php 
+                        if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
+                                echo 'checked';
+                        }
+                    ?>>                    
                     <span class="sliderRound"></span>
                 </label>
             </div>
