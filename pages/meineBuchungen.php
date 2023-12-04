@@ -44,11 +44,11 @@
         <!--Buchungszeile 1-->
         <dt>
           <p><?php echo $bookingID; ?></p>
-          <p>29.11.2023</p>
-          <p>02.12.2023</p>
-          <p>06.12.2023</p>
-          <p>Audi</p>
-          <p>Sharan&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
         </dt>
 
         <dd>
@@ -85,6 +85,8 @@
       </dl>
     </article>
 
+
+    
 <!--js code for accordion--> 
 <script>
 $(document).ready(function() { //code execudes when document is fully loaded
