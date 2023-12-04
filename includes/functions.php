@@ -1,4 +1,4 @@
-<?php 
+<?php
 function getCities(){
     include('dbConnection.php');
     $default="Hamburg";
@@ -82,4 +82,28 @@ function getModel($CarType_ID){
     }
     return $model;    
 }
+
+function getMinMaxPrice($Type) {
+    include('dbConnection.php');
+    $stmt = $conn->prepare("SELECT MIN(Price), MAX(Price) FROM CarType WHERE Type=:TypeIdent");
+    $stmt->bindParam(':TypeIdent', $Type);
+    $stmt->execute();
+    $row = $stmt->fetch();
+        $result['min'] = $row['MIN(Price)'];
+        $result['max'] = $row['MAX(Price)'];
+    return $result; 
+}
+
+
+
+function selectCarType($Type, $CarType){
+    include('dbConnection.php');  
+    $result = array();  
+    $stmt = $conn->query("SELECT DISTINCT $Type FROM $CarType WHERE Type=TypeIdent");
+    while($row = $stmt->fetch()){
+        $result[] = $row[$Type];
+    }
+    return $result;    
+}
+
 ?>

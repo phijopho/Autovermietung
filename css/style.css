@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2f2e2c;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -17,11 +18,185 @@ a:hover {
     color: aqua;
 }
 
-/* Überschriften stylen */
 
 /* Header: */
 /* Allgemeine Einstellungen zum Header */
-.headercontainer {
+
+    /* Einstellungen des Logos im Header */
+.logobox {
+  margin-left: 20px;
+} 
+
+/* Einstellungen der div's im Header */
+.headerbox {
+  float: left;
+  margin-top: 10px;
+}
+
+/* Einstellungen des Logins im Header */
+.loginbox {
+  margin-right: 20px;
+  margin-left: 200px;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #525252;
+    padding: 20px 10px;
+    transition: 0.4s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+    border-bottom: 2px solid aqua;
+  }
+  
+  #navbar a {
+    float: left;
+    color: #f7f2ef;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 10px;
+    border-radius: 4px;
+    margin-left: 30px;
+  }
+
+  .navlink {
+    background-color: #525252;
+  }
+  
+  #navbar #logo {
+    transition: 0.4s;
+    max-height: 100px;
+  }
+  
+  #navbar a:hover {
+    background-color: #525252;
+    color: aqua;
+  }
+  
+  
+  #navbar-right {
+    float: right;
+    margin-right: 50%;
+    padding-top: 20px;
+  }
+  
+  @media screen and (max-width: 100%) {
+    #navbar {
+      padding: 10px 5px !important;
+    }
+    #navbar a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    #navbar-right {
+      float: none;
+    }
+  }
+
+  /* Underlined if hovered and active */
+  .topnav {
+    overflow: hidden;
+    background-color: #525252;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f7f2ef;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+  }
+  
+  .topnav a:hover {
+    border-bottom: 3px solid aqua;
+    background-color: #525252;
+  }
+  
+  .topnav a.active {
+    border-bottom: 3px solid aqua;
+  }
+
+  .active {
+    font-weight: medium bold;
+    color: aqua; 
+    border-bottom: 3px solid aqua;
+    background-color: #525252;
+
+}
+
+/* Header angemeldet*/
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+  margin-right: 5%;
+}
+
+.dropdown:hover .dropdown-content {
+  text-decoration: none;
+    color: #f7f2ef;
+    font-size: 16px;
+    padding: 15px;
+    display:inline-block;
+    z-index: 1000;
+  
+}
+
+/* .topnavSignedIn {
+  overflow: hidden;
+  background-color: #525252;
+  float: left;
+}
+
+.topnavSignedIn a {
+  float: left;
+  color: #f7f2ef;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnavSignedIn a:hover {
+  background-color: #525252;
+  color: aqua;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+/* .topnavSignedIn a.split {
+  float: right;
+  background-color: #525252;
+  color: #f7f2ef;
+} */ */
+
+/* #header {
+    background-color: #525252;
+    padding: 50px 10px;
+    color: #f7f2ef;
+    text-align: center;
+    font-size: 16px; 
+    font-weight: medium bold;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: 0.2s;
+    height: 80px;
+    border-bottom: 2px solid aqua;
+  } */
+
+  /* .headerContainer {
     background-color: #525252;
     position: fixed;
     top: 0;
@@ -32,76 +207,9 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-}
+    border-bottom: 2px solid aqua;
+    } */
 
-/* Einstellungen des Logos im Header */
-.logobox {
-    margin-left: 20px;
-}
-
-/* Einstellungen der div's im Header */
-.headerbox {
-    float: left;
-}
-
-
-/* Einstellungen des Logins im Header */
-.loginbox {
-    margin-right: 20px;
-    margin-left: 200px;
-}
-/* Header angemeldet*/
-/*Style des Hover-Menüs*/
-.divhover {
-    margin-right: 20px;
-    margin-left: 200px;
-    background-color: #525252 ;
-}
-
-.divhover a {
-    text-decoration: none;
-    color: #f7f2ef;
-    font-size: 20px;
-    padding: 15px;
-    display:inline-block;
-}
-a:hover {
-    /* Schriftfarbe noch aussuchen */
-    color: aqua;
-}
-
-ul {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-  
-
-ul li {
-    display: inline-block;
-}
-
-ul li:hover {
-    background: #525252;
-}
-
-ul li:hover ul {
-    display: block;
-
-}
-ul li ul {
-  position: absolute;
-  width: 200px;
-  display: none;
-}
-
-ul li ul li { 
-    background: #525252;
-    display: block; 
-}
-  ul li ul li a {
-    display:block !important;
-} 
 
 
 /* Footer: */
@@ -121,6 +229,7 @@ ul li ul li {
     font-weight: 300;
     padding-left: 50px;
     padding-right: 50px;
+    border-top: 2px solid aqua;
 }
 
 /* Copyright mit Firmenname einfügen */

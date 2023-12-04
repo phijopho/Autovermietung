@@ -1,26 +1,143 @@
-/* Homepage: */
 /* Hintergrundbild anzeigen */
 .BackgroundAudi {
-    /* backround settings */
-    background-image: url('../images/Hintergrund.svg');
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-    height: 800px;
-    /* content settings */
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-attachment: fixed;
+  /* backround settings */
+  background-image: url('../images/Hintergrund.svg');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 100%;
+  /* content settings */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+}
+
+/* Container für den Inhalt */
+.divContentContainer {
+  margin: 0;
+  width: 100%;
+  height: 100%; 
+  overflow-y: auto; /* activate scrolling if height is exceeded */
+  padding-top: 150px; /* Platz für das fixierte Formular */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Buchungsformular erstellen */
+
+
+
 .containerBookingForm {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 25px;
-    color: #F7F2EF;
-    background: rgba(14, 14, 14, 0.58);
-    padding: 20px;
+  margin-top: 20%;
+  margin-bottom: 20%;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  color: #F7F2EF;
+  background: rgba(14, 14, 14, 0.58);
+  padding: 20px;
 }
+
+
+/* general box for reviews and goals */
+.divAboutUs {
+  width: 100%;
+  height: 1000px;
+  border-top: 3px solid aqua;
+  border-bottom: 3px solid aqua;
+}
+
+/* short reviews and/or Goals of Swift Rental */
+.divGoal1 {
+  width: 499px;
+  height: 135px;
+  background-color: rgba(14, 14, 14, 0.751);
+  border-radius: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+.divGoal2 {
+  width: 499px;
+  height: 135px;
+  background-color: rgba(14, 14, 14, 0.751);
+  border-radius: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin-left: 300px;
+  margin-top: 50px;
+}
+.divGoal3 {
+  width: 499px;
+  height: 135px;
+  background-color: rgba(14, 14, 14, 0.751);
+  border-radius: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin-left: 300px;
+  margin-top: 50px;
+  float:right;
+}
+.divGoal4 {
+  width: 499px;
+  height: 135px;
+  background-color: rgba(14, 14, 14, 0.751);
+  border-radius: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin-left: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  float:left;
+}
+
+/* Button style with link to page About us */
+.divButton{
+    width: 150px;
+    height: 100px;
+    padding-top:30%;
+    padding-left: 15%;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    float: left;
+}
+.button {
+  background-color: aqua;
+  border: none;
+  width: 150px;
+  opacity: 70%; 
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 200px;
+  margin-bottom: 10px;
+}
+
+a:hover.button {
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  opacity: 100%;
+}
+
