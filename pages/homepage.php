@@ -20,7 +20,7 @@ if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'
                 <label for="location">Standort:</label>
                     <select id="location" name="location">
                         <?php //aus Datenbank ziehen, außer HH
-                        foreach ($location as $city) {
+                        foreach ($location as $city){
                             if ($_SESSION['location'] == $city) {
                                 echo "<option value='$city' selected>$city</option>";
                             } else {
