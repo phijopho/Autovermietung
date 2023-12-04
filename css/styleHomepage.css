@@ -1,17 +1,17 @@
+/* Homepage: */
 /* Hintergrundbild anzeigen */
 .BackgroundAudi {
-  /* backround settings */
-  background-image: url('../images/Hintergrund.svg');
-  background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat;
-  height: 100%;
-  /* content settings */
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  background-attachment: fixed;
-  scroll-behavior: smooth;
+    /* backround settings */
+    background-image: url('../images/Hintergrund.svg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 100%;
+    /* content settings */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-attachment: fixed;
 }
 
 /* Container für den Inhalt */
@@ -28,22 +28,15 @@
 }
 
 /* Buchungsformular erstellen */
-
-
-
 .containerBookingForm {
-  margin-top: 20%;
-  margin-bottom: 20%;
-  width: 60%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 25px;
-  color: #F7F2EF;
-  background: rgba(14, 14, 14, 0.58);
-  padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 25px;
+    color: #F7F2EF;
+    background: rgba(14, 14, 14, 0.58);
+    padding: 20px;
 }
-
 
 /* general box for reviews and goals */
 .divAboutUs {
@@ -140,4 +133,3 @@ a:hover.button {
   font-size: 16px;
   opacity: 100%;
 }
-
