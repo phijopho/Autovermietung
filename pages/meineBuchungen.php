@@ -15,25 +15,19 @@
   ?>
     
     <?php
-    // Annahme: $lastBookingNumber enthält die aktuelle Buchungsnummer aus der Datenbank
-    $lastBookingNumber = 0; // Hier setzt man tatsächlichen Wert aus der Datenbank ein
+      // $lastBookingNumber enthält die aktuelle Buchungsnummer aus der Datenbank
+      $lastBookingNumber = 0; // Hier wird der tatsächliche Wert aus der Datenbank eingetzt
 
-    // Das aktuelle Datum generieren
-    $currentDate = date("Ymd");
+      // Aktuelles Datum generieren
+      $currentDate = date("Ymd");
 
-    // Buchungs-ID für erste Buchung formatieren
-    $bookingID = $currentDate . str_pad($lastBookingNumber + 1, 2, '0', STR_PAD_LEFT);
-
-    // Die Buchungsnummer für die zweite Buchung erhöhen
-    $newBookingNumber++;
-
-    // Die Buchungs-ID für die zweite Buchung formatieren
-    $newBookingID = $currentDate . str_pad($newBookingNumber, 2, '0', STR_PAD_LEFT);
+      // Die Buchungs-ID für die erste Buchung formatieren (anzeigen lassen)
+      $bookingID = $currentDate . str_pad($lastBookingNumber + 1, 3, '0', STR_PAD_LEFT);
     ?>
 
 
 <!--Buchungsdaten Übersicht-->
-    <article>
+<article>
       <h1>Meine Buchungen</h1>
 
       <div class="onTopContainer">
@@ -62,20 +56,32 @@
           Gesamtpreis der Buchung: <!--Variable--><br>
         </dd>
 
-        <!--Buchungszeile 2-->
-        <dt>
-          <p><?php echo $newBookingID; ?></p> <!--Wert soll mit jeder neuen Buchung erhöht werden. Das muss ich noch programmieren-->
-          <p>29.11.2023</p>
-          <p>02.12.2023</p>
-          <p>06.12.2023</p>
-          <p>Audi</p>
-          <p>Sharan&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        </dt>
+        <?php
+        // Schleife für das Generieren weiterer Buchungszeilen
+        for ($i = 2; $i <= $lastBookingNumber; $i++) {
 
-        <dd>
-          Abhol- und Rückgabeort: <!--Variable--><br>
-          Gesamtpreis der Buchung: <!--Variable--><br>
-        </dd>
+          // Formatiere die Buchungs-ID für die neue Buchung | neue Buchungszeilen werden nur nach Bedarf generiert
+          $newBookingID = $currentDate . str_pad($lastBookingNumber + $i, 2, '0', STR_PAD_LEFT);
+        ?>
+
+          <!-- Neue Buchungszeile -->
+          <dt>
+            <p><?php echo $newBookingID; ?></p>
+            <p><!--Variable--></p>
+            <p><!--Variable--></p>
+            <p><!--Variable--></p>
+            <p><!--Variable--></p>
+            <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          </dt>
+
+          <dd>
+            Abhol- und Rückgabeort: <!--Variable--><br>
+            Gesamtpreis der Buchung: <!--Variable--><br>
+          </dd>
+
+        <?php
+        }
+        ?>
       </dl>
     </article>
 
