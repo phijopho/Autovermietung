@@ -1,9 +1,8 @@
 /* Standorte */
 
-
 *{
     margin: 0;
-    padding: 0;                                         /*generelle Formatierung für keine überflüssigen Ränder */
+    padding: 0;                             
     box-sizing: border-box;
 }
 
