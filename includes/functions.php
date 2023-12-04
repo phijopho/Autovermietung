@@ -1,7 +1,11 @@
-<?php 
+<?php
 function getCities(){
     include('dbConnection.php');
-    $stmtGetCities = $conn->query("SELECT City FROM Location");
+    $default="Hamburg";
+    $location = array($default);
+    $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
+    $stmtGetCities->bindParam(':cityIdent', $default);
+    $stmtGetCities->execute();
     while($row = $stmtGetCities->fetch()){
         $location[] = $row['City'];
     }
@@ -79,16 +83,27 @@ function getModel($CarType_ID){
     return $model;    
 }
 
-function showResults($location, $pickUpDate, $returndate, $categories, $vendors, $seats, $doors, $age, $drive, $automatic, $AC, $GPS){
+function getMinMaxPrice($Type) {
     include('dbConnection.php');
-    
-    $getResults=$conn->prepare("SELECT CarType_ID, FROM CarType WHERE Location=:Location AND ");
-    $getModel->bindParam(':CarTypeIdent', $CarType_ID);
-    $getModel->execute();
-    while($row=$getModel->fetch()){
-        $model[]=$row['Brand'];
-        $model[]=$row['Model'];
-    }
-    return $model;    
-
+    $stmt = $conn->prepare("SELECT MIN(Price), MAX(Price) FROM CarType WHERE Type=:TypeIdent");
+    $stmt->bindParam(':TypeIdent', $Type);
+    $stmt->execute();
+    $row = $stmt->fetch();
+        $result['min'] = $row['MIN(Price)'];
+        $result['max'] = $row['MAX(Price)'];
+    return $result; 
 }
+
+
+
+function selectCarType($Type, $CarType){
+    include('dbConnection.php');  
+    $result = array();  
+    $stmt = $conn->query("SELECT DISTINCT $Type FROM $CarType WHERE Type=TypeIdent");
+    while($row = $stmt->fetch()){
+        $result[] = $row[$Type];
+    }
+    return $result;    
+}
+
+?>

@@ -1,111 +1,53 @@
-<?php 
-session_start(); 
-// session_unset();
-// session_destroy();
-?>
-
+<html>
 <html lang="en">
 <head>
 <!-- include html head -->
 <?php
-include('../includes/htmlhead.php');
-include('../includes/dbConnection.php'); // connect database
-include('../includes/functions.php'); // get functions
-
-// Sessions and variables
-$today=date("Y-m-d");
-$tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
-if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
-    $_SESSION['location']="Hamburg";
-    $_SESSION['pickUpDate']=$today;
-    $_SESSION['returnDate']=$tomorrow;
-}
-
-if (isset($_POST['quickSearch'])){
-     $_SESSION['location']=$_POST['location'];
-     $_SESSION['pickUpDate']=$_POST['pickUpDate'];
-     $_SESSION['returnDate']=$_POST['returnDate'];
-}
-
-
-$location=getCities();
-$categories=selectDistinctColumn("Type", "CarType");
-
-// if first visit on site check no boxes but select all categories
-if(!isset($_SESSION['categories'])){
-    $checkedCategories=array();
-    $_SESSION['categories'] = $categories;
-}
-
-// if filter is set add categories to session
-if (isset($_POST['filter'])){
-    $_SESSION['categories']=array();
-    foreach($categories as $category){
-        if (isset($_POST[$category])){
-            $_SESSION['categories'][] = $category;
-            $checkedCategories[]=$category;
-        }
-    }
-    // if no categories were checked add all to session
-    if(empty($_SESSION['categories'])){
-        $_SESSION['categories'] = $categories;
-    }
-}
-// Check Arrays:
-// echo "<br><br><br><br>";
-// echo "Session Category: ";
-// print_r($_SESSION['categories']);
-// echo "<br> Checked Categories: ";
-// echo var_dump($checkedCategories);
+include('../includes/htmlhead.php')
 ?>
-
 <!-- page specific head elements -->
 <title>Unsere Flotte</title>
 <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
-</head>
 
+</head>
+ 
+<body>
 <?php
+include('../includes/dbConnection.php'); // connect database
+include('../includes/functions.php'); // get functions
 include('../includes/header.html'); // include header
 ?>
-<body>
 
 <div class="contentBox">
-    <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">
+    <form method="post" action= <?php $_SERVER["PHP_SELF"]?>>
         <div class="filterBox">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
-                <select class="customSelect" name="location">
+                <select class="customSelect" name="Standort">
                     <?php 
-                    foreach ($location as $city) {
-                        if ($_SESSION['location'] == $city) {
-                            echo "<option value='$city' selected>$city</option>";
-                        } else {
-                            echo "<option value='$city'>$city</option>";
-                        }
+                    $location=getCities();
+                    foreach($location as $city){
+                        echo "<option value='$city'>$city</option>";
                     }
                     ?>
                 </select>
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
-                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
+                        <input type="date" name="pickUpDate" value="<?php echo date('Y-m-d'); ?>" />
             </div>
             <div class="twoSidedBox">
-                <label for="returnDate">R&uuml;ckgabedatum:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" />
+                <label for ="returnDate">R&uuml;ckgabedatum:</label>
+                    <input type="date" name="returnDate" value="<?php echo date('Y-m-d'); ?>" />
             </div>
             <div class="itemBox">
                 <lable for="category">Fahrzeugkategorie: </lable><br>
                     <?php 
-                        foreach($categories as $category){
-                            if(in_array($category, $checkedCategories)){
-                                echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
-                                echo "<label for '".$category."'>".$category."</label><br>"; 
-                            } else {
-                                echo "<input type='checkbox' name=".$category." value='".$category."'>";
-                                echo "<label for '".$category."'>".$category."</label><br>";    
-                            }    
-                        }
+                    $categories=selectDistinctColumn("Typ", "CarType");
+                    foreach($categories as $category){
+                        echo "<input type='checkbox' name='".$category." value='".$category."'>";
+                        echo "<label for '".$category."'>".$category."</label><br>";
+                    }
                     ?>
             </div>
             <div class="itemBox">
@@ -175,8 +117,6 @@ include('../includes/header.html'); // include header
                     <span class="sliderRound"></span>
                 </label>
             </div>
-            <br><br>
-            <input type="submit" value="Filtern" name="filter">
         </div>
     </form>
 

@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,10 +9,14 @@
         <title>SWIFT rentals</title>
 
     </head>
-
-    <?php
-    include('includes/header.html'); // include header
+<header>
+    <?php 
+    
+        include('includes/headerangemeldet.html'); // include header
+        
     ?>
+
+</header> 
 
     <body>
 
@@ -22,14 +24,20 @@
 
             include('includes/dbConnection.php'); // connect database
 
-            include('pages/homepage.php'); // include body content
+            include('pages/Homepage.php'); // include body content
+            
+        
 
         ?> 
 
     </body>
 
-<?php
-    include('includes/footer.html'); // include footers
-?>
+<footer>
 
+    <?php
+        include('includes/footer.html'); // include footers
+        
+    ?>
+
+</footer>
 </html>
