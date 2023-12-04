@@ -13,6 +13,7 @@ include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
 // Sessions and variables
+//Quick Search Filters: Location, pick-ip date, return date
 $today=date("Y-m-d");
 $tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
 if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
@@ -31,6 +32,7 @@ if (isset($_POST['quickSearch'])){
 $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
+//category filter
 // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories'])){
     $checkedCategories=array();
@@ -51,6 +53,12 @@ if (isset($_POST['filter'])){
         $_SESSION['categories'] = $categories;
     }
 }
+
+//car brand filter:
+if (isset($_POST['filter'])){
+    $_SESSION['vendor']=$_POST['vendor'];
+}
+
 // Check Arrays:
  echo "<br><br><br><br>";
  echo "Session Category: ";
@@ -113,7 +121,11 @@ include('../includes/header.html'); // include header
                     <?php 
                     $vendors=selectColumn("Abbreviation", "Vendor");
                     foreach($vendors as $vendor){
+                        if($_SESSION['vendor'] == $vendor){
+                            echo "<option value='$vendor' selected>$vendor</option>";
+                        } else {
                         echo "<option value='$vendor'>$vendor</option>";
+                        }
                     }
                     ?>
                 </select>
