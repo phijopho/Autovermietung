@@ -25,6 +25,7 @@ a:hover {
     /* Einstellungen des Logos im Header */
 .logobox {
   margin-left: 20px;
+  float: left;
 } 
 
 /* Einstellungen der div's im Header */
@@ -80,7 +81,8 @@ a:hover {
   
   #navbar-right {
     float: right;
-    margin-right: 50%;
+    margin-right: 0%;
+    margin-left: 20%;
     padding-top: 20px;
   }
   
@@ -136,8 +138,8 @@ a:hover {
 
 /*Style des Hover-Menüs*/
 .divhover {
-  margin-right: 20px;
-  margin-left: 200px;
+  margin-right: 5%;
+  margin-left: 25%;
   background-color: #525252 ;
 }
 
@@ -213,7 +215,7 @@ ul li ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 1;
     border-bottom: 2px solid aqua;
     }
 
