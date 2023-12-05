@@ -40,7 +40,11 @@
 
             header("Location: ../index.php");
         } else {
-            // error
+            ?>
+            <div class="error">
+                <p class="textError"> Falscher Username oder falsches Passwort </p>
+            </div>
+    <?php
         }
     }
 

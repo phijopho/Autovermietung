@@ -87,3 +87,19 @@ button:hover {
 button:focus {
     outline: none;
 }
+
+.error {
+    height: 35px;
+    line-height: 35px;
+    width: 400px;
+    border-radius: 10px;
+    margin: auto;
+    background-color: #ffbaba;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.textError {
+    color: #a70000;
+    font-size: 16px;
+}
