@@ -8,6 +8,7 @@
   margin-bottom: 10%;
   margin-left: 5%;
   border: 2px solid aqua;
+  border-image: linear-gradient(to bottom, aqua, #92FE9D) 1;
 }
 
 .divContent {
