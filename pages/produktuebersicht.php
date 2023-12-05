@@ -131,6 +131,7 @@ if (isset($_POST['filter'])) {
 <?php
 include('../includes/header.html'); // include header
 ?>
+
 <body>
 <div class="contentBox">
     <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">
@@ -350,7 +351,6 @@ include('../includes/header.html'); // include header
         </div>
     </div>
 </div>
-
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
 ?>

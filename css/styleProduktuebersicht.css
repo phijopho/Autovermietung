@@ -99,12 +99,9 @@ input[type="range"] {
 /* Result area: */
 .resultBox {
     float: left;
-    max-width: 1070px;
-    background-color: #2f2e2c;
     margin-top: 80px;
     margin-left: 320px;
-    
-}
+  }
 
 .topBox {
   padding: 1%;
@@ -127,10 +124,10 @@ input[type="range"] {
   margin-left: 7px;
 }
 
-/* Result Area */
+/* Show Cars Area */
 .resultWrapBox {
   background-color: #272626;
-  max-width: 1050px;
+  max-width: 1360px;
   display: flex;
   flex-wrap: wrap;
   padding-left: 20px;
