@@ -20,16 +20,39 @@
     <?php
     include('../includes/dbConnection.php');
     include('../includes/header.html'); // Einbinden des Headers
+
+    if (isset($_POST["login"])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        $stmt = $conn->prepare("SELECT * FROM User WHERE Username=:username");
+        $stmt->bindParam(":username", $username);
+        $stmt->execute();
+        $existingUser = $stmt->fetchAll();
+        var_dump($existingUser);
+
+        $passwordHash = $existingUser[0]["Password"];
+        $checkPassword = password_verify($password, $passwordHash);
+
+        if ($checkPassword) {
+            session_start();
+            $_SESSION["username"] = $existingUser[0]["Username"];
+
+            header("Location: ../index.php");
+        } else {
+            // error
+        }
+    }
+
     ?>
 
-    <form>
+    <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
         <h1>Anmelden</h1>
-        <!-- <div class="comment">Mit * gekennzeichnete Felder müssen ausgefüllt werden</div> -->
         <div class="inputbox">
-            <input type="text" required placeholder="Username">
-            <input type="password" required placeholder="Password">
+            <input type="text" required autofocus placeholder="Username" name="username">
+            <input type="password" required placeholder="Password" name="password">
         </div>
-        <button>Login</button>
+        <button name="login">Login</button>
     </form>
 
     <?php

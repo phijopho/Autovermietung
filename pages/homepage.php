@@ -1,44 +1,39 @@
 <?php 
-include('includes/dbConnection.php');
-include("./includes/functions.php");
-?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
+session_start();
 
-<div class="BackgroundAudi"> 
+include('./includes/functions.php');
+$location=getCities();
+
+$today=date("Y-m-d");
+$tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
+if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
+    $_SESSION['location']="Hamburg";
+    $_SESSION['pickUpDate']=$today;
+    $_SESSION['returnDate']=$tomorrow;
+}
+?>
+
+<div class="BackgroundAudi">
     <div class="divContentContainer">
-        <!-- <div class="divBookingForm"> -->
         <div class="containerBookingForm">
-            <!-- <h1>Buchung</h1> -->
-            <h1>Buchung</h1>
-            <?php 
-            $pickUpLocation = array("Hamburg");
-            $default="Hamburg";
-            $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
-            $stmtGetCities->bindParam(':cityIdent', $default);
-            $stmtGetCities->execute();
-            while($row = $stmtGetCities->fetch()){
-                $pickUpLocation[] = $row['City'];
-            }
-            ?>
-            <!-- Link zur Produktübersichtseite statt index -->
-            <form action="./index.php" method="post"> 
-                <label for="Abholort">Abholort:</label>
-                    <select id="Abholort" name="Abholort">
+            <form action="pages/produktuebersicht.php" method="post"> 
+                <label for="location">Standort:</label>
+                    <select id="location" name="location">
                         <?php //aus Datenbank ziehen, außer HH
-                        foreach($pickUpLocation as $city){
-                        echo "<option value='$city'>$city</option>";
+                        foreach ($location as $city){
+                            if ($_SESSION['location'] == $city) {
+                                echo "<option value='$city' selected>$city</option>";
+                            } else {
+                                echo "<option value='$city'>$city</option>";
+                            }
                         }
                         ?>
                     </select>
-    
-                    <label for="Abholdatum">Abholdatum:</label>
-      <!-- Verwende input-Felder und füge die Klasse 'datepicker' hinzu -->
-      <input type="text" name="Abholdatum" id="Abholdatum" class="datepicker" />      
-      <!-- Verwende input-Felder und füge die Klasse 'datepicker' hinzu -->
-      <!-- <input type="text" name="Rueckgabedatum" id="Rueckgabedatum" class="datepicker" /><br><br> -->
-      <br><br>
-      <input type="submit" value="Suchen">
+                <label for "pickUpDate">Abholdatum:</label>
+                    <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
+                <label for "returnDate">R&uuml;ckgabedatum:</label>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" /><br><br>
+                <input type="submit" value="Suchen" name="quickSearch">
             </form>
         </div>
 
@@ -75,40 +70,7 @@ include("./includes/functions.php");
             <div class="divbutton">
                 <a href="http://localhost/Autovermietung/pages/aboutus.php" class="button">Discover more</a>
             </div>
-        </div>        
+            
+        </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-<script>
-  // Flatpickr-Initialisierung für die Datumsauswahl
-  flatpickr(".datepicker", {
-    mode: "range", // Zeitspannen-Auswahl aktivieren
-    dateFormat: "Y-m-d", // Datumsformat
-    minDate: "today", // Mindestdatum ist heute
-    onClose: [function(selectedDates, dateStr, instance) {
-      // Wenn das Abholdatum ausgewählt wurde, fokussiere das Rückgabedatum
-      if (dateStr.length > 0) {
-        instance.setDate(selectedDates[0]);
-        instance.open();
-      }
-    }],
-    onChange: [function(selectedDates, dateStr, instance) {
-      // Zeige die ausgewählte Zeitspanne im Konsolen-Log
-      console.log(dateStr);
-    }]
-  });
-
-   
-  
-</script>
-
-<script>
-    flatpickr(".datepicker", {
-      mode: "range",
-      dateFormat: "d.m.Y",
-      minDate: "today"
-    }); 
-  </script>
-
