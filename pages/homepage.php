@@ -2,13 +2,8 @@
 include('includes/dbConnection.php');
 include("./includes/functions.php");
 ?>
-
-<head>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-</head>
- 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
 
 <div class="BackgroundAudi"> 
     <div class="divContentContainer">
@@ -39,14 +34,11 @@ include("./includes/functions.php");
     
                     <label for="Abholdatum">Abholdatum:</label>
       <!-- Verwende input-Felder und füge die Klasse 'datepicker' hinzu -->
-      <input type="text" name="Abholdatum" id="Abholdatum" class="datepicker" /> 
-      <label for="Abholdatum">Abholdatum:</label>     
+      <input type="text" name="Abholdatum" id="Abholdatum" class="datepicker" />      
       <!-- Verwende input-Felder und füge die Klasse 'datepicker' hinzu -->
-      <input type="text" name="Rueckgabedatum" id="Rueckgabedatum" class="datepicker" />
-      
+      <!-- <input type="text" name="Rueckgabedatum" id="Rueckgabedatum" class="datepicker" /><br><br> -->
       <br><br>
-     
-      <input type="submit" value="Suchen" class="submitButton" />
+      <input type="submit" value="Suchen">
             </form>
         </div>
 
@@ -87,33 +79,36 @@ include("./includes/functions.php");
     </div>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-    $(function() {
-        var dateFormat = "dd MM yy",
-        from = $("#Abholdatum").datepicker({
-            dateFormat: dateFormat,
-            regional: "de",
-            monthNames: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
-            numberOfMonths: 2,
-            minDate: 0,
-            onSelect: function(selectedDate) {
-                to.datepicker("option", "minDate", selectedDate);
-            }
-        }),
-        to = $("#Rueckgabedatum").datepicker({
-            dateFormat: dateFormat,
-            regional: "de",
-            numberOfMonths: 2,
-            monthNames: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
-            minDate: 0,
-            onSelect: function(selectedDate) {
-                from.datepicker("option", "maxDate", selectedDate);
-            }
-        });
-    });
+  // Flatpickr-Initialisierung für die Datumsauswahl
+  flatpickr(".datepicker", {
+    mode: "range", // Zeitspannen-Auswahl aktivieren
+    dateFormat: "Y-m-d", // Datumsformat
+    minDate: "today", // Mindestdatum ist heute
+    onClose: [function(selectedDates, dateStr, instance) {
+      // Wenn das Abholdatum ausgewählt wurde, fokussiere das Rückgabedatum
+      if (dateStr.length > 0) {
+        instance.setDate(selectedDates[0]);
+        instance.open();
+      }
+    }],
+    onChange: [function(selectedDates, dateStr, instance) {
+      // Zeige die ausgewählte Zeitspanne im Konsolen-Log
+      console.log(dateStr);
+    }]
+  });
+
+   
+  
 </script>
 
-
+<script>
+    flatpickr(".datepicker", {
+      mode: "range",
+      dateFormat: "d.m.Y",
+      minDate: "today"
+    }); 
+  </script>
 
