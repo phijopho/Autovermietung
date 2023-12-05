@@ -27,7 +27,7 @@ article {
 /*general settings for dd*/
 dt {
   font-family: "Oswald", sans-serif;
-  background: #33455e;
+  background: #00C9FF;
   color: #fff;
   text-transform: uppercase;
   border-top: 1px solid #222;
@@ -71,13 +71,14 @@ dd {
     margin: 0;
     display: flex;
     padding: 15px;
-    background: #33455e;
+    background: #00C9FF;
     color: #fff;
     text-transform: uppercase;
     border-top: 1px solid #222;
     justify-content: space-between; /* Gleichmäßiger Abstand zwischen den Elementen */
     width: 97%; /* Füllt die gesamte Breite der Klasse aus */
     text-transform: capitalize;
+    border-radius: 20px;
   }
   
 .onTopContainer h3 {
