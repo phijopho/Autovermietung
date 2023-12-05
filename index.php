@@ -12,7 +12,7 @@
 <header>
     <?php 
     
-        include('includes/headerangemeldet.html'); // include header
+        include('includes/header.html'); // include header
         
     ?>
 

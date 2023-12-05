@@ -135,6 +135,7 @@ a:hover {
 }
 
 /* Header angemeldet*/
+<<<<<<< HEAD
 
 /*Style des Hover-Menüs*/
 .divhover {
@@ -152,6 +153,8 @@ a:hover {
     z-index: 1000;
   
 }
+=======
+>>>>>>> parent of b6f4925 (minor changes)
 
 /* .topnavSignedIn {
   overflow: hidden;
