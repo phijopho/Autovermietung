@@ -25,6 +25,7 @@ a:hover {
     /* Einstellungen des Logos im Header */
 .logobox {
   margin-left: 20px;
+  float: left;
 } 
 
 /* Einstellungen der div's im Header */
@@ -80,7 +81,8 @@ a:hover {
   
   #navbar-right {
     float: right;
-    margin-right: 50%;
+    margin-right: 0%;
+    margin-left: 20%;
     padding-top: 20px;
   }
   
@@ -134,14 +136,11 @@ a:hover {
 
 /* Header angemeldet*/
 
-.dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1000;
+/*Style des Hover-Menüs*/
+.divhover {
   margin-right: 5%;
+  margin-left: 25%;
+  background-color: #525252 ;
 }
 
 .dropdown:hover .dropdown-content {
@@ -206,7 +205,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 1;
     border-bottom: 2px solid aqua;
     } */
 
