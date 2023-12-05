@@ -62,57 +62,57 @@
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
-                    <a href="https://html-mania.de/">
+                    <a href="pages/produktuebersicht.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Lorem Ipsum</h3>
+                            <h3>Limousine</h3>
                             <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="https://html-mania.de/">
+                    <a href="pages/produktuebersicht.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Lorem Ipsum</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
+                            <h3>Cabrio</h3>
+                            <p>Für mehr Kopffreiheit...</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
-                    <a href="https://html-mania.de/">
+                    <a href="pages/produktuebersicht.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Lorem Ipsum</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
+                            <h3>Mehrsitzer</h3>
+                            <p>Für ihre Kinder</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
-                    <a href="https://html-mania.de/">
+                    <a href="pages/produktuebersicht.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Lorem Ipsum</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
+                            <h3>Coupé</h3>
+                            <p>Für die Autobahn</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
-                    <a href="https://html-mania.de/">
+                    <a href="pages/produktuebersicht.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Lorem Ipsum</h3>
+                            <h3>SUV</h3>
                             <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
-                    <a href="https://html-mania.de/">
+                    <a href="pages/produktuebersicht.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Lorem Ipsum</h3>

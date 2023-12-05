@@ -84,11 +84,14 @@ body {
     border-color: aqua;
     display: flex;
 }
+.section4 {
+    height: 400px;
+}
 /* slider settings */
 .cslider {
     background: radial-gradient(#85c6ef, #166fa6);
     color: #fff;
-    padding: 40px 20px;
+    padding: 40px 20px 20px;
     position: relative;
 }
 .cslider img {
@@ -110,10 +113,10 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 475px;
+    height: 144px;
     margin: 0 auto;
     max-width: 1400px;
-    padding-bottom: 210px;
+    padding-bottom: 144px;
     position: relative;
     z-index: 1;
 }
@@ -230,17 +233,6 @@ body {
         left: 95%;
     }
 }
-
-/* TEXT
- *
- * Im Normal-Zustand ist der "Text-Container" verborgen.
- * Dies geschieht Ã¼ber die Werte height: 0 und overflow: hidden.
- *
- * Der Text im mittleren Container (.cslider-item-selected) wird angezeigt.
- *
- * Eine flÃ¼ssige Animation zwischen den zwei ZustÃ¤nden wird Ã¼ber den Parameter transition angewiesen.
- *
- */
 .cslider-text {
     height: 0;
     left: 0;
