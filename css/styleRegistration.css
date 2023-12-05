@@ -97,7 +97,9 @@ button:focus {
     margin-top: 125px;
     background-color: #ffbaba;
     text-align: center;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .success {

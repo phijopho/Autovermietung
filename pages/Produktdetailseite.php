@@ -17,7 +17,7 @@
  
 <body>
 <?php
-include('../includes/header.html'); // Einbindung des Headers
+include('../includes/header.php'); // Einbindung des Headers
 ?>
 
 <div class="divbody">

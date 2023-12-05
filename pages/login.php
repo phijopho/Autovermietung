@@ -19,39 +19,51 @@
 <body>
     <?php
     include('../includes/dbConnection.php');
-    include('../includes/header.html'); // Einbinden des Headers
+    include('../includes/header.php');
 
-    if (isset($_POST["login"])) {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-
-        $stmt = $conn->prepare("SELECT * FROM User WHERE Username=:username");
-        $stmt->bindParam(":username", $username);
-        $stmt->execute();
-        $existingUser = $stmt->fetchAll();
-        var_dump($existingUser);
-
-        $passwordHash = $existingUser[0]["Password"];
-        $checkPassword = password_verify($password, $passwordHash);
-
-        if ($checkPassword) {
-            session_start();
-            $_SESSION["username"] = $existingUser[0]["Username"];
-
-            header("Location: ../index.php");
-        } else {
-            ?>
-            <div class="error">
-                <p class="textError"> Falscher Username oder falsches Passwort </p>
-            </div>
-    <?php
-        }
+    // prevent logged in users from entering login page
+    if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
+        header("Location: ../index.php");
     }
-
     ?>
 
     <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
         <h1>Anmelden</h1>
+
+        <?php // if login is hit: check if user exists in database, verify password
+        if (isset($_POST["login"])) {
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+
+            $stmt = $conn->prepare("SELECT * FROM User WHERE Username=:username");
+            $stmt->bindParam(":username", $username);
+            $stmt->execute();
+            $existingUser = $stmt->fetchAll();
+
+            if (!empty($existingUser)) {
+                $passwordHash = $existingUser[0]["Password"];
+                $checkPassword = password_verify($password, $passwordHash);
+
+                if ($checkPassword) {
+                    session_start();
+                    $_SESSION["firstName"] = $existingUser[0]["FirstName"];
+                    header("Location: ../index.php");
+                } else {
+        ?>
+                    <div class="error">
+                        <p class="textError"> Falscher Username oder falsches Passwort </p>
+                    </div>
+                <?php
+                }
+            } else {
+                ?>
+                <div class="error">
+                    <p class="textError"> Falscher Username oder falsches Passwort </p>
+                </div>
+        <?php
+            }
+        } ?>
+
         <div class="inputbox">
             <input type="text" required autofocus placeholder="Username" name="username">
             <input type="password" required placeholder="Password" name="password">

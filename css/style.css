@@ -47,13 +47,13 @@ a:hover {
 
 /* Einstellungen des Logins im Header */
 .loginbox {
-    margin-right: 20px;
+    margin-right: 50px;
     margin-left: 200px;
 }
 /* Header angemeldet*/
 /*Style des Hover-Menüs*/
 .divhover {
-    margin-right: 20px;
+    margin-right: 50px;
     margin-left: 200px;
     background-color: #525252 ;
 }
@@ -61,7 +61,7 @@ a:hover {
 .divhover a {
     text-decoration: none;
     color: #f7f2ef;
-    font-size: 20px;
+    font-size: 16px;
     padding: 15px;
     display:inline-block;
 }
@@ -87,8 +87,8 @@ ul li:hover {
 
 ul li:hover ul {
     display: block;
-
 }
+
 ul li ul {
   position: absolute;
   width: 200px;
@@ -97,9 +97,10 @@ ul li ul {
 
 ul li ul li { 
     background: #525252;
-    display: block; 
+    display: block;
 }
-  ul li ul li a {
+
+ul li ul li a {
     display:block !important;
 } 
 

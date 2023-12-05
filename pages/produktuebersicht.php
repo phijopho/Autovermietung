@@ -1,5 +1,5 @@
 <?php 
-session_start(); 
+// session_start(); 
 // show error messages
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -129,7 +129,7 @@ if (isset($_POST['filter'])) {
 </head>
 
 <?php
-include('../includes/header.html'); // include header
+include('../includes/header.php'); // include header
 ?>
 <body>
 <div class="contentBox">

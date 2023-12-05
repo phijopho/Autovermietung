@@ -19,10 +19,31 @@
 <body>
     <?php
     include('../includes/dbConnection.php');
-    include('../includes/header.html'); // Einbinden des Headers
+    include('../includes/header.php'); // Einbinden des Headers
 
+    // prevent logged in users from entering registration page
+    if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
+        header("Location: ../index.php");
+    }
 
-    if (isset($_POST["register"])) {
+    function register($firstName, $lastName, $age, $email, $username, $password)
+    {
+        global $conn;
+        $stmt = $conn->prepare("INSERT INTO User (FirstName, LastName, Age, EMail, Username, Password) VALUES (:firstName, :lastName, :age, :email, :username, :password)");
+        $stmt->bindParam(":firstName", $firstName);
+        $stmt->bindParam(":lastName", $lastName);
+        $stmt->bindParam(":age", $age);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":password", $password);
+        $stmt->execute();
+    }
+    ?>
+
+    <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
+        <h1>Registrieren</h1>
+        
+        <?php if (isset($_POST["register"])) {
         $firstName = $_POST["firstName"];
         $lastName = $_POST["lastName"];
         $age = $_POST["age"];
@@ -49,26 +70,7 @@
             </div>
     <?php
         }
-    }
-
-    function register($firstName, $lastName, $age, $email, $username, $password)
-    {
-        global $conn;
-        $stmt = $conn->prepare("INSERT INTO User (FirstName, LastName, Age, EMail, Username, Password) VALUES (:firstName, :lastName, :age, :email, :username, :password)");
-        $stmt->bindParam(":firstName", $firstName);
-        $stmt->bindParam(":lastName", $lastName);
-        $stmt->bindParam(":age", $age);
-        $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":password", $password);
-        $stmt->execute();
-    }
-    ?>
-
-
-
-    <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
-        <h1>Registrieren</h1>
+    } ?>
         <div class="inputbox">
             <input type="text" required autofocus placeholder="Vorname*" name="firstName">
             <input type="text" required placeholder="Nachname*" name="lastName">

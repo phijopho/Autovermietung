@@ -93,10 +93,12 @@ button:focus {
     line-height: 35px;
     width: 400px;
     border-radius: 10px;
-    margin: auto;
+    margin: -90px auto -80px;
     background-color: #ffbaba;
     text-align: center;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .textError {
