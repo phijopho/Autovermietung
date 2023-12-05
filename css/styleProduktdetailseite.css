@@ -31,9 +31,8 @@ div.foto {
   border: none;
   float: left;
   width: 90%;
-  max-height: min-content;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  
+  height: 70%;
   background-color: #525252;
   border-radius: 30px;
 }
@@ -76,6 +75,9 @@ div.desc {
   color: #1a1818;
   background: linear-gradient(to bottom, #525252, rgb(18, 162, 162));
   opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 
@@ -93,6 +95,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 50px;
+  margin-bottom: 3.3%;
 }
 
 /* Style of table header and table data */
@@ -105,7 +108,6 @@ th, td {
 .divinfo {
   float: left;
   width: 43%;
-  height: fit-content;
   text-align: left;
   padding-top:3%;
   padding-left: 3%;
@@ -142,6 +144,7 @@ th, td {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
 
 
