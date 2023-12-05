@@ -14,12 +14,17 @@
     line-height: 2;
 }
 
+.blocksatz {
+    text-align: justify;
+}
+
+
 /* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
 .AGBtext {
     margin-left: 20px;
     margin-top: 0;
 }
 
-.blocksatz {
-    text-align: justify;
+.AGBtext2 {
+    margin-left: 32px;
 }

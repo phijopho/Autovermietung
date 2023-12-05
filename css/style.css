@@ -31,6 +31,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 
 /* Einstellungen des Logos im Header */
@@ -109,6 +110,7 @@ ul li ul li {
     position: fixed;
     background-color: #1a1818;
     box-sizing: border-box;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;

@@ -32,7 +32,12 @@ include('../includes/header.html'); // Including the header
         <b>2. Anmietung und Fahrzeugrückgabe </b> <br>
 
         <div class="AGBtext">
-        2.1. Der Mieter erklärt sich damit einverstanden, das Fahrzeug in gutem Zustand zu übernehmen und in dem gleichen Zustand zurückzugeben, wie es ihm übergeben wurde. <br>
+        2.1. Der Mieter erklärt sich damit einverstanden, das Fahrzeug in gutem Zustand zu übernehmen und in dem gleichen
+        
+        <div class="AGBtext2">
+        Zustand zurückzugeben, wie es ihm übergeben wurde. <br>
+        </div>
+
         2.2. Die Mietdauer beginnt und endet gemäß den im Mietvertrag festgelegten Bedingungen. <br>
         2.3. Bei verspäteter Rückgabe des Fahrzeugs kann eine zusätzliche Gebühr anfallen. <br>
         </div>
@@ -43,7 +48,12 @@ include('../includes/header.html'); // Including the header
 
         <div class="AGBtext">
         3.1. Das Fahrzeug darf nur vom Mieter oder den im Mietvertrag genannten Fahrern geführt werden. <br>
-        3.2. Der Mieter verpflichtet sich, das Fahrzeug in Übereinstimmung mit den geltenden Verkehrsregeln und Gesetzen zu verwenden. <br>
+        3.2. Der Mieter verpflichtet sich, das Fahrzeug in Übereinstimmung mit den geltenden Verkehrsregeln und Gesetzen zu 
+        
+        <div class="AGBtext2">
+        verwenden. <br>
+        </div>
+
         </div>
 
         <br> <!--To add paragraph-->
@@ -60,7 +70,12 @@ include('../includes/header.html'); // Including the header
         <b> 5. Haftung und Versicherung </b> <br>
 
         <div class="AGBtext">
-        5.1. Der Mieter haftet für Schäden am Fahrzeug während der Mietdauer, es sei denn, der Schaden beruht nicht auf einem Verschulden des Mieters. <br>
+        5.1. Der Mieter haftet für Schäden am Fahrzeug während der Mietdauer, es sei denn, der Schaden beruht nicht auf einem 
+        
+        <div class="AGBtext2">
+        Verschulden des Mieters.<br>
+        </div>
+        
         5.2. Die Haftung des Mieters ist auf den im Mietvertrag festgelegten Selbstbehalt begrenzt. <br>
         5.3. Das Fahrzeug ist vollkaskoversichert. Schäden müssen jedoch unverzüglich gemeldet werden. <br>
         </div>
