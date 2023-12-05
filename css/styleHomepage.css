@@ -30,15 +30,16 @@ body {
     background-attachment: fixed;
     /* content settings */
     height: 800px;
-    justify-content: center;
+    /* justify-content: center;
     align-items: center;
-    display: flex;
+    display: flex; */
     
     /* border settings */
     border-style: solid;
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
+    border-bottom: 0px;
     border-color: aqua;
 
 
@@ -69,27 +70,33 @@ body {
 }
 .section2 {
     height: fit-content;
-    border-style: solid;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 0px;
-    border-color: aqua;
+    /* border-style: solid;
+    border: 0 0 0 0;
+    border-color: aqua; */
 
 }
-.section3 {
-    border-style: solid;
-    border-left: 4px;
-    border-right: 4px;
-    border-color: aqua;
-    display: flex;
-}
 .section4 {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    border-style: solid;
+    border-top: 7px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: aqua;
+}
+.section3 {
     height: 400px;
+}
+.blocker {
+    height: 200px;
+    background-color: grey;
 }
 /* slider settings */
 .cslider {
-    background: radial-gradient(#85c6ef, #166fa6);
+    background: radial-gradient(#85c6ef, #166fa6);  
     color: #fff;
     padding: 40px 20px 20px;
     position: relative;

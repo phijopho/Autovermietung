@@ -127,23 +127,25 @@
         </div>
     </div>        
     <div class="BackgroundAudi">
-                    
-                <div class="section3">
-                    <div class="divGoal1">
+        <div class="section3">
+
+        </div>
+        <div class="blocker">
+    
+        </div>            
+        <div class="section4">
+            <div class="au1">
+                <h2> About Us </h2>
+            </div>
+
+                    <div class="au2">
                         <p> Every single detail of  SWIFT rentals  is
                             measured against our continuing goal: to
                             enhance costumer enjoyment.
                         </p>
                     </div>
 
-                    <div class="divGoal2">
-                        <p> Every single detail of  SWIFT rentals  is
-                            measured against our continuing goal: to
-                            enhance costumer enjoyment.
-                        </p>
-                    </div>
-
-                    <div class="divGoal3">
+                    <div class="daul3">
                         <p> Every single detail of  SWIFT rentals  is
                             measured against our continuing goal: to
                             enhance costumer enjoyment.
@@ -162,7 +164,7 @@
                         <a href="http://localhost/Autovermietung/pages/aboutus.php" class="button">Discover more</a>
                     </div>
                     
-                </div>
+        </div>
     
     </div>
     
