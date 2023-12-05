@@ -9,6 +9,8 @@
         ?>
         <!-- Einbinden der style.css -->
         <link rel="stylesheet" href="css/styleHomepage.css">
+        <link rel="stylesheet" href="css/styleStandorte.css">
+
         <title>SWIFT rentals</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="includes/karussell-slider.js"></script>
@@ -128,6 +130,70 @@
     </div>        
     <div class="BackgroundAudi">
         <div class="section3">
+            <div class="map-heading">
+                <h1>Unsere Standorte</h1>
+            </div>
+            <div class="map-container">
+                <div class="ger-map">
+                    <img src="images/Deutschlandkarte.png" alt="map" >
+            
+                <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Hamburg</span>
+                </div>
+
+                <div class="pin berlin" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Berlin</span>
+                </div>
+
+                <div class="pin paderborn" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Paderborn</span>
+                </div>
+
+                <div class="pin rostock" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Rostock</span>
+                </div>
+
+                <div class="pin bielefeld" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Bielefeld</span>
+                </div>
+
+                <div class="pin bochum" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Bochum</span>
+                </div>
+
+                <div class="pin bremen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Bremen</span>
+                </div>
+
+                <div class="pin dortmund" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Dortmund</span>
+                </div>
+
+                <div class="pin dresden" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Dresden</span>
+                </div>
+
+                <div class="pin freiburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Freiburg</span>
+                </div>
+
+                <div class="pin koeln" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Köln</span>
+                </div>
+
+                <div class="pin leipzig" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Leipzig</span>
+                </div>
+
+                <div class="pin muenchen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>München</span>
+                </div>
+
+                <div class="pin nuernberg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <span>Nürnberg</span>
+                </div>
+            </div>
+        </div>
 
         </div>
         <div class="blocker">
