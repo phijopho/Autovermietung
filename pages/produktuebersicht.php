@@ -39,10 +39,9 @@ $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
-$checkedCategories=array();
     // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories'])){
-    $checkedCategories=array();
+    $_SESSION['checkedCategories']=array();
     $_SESSION['categories'] = $categories;
 }
 
@@ -52,12 +51,13 @@ if (isset($_POST['filter'])){
     foreach($categories as $category){
         if (isset($_POST[$category])){
             $_SESSION['categories'][] = $category;
-            $checkedCategories[]=$category;
+            $_SESSION['checkedCategories'][]=$category;
         }
     }
     // if no categories were checked add all to session
     if(empty($_SESSION['categories'])){
         $_SESSION['categories'] = $categories;
+        $_SESSION['checkedCategories']=array();
     }
 }
 
@@ -116,11 +116,11 @@ if (isset($_POST['filter'])) {
 }
 
 // Check Arrays:
-//  echo "<br><br><br><br>";
-//  echo "Session Categories: ";
-//  print_r($_SESSION['categories']);
-//  echo "<br> Checked Categories: ";
-//  echo var_dump($checkedCategories);
+echo "<br><br><br><br>";
+  echo "Session Categories: ";
+  print_r($_SESSION['categories']);
+  echo "<br> Checked Categories: ";
+  echo var_dump($_SESSION['checkedCategories']);
 ?>
 
 <!-- page specific head elements -->
@@ -162,7 +162,7 @@ include('../includes/header.html'); // include header
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
-                            if(in_array($category, $checkedCategories)){
+                            if(in_array($category, $_SESSION['checkedCategories'])){
                                 echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
                                 echo "<label for '".$category."'>".$category."</label><br>"; 
                             } else {
