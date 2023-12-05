@@ -5,11 +5,14 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2f2e2c;
+    scroll-behavior: smooth;
 }
+
 
 a {
     text-decoration: none;
     color: #f7f2ef;
+    
 }
 
 a:hover {
@@ -24,6 +27,7 @@ a:hover {
 .headercontainer {
     background-color: #525252;
     position: fixed;
+    padding: 10px;
     top: 0;
     left: 0;
     width: 100%;
@@ -31,31 +35,40 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 1;
+    transition: padding 0.2s ease;
+    border-bottom: 2px solid aqua;
+
 }
 
 /* Einstellungen des Logos im Header */
 .logobox {
     margin-left: 20px;
+    padding: 10px;
 }
 
 /* Einstellungen der div's im Header */
 .headerbox {
     float: left;
+    padding: 10px;
 }
 
 
 /* Einstellungen des Logins im Header */
 .loginbox {
-    margin-right: 20px;
-    margin-left: 200px;
+    margin-right: 5%;
+    margin-left: 10%;
+    padding: 10px;
+    font-size: 16px;
 }
 /* Header angemeldet*/
 /*Style des Hover-Menüs*/
 .divhover {
-    margin-right: 20px;
-    margin-left: 200px;
+    margin-right: 5%;
+    margin-left: 10%;
+    padding: 1%;
     background-color: #525252 ;
+    font-size: 16px;
 }
 
 .divhover a {
@@ -63,6 +76,7 @@ a:hover {
     color: #f7f2ef;
     font-size: 20px;
     padding: 15px;
+    font-size: 16px;
     display:inline-block;
 }
 a:hover {
@@ -73,7 +87,7 @@ a:hover {
 ul {
     display: inline;
     margin: 0;
-    padding: 0;
+    padding: 1%;
 }
   
 
@@ -89,6 +103,7 @@ ul li:hover ul {
     display: block;
 
 }
+
 ul li ul {
   position: absolute;
   width: 200px;
@@ -121,6 +136,7 @@ ul li ul li {
     font-weight: 300;
     padding-left: 50px;
     padding-right: 50px;
+    border-top:2px solid aqua;
 }
 
 /* Copyright mit Firmenname einfügen */

@@ -25,32 +25,48 @@ function togglemenu() {
 
 // Change of padding in header while scrolling
 
-// When the user scrolls down 30px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = function() {scrollFunction()};
+ //When the user scrolls down 30px from the top of the document, resize the navbar's padding and the logo's font size
+//  window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.documentElement.scrollTop > 30) {
-    document.getElementById("navbar").style.padding = "5px 10px";
-  } else {
-    document.getElementById("navbar").style.padding = "10px 10px";
-  }
+//  function scrollFunction() {
+//    if (document.documentElement.scrollTop > 10) {
+//      document.getElementsByClassName("headercontainer").style.padding = "5px 20px";
+//    } else {
+//      document.getElementsByClassName("Headercontainer").style.padding = "10px 10px";
+//    }
+// }
+
+window.onscroll = function() {
+   scrollFunction();
+ };
+
+ function scrollFunction() {
+   var headerContainer = document.querySelector(".headercontainer");
+   if (document.documentElement.scrollTop > 30) {
+     headerContainer.style.padding = "0px 20px";
+
+   } else {
+     headerContainer.style.padding = "10px 10px";
+   }
 }
+
 
 // clicked link stays active when on page
 
-const navLinks = document.querySelectorAll('.nav-link');
+ const navLinks = document.querySelectorAll('.headercontainer a');
 
-// Event-Listener i clicked links
-navLinks.forEach(link => {
-  link.addEventListener('click', function(e) {
+ // Event-Listener i clicked links
+ navLinks.forEach(link => {
+   link.addEventListener('click', function(e) {
     e.preventDefault(); // avoids standard behaviour of links
 
     // remove all active classes
     navLinks.forEach(item => {
       item.classList.remove('active');
-    });
+     });
 
     // underline active link
-    this.classList.add('active');
+     this.classList.add('active');
   });
 });
+
