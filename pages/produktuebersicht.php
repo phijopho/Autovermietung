@@ -116,11 +116,11 @@ if (isset($_POST['filter'])) {
 }
 
 // Check Arrays:
-echo "<br><br><br><br>";
-  echo "Session Categories: ";
-  print_r($_SESSION['categories']);
-  echo "<br> Checked Categories: ";
-  echo var_dump($_SESSION['checkedCategories']);
+//   echo "<br><br><br><br>";
+//   echo "Session Categories: ";
+//   print_r($_SESSION['categories']);
+//   echo "<br> Checked Categories: ";
+//   echo var_dump($_SESSION['checkedCategories']);
 ?>
 
 <!-- page specific head elements -->
