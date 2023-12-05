@@ -3,19 +3,20 @@
 
 function togglemenu() {
     var table = document.getElementById("desc");
-    var button = document.querySelector('.buttonToggle');
+     var button = document.querySelector('.buttonToggle');
 
-    if (table.style.opacity == '0') {
-        table.style.opacity = '1.0';
-        button.classList.add('rotated');
-        table.style.maxHeight = table.scrollHeight + 'px';
-        table.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-        table.style.opacity = '0.0';
-        button.classList.remove('rotated');
-        table.style.maxHeight = '0';
-    }
-}
+     if (table.style.opacity == '0') {
+         table.style.opacity = '1.0';
+         button.classList.add('rotated');
+         table.style.maxHeight = table.scrollHeight + 'px';
+         table.scrollIntoView({ behavior: 'smooth', block: 'start' });
+     } else {
+         table.style.opacity = '0.0';
+         button.classList.remove('rotated');
+         table.style.maxHeight = '0';
+     }
+ }
+
 
 // Homepage
 
