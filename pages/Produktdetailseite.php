@@ -1,32 +1,28 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Einbinden der Schriftart -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
-    <!-- Einbinden der style.css -->
-    <base href="/Autovermietung/">
-    <link rel="stylesheet" href="css/style.css">
+    <?php
+        include('../includes/htmlhead.php')
+    ?>
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
-    <title>Unsere Flotte</title> 
-    
+    <script src="includes/funktions.js"></script> 
+    <title>Produktdetails</title> 
 </head>
- 
-<body>
+<header>
 <?php
-include('../includes/header.html'); // Einbindung des Headers
+    include('../includes/header.html'); // Einbindung des Headers
 ?>
+</header> 
+
+<body>
 
 <div class="divbody">
     <div class="divgallery">
-        <h1>"Fahrzeugmodell"</h1>   
+        <h1>"Fahrzeugmodell"</h1>
         <div class="foto">
   
-        <img src="images/cabrio-mercedes-benz-2845333_1920.png" alt="Auto">
-            <div class="desc">
+            <img src="images/Default_Car_Cabrio_from_mercedes_no_car_brand_visible_silver_n_0_3ab7f2a6-a473-48dc-ba48-421b05e7453f_0.png" alt="Auto">
+            <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
+            <div class="desc" id="desc">
                 <table>
                     <tr>
                         <th>Fahrzeugtyp</th>
@@ -50,39 +46,28 @@ include('../includes/header.html'); // Einbindung des Headers
             </div>
         </div>
     </div>
-
     <div class="divinfo">
-        <h2>Ihr ausgewählter Zeitraum: </h2> <br> 
-            <h2>"Variable Abholdatum" bis "Variable Rückgabedatum" </h2>
-                <h2> Standort des Fahrzeugs: "Variable Standort"</h2>
-                    <h3>Mindestalter: "Variable Alter"</h3>
-
-                    <!-- User is Old enough an signed in. -->
-                        <div class="divbutton">
-                            <a href="#" class="button">Buchen</a>
-                        </div>
-
-                    <!-- If User is not Old enough Errormessage appears -->
-
-                    <!-- <div class="divbutton">
-                        <a href="#" class="buttonNotOldEnough">Buchen</a>
-                    </div> -->
-
-                    <!-- If User not signed in, link to login page -->
-
-                    <!-- <div class="divbutton">
-                        <a href="#" class="buttonNotSignedIn">Bitte Anmelden</a>
-                    </div> -->
+        <div class="divText">
+            <h2> Zusammenfassung </h2><br>
+            <h3>Ihr ausgewählter Zeitraum: </h3>
+            <p>"Variable Abholdatum" bis "Variable Rückgabedatum"</p>
+            <h3> Standort des Fahrzeugs: </h3> <p> "Variable Standort"</p>
+            <h3>Mindestalter: </h3><p> "Variable Alter"</p>
+        </div>
+        <!-- User is Old enough an signed in. -->
+        <div class="divbutton">
+            <a href="#" class="button">Buchen</a>
+        </div>
     </div>
-
-
 </div>
 
-<?php    include('../includes/footer.html'); // Einbindung des Footers
-?>
-
 </body>
- 
+
+<footer>
+<?php 
+    include('../includes/footer.html'); // Einbindung des Footers
+?>
+</footer>
 </html>
  
  

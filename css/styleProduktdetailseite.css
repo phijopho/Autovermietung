@@ -2,153 +2,192 @@
 
 /* Box which covers the entire Body */
 .divbody {
-    width: 100%;
-    margin-top: 100px;
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
 .divgallery {
-    float: left;
-    width: 60%;
-    margin-left: 20px;
-    margin-bottom: 100px;
+  float: left;
+  width: 60%;
+  margin-left: 20px;
+  margin-bottom: 100px;
 }
 
 /* Box with Image and Imagedescription */
 div.foto {
-    border: none;
-    float: left;
-    width: 90%;
-  }
-  
-  /* Image Box */
-  div.foto img {
-    width: 100%;
-  }
-  
-  /* Image descriptionbox */
-  div.desc {
-    padding: 0px;
-    text-align: center;
-  }
+  border: none;
+  float: left;
+  width: 90%;
+  height: 72%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  background-color: #525252;
+  border-radius: 30px;
+}
+.buttonToggle {
+  background-color: #525252;
+  color: aqua;
+  margin-left: 45%;
+  margin-top: -3%;
+  border: none;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.buttonToggle:hover {
+  opacity: 1
+}
+
+
+.rotated {
+
+  transform: rotate(180deg);
+}
+
+/* Image Box */
+div.foto img {
+  width: 100%;
+}
+
+/* Image descriptionbox */
+div.desc {
+  text-align: center;
+  height: 35%;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 10px 20px;
+  color: #1a1818;
+  background: linear-gradient(to bottom, #525252, rgb(18, 162, 162));
+  opacity: 0;
+}
+
 
 /* Table which is included in the image description box */
 table, th, td {
-    border: none;
-    padding: 15px;
-    text-align: left;
-    width: 100%;
-     
-  }
+  border: none;
+  padding: 15px;
+  text-align: left;
+  width: 100%;
+  color: #1a1818;
+}
 
-  /* Table Style */
+/* Table Style */
 table {
-    border-collapse: collapse;
-    width: 50%;
-  }
-  
-  /* Style of table header and table data */
-th, td {
-    padding: 15px;
-  }
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 50px;
+}
 
-  /* box on the right side with selected filters */
-  .divinfo {
-    float: left;
-    width: 35%;
-    text-align: left;
-    padding-top:3%;
+/* Style of table header and table data */
+th, td {
+  padding: 15px;
+  width: 30%;
+}
+
+/* box on the right side with selected filters */
+.divinfo {
+  float: left;
+  width: 35%;
+  text-align: left;
+  padding-top:3%;
+  margin-left: 30px;
 }
 
 /* Box for button */
 .divbutton {
-    width: 100%;
-    padding-top:30%;
-    padding-left: 15%;
-    align-content: center;
+  width: 100%;
+  padding-top:30%;
+  padding-left: 15%;
+  align-content: center;
 }
 
 /* Button style if user is logged in and old enough to book the car */
 .button {
-    background-color: aqua;
-    border: none;
-    width: 40%;
-    opacity: 50%; 
-    transform: scale(150%);
-    font-weight: 600;
-    color: #1a1818;
-    padding: 15px 32px;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+  background-color: aqua;
+  border: none;
+  width: 40%;
+  opacity: 50%; 
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-  /* Button if user is not logged in*/
-  .buttonNotSignedIn {
-    background-color: aqua;
-    border: none;
-    width: 40%;
-    opacity: 50%;
-    transform: scale(150%);
-    font-weight: 600;
-    color: #1a1818;
-    padding: 15px 32px;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
 
-  /* If User is not Old enough: hover.buttonNotOldEnough */
+/* Button if user is not logged in*/
+.buttonNotSignedIn {
+  background-color: aqua;
+  border: none;
+  width: 40%;
+  opacity: 50%;
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-  .buttonNotOldEnough {
-    background-color: grey;
-    border: none;
-    width: 40%;
-    opacity: 50%;
-    transform: scale(150%);
-    font-weight: 600;
-    color: #1a1818;
-    padding: 15px 32px;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+/* If User is not Old enough: hover.buttonNotOldEnough */
 
-  a:hover.button {
-    color: #1a1818;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    opacity: 100%;
+.buttonNotOldEnough {
+  background-color: grey;
+  border: none;
+  width: 40%;
+  opacity: 50%;
+  transform: scale(150%);
+  font-weight: 600;
+  color: #1a1818;
+  padding: 15px 32px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+a:hover.button {
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  opacity: 100%;
 }
 
 /* If User is not Old enough: buttonNotOldEnough*/
 
 a:hover.buttonNotOldEnough {
-    color: #1a1818;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
 }
 
 /* Style of hover Button if user is not logged in */
 
 a:hover.buttonNotSignedIn {
-    color: #1a1818;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    opacity: 100%;
+  color: #1a1818;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  opacity: 100%;
 }
