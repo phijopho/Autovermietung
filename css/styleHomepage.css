@@ -1,8 +1,12 @@
+.contentBox {
+    height: 100vh;
+
+}
 /* Homepage: */
 /* Hintergrundbild anzeigen */
 .BackgroundAudi {
     /* backround settings */
-    background-image: url('../images/Hintergrund.svg');
+    background-image: url('../images/kia.gif');
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
@@ -12,6 +16,11 @@
     align-items: center;
     display: flex;
     background-attachment: fixed;
+    /* border settings */
+    border-style: solid;
+    border-left: 4px;
+    border-right: 4px;
+    border-color: aqua;
 }
 
 /* Buchungsformular erstellen */
@@ -23,4 +32,22 @@
     color: #F7F2EF;
     background: rgba(14, 14, 14, 0.58);
     padding: 20px;
+    border-style: solid;
+    border-top: 2px;
+    border-bottom: 2px;
+    border-color: aqua;
 }
+.aboutUs {
+    height: 200px;
+    color: green;
+    border-style: solid;
+    border-left: 4px;
+    border-right: 4px;
+    border-color: aqua;
+    display: flex;
+}
+.karussel {
+    height: 100px;
+
+}
+
