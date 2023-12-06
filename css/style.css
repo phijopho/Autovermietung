@@ -85,22 +85,6 @@ a:hover {
 }
 
 
-@media screen and (max-width: 100%) {
-    .headerContainer {
-      padding: 10px 5px !important;
-    }
-    .headerbox a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-
-    .loginbox a {
-      float: none;
-    }
-  }
-
-
   /* Underlined if hovered and active */
   .headerbox {
     overflow: hidden;
