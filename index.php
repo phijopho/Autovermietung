@@ -9,30 +9,30 @@
         ?>
         <!-- Einbinden der style.css -->
         <link rel="stylesheet" href="css/styleHomepage.css">
-        <link rel="stylesheet" href="css/styleStandorte.css">
 
         <title>SWIFT rentals</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="includes/karussell-slider.js"></script>
+
+        <?php 
+            session_start();
+
+            $location=getCities();
+
+            $today=date("Y-m-d");
+            $tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
+            if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
+                $_SESSION['location']="Hamburg";
+                $_SESSION['pickUpDate']=$today;
+                $_SESSION['returnDate']=$tomorrow;
+            }
+        ?>
 
     </head>
     <?php
          include('includes/header.html'); // include header
     ?>
     <body>
-    <?php 
-    session_start();
-
-    $location=getCities();
-
-    $today=date("Y-m-d");
-    $tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
-    if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
-        $_SESSION['location']="Hamburg";
-        $_SESSION['pickUpDate']=$today;
-        $_SESSION['returnDate']=$tomorrow;
-    }
-    ?>
     <div class="BackgroundKia">
     
             <div class="section1">
@@ -74,7 +74,7 @@
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">
+                    <a href="images/cars/mb-s-amg-cabrio-2d-weiss-offen-2017.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Cabrio</h3>
@@ -85,7 +85,7 @@
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">
-                        <img src="images/mercedes.png" alt="Slider Image" />
+                        <img src="images/cars/vw-touran-van-weiss-2016.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Mehrsitzer</h3>
                             <p>Für ihre Kinder</p>
@@ -105,7 +105,7 @@
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">
-                        <img src="images/mercedes.png" alt="Slider Image" />
+                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>SUV</h3>
                             <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
@@ -124,116 +124,91 @@
                 </div>
             </div>
             <div class="cslider-controls">
-            <div class="cslider-prev"></div>
-            <div class="cslider-next"></div>
-        </div>
-    </div>        
+                <div class="cslider-prev"></div>
+                <div class="cslider-next"></div>
+            </div>
+        </div>   
+    </div>     
     <div class="BackgroundAudi">
         <div class="section3">
-            <div class="map-heading">
-                <h1>Unsere Standorte</h1>
-            </div>
             <div class="map-container">
                 <div class="ger-map">
-                    <img src="images/Deutschlandkarte.png" alt="map" >
+                    <img src="images/Deutschlandkarte.png" alt="map">
             
-                <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Hamburg</span>
-                </div>
+                    <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Hamburg</span>
+                    </div>
 
-                <div class="pin berlin" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Berlin</span>
-                </div>
+                    <div class="pin berlin" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Berlin</span>
+                    </div>
 
-                <div class="pin paderborn" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Paderborn</span>
-                </div>
+                    <div class="pin paderborn" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Paderborn</span>
+                    </div>
 
-                <div class="pin rostock" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Rostock</span>
-                </div>
+                    <div class="pin rostock" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Rostock</span>
+                    </div>
 
-                <div class="pin bielefeld" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Bielefeld</span>
-                </div>
+                    <div class="pin bielefeld" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Bielefeld</span>
+                    </div>
 
-                <div class="pin bochum" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Bochum</span>
-                </div>
+                    <div class="pin bochum" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Bochum</span>
+                    </div>
 
-                <div class="pin bremen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Bremen</span>
-                </div>
+                    <div class="pin bremen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Bremen</span>
+                    </div>
 
-                <div class="pin dortmund" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Dortmund</span>
-                </div>
+                    <div class="pin dortmund" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Dortmund</span>
+                    </div>
 
-                <div class="pin dresden" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Dresden</span>
-                </div>
+                    <div class="pin dresden" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Dresden</span>
+                    </div>
 
-                <div class="pin freiburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Freiburg</span>
-                </div>
+                    <div class="pin freiburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Freiburg</span>
+                    </div>
 
-                <div class="pin koeln" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Köln</span>
-                </div>
+                    <div class="pin koeln" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Köln</span>
+                    </div>
 
-                <div class="pin leipzig" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Leipzig</span>
-                </div>
+                    <div class="pin leipzig" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Leipzig</span>
+                    </div>
 
-                <div class="pin muenchen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>München</span>
-                </div>
+                    <div class="pin muenchen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>München</span>
+                    </div>
 
-                <div class="pin nuernberg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
-                    <span>Nürnberg</span>
+                    <div class="pin nuernberg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                        <span>Nürnberg</span>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="aboutUs">
+                <div class="txtBox1">
+                    <h1>12 Standorte</h1>
+                </div>
+                <div class="txtBox2">
+                    <h1>64 Modelle</h1>
+                </div>
+                <div class="txtBox3">
+                    <h1>256 Mietwagen</h1> 
+                </div>
+                <div class="txtBox4">
+                    <h2>Erfahren Sie mehr -></h2> 
+                </div>
 
-        </div>
-        <div class="blocker">
-    
-        </div>            
-        <div class="section4">
-            <div class="au1">
-                <h2> About Us </h2>
             </div>
-
-                    <div class="au2">
-                        <p> Every single detail of  SWIFT rentals  is
-                            measured against our continuing goal: to
-                            enhance costumer enjoyment.
-                        </p>
-                    </div>
-
-                    <div class="daul3">
-                        <p> Every single detail of  SWIFT rentals  is
-                            measured against our continuing goal: to
-                            enhance costumer enjoyment.
-                        </p>
-                    </div>
-
-                    <div class="divGoal4">
-                        <p> Every single detail of  SWIFT rentals  is
-                            measured against our continuing goal: to
-                            enhance costumer enjoyment.
-                        </p>
-                    </div>
-                    <br>
-                    <!-- When click on button, then AboutUs page opens -->
-                    <div class="divbutton">
-                        <a href="http://localhost/Autovermietung/pages/aboutus.php" class="button">Discover more</a>
-                    </div>
-                    
         </div>
-    
     </div>
-    
     </body>
 
     <?php
