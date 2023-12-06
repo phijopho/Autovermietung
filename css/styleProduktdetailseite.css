@@ -22,7 +22,7 @@
   float: left;
   width: 50%;
   height: fit-content;
-  margin-left: 2.5%;
+  margin-left: 2%;
   margin-bottom: 5%;
 }
 
@@ -95,7 +95,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 50px;
-  margin-bottom: 3.7%;
+  margin-bottom: 2%;
 }
 
 /* Style of table header and table data */
@@ -112,7 +112,7 @@ th, td {
   padding-top:3%;
   padding-left: 3%;
   padding-bottom: 3%;
-  margin-top: 6%;
+  margin-top: 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 5%;
   background-color: #525252;
