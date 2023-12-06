@@ -116,14 +116,18 @@ if (isset($_POST['filter'])) {
 }
 
 // sort
+    // default
+if (!isset($_SESSION['sort'])){
+    $_SESSION['SORT']="alphabetic";
+}
+    // use user input
 if (isset($_POST["sort"])) {
     $_SESSION["sort"] = $_POST["sort"];
 }
 
 // Check Arrays:
    echo "<br><br><br><br>";
-   echo showResults();
-   echo "Sort saved: " . $_SESSION['sort']; // Debug-Ausgabe
+   echo getResultsQuery();
 //   echo "Session Categories: ";
 //   print_r($_SESSION['categories']);
 //   echo "<br> Checked Categories: ";
@@ -317,6 +321,7 @@ include('../includes/header.html'); // include header
                         >Preis absteigend</option>
                     </select>
                 </form>
+                <!-- Use JS event handler to submit form whenever sort is changed -->
                 <script>
                     function submitForm(){
                         document.getElementById("sortForm").submit();
@@ -324,63 +329,12 @@ include('../includes/header.html'); // include header
                 </script>
             </div>
         </div>
-        
-        <div class="resultWrapBox">
-            <div class="resultItemBox">
-                <div class="modelBox">
-                    <label>
-                        <?php 
-                            $model=getModel("25");
-                            echo $model[0]." ".$model[1];
-                        ?>
-                    </label>
-                </div>
-                <?php
-                    showImage("25");
-                ?>
-                <div class="carDataBox">
-                    <?php $price=getPrice("25"); ?>
-                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
-                </div>
-            </div>
-            <div class="resultItemBox">
-                <div class="modelBox">
-                    <label>                    
-                        <?php 
-                            $model=getModel("32");
-                            echo $model[0]." ".$model[1];
-                        ?>
-                    </label>
-                </div>
-                <?php
-                    showImage("32");
-                ?>
-                <div class="carDataBox">
-                    <?php $price=getPrice("32"); ?>
-                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
-                </div>
-            </div>
-            <div class="resultItemBox">
-                <div class="modelBox">
-                    <label>
-                        <?php 
-                            $model=getModel("57");
-                            echo $model[0]." ".$model[1];
-                        ?>
-                    </label>
-                </div>
-                <?php
-                    showImage("57");
-                ?>
-                <div class="carDataBox">
-                    <?php $price=getPrice("57"); ?>
-                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
-                </div>
-            </div>
-        </div>
+        <?php
+        if (isset($_POST['filter'])){
+            $stmt = getResultsQuery();
+            displayResults($stmt);
+        }
+        ?>
     </div>
 </div>
 <?php

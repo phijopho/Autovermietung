@@ -80,18 +80,17 @@ function getModel($CarType_ID){
 }
 
 // pickUpDate and returnDate hinzufügen (mit gebuchten Autos verknüpfen)
-function showResults(){
+function getResultsQuery(){
     include('dbConnection.php');
 
     // build select statement
     $stmt="SELECT CarType_ID FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE ";
         // location filter
-    $stmt .= "Location = '".$_SESSION['location']."' ";
+    // $stmt .= "Location = '".$_SESSION['location']."' ";
         // category filter
     $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
-    $stmt .= "AND Category IN ('".$categories."') ";
-
-        // vendor filter
+    $stmt .= "Type IN ('".$categories."') ";
+        // vendor filter (AND hinzufügen)
     if (!empty($_SESSION['vendor'])) {
         $stmt .= "AND Vendor.Abbreviation = '".$_SESSION['vendor']."' ";
     }
@@ -125,14 +124,47 @@ function showResults(){
     }
 
     // add order
-    // $stmt .= "ORDER BY ";
-    // if ($_POST['sort'] == 'alphabetic') {
-    //     $stmt .= "model ASC";
-    // } elseif ($_POST['sort'] == 'priceExpensive') {
-    //     $stmt .= "price_per_day DESC";
-    // } elseif ($_POST['sort'] == 'priceCheap') {
-    //     $stmt .= "price_per_day ASC";
-    // }
+    $stmt .= "ORDER BY ";
+    // Sortierung nach Model noch hinzufügen
+    if ($_SESSION['sort'] == 'alphabetic') {
+        $stmt .= "Vendor.Abbreviation ASC ";
+    } elseif ($_SESSION['sort'] == 'priceExpensive') {
+        $stmt .= "Price DESC ";
+    } elseif ($_SESSION['sort'] == 'priceCheap') {
+        $stmt .= "Price ASC ";
+    }
 
     return $stmt;
+}
+
+function displayResults($stmt){
+    include('dbConnection.php');
+    // execute the SQL statement
+    $result = $conn->query($stmt);
+    // check if there are results
+    if ($result->rowCount() > 0) {
+        echo "<div class='resultWrapBox'>";
+        // loop through each result and display it
+        while ($row = $result->fetch()){
+            $carType_ID = $row['CarType_ID'];
+            echo "<div class='resultItemBox'>";
+                echo "<div class='modelBox'>";
+                    // Use the getModel and showImage functions to display car information
+                    $model = getModel($carType_ID);
+                    echo "<label>".$model[0]." ".$model[1]."</label>";
+                echo "</div>";
+                showImage($carType_ID);
+                echo "<div class='carDataBox'>";            
+                    // Use the getPrice function to display car prices
+                    $price = getPrice($carType_ID);
+                    echo "Preis pro Tag: ".$price[0]." €<br>";
+                    // Tage multiplizieren
+                    echo "Preis für den gewählten Zeitraum: ".$price[0]." € <br>";
+                echo "</div>";
+            echo "</div>";
+        }
+        echo "</div>";
+    } else {
+        echo "<p>Keine Ergebnisse gefunden.</p>";
+    }
 }
