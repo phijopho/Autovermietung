@@ -24,19 +24,7 @@ function togglemenu() {
 
 //Header
 
-// Change of padding in header while scrolling
-
- //When the user scrolls down 30px from the top of the document, resize the navbar's padding and the logo's font size
-//  window.onscroll = function() {scrollFunction()};
-
-//  function scrollFunction() {
-//    if (document.documentElement.scrollTop > 10) {
-//      document.getElementsByClassName("headercontainer").style.padding = "5px 20px";
-//    } else {
-//      document.getElementsByClassName("Headercontainer").style.padding = "10px 10px";
-//    }
-// }
-
+// if clicked on link in header (Preise) the it scroll dont to anker.
 window.onscroll = function() {
    scrollFunction();
  };
@@ -52,22 +40,35 @@ window.onscroll = function() {
 }
 
 
-// clicked link stays active when on page
+//Link stays active and marked while on page
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
 
- const navLinks = document.querySelectorAll('.headercontainer a');
+  // add 'active'-class bbsed on current url
+  function setActiveLink() {
+      const currentUrl = window.location.href;
+      navLinks.forEach(link => {
+          if (currentUrl.includes(link.href)) {
+              link.classList.add('active');
+          } else {
+              link.classList.remove('active');
+          }
+      });
+  }
 
- // Event-Listener i clicked links
- navLinks.forEach(link => {
-   link.addEventListener('click', function(e) {
-    e.preventDefault(); // avoids standard behaviour of links
-
-    // remove all active classes
-    navLinks.forEach(item => {
-      item.classList.remove('active');
-     });
-
-    // underline active link
-     this.classList.add('active');
+  // Event-Listener for clicked links
+  navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+          navLinks.forEach(item => {
+              item.classList.remove('active');
+          });
+          this.classList.add('active');
+      });
   });
+
+  // Set links as active while on page
+  setActiveLink();
 });
+
+
 

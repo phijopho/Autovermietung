@@ -24,6 +24,9 @@ a:hover {
 
 /* Header: */
 /* Allgemeine Einstellungen zum Header */
+
+
+
 .headercontainer {
     background-color: #525252;
     position: fixed;
@@ -83,6 +86,61 @@ a:hover {
     /* Schriftfarbe noch aussuchen */
     color: aqua;
 }
+
+
+@media screen and (max-width: 100%) {
+    .headerContainer {
+      padding: 10px 5px !important;
+    }
+    .headerbox a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+
+    .loginbox a {
+      float: none;
+    }
+  }
+
+
+  /* Underlined if hovered and active */
+  .headerbox {
+    overflow: hidden;
+    background-color: #525252;
+  }
+  
+  .headerbox a {
+    float: left;
+    display: block;
+    color: #f7f2ef;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+  }
+  
+  
+  .headerbox a:hover {
+    border-bottom: 3px solid aqua;
+    background-color: #525252;
+    color: aqua;
+  }
+  
+  .headerbox a.active {
+    border-bottom: 3px solid aqua;
+    color: aqua;
+  }
+
+  .active {
+    font-weight: medium bold;
+    color: aqua; 
+    border-bottom: 3px solid aqua;
+    background-color: #525252;
+
+}
+
 
 ul {
     display: inline;
