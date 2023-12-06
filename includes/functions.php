@@ -79,16 +79,60 @@ function getModel($CarType_ID){
     return $model;    
 }
 
-function showResults($location, $pickUpDate, $returndate, $categories, $vendors, $seats, $doors, $age, $drive, $automatic, $AC, $GPS){
+// pickUpDate and returnDate hinzufügen (mit gebuchten Autos verknüpfen)
+function showResults(){
     include('dbConnection.php');
-    
-    $getResults=$conn->prepare("SELECT CarType_ID, FROM CarType WHERE Location=:Location AND ");
-    $getModel->bindParam(':CarTypeIdent', $CarType_ID);
-    $getModel->execute();
-    while($row=$getModel->fetch()){
-        $model[]=$row['Brand'];
-        $model[]=$row['Model'];
-    }
-    return $model;    
 
+    // build select statement
+    $stmt="SELECT CarType_ID FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE ";
+        // location filter
+    $stmt .= "Location = '".$_SESSION['location']."' ";
+        // category filter
+    $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
+    $stmt .= "AND Category IN ('".$categories."') ";
+
+        // vendor filter
+    if (!empty($_SESSION['vendor'])) {
+        $stmt .= "AND Vendor.Abbreviation = '".$_SESSION['vendor']."' ";
+    }
+        // seats filter
+    if (isset($_SESSION['seats'])) {
+        $stmt .= "AND Seats >= ".$_SESSION['seats']." ";
+    }
+        // doors filter
+    if (isset($_SESSION['doors'])) {
+        $stmt .= "AND Doors >= ".$_SESSION['doors']." ";
+    }
+        // age filter
+    if (isset($_SESSION['age'])) {
+        $stmt .= "AND Min_Age <= ".$_SESSION['age']." ";
+    }
+        // drive filter
+    if (isset($_SESSION['drive']) && $_SESSION['drive'] != 'all') {
+        $stmt .= "AND Drive = '".$_SESSION['drive']."' ";
+    }
+        // transmission filter
+    if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
+        $stmt .= "AND Gear = 'automatic' "; 
+    }
+        // ac filter
+    if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
+        $stmt .= "AND Air_Condition = 1 ";
+    }
+        // GPS filter
+    if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
+        $stmt .= "AND GPS = 1 ";
+    }
+
+    // add order
+    // $stmt .= "ORDER BY ";
+    // if ($_POST['sort'] == 'alphabetic') {
+    //     $stmt .= "model ASC";
+    // } elseif ($_POST['sort'] == 'priceExpensive') {
+    //     $stmt .= "price_per_day DESC";
+    // } elseif ($_POST['sort'] == 'priceCheap') {
+    //     $stmt .= "price_per_day ASC";
+    // }
+
+    return $stmt;
 }

@@ -115,8 +115,15 @@ if (isset($_POST['filter'])) {
     }
 }
 
+// sort
+if (isset($_POST["sort"])) {
+    $_SESSION["sort"] = $_POST["sort"];
+}
+
 // Check Arrays:
-//   echo "<br><br><br><br>";
+   echo "<br><br><br><br>";
+   echo showResults();
+   echo "Sort saved: " . $_SESSION['sort']; // Debug-Ausgabe
 //   echo "Session Categories: ";
 //   print_r($_SESSION['categories']);
 //   echo "<br> Checked Categories: ";
@@ -134,7 +141,7 @@ include('../includes/header.html'); // include header
 
 <body>
 <div class="contentBox">
-    <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
         <div class="filterBox">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
@@ -284,12 +291,37 @@ include('../includes/header.html'); // include header
         <div class="topBox">
             <label for="available">Verf&uuml;gbare Fahrzeuge: 10</label>
             <div class="sortBox">
-                <label for="sort" >Sortierung: </label>
-                <select class="customSelectSort" name="sort">
-                    <option value="alphabetic">Alphabetisch</option>
-                    <option value="priceExpensive">Preis aufsteigend</option>
-                    <option value="priceCheap">Preis absteigend</option>
-                </select>
+                <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="sortForm">
+                    <label for="sort" >Sortierung: </label>
+                    <select class="customSelectSort" name="sort" onchange="submitForm()">
+                        <option value="alphabetic"
+                        <?php 
+                            if($_SESSION['sort']=='alphabetic'){
+                                echo "selected";
+                            }
+                        ?>
+                        >Alphabetisch</option>
+                        <option value="priceExpensive"
+                        <?php 
+                            if($_SESSION['sort']=='priceExpensive'){
+                                echo "selected";
+                            }
+                        ?>
+                        >Preis aufsteigend</option>
+                        <option value="priceCheap"
+                        <?php 
+                            if($_SESSION['sort']=='priceCheap'){
+                                echo "selected";
+                            }
+                        ?>
+                        >Preis absteigend</option>
+                    </select>
+                </form>
+                <script>
+                    function submitForm(){
+                        document.getElementById("sortForm").submit();
+                    }
+                </script>
             </div>
         </div>
         
