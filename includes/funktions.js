@@ -24,7 +24,7 @@ function togglemenu() {
 
 //Header
 
-// if clicked on link in header (Preise) the it scroll dont to anker.
+// if clicked on link in header (Preise) scroll to anker.
 window.onscroll = function() {
    scrollFunction();
  };

@@ -15,7 +15,7 @@
 
             include('includes/dbConnection.php'); // connect database
 
-            include('includes/headerangemeldet.html'); // include header
+            include('includes/header.html'); // include header
 
             include('pages/homepage.php'); // include body content
 
