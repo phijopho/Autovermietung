@@ -68,7 +68,7 @@
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Limousine</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
+                            <p>Jeder Lord, faehrt einen Ford.</p>
                         </div>
                     </a>
                 </div>
@@ -108,7 +108,7 @@
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>SUV</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
+                            <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
                         </div>
                     </a>
                 </div>
@@ -117,8 +117,8 @@
                     <a href="pages/produktuebersicht.php">
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Lorem Ipsum</h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing...</p>
+                            <h3>Kombi</h3>
+                            <p>Kombi Schlombie, sach ich immer</p>
                         </div>
                     </a>
                 </div>
