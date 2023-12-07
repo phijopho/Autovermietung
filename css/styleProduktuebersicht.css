@@ -133,7 +133,6 @@ input[type="range"] {
   flex-wrap: wrap;
   padding-left: 20px;
   padding-top: 20px;
-  margin-bottom: 20px;
 }
 .resultItemBox {
   float: left;

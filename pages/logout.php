@@ -1,4 +1,5 @@
-<!-- Logout Page -->
+<!-- logout -->
+<!-- Login Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
