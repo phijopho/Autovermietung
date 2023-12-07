@@ -64,17 +64,15 @@
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
-                <a href="pages/produktuebersicht.php" onclick="submitCategory('Limousine')">                        
-                <img src="images/mercedes.png" alt="Slider Image" />
+                        <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Limousine</h3>
                             <p>Jeder Lord, f&auml;hrt einen Ford.</p>
                         </div>
-                    </a>
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php" onclick="submitCategory('Combi')">                        
+                    <a href="pages/produktuebersicht.php">                        
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Combi</h3>
@@ -84,7 +82,7 @@
                 </div>
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
-                <a href="pages/produktuebersicht.php" onclick="submitCategory('Cabrio')">                        
+                <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/vw-touran-van-weiss-2016.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Cabrio</h3>
@@ -94,7 +92,7 @@
                 </div>
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
-                <a href="pages/produktuebersicht.php" onclick="submitCategory('SUV')">                        
+                <a href="pages/produktuebersicht.php">                        
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>SUV</h3>
@@ -104,7 +102,7 @@
                 </div>
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
-                <a href="pages/produktuebersicht.php" onclick="submitCategory('Mehrsitzer')">                        
+                <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Mehrsitzer</h3>
@@ -114,7 +112,7 @@
                 </div>
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
-                <a href="pages/produktuebersicht.php" onclick="submitCategory('Coupe')">                        
+                <a href="pages/produktuebersicht.php">                        
                         <img src="images/mercedes.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Coup&eacute;</h3>
