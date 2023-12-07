@@ -16,6 +16,18 @@ include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
 // Sessions and variables
+// Reset filters (except location and date)
+if (isset($_POST['resetButton'])) {
+    unset($_SESSION['categories']);
+    unset($_SESSION['vendor']);
+    unset($_SESSION['seats']);
+    unset($_SESSION['doors']);
+    unset($_SESSION['age']);
+    unset($_SESSION['drive']);
+    unset($_SESSION['transmission']);
+    unset($_SESSION['ac']);
+    unset($_SESSION['gps']);
+}
 
 //Quick Search Filters: Location, pick-up date, return date
 $today=date("Y-m-d");
@@ -40,7 +52,7 @@ $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
     // if first visit on site check no boxes but select all categories
-if(!isset($_SESSION['categories'])){
+if(!isset($_SESSION['categories']) OR empty($_SESSION['categories'])){
     $_SESSION['checkedCategories']=array();
     $_SESSION['categories'] = $categories;
 }
@@ -113,19 +125,6 @@ if (isset($_POST['filter'])) {
     } else {
         $_SESSION['gps'] = 'off';
     }
-}
-
-// Reset filters (except location and date)
-if (isset($_POST['resetButton'])) {
-    unset($_SESSION['categories']);
-    unset($_SESSION['brand']);
-    unset($_SESSION['seats']);
-    unset($_SESSION['doors']);
-    unset($_SESSION['age']);
-    unset($_SESSION['drive']);
-    unset($_SESSION['transmission']);
-    unset($_SESSION['ac']);
-    unset($_SESSION['gps']);
 }
 
     // sort
@@ -217,7 +216,7 @@ include('../includes/header.html'); // include header
                 <label for="seats">Sitze:</label><br>
                 <?php
                 $seats=selectMinAndMaxFromColumn("Seats", "CarType");
-                $selectedSeats=5;
+                $selectedSeats=2;
                 if(isset($_SESSION['seats'])){
                     $selectedSeats=$_SESSION['seats'];
                 }
@@ -229,7 +228,7 @@ include('../includes/header.html'); // include header
                 <label for="doors">T&uuml;ren:</label><br>
                 <?php
                 $doors=selectMinAndMaxFromColumn("Doors", "CarType");
-                $selectedDoors=5;
+                $selectedDoors=2;
                 if(isset($_SESSION['doors'])){
                     $selectedDoors=$_SESSION['doors'];
                 }
@@ -241,7 +240,7 @@ include('../includes/header.html'); // include header
                 <label for="age">Alter:</label><br>
                 <?php
                 $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
-                $selectedAge=18;
+                $selectedAge=25;
                 if(isset($_SESSION['age'])){
                     $selectedAge=$_SESSION['age'];
                 }
@@ -359,7 +358,7 @@ include('../includes/header.html'); // include header
             </div>
         </div>
         <?php
-        if (isset($_POST['filter'])){
+        if (isset($_POST['filter']) OR isset($_POST['resetButton'])){
             $stmt = getResultsQuery();
             displayResults($stmt);
         }
