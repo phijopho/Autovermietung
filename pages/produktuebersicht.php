@@ -145,7 +145,7 @@ include('../includes/header.html'); // include header
 
 <body>
 <div class="contentBox">
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="filter">
         <div class="filterBox">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
@@ -325,6 +325,7 @@ include('../includes/header.html'); // include header
                 <script>
                     function submitForm(){
                         document.getElementById("sortForm").submit();
+                        document.getElementById("filter").submit();
                     }
                 </script>
             </div>
