@@ -99,12 +99,10 @@ input[type="range"] {
 /* Result area: */
 .resultBox {
     float: left;
-    max-width: 1070px;
-    background-color: #2f2e2c;
     margin-top: 80px;
     margin-left: 320px;
-    
-}
+    width: 1330px;
+  }
 
 .topBox {
   padding: 1%;
@@ -127,22 +125,21 @@ input[type="range"] {
   margin-left: 7px;
 }
 
-/* Result Area */
+/* Show Cars Area */
 .resultWrapBox {
   background-color: #272626;
-  max-width: 1050px;
+  max-width: 1330px;
   display: flex;
   flex-wrap: wrap;
   padding-left: 20px;
   padding-top: 20px;
-  margin-bottom: 20px;
 }
 .resultItemBox {
-    float: left;
-    background-color: #525252;
-    width: 505px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+  float: left;
+  background-color: #525252;
+  width: 630px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .modelBox {
@@ -154,11 +151,11 @@ input[type="range"] {
   border-top: 3px solid #2f2e2c;
   border-bottom: 3px solid #2f2e2c;
   height: 200px;
-  align-items: center;
+  text-align: center;  
 }
 
 .pictureBox img {
-  max-width: 450px;
+  max-width: 630px;
   max-height: 200px;
 	/* SCALE */
 	-webkit-transform: scale(1);
