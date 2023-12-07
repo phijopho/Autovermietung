@@ -39,9 +39,10 @@ $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
+$checkedCategories=array();
     // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories'])){
-    $_SESSION['checkedCategories']=array();
+    $checkedCategories=array();
     $_SESSION['categories'] = $categories;
 }
 
@@ -51,13 +52,12 @@ if (isset($_POST['filter'])){
     foreach($categories as $category){
         if (isset($_POST[$category])){
             $_SESSION['categories'][] = $category;
-            $_SESSION['checkedCategories'][]=$category;
+            $checkedCategories[]=$category;
         }
     }
     // if no categories were checked add all to session
     if(empty($_SESSION['categories'])){
         $_SESSION['categories'] = $categories;
-        $_SESSION['checkedCategories']=array();
     }
 }
 
@@ -115,23 +115,12 @@ if (isset($_POST['filter'])) {
     }
 }
 
-// sort
-    // default
-if (!isset($_SESSION['sort'])){
-    $_SESSION['SORT']="alphabetic";
-}
-    // use user input
-if (isset($_POST["sort"])) {
-    $_SESSION["sort"] = $_POST["sort"];
-}
-
 // Check Arrays:
-   echo "<br><br><br><br>";
-   echo getResultsQuery();
-//   echo "Session Categories: ";
-//   print_r($_SESSION['categories']);
-//   echo "<br> Checked Categories: ";
-//   echo var_dump($_SESSION['checkedCategories']);
+//  echo "<br><br><br><br>";
+//  echo "Session Categories: ";
+//  print_r($_SESSION['categories']);
+//  echo "<br> Checked Categories: ";
+//  echo var_dump($checkedCategories);
 ?>
 
 <!-- page specific head elements -->
@@ -142,10 +131,9 @@ if (isset($_POST["sort"])) {
 <?php
 include('../includes/header.html'); // include header
 ?>
-
 <body>
 <div class="contentBox">
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="filter">
+    <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">
         <div class="filterBox">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
@@ -173,7 +161,7 @@ include('../includes/header.html'); // include header
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
-                            if(in_array($category, $_SESSION['checkedCategories'])){
+                            if(in_array($category, $checkedCategories)){
                                 echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
                                 echo "<label for '".$category."'>".$category."</label><br>"; 
                             } else {
@@ -295,49 +283,74 @@ include('../includes/header.html'); // include header
         <div class="topBox">
             <label for="available">Verf&uuml;gbare Fahrzeuge: 10</label>
             <div class="sortBox">
-                <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="sortForm">
-                    <label for="sort" >Sortierung: </label>
-                    <select class="customSelectSort" name="sort" onchange="submitForm()">
-                        <option value="alphabetic"
-                        <?php 
-                            if($_SESSION['sort']=='alphabetic'){
-                                echo "selected";
-                            }
-                        ?>
-                        >Alphabetisch</option>
-                        <option value="priceExpensive"
-                        <?php 
-                            if($_SESSION['sort']=='priceExpensive'){
-                                echo "selected";
-                            }
-                        ?>
-                        >Preis aufsteigend</option>
-                        <option value="priceCheap"
-                        <?php 
-                            if($_SESSION['sort']=='priceCheap'){
-                                echo "selected";
-                            }
-                        ?>
-                        >Preis absteigend</option>
-                    </select>
-                </form>
-                <!-- Use JS event handler to submit form whenever sort is changed -->
-                <script>
-                    function submitForm(){
-                        document.getElementById("sortForm").submit();
-                        document.getElementById("filter").submit();
-                    }
-                </script>
+                <label for="sort" >Sortierung: </label>
+                <select class="customSelectSort" name="sort">
+                    <option value="alphabetic">Alphabetisch</option>
+                    <option value="priceExpensive">Preis aufsteigend</option>
+                    <option value="priceCheap">Preis absteigend</option>
+                </select>
             </div>
         </div>
-        <?php
-        if (isset($_POST['filter'])){
-            $stmt = getResultsQuery();
-            displayResults($stmt);
-        }
-        ?>
+        
+        <div class="resultWrapBox">
+            <div class="resultItemBox">
+                <div class="modelBox">
+                    <label>
+                        <?php 
+                            $model=getModel("25");
+                            echo $model[0]." ".$model[1];
+                        ?>
+                    </label>
+                </div>
+                <?php
+                    showImage("25");
+                ?>
+                <div class="carDataBox">
+                    <?php $price=getPrice("25"); ?>
+                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
+                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+                </div>
+            </div>
+            <div class="resultItemBox">
+                <div class="modelBox">
+                    <label>                    
+                        <?php 
+                            $model=getModel("32");
+                            echo $model[0]." ".$model[1];
+                        ?>
+                    </label>
+                </div>
+                <?php
+                    showImage("32");
+                ?>
+                <div class="carDataBox">
+                    <?php $price=getPrice("32"); ?>
+                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
+                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+                </div>
+            </div>
+            <div class="resultItemBox">
+                <div class="modelBox">
+                    <label>
+                        <?php 
+                            $model=getModel("57");
+                            echo $model[0]." ".$model[1];
+                        ?>
+                    </label>
+                </div>
+                <?php
+                    showImage("57");
+                ?>
+                <div class="carDataBox">
+                    <?php $price=getPrice("57"); ?>
+                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
+                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
 ?>

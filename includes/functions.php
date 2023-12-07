@@ -1,7 +1,11 @@
 <?php 
 function getCities(){
     include('dbConnection.php');
-    $stmtGetCities = $conn->query("SELECT City FROM Location");
+    $default="Hamburg";
+    $location = array($default);
+    $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
+    $stmtGetCities->bindParam(':cityIdent', $default);
+    $stmtGetCities->execute();
     while($row = $stmtGetCities->fetch()){
         $location[] = $row['City'];
     }
@@ -78,93 +82,4 @@ function getModel($CarType_ID){
     }
     return $model;    
 }
-
-// pickUpDate and returnDate hinzufügen (mit gebuchten Autos verknüpfen)
-function getResultsQuery(){
-    include('dbConnection.php');
-
-    // build select statement
-    $stmt="SELECT CarType_ID FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE 1=1";
-        // location filter
-    // $stmt .= " AND Location = '".$_SESSION['location'];
-        // category filter
-    $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
-    $stmt .= " AND Type IN ('".$categories."')";
-        // vendor filter (AND hinzufügen)
-    if (!empty($_SESSION['vendor'])) {
-        $stmt .= " AND Vendor.Abbreviation = '".$_SESSION['vendor']."'";
-    }
-        // seats filter
-    if (isset($_SESSION['seats'])) {
-        $stmt .= " AND Seats >= ".$_SESSION['seats'];
-    }
-        // doors filter
-    if (isset($_SESSION['doors'])) {
-        $stmt .= " AND Doors >= ".$_SESSION['doors'];
-    }
-        // age filter
-    if (isset($_SESSION['age'])) {
-        $stmt .= " AND Min_Age <= ".$_SESSION['age'];
-    }
-        // drive filter
-    if (isset($_SESSION['drive']) && $_SESSION['drive'] != 'all') {
-        $stmt .= " AND Drive = '".$_SESSION['drive'];
-    }
-        // transmission filter
-    if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
-        $stmt .= " AND Gear = 'automatic'"; 
-    }
-        // ac filter
-    if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
-        $stmt .= " AND Air_Condition = 1";
-    }
-        // GPS filter
-    if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
-        $stmt .= " AND GPS = 1";
-    }
-
-    // add order
-    $stmt .= " ORDER BY";
-    // Sortierung nach Model noch hinzufügen
-    if ($_SESSION['sort'] == 'alphabetic') {
-        $stmt .= " Vendor.Abbreviation ASC";
-    } elseif ($_SESSION['sort'] == 'priceExpensive') {
-        $stmt .= " Price DESC";
-    } elseif ($_SESSION['sort'] == 'priceCheap') {
-        $stmt .= " Price ASC";
-    }
-
-    return $stmt;
-}
-
-function displayResults($stmt){
-    include('dbConnection.php');
-    // execute the SQL statement
-    $result = $conn->query($stmt);
-    // check if there are results
-    if ($result->rowCount() > 0) {
-        echo "<div class='resultWrapBox'>";
-        // loop through each result and display it
-        while ($row = $result->fetch()){
-            $carType_ID = $row['CarType_ID'];
-            echo "<div class='resultItemBox'>";
-                echo "<div class='modelBox'>";
-                    // Use the getModel and showImage functions to display car information
-                    $model = getModel($carType_ID);
-                    echo "<label>".$model[0]." ".$model[1]."</label>";
-                echo "</div>";
-                showImage($carType_ID);
-                echo "<div class='carDataBox'>";            
-                    // Use the getPrice function to display car prices
-                    $price = getPrice($carType_ID);
-                    echo "Preis pro Tag: ".$price[0]." €<br>";
-                    // Tage multiplizieren
-                    echo "Preis für den gewählten Zeitraum: ".$price[0]." € <br>";
-                echo "</div>";
-            echo "</div>";
-        }
-        echo "</div>";
-    } else {
-        echo "<p>Keine Ergebnisse gefunden.</p>";
-    }
-}
+?>
