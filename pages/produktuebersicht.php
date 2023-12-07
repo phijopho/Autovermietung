@@ -186,6 +186,7 @@ include('../includes/header.html'); // include header
             <div class="itemBox">
                 <label for="vendor">Hersteller:</label><br>
                 <select class="customSelect" name="vendor">
+                    <option value="all">Alle auswählen</option>
                     <?php 
                     $vendors=selectColumn("Abbreviation", "Vendor");
                     foreach($vendors as $vendor){
@@ -242,9 +243,19 @@ include('../includes/header.html'); // include header
                     $drives=selectDistinctColumn("Drive", "CarType");
                     foreach($drives as $drive){
                         if($_SESSION['drive'] == $drive){
-                            echo "<option value='$drive' selected>$drive</option>";
+                            if($drive=='Combuster'){
+                                $drive='Verbrenner';
+                            } elseif($drive=='Electric') {
+                                $driveGerman='Elektro';
+                            }
+                            echo "<option value='$drive' selected>$driveGerman</option>";
                         } else {
-                        echo "<option value='$drive'>$drive</option>";
+                            if($drive=='Combuster'){
+                                $driveGerman='Verbrenner';
+                            } elseif($drive=='Electric') {
+                                $driveGerman='Elektro';
+                            }
+                            echo "<option value='$drive'>$driveGerman</option>";
                         }
                     }
                     ?>

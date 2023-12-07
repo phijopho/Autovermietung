@@ -91,7 +91,7 @@ function getResultsQuery(){
     $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
     $stmt .= " AND Type IN ('".$categories."')";
         // vendor filter (AND hinzufügen)
-    if (!empty($_SESSION['vendor'])) {
+    if (!empty($_SESSION['vendor']) && $_SESSION['vendor'] != 'all') {
         $stmt .= " AND Vendor.Abbreviation = '".$_SESSION['vendor']."'";
     }
         // seats filter
@@ -108,7 +108,7 @@ function getResultsQuery(){
     }
         // drive filter
     if (isset($_SESSION['drive']) && $_SESSION['drive'] != 'all') {
-        $stmt .= " AND Drive = '".$_SESSION['drive'];
+        $stmt .= " AND Drive = '".$_SESSION['drive']."'";
     }
         // transmission filter
     if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
