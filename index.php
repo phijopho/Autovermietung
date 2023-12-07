@@ -65,16 +65,17 @@
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                    <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
-                    <div class="cslider-text">
-                        <h3>Limousine</h3>
-                        <p>Jeder Lord, f&auml;hrt einen Ford.</p>
-                    </div>
+                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <div class="cslider-text">
+                            <h3>Limousine</h3>
+                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
+                        </div>
+                    </a>
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                    <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Combi</h3>
                             <p>Combi Schlombie, sach ich immer</p>
@@ -84,7 +85,7 @@
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                    <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Cabrio</h3>
                             <p>Für mehr Kopffreiheit...</p>
@@ -94,7 +95,7 @@
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                    <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>SUV</h3>
                             <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
@@ -104,7 +105,7 @@
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                    <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Mehrsitzer</h3>
                             <p>Für Ihre Kinder</p>
@@ -114,7 +115,7 @@
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                    <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h3>Coup&eacute;</h3>
                             <p>Für die Autobahn</p>
