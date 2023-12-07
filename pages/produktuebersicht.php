@@ -332,16 +332,16 @@ include('../includes/header.html'); // include header
                             }
                         ?>
                         >Alphabetisch</option>
-                        <option value="priceExpensive"
+                        <option value="priceAscending"
                         <?php 
-                            if($_SESSION['sort']=='priceExpensive'){
+                            if($_SESSION['sort']=='priceAscending'){
                                 echo "selected";
                             }
                         ?>
                         >Preis aufsteigend</option>
-                        <option value="priceCheap"
+                        <option value="priceDescending"
                         <?php 
-                            if($_SESSION['sort']=='priceCheap'){
+                            if($_SESSION['sort']=='priceDescending'){
                                 echo "selected";
                             }
                         ?>
@@ -352,7 +352,6 @@ include('../includes/header.html'); // include header
                 <script>
                     function submitForm(){
                         document.getElementById("sortForm").submit();
-                        document.getElementById("filter").submit();
                     }
                 </script>
             </div>

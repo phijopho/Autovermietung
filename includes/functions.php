@@ -125,13 +125,12 @@ function getResultsQuery(){
 
     // add order
     $stmt .= " ORDER BY";
-    // Sortierung nach Model noch hinzufügen
     if ($_SESSION['sort'] == 'alphabetic') {
-        $stmt .= " Vendor.Abbreviation ASC";
-    } elseif ($_SESSION['sort'] == 'priceExpensive') {
-        $stmt .= " Price DESC";
-    } elseif ($_SESSION['sort'] == 'priceCheap') {
+        $stmt .= " Vendor.Abbreviation, CarType.Name ASC";
+    } elseif ($_SESSION['sort'] == 'priceAscending') {
         $stmt .= " Price ASC";
+    } elseif ($_SESSION['sort'] == 'priceDescending') {
+        $stmt .= " Price DESC";
     }
 
     return $stmt;
