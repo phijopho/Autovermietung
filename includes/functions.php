@@ -84,54 +84,54 @@ function getResultsQuery(){
     include('dbConnection.php');
 
     // build select statement
-    $stmt="SELECT CarType_ID FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE ";
+    $stmt="SELECT CarType_ID FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE 1=1";
         // location filter
-    // $stmt .= "Location = '".$_SESSION['location']."' ";
+    // $stmt .= " AND Location = '".$_SESSION['location'];
         // category filter
     $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
-    $stmt .= "Type IN ('".$categories."') ";
+    $stmt .= " AND Type IN ('".$categories."')";
         // vendor filter (AND hinzufügen)
     if (!empty($_SESSION['vendor'])) {
-        $stmt .= "AND Vendor.Abbreviation = '".$_SESSION['vendor']."' ";
+        $stmt .= " AND Vendor.Abbreviation = '".$_SESSION['vendor']."'";
     }
         // seats filter
     if (isset($_SESSION['seats'])) {
-        $stmt .= "AND Seats >= ".$_SESSION['seats']." ";
+        $stmt .= " AND Seats >= ".$_SESSION['seats'];
     }
         // doors filter
     if (isset($_SESSION['doors'])) {
-        $stmt .= "AND Doors >= ".$_SESSION['doors']." ";
+        $stmt .= " AND Doors >= ".$_SESSION['doors'];
     }
         // age filter
     if (isset($_SESSION['age'])) {
-        $stmt .= "AND Min_Age <= ".$_SESSION['age']." ";
+        $stmt .= " AND Min_Age <= ".$_SESSION['age'];
     }
         // drive filter
     if (isset($_SESSION['drive']) && $_SESSION['drive'] != 'all') {
-        $stmt .= "AND Drive = '".$_SESSION['drive']."' ";
+        $stmt .= " AND Drive = '".$_SESSION['drive'];
     }
         // transmission filter
     if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
-        $stmt .= "AND Gear = 'automatic' "; 
+        $stmt .= " AND Gear = 'automatic'"; 
     }
         // ac filter
     if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
-        $stmt .= "AND Air_Condition = 1 ";
+        $stmt .= " AND Air_Condition = 1";
     }
         // GPS filter
     if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
-        $stmt .= "AND GPS = 1 ";
+        $stmt .= " AND GPS = 1";
     }
 
     // add order
-    $stmt .= "ORDER BY ";
+    $stmt .= " ORDER BY";
     // Sortierung nach Model noch hinzufügen
     if ($_SESSION['sort'] == 'alphabetic') {
-        $stmt .= "Vendor.Abbreviation ASC ";
+        $stmt .= " Vendor.Abbreviation ASC";
     } elseif ($_SESSION['sort'] == 'priceExpensive') {
-        $stmt .= "Price DESC ";
+        $stmt .= " Price DESC";
     } elseif ($_SESSION['sort'] == 'priceCheap') {
-        $stmt .= "Price ASC ";
+        $stmt .= " Price ASC";
     }
 
     return $stmt;
