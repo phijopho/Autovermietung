@@ -1,0 +1,30 @@
+/* AGB's */
+/* Einstellungen für den AGB container */
+.AGBUeberschrift {
+    font-weight: 700;
+    font-size: 600;
+}
+
+.AGBContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    line-height: 2;
+}
+
+.blocksatz {
+    text-align: justify;
+}
+
+
+/* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
+.AGBtext {
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+.AGBtext2 {
+    margin-left: 32px;
+}
