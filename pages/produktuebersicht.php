@@ -115,7 +115,20 @@ if (isset($_POST['filter'])) {
     }
 }
 
-// sort
+// Reset filters (except location and date)
+if (isset($_POST['resetButton'])) {
+    unset($_SESSION['categories']);
+    unset($_SESSION['brand']);
+    unset($_SESSION['seats']);
+    unset($_SESSION['doors']);
+    unset($_SESSION['age']);
+    unset($_SESSION['drive']);
+    unset($_SESSION['transmission']);
+    unset($_SESSION['ac']);
+    unset($_SESSION['gps']);
+}
+
+    // sort
     // default
 if (!isset($_SESSION['sort'])){
     $_SESSION['SORT']="alphabetic";
@@ -126,12 +139,13 @@ if (isset($_POST["sort"])) {
 }
 
 // Check Arrays:
-// echo "<br><br><br><br>";
+ echo "<br><br><br><br>";
 // echo getResultsQuery();
 //   echo "Session Categories: ";
 //   print_r($_SESSION['categories']);
 //   echo "<br> Checked Categories: ";
 //   echo var_dump($_SESSION['checkedCategories']);
+print_r($_SESSION);
 ?>
 
 <!-- page specific head elements -->
@@ -145,8 +159,8 @@ include('../includes/header.html'); // include header
 
 <body>
 <div class="contentBox">
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="filter">
-        <div class="filterBox">
+    <div class="filterBox">
+        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="filter">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
                 <select class="customSelect" name="location">
@@ -244,15 +258,15 @@ include('../includes/header.html'); // include header
                     foreach($drives as $drive){
                         if($_SESSION['drive'] == $drive){
                             if($drive=='Combuster'){
-                                $drive='Verbrenner';
-                            } elseif($drive=='Electric') {
+                                $driveGerman='Verbrenner';
+                            }elseif($drive=='Electric'){
                                 $driveGerman='Elektro';
                             }
                             echo "<option value='$drive' selected>$driveGerman</option>";
                         } else {
                             if($drive=='Combuster'){
                                 $driveGerman='Verbrenner';
-                            } elseif($drive=='Electric') {
+                            }elseif($drive=='Electric'){
                                 $driveGerman='Elektro';
                             }
                             echo "<option value='$drive'>$driveGerman</option>";
@@ -297,10 +311,13 @@ include('../includes/header.html'); // include header
                     <span class="sliderRound"></span>
                 </label>
             </div>
-            <br><br>
+            <br>
             <input type="submit" value="Filtern" name="filter">
-        </div>
-    </form>
+        </form>
+        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">     
+            <input type="submit" value="Filter zurücksetzen" name="resetButton"> 
+        </form>
+    </div>
 
     <div class="resultBox">
         <div class="topBox">
