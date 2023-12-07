@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
 // show error messages
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ error_reporting(E_ALL);
+ ini_set('display_errors', 1);
 // session_unset();
 // session_destroy();
 ?>
@@ -130,7 +130,7 @@ if (isset($_POST['filter'])) {
     // sort
     // default
 if (!isset($_SESSION['sort'])){
-    $_SESSION['SORT']="alphabetic";
+    $_SESSION['sort']="alphabetic";
 }
     // use user input
 if (isset($_POST["sort"])) {
@@ -140,11 +140,11 @@ if (isset($_POST["sort"])) {
 // Check Arrays:
  echo "<br><br><br><br>";
 // echo getResultsQuery();
-//   echo "Session Categories: ";
-//   print_r($_SESSION['categories']);
-//   echo "<br> Checked Categories: ";
-//   echo var_dump($_SESSION['checkedCategories']);
-print_r($_SESSION);
+// echo "Session Categories: ";
+// print_r($_SESSION['categories']);
+// echo "<br> Checked Categories: ";
+// echo var_dump($_SESSION['checkedCategories']);
+// print_r($_SESSION);
 ?>
 
 <!-- page specific head elements -->
@@ -358,10 +358,8 @@ include('../includes/header.html'); // include header
             </div>
         </div>
         <?php
-        if (isset($_POST['filter']) OR isset($_POST['resetButton'])){
-            $stmt = getResultsQuery();
-            displayResults($stmt);
-        }
+        $stmt = getResultsQuery();
+        displayResults($stmt);
         ?>
     </div>
 </div>
