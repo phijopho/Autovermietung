@@ -60,12 +60,12 @@
 
             </div>
             </div>
-        </div>
+        
         <!-- User is Old enough an signed in. -->
         <div class="divbutton">
                 <a href="#" class="button">Jetzt Buchen</a>
             </div>
-    
+    </div>
 </div>
 
 </body>

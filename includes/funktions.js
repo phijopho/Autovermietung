@@ -9,7 +9,7 @@ function togglemenu() {
          table.style.opacity = '1.0';
          button.classList.add('rotated');
          table.style.maxHeight = table.scrollHeight + 'px';
-         table.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
      } else {
          table.style.opacity = '0.0';
          button.classList.remove('rotated');
