@@ -67,7 +67,9 @@
                     <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Limousine</h3>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Limousine">Limousine</button>
+                            </form>
                             <p>Jeder Lord, f&auml;hrt einen Ford.</p>
                         </div>
                     </a>
@@ -77,7 +79,9 @@
                     <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Combi</h3>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Combi">Combi</button>
+                            </form>
                             <p>Combi Schlombie, sach ich immer</p>
                         </div>
                     </a>
@@ -87,7 +91,9 @@
                     <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Cabrio</h3>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Cabrio">Cabrio</button>
+                            </form>
                             <p>Für mehr Kopffreiheit...</p>
                         </div>
                     </a>
@@ -97,7 +103,9 @@
                     <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>SUV</h3>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="SUV">SUV</button>
+                            </form>
                             <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
                         </div>
                     </a>
@@ -107,7 +115,9 @@
                     <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Mehrsitzer</h3>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Mehrsitzer">Mehrsitzer</button>
+                            </form>
                             <p>Für Ihre Kinder</p>
                         </div>
                     </a>
@@ -117,7 +127,9 @@
                     <a href="pages/produktuebersicht.php">                        
                         <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Coup&eacute;</h3>
+                        <form method="POST" action="pages/produktuebersicht.php">
+                            <button type="submit" name="caruselCategory" value="Coup">Coup&eacute;</button>
+                        </form>
                             <p>Für die Autobahn</p>
                         </div>
                     </a>

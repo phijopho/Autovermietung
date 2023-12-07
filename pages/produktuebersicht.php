@@ -40,6 +40,14 @@ $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
 $checkedCategories=array();
+
+    // if user chose category via carusel on homepage
+if(isset($_POST['caruselCategory'])){
+    $_SESSION['categories']=array();
+    $_SESSION['categories'][]=$_POST['caruselCategory'];
+    $checkedCategories=$_SESSION['categories'];
+}
+
     // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories'])){
     $checkedCategories=array();
@@ -116,11 +124,11 @@ if (isset($_POST['filter'])) {
 }
 
 // Check Arrays:
-//  echo "<br><br><br><br>";
-//  echo "Session Categories: ";
-//  print_r($_SESSION['categories']);
-//  echo "<br> Checked Categories: ";
-//  echo var_dump($checkedCategories);
+//   echo "<br><br><br><br>";
+//   echo "Session Categories: ";
+//   print_r($_SESSION['categories']);
+//   echo "<br> Checked Categories: ";
+//   echo var_dump($checkedCategories);
 ?>
 
 <!-- page specific head elements -->
