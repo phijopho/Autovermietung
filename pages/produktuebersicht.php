@@ -136,7 +136,7 @@ if (isset($_POST['filter'])) {
     }
 }
 
-    // sort
+// sort
     // default
 if (!isset($_SESSION['sort'])){
     $_SESSION['sort']="alphabetic";
