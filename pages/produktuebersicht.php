@@ -51,7 +51,6 @@ $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
-$checkedCategories=array();
     // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories']) OR empty($_SESSION['categories'])){
     $_SESSION['checkedCategories']=array();
@@ -139,11 +138,13 @@ if (isset($_POST["sort"])) {
 }
 
 // Check Arrays:
-//  echo "<br><br><br><br>";
-//  echo "Session Categories: ";
-//  print_r($_SESSION['categories']);
-//  echo "<br> Checked Categories: ";
-//  echo var_dump($checkedCategories);
+ echo "<br><br><br><br>";
+// echo getResultsQuery();
+// echo "Session Categories: ";
+// print_r($_SESSION['categories']);
+// echo "<br> Checked Categories: ";
+// echo var_dump($_SESSION['checkedCategories']);
+// print_r($_SESSION);
 ?>
 
 <!-- page specific head elements -->
