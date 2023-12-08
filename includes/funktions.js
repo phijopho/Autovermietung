@@ -8,8 +8,7 @@ function togglemenu() {
      if (table.style.opacity == '0') {
          table.style.opacity = '1.0';
          button.classList.add('rotated');
-         table.style.maxHeight = table.scrollHeight + 'px';
-        
+         
      } else {
          table.style.opacity = '0.0';
          button.classList.remove('rotated');
@@ -20,15 +19,34 @@ function togglemenu() {
 
 // Homepage
 
+//scroll to anker
+document.addEventListener('DOMContentLoaded', function() {
+    var scrollLink = document.querySelector('.scroll-link');
+    scrollLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      var targetSection = document.querySelector('.map-container');
+      if (targetSection) {
+        var headerHeight = document.querySelector('.headerbox').offsetHeight;
+        var targetOffset = targetSection.offsetTop - headerHeight;
+        window.scrollTo({
+          top: targetOffset,
+          behavior: 'smooth' // Glatte Scrollanimation
+        });
+      }
+    });
+  });
+
+
 
 
 //Header
 
-// if clicked on link in header (Preise) scroll to anker.
+// Scrollfunction 
 window.onscroll = function() {
    scrollFunction();
  };
 
+ //Change of padding when scroll
  function scrollFunction() {
    var headerContainer = document.querySelector(".headercontainer");
    if (document.documentElement.scrollTop > 30) {

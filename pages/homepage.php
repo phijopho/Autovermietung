@@ -2,6 +2,8 @@
 include('./includes/functions.php');
 $location=getCities();
 ?>
+<script src="../includes/funktions.js"></script> 
+
 <div class="contentBox">
     <div class="BackgroundAudi">
         <div class="containerBookingForm">
@@ -31,7 +33,7 @@ $location=getCities();
     <div class="karussel">
     </div>
             
-    <div class="location">
+    <div id="map-container" class="locations">
         
         <h1>4</h1>
                         

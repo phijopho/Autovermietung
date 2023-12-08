@@ -1,5 +1,6 @@
 body {
     height: fit-content;
+    scroll-behavior: smooth;
 
 }
 /* First Section  */
@@ -117,6 +118,8 @@ body {
 /* MAP */
 
 
+
+
 .ger-map {
     text-align:center;
     position: relative;
@@ -148,7 +151,9 @@ body {
 
 .pin:hover {
     cursor: pointer;
+    transform: scale(1.5); /* Vergrößert den Pin beim Hover um das 1,5-fache */
 }
+
 
 .pin::before {
     content: '';
@@ -300,7 +305,7 @@ body {
     max-width: 1400px;
     padding-bottom: 44px;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 .cslider-item {
