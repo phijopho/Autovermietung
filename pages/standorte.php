@@ -9,6 +9,11 @@
     <title>Standorte</title>
     <base href="/Autovermietung/">
 
+    <?php
+        include('../includes/htmlhead.php'); // include head
+        include('../includes/dbConnection.php'); // connect database
+        include('../includes/functions.php'); // get functions
+    ?>
 </head>
 <body>
 
