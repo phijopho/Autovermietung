@@ -3,7 +3,7 @@
 /* Box which covers the entire Body */
 .divbody {
   width: 90%;
-  height: 76%;
+  height: 90%;
   margin-top: 10%;
   margin-bottom: 10%;
   margin-left: 5%;
@@ -146,6 +146,7 @@ th, td {
   cursor: pointer;
   background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
+
 
 
 /* Button if user is not logged in*/

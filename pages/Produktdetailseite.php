@@ -16,13 +16,15 @@
 <body>
 
 <div class="divbody">
-    <div class="divContent">
+    
         <div class="divgallery">
             <h1>"Fahrzeugmodell"</h1>
             <div class="foto">
     
                 <img src="images/cars/audi-a3-cabrio-rot-offen-2020.png" alt="Auto">
+                
                 <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
+            
                 <div class="desc" id="desc">
                     <table>
                         <tr>
@@ -44,8 +46,8 @@
                             <td>"Variable"</td>    
                         </tr>
                     </table>
+                    </div>
                 </div>
-            </div>
         </div>
         <div class="divinfo">
             <div class="divText">
@@ -65,7 +67,6 @@
         <div class="divbutton">
                 <a href="#" class="button">Jetzt Buchen</a>
             </div>
-    </div>
 </div>
 
 </body>
