@@ -93,8 +93,7 @@ button:focus {
     line-height: 35px;
     width: 450px;
     border-radius: 10px;
-    margin: auto;
-    margin-top: 125px;
+    margin: -25px auto -10px;
     background-color: #ffbaba;
     text-align: center;
     display: flex;
@@ -107,11 +106,12 @@ button:focus {
     line-height: 35px;
     width: 350px;
     border-radius: 10px;
-    margin: auto;
-    margin-top: 125px;
+    margin: -25px auto -10px;
     background-color: #d3ffce;
     text-align: center;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .textError {

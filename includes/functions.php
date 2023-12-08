@@ -1,85 +1,100 @@
-<?php 
-function getCities(){
+<?php
+
+function getCities()
+{
     include('dbConnection.php');
-    $default="Hamburg";
+    $default = "Hamburg";
     $location = array($default);
     $stmtGetCities = $conn->prepare("SELECT City FROM Location WHERE City!=:cityIdent");
     $stmtGetCities->bindParam(':cityIdent', $default);
     $stmtGetCities->execute();
-    while($row = $stmtGetCities->fetch()){
+    while ($row = $stmtGetCities->fetch()) {
         $location[] = $row['City'];
     }
-    return $location;    
+    return $location;
 }
 
-function selectDistinctColumn($column, $table){
-    include('dbConnection.php');  
-    $result=array();  
+function selectDistinctColumn($column, $table)
+{
+    include('dbConnection.php');
+    $result = array();
     $stmt = $conn->query("SELECT DISTINCT $column FROM $table");
-    while($row = $stmt->fetch()){
+    while ($row = $stmt->fetch()) {
         $array[] = $row[$column];
     }
-    return $array;    
+    return $array;
 }
 
-function selectMinAndMaxFromColumn($column, $table){
+function selectMinAndMaxFromColumn($column, $table)
+{
     include('dbConnection.php');
-    $result=array();
+    $result = array();
     $stmt = $conn->query("SELECT MIN($column), MAX($column) FROM $table");
     $row = $stmt->fetch();
-        $result['min'] = $row['MIN('.$column.')'];
-        $result['max'] = $row['MAX('.$column.')'];
-    return $result;    
-
+    $result['min'] = $row['MIN(' . $column . ')'];
+    $result['max'] = $row['MAX(' . $column . ')'];
+    return $result;
 }
 
-function selectColumn($column, $table){
+function selectColumn($column, $table)
+{
     include('dbConnection.php');
-    $result=array();
+    $result = array();
     $stmt = $conn->query("SELECT $column FROM $table");
-    while($row = $stmt->fetch()){
+    while ($row = $stmt->fetch()) {
         $result[] = $row[$column];
     }
-    return $result;    
+    return $result;
 }
 
-function showImage($CarType_ID){
+function showImage($CarType_ID)
+{
     include('dbConnection.php');
-    $image=$conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $image = $conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
     $image->bindParam(':CarTypeIdent', $CarType_ID);
     $image->execute();
 
-    if($image->rowCount()>0){ 
+    if ($image->rowCount() > 0) {
         echo "<div class='pictureBox'>";
-            while($row=$image->fetch()){
-                echo "<img src='data:image/png;charset=utf8;base64,".base64_encode($row['Image'])."'>";
-            }
+        while ($row = $image->fetch()) {
+            echo "<img src='data:image/png;charset=utf8;base64," . base64_encode($row['Image']) . "'>";
+        }
         echo "</div>";
-    } else { 
+    } else {
         echo "<div class='pictureBox'>Image(s) not found...</div>";
     }
 }
 
-function getPrice($CarType_ID){
+function getPrice($CarType_ID)
+{
     include('dbConnection.php');
-    $getPrice=$conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $getPrice = $conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
     $getPrice->bindParam(':CarTypeIdent', $CarType_ID);
     $getPrice->execute();
-    while($row=$getPrice->fetch()){
-        $price[]=$row['Price'];
+    while ($row = $getPrice->fetch()) {
+        $price[] = $row['Price'];
     }
-    return $price;    
+    return $price;
 }
 
-function getModel($CarType_ID){
+function getModel($CarType_ID)
+{
     include('dbConnection.php');
-    $getModel=$conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
+    $getModel = $conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
     $getModel->bindParam(':CarTypeIdent', $CarType_ID);
     $getModel->execute();
-    while($row=$getModel->fetch()){
-        $model[]=$row['Brand'];
-        $model[]=$row['Model'];
+    while ($row = $getModel->fetch()) {
+        $model[] = $row['Brand'];
+        $model[] = $row['Model'];
     }
-    return $model;    
+    return $model;
 }
+
+function preventEnterIfLoggedIn()
+{
+    if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
+        header("Location: ../index.php");
+    }
+}
+
 ?>

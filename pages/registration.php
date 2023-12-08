@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Einbinden der style.css -->
+    <!-- relate to css files -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styleRegistration.css">
     <title>Registrieren</title>
@@ -19,58 +19,19 @@
 <body>
     <?php
     include('../includes/dbConnection.php');
-    include('../includes/header.php'); // Einbinden des Headers
+    include('../includes/header.php');
+    include('../includes/functions.php');
+    include('../includes/functionsRegister.php');
 
-    // prevent logged in users from entering registration page
-    if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
-        header("Location: ../index.php");
-    }
+    preventEnterIfLoggedIn();
 
-    function register($firstName, $lastName, $age, $email, $username, $password)
-    {
-        global $conn;
-        $stmt = $conn->prepare("INSERT INTO User (FirstName, LastName, Age, EMail, Username, Password) VALUES (:firstName, :lastName, :age, :email, :username, :password)");
-        $stmt->bindParam(":firstName", $firstName);
-        $stmt->bindParam(":lastName", $lastName);
-        $stmt->bindParam(":age", $age);
-        $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":password", $password);
-        $stmt->execute();
-    }
     ?>
 
     <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
         <h1>Registrieren</h1>
-        
-        <?php if (isset($_POST["register"])) {
-        $firstName = $_POST["firstName"];
-        $lastName = $_POST["lastName"];
-        $age = $_POST["age"];
-        $email = $_POST["email"];
-        $username = $_POST["username"];
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-        $stmt = $conn->prepare("SELECT * FROM User WHERE Username=:username OR Email=:email");
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":email", $email);
-        $stmt->execute();
+        <?php register(); ?>
 
-        $userExists = $stmt->fetchColumn();
-
-        if (!$userExists) {
-        register($firstName, $lastName, $age, $email, $username, $password);
-        ?> <div class="success">
-            <p class="textSuccess"> Erfolgreich registriert, <a href="./pages/login.php" class="linkHere"> jetzt Anmelden! </a></p>
-        </div> <?php
-        } else {
-    ?>
-            <div class="error">
-                <p class="textError"> Der Username oder die Email ist bereits vergeben. </p>
-            </div>
-    <?php
-        }
-    } ?>
         <div class="inputbox">
             <input type="text" required autofocus placeholder="Vorname*" name="firstName">
             <input type="text" required placeholder="Nachname*" name="lastName">
@@ -83,6 +44,7 @@
     </form>
 
     <?php
-    include('../includes/footer.html'); // Einbindung des Footers
+    include('../includes/footer.html');
     ?>
+    
 </body>
