@@ -57,7 +57,7 @@ $checkedCategories=array();
 if(isset($_POST['caruselCategory'])){
     $_SESSION['categories']=array();
     $_SESSION['categories'][]=$_POST['caruselCategory'];
-    $checkedCategories=$_SESSION['categories'];
+    $_SESSION['checkedCategories']=$_SESSION['categories'];
 }
     
     // if first visit on site check no boxes but select all categories
@@ -149,10 +149,10 @@ if (isset($_POST["sort"])) {
 // Checks:
 // echo "<br><br><br><br>";
 // echo getResultsQuery();
-// echo "Session Categories: ";
-// print_r($_SESSION['categories']);
-// echo "<br> Checked Categories: ";
-// echo var_dump($_SESSION['checkedCategories']);
+ echo "Session Categories: ";
+ print_r($_SESSION['categories']);
+ echo "<br> Checked Categories: ";
+ echo var_dump($_SESSION['checkedCategories']);
 // print_r($_SESSION);
 ?>
 
