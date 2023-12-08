@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
 // show error messages
-//  error_reporting(E_ALL);
-//  ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 // session_unset();
 // session_destroy();
 ?>
@@ -51,7 +51,6 @@ $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
-$checkedCategories=array();
     // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories']) OR empty($_SESSION['categories'])){
     $_SESSION['checkedCategories']=array();
@@ -64,12 +63,13 @@ if (isset($_POST['filter'])){
     foreach($categories as $category){
         if (isset($_POST[$category])){
             $_SESSION['categories'][] = $category;
-            $checkedCategories[]=$category;
+            $_SESSION['checkedCategories'][]=$category;
         }
     }
     // if no categories were checked add all to session
     if(empty($_SESSION['categories'])){
         $_SESSION['categories'] = $categories;
+        $_SESSION['checkedCategories']=array();
     }
 }
 
@@ -137,7 +137,7 @@ if (isset($_POST["sort"])) {
     $_SESSION["sort"] = $_POST["sort"];
 }
 
-// Check Arrays:
+// Checks:
 // echo "<br><br><br><br>";
 // echo getResultsQuery();
 // echo "Session Categories: ";
@@ -155,6 +155,7 @@ if (isset($_POST["sort"])) {
 <?php
 include('../includes/header.html'); // include header
 ?>
+
 <body>
 <div class="contentBox">
     <div class="filterBox">
@@ -185,7 +186,7 @@ include('../includes/header.html'); // include header
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
-                            if(in_array($category, $checkedCategories)){
+                            if(in_array($category, $_SESSION['checkedCategories'])){
                                 echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
                                 echo "<label for '".$category."'>".$category."</label><br>"; 
                             } else {
@@ -361,7 +362,6 @@ include('../includes/header.html'); // include header
         ?>
     </div>
 </div>
-
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
 ?>
