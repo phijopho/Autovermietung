@@ -30,7 +30,7 @@
 
     </head>
     <?php
-         include('includes/header.html'); // include header
+         include('includes/headerangemeldet.html'); // include header
     ?>
     <body>
     <div class="BackgroundKia">
@@ -131,7 +131,7 @@
     </div>     
     <div class="BackgroundAudi">
         <div class="section3">
-            <div class="map-container">
+            <div id="map-container" class="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
             

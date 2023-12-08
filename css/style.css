@@ -64,11 +64,13 @@ a:hover {
 /* Header angemeldet*/
 /*Style des Hover-Menüs*/
 .divhover {
-    margin-right: 5%;
+    margin-right: 6%;
     margin-left: 10%;
-    padding: 1%;
-    background-color: #525252 ;
+    margin-top: 1%;
+    padding: 0.5%;
+    background-color: transparent;
     font-size: 16px;
+    width: 10%;
 }
 
 .divhover a {
@@ -80,9 +82,16 @@ a:hover {
     display:inline-block;
 }
 a:hover {
-    /* Schriftfarbe noch aussuchen */
+    /* Schriftfarbe */
     color: aqua;
 }
+
+.divMenuSign {
+    width: 15px;
+    height: 5px;
+    background-color: #f7f2ef;
+    margin: 6px 0;
+  }
 
 
   /* Underlined if hovered and active */
@@ -125,9 +134,10 @@ a:hover {
 
 ul {
     display: inline;
-    margin: 0;
-    padding: 1%;
+    margin: 0px;
+    padding: 0.7%;
 }
+
   
 
 ul li {
@@ -136,6 +146,7 @@ ul li {
 
 ul li:hover {
     background: #525252;
+    height: 10%;
 }
 
 ul li:hover ul {
