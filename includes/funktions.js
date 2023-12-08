@@ -1,20 +1,26 @@
-
 // Produktdetailseite toggle Menu 
+
+window.onload = function() {
+    // Beim Laden der Seite die Höhe des divGallery auf die Höhe des divFoto setzen
+    var fotoHeight = document.querySelector('.foto').clientHeight;
+    var gallery = document.querySelector('.divgallery');
+    gallery.style.height = fotoHeight + 'px';
+}
 
 function togglemenu() {
     var table = document.getElementById("desc");
-     var button = document.querySelector('.buttonToggle');
+    var button = document.querySelector('.buttonToggle');
 
-     if (table.style.opacity == '0') {
-         table.style.opacity = '1.0';
-         button.classList.add('rotated');
-         
-     } else {
-         table.style.opacity = '0.0';
-         button.classList.remove('rotated');
-         table.style.maxHeight = '0';
-     }
- }
+    if (table.style.opacity === '0') {
+        table.style.opacity = '1.0';
+        table.style.maxHeight = '100%'; // Setzen Sie die Höhe des Elements auf 100% oder eine geeignete Höhe.
+        button.classList.add('rotated');
+    } else {
+        table.style.opacity = '0';
+        table.style.maxHeight = '0';
+        button.classList.remove('rotated');
+    }
+}
 
 
 // Homepage

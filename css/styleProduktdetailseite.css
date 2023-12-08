@@ -68,14 +68,13 @@ div.foto img {
 /* Image descriptionbox */
 div.desc {
   text-align: center;
-  height: 35%;
+  height: auto;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   padding: 10px 20px;
   color: #1a1818;
   background: linear-gradient(to bottom, #525252, rgb(18, 162, 162));
   opacity: 0;
-  max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
