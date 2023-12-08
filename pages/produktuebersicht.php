@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
 // show error messages
- error_reporting(E_ALL);
- ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 // session_unset();
 // session_destroy();
 ?>
