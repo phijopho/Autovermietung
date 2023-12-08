@@ -6,7 +6,6 @@ session_start();
 // session_unset();
 // session_destroy();
 ?>
-// Änderung
 
 <html lang="en">
 <head>
@@ -52,6 +51,15 @@ $location=getCities();
 $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
+$checkedCategories=array();
+
+    // if user chose category via carusel on homepage
+if(isset($_POST['caruselCategory'])){
+    $_SESSION['categories']=array();
+    $_SESSION['categories'][]=$_POST['caruselCategory'];
+    $_SESSION['checkedCategories']=$_SESSION['categories'];
+}
+    
     // if first visit on site check no boxes but select all categories
 if(!isset($_SESSION['categories']) OR empty($_SESSION['categories'])){
     $_SESSION['checkedCategories']=array();
@@ -128,7 +136,7 @@ if (isset($_POST['filter'])) {
     }
 }
 
-    // sort
+// sort
     // default
 if (!isset($_SESSION['sort'])){
     $_SESSION['sort']="alphabetic";
@@ -138,7 +146,7 @@ if (isset($_POST["sort"])) {
     $_SESSION["sort"] = $_POST["sort"];
 }
 
-// Check Arrays:
+// Checks:
 // echo "<br><br><br><br>";
 // echo getResultsQuery();
 // echo "Session Categories: ";
