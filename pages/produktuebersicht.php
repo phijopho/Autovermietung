@@ -138,7 +138,7 @@ if (isset($_POST["sort"])) {
 }
 
 // Check Arrays:
- echo "<br><br><br><br>";
+// echo "<br><br><br><br>";
 // echo getResultsQuery();
 // echo "Session Categories: ";
 // print_r($_SESSION['categories']);
