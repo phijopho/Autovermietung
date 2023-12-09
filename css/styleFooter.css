@@ -1,0 +1,31 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+footer {
+    height: 400px;
+    background-color: #1a1818;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-section {
+    max-width: 200px;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+    color: white;
+    line-height: 2.5;
+}

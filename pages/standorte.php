@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../css/styleStandorte.css">
     <title>Standorte</title>
     <base href="/Autovermietung/">
-
-    <?php 
-    ?>
 </head>
 <body>
 
