@@ -1,3 +1,14 @@
+<?php 
+session_start(); 
+if(isset($_GET['carType_ID'])) {
+    $_SESSION['carType_ID']=$_GET['carType_ID'];
+    print_r($_SESSION);
+    
+} else {
+    echo "Ungültige Abfrage";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

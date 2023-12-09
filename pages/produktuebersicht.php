@@ -40,7 +40,7 @@ if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'
 }
 
 // use user input 
-if (isset($_POST['quickSearch'])){
+if (isset($_POST['quickSearch']) OR isset($_POST['filter'])){
      $_SESSION['location']=$_POST['location'];
      $_SESSION['pickUpDate']=$_POST['pickUpDate'];
      $_SESSION['returnDate']=$_POST['returnDate'];
@@ -147,13 +147,18 @@ if (isset($_POST["sort"])) {
 }
 
 // Checks:
-// echo "<br><br><br><br>";
+echo "<br><br><br><br>";
+$stmt=getAvailableCarsQuery();
+$availableCars=getAvailableCars($stmt);
+echo $stmt." -> ".$availableCars;
+
 // echo getResultsQuery();
 // echo "Session Categories: ";
 // print_r($_SESSION['categories']);
 // echo "<br> Checked Categories: ";
 // echo var_dump($_SESSION['checkedCategories']);
-// print_r($_SESSION);
+echo "<br> Session:";
+print_r($_SESSION);
 ?>
 
 <!-- page specific head elements -->
@@ -329,7 +334,10 @@ include('../includes/header.html'); // include header
 
     <div class="resultBox">
         <div class="topBox">
-            <label for="available">Verf&uuml;gbare Fahrzeuge: 10</label>
+            <?php 
+            $_SESSION['totalAvailableCars']=getAvailableCars(getAvailableCarsQuery());
+            ?>
+            <label for="available">Verf&uuml;gbare Fahrzeuge: <?php echo $_SESSION['totalAvailableCars'] ?></label>
             <div class="sortBox">
                 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="sortForm">
                     <label for="sort" >Sortierung: </label>

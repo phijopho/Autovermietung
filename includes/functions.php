@@ -146,24 +146,45 @@ function displayResults($stmt){
         // loop through each result and display it
         while ($row = $result->fetch()){
             $carType_ID = $row['CarType_ID'];
-            echo "<div class='resultItemBox'>";
-                echo "<div class='modelBox'>";
-                    // Use the getModel and showImage functions to display car information
-                    $model = getModel($carType_ID);
-                    echo "<label>".$model[0]." ".$model[1]."</label>";
+            echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                echo "<div class='resultItemBox'>";
+                    echo "<div class='modelBox'>";
+                        // Use the getModel and showImage functions to display car information
+                        $model = getModel($carType_ID);
+                        echo "<label>".$model[0]." ".$model[1]."</label>";
+                    echo "</div>";
+                    showImage($carType_ID);
+                    echo "<div class='carDataBox'>";            
+                        // Use the getPrice function to display car prices
+                        $price = getPrice($carType_ID);
+                        echo "Preis pro Tag: ".$price[0]." €<br>";
+                        // Tage multiplizieren
+                        echo "Preis für den gewählten Zeitraum: ".$price[0]." € <br>";
+                    echo "</div>";
                 echo "</div>";
-                showImage($carType_ID);
-                echo "<div class='carDataBox'>";            
-                    // Use the getPrice function to display car prices
-                    $price = getPrice($carType_ID);
-                    echo "Preis pro Tag: ".$price[0]." €<br>";
-                    // Tage multiplizieren
-                    echo "Preis für den gewählten Zeitraum: ".$price[0]." € <br>";
-                echo "</div>";
-            echo "</div>";
+            echo "</a>";
         }
         echo "</div>";
     } else {
         echo "<p>Keine Ergebnisse gefunden.</p>";
     }
 }
+
+function getAvailableCarsQuery() {
+    // build sql statement
+    $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID"; 
+    $stmt .= " WHERE Location.City='".$_SESSION['location']."'";
+    return $stmt;
+}
+
+function getAvailableCars($stmt){
+    include('dbConnection.php');
+    // execute statement
+    $availableCars=0;
+    $stmt = $conn->query($stmt);
+    while($row=$stmt->fetch()){
+        $availableCars=$row['COUNT(Car.Car_ID)'];
+    }
+    return $availableCars;  
+}
+?>
