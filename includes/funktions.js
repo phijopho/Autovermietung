@@ -26,21 +26,28 @@ function togglemenu() {
 // Homepage
 
 //scroll to anker
-document.addEventListener('DOMContentLoaded', function() {
-    var scrollLink = document.querySelector('.scroll-link');
-    scrollLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      var targetSection = document.querySelector('.map-container');
-      if (targetSection) {
-        var headerHeight = document.querySelector('.headerbox').offsetHeight;
-        var targetOffset = targetSection.offsetTop - headerHeight;
-        window.scrollTo({
-          top: targetOffset,
-          behavior: 'smooth' // Glatte Scrollanimation
-        });
-      }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var scrollLinks = document.querySelectorAll('.scroll-link');
+    scrollLinks.forEach(function(scrollLink) {
+      scrollLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        var targetId = this.getAttribute('data-target');
+        var targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          var headerHeight = document.querySelector('.headerbox').offsetHeight;
+          var targetOffset = targetSection.offsetTop - headerHeight;
+          window.scrollTo({
+            top: targetOffset,
+            behavior: 'smooth' // Glatte Scrollanimation
+          });
+        }
+      });
     });
   });
+  
+  
+  
   
 
 //Header
