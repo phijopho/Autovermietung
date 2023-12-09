@@ -5,7 +5,7 @@
       include('../includes/htmlhead.php')
     ?>
     <!-- Einbinden der style.css -->
-    <link rel="stylesheet" href="css/styleRegistration.css">
+    <link rel="stylesheet" href="css/styleMeinProfil.css">
     <title>Mein Profil</title>
 
 </head>
