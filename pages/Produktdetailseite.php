@@ -1,3 +1,26 @@
+<?php 
+session_start(); 
+include('../includes/functions.php');
+// show error messages
+ error_reporting(E_ALL);
+ ini_set('display_errors', 1);
+
+if(isset($_GET['carType_ID'])) {
+    // CarType ID
+    $_SESSION['carType_ID']=$_GET['carType_ID'];
+    // Availabe Cars of that type
+    $stmt=getAvailableCarsForModelQuery($_SESSION['carType_ID']);
+    $_SESSION['availableCarsModel']=getAvailableCarsForModel($stmt);
+} else {
+    echo "Ungültige Abfrage";
+}
+
+// checks
+echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
+echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <?php

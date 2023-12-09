@@ -56,6 +56,21 @@
           Gesamtpreis der Buchung: <!--Variable--><br>
         </dd>
 
+
+        <!--Buchungszeile 1-->
+        <dt>
+          <p><?php echo $bookingID; ?></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dt>
+
+        <dd>
+          Abhol- und Rückgabeort: <!--Variable--><br>
+          Gesamtpreis der Buchung: <!--Variable--><br>
+        </dd>
         <?php
         // Schleife für das Generieren weiterer Buchungszeilen
         for ($i = 2; $i <= $lastBookingNumber; $i++) {

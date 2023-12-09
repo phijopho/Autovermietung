@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
 // show error messages
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 // session_unset();
 // session_destroy();
 ?>
@@ -16,6 +16,18 @@ include('../includes/dbConnection.php'); // connect database
 include('../includes/functions.php'); // get functions
 
 // Sessions and variables
+// Reset filters (except location and date)
+if (isset($_POST['resetButton'])) {
+    unset($_SESSION['categories']);
+    unset($_SESSION['vendor']);
+    unset($_SESSION['seats']);
+    unset($_SESSION['doors']);
+    unset($_SESSION['age']);
+    unset($_SESSION['drive']);
+    unset($_SESSION['transmission']);
+    unset($_SESSION['ac']);
+    unset($_SESSION['gps']);
+}
 
 //Quick Search Filters: Location, pick-up date, return date
 $today=date("Y-m-d");
@@ -28,7 +40,7 @@ if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'
 }
 
 // use user input 
-if (isset($_POST['quickSearch'])){
+if (isset($_POST['quickSearch']) OR isset($_POST['filter'])){
      $_SESSION['location']=$_POST['location'];
      $_SESSION['pickUpDate']=$_POST['pickUpDate'];
      $_SESSION['returnDate']=$_POST['returnDate'];
@@ -40,9 +52,17 @@ $categories=selectDistinctColumn("Type", "CarType");
 
 //category checkbox filter
 $checkedCategories=array();
+
+    // if user chose category via carusel on homepage
+if(isset($_POST['caruselCategory'])){
+    $_SESSION['categories']=array();
+    $_SESSION['categories'][]=$_POST['caruselCategory'];
+    $_SESSION['checkedCategories']=$_SESSION['categories'];
+}
+    
     // if first visit on site check no boxes but select all categories
-if(!isset($_SESSION['categories'])){
-    $checkedCategories=array();
+if(!isset($_SESSION['categories']) OR empty($_SESSION['categories'])){
+    $_SESSION['checkedCategories']=array();
     $_SESSION['categories'] = $categories;
 }
 
@@ -52,12 +72,13 @@ if (isset($_POST['filter'])){
     foreach($categories as $category){
         if (isset($_POST[$category])){
             $_SESSION['categories'][] = $category;
-            $checkedCategories[]=$category;
+            $_SESSION['checkedCategories'][]=$category;
         }
     }
     // if no categories were checked add all to session
     if(empty($_SESSION['categories'])){
         $_SESSION['categories'] = $categories;
+        $_SESSION['checkedCategories']=array();
     }
 }
 
@@ -115,12 +136,29 @@ if (isset($_POST['filter'])) {
     }
 }
 
-// Check Arrays:
-//  echo "<br><br><br><br>";
-//  echo "Session Categories: ";
-//  print_r($_SESSION['categories']);
-//  echo "<br> Checked Categories: ";
-//  echo var_dump($checkedCategories);
+// sort
+    // default
+if (!isset($_SESSION['sort'])){
+    $_SESSION['sort']="alphabetic";
+}
+    // use user input
+if (isset($_POST["sort"])) {
+    $_SESSION["sort"] = $_POST["sort"];
+}
+
+// Checks:
+// echo "<br><br><br><br>";
+// $stmt=getAvailableCarsQuery();
+// $availableCars=getAvailableCars($stmt);
+// echo $stmt." -> ".$availableCars;
+
+// echo getResultsQuery();
+// echo "Session Categories: ";
+// print_r($_SESSION['categories']);
+// echo "<br> Checked Categories: ";
+// echo var_dump($_SESSION['checkedCategories']);
+// echo "<br> Session:";
+// print_r($_SESSION);
 ?>
 
 <!-- page specific head elements -->
@@ -131,10 +169,11 @@ if (isset($_POST['filter'])) {
 <?php
 include('../includes/header.html'); // include header
 ?>
+
 <body>
 <div class="contentBox">
-    <form method="post" action="<?php $_SERVER["PHP_SELF"]?>">
-        <div class="filterBox">
+    <div class="filterBox">
+        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="filter">
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
                 <select class="customSelect" name="location">
@@ -161,7 +200,7 @@ include('../includes/header.html'); // include header
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
-                            if(in_array($category, $checkedCategories)){
+                            if(in_array($category, $_SESSION['checkedCategories'])){
                                 echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
                                 echo "<label for '".$category."'>".$category."</label><br>"; 
                             } else {
@@ -174,6 +213,7 @@ include('../includes/header.html'); // include header
             <div class="itemBox">
                 <label for="vendor">Hersteller:</label><br>
                 <select class="customSelect" name="vendor">
+                    <option value="all">Alle auswählen</option>
                     <?php 
                     $vendors=selectColumn("Abbreviation", "Vendor");
                     foreach($vendors as $vendor){
@@ -190,7 +230,7 @@ include('../includes/header.html'); // include header
                 <label for="seats">Sitze:</label><br>
                 <?php
                 $seats=selectMinAndMaxFromColumn("Seats", "CarType");
-                $selectedSeats=5;
+                $selectedSeats=2;
                 if(isset($_SESSION['seats'])){
                     $selectedSeats=$_SESSION['seats'];
                 }
@@ -202,7 +242,7 @@ include('../includes/header.html'); // include header
                 <label for="doors">T&uuml;ren:</label><br>
                 <?php
                 $doors=selectMinAndMaxFromColumn("Doors", "CarType");
-                $selectedDoors=5;
+                $selectedDoors=2;
                 if(isset($_SESSION['doors'])){
                     $selectedDoors=$_SESSION['doors'];
                 }
@@ -214,7 +254,7 @@ include('../includes/header.html'); // include header
                 <label for="age">Alter:</label><br>
                 <?php
                 $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
-                $selectedAge=18;
+                $selectedAge=25;
                 if(isset($_SESSION['age'])){
                     $selectedAge=$_SESSION['age'];
                 }
@@ -230,9 +270,19 @@ include('../includes/header.html'); // include header
                     $drives=selectDistinctColumn("Drive", "CarType");
                     foreach($drives as $drive){
                         if($_SESSION['drive'] == $drive){
-                            echo "<option value='$drive' selected>$drive</option>";
+                            if($drive=='Combuster'){
+                                $driveGerman='Verbrenner';
+                            }elseif($drive=='Electric'){
+                                $driveGerman='Elektro';
+                            }
+                            echo "<option value='$drive' selected>$driveGerman</option>";
                         } else {
-                        echo "<option value='$drive'>$drive</option>";
+                            if($drive=='Combuster'){
+                                $driveGerman='Verbrenner';
+                            }elseif($drive=='Electric'){
+                                $driveGerman='Elektro';
+                            }
+                            echo "<option value='$drive'>$driveGerman</option>";
                         }
                     }
                     ?>
@@ -274,83 +324,61 @@ include('../includes/header.html'); // include header
                     <span class="sliderRound"></span>
                 </label>
             </div>
-            <br><br>
+            <br>
             <input type="submit" value="Filtern" name="filter">
-        </div>
-    </form>
+        </form>
+        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">     
+            <input type="submit" value="Filter zurücksetzen" name="resetButton"> 
+        </form>
+    </div>
 
     <div class="resultBox">
         <div class="topBox">
-            <label for="available">Verf&uuml;gbare Fahrzeuge: 10</label>
+            <?php 
+            $_SESSION['totalAvailableCars']=getAvailableCars(getAvailableCarsQuery());
+            ?>
+            <label for="available">Verf&uuml;gbare Fahrzeuge: <?php echo $_SESSION['totalAvailableCars'] ?></label>
             <div class="sortBox">
-                <label for="sort" >Sortierung: </label>
-                <select class="customSelectSort" name="sort">
-                    <option value="alphabetic">Alphabetisch</option>
-                    <option value="priceExpensive">Preis aufsteigend</option>
-                    <option value="priceCheap">Preis absteigend</option>
-                </select>
+                <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="sortForm">
+                    <label for="sort" >Sortierung: </label>
+                    <select class="customSelectSort" name="sort" onchange="submitForm()">
+                        <option value="alphabetic"
+                        <?php 
+                            if($_SESSION['sort']=='alphabetic'){
+                                echo "selected";
+                            }
+                        ?>
+                        >Alphabetisch</option>
+                        <option value="priceAscending"
+                        <?php 
+                            if($_SESSION['sort']=='priceAscending'){
+                                echo "selected";
+                            }
+                        ?>
+                        >Preis aufsteigend</option>
+                        <option value="priceDescending"
+                        <?php 
+                            if($_SESSION['sort']=='priceDescending'){
+                                echo "selected";
+                            }
+                        ?>
+                        >Preis absteigend</option>
+                    </select>
+                </form>
+                <!-- Use JS event handler to submit form whenever sort is changed -->
+                <script>
+                    function submitForm(){
+                        document.getElementById("sortForm").submit();
+                    }
+                </script>
             </div>
         </div>
-        
-        <div class="resultWrapBox">
-            <div class="resultItemBox">
-                <div class="modelBox">
-                    <label>
-                        <?php 
-                            $model=getModel("25");
-                            echo $model[0]." ".$model[1];
-                        ?>
-                    </label>
-                </div>
-                <?php
-                    showImage("25");
-                ?>
-                <div class="carDataBox">
-                    <?php $price=getPrice("25"); ?>
-                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
-                </div>
-            </div>
-            <div class="resultItemBox">
-                <div class="modelBox">
-                    <label>                    
-                        <?php 
-                            $model=getModel("32");
-                            echo $model[0]." ".$model[1];
-                        ?>
-                    </label>
-                </div>
-                <?php
-                    showImage("32");
-                ?>
-                <div class="carDataBox">
-                    <?php $price=getPrice("32"); ?>
-                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
-                </div>
-            </div>
-            <div class="resultItemBox">
-                <div class="modelBox">
-                    <label>
-                        <?php 
-                            $model=getModel("57");
-                            echo $model[0]." ".$model[1];
-                        ?>
-                    </label>
-                </div>
-                <?php
-                    showImage("57");
-                ?>
-                <div class="carDataBox">
-                    <?php $price=getPrice("57"); ?>
-                    Preis pro Tag: <?php echo $price[0]; ?> €<br>
-                    Preis f&uuml;r den gew&auml;hlten Zeitraum: <?php echo $price[0]; ?> € <br>
-                </div>
-            </div>
-        </div>
+        <?php
+        $stmt = getResultsQuery();
+        displayResults($stmt);
+        ?>
     </div>
 </div>
-
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
 ?>

@@ -64,61 +64,73 @@
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">
-                        <img src="images/mercedes.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php">                        
+                        <img src="images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Limousine</h3>
-                            <p>Jeder Lord, faehrt einen Ford.</p>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Limousine">Limousine</button>
+                            </form>
+                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="images/cars/mb-s-amg-cabrio-2d-weiss-offen-2017.php">
-                        <img src="images/mercedes.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php">                        
+                        <img src="images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Cabrio</h3>
-                            <p>Für mehr Kopffreiheit...</p>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Combi">Combi</button>
+                            </form>
+                            <p>Combi Schlombie, sach ich immer</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">
-                        <img src="images/cars/vw-touran-van-weiss-2016.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php">                        
+                        <img src="images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Mehrsitzer</h3>
-                            <p>Für ihre Kinder</p>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Cabrio">Cabrio</button>
+                            </form>
+                            <p>Für mehr Kopffreiheit...</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">
-                        <img src="images/mercedes.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php">                        
+                        <img src="images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Coupé</h3>
-                            <p>Für die Autobahn</p>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="SUV">SUV</button>
+                            </form>
+                            <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php">                        
+                        <img src="images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>SUV</h3>
-                            <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
+                            <form method="POST" action="pages/produktuebersicht.php">
+                                <button type="submit" name="caruselCategory" value="Mehrsitzer">Mehrsitzer</button>
+                            </form>
+                            <p>Für Ihre Kinder</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">
-                        <img src="images/mercedes.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php">                        
+                        <img src="images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <h3>Kombi</h3>
-                            <p>Kombi Schlombie, sach ich immer</p>
+                        <form method="POST" action="pages/produktuebersicht.php">
+                            <button type="submit" name="caruselCategory" value="Coup">Coup&eacute;</button>
+                        </form>
+                            <p>Für die Autobahn</p>
                         </div>
                     </a>
                 </div>
