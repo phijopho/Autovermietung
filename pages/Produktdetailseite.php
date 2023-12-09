@@ -19,7 +19,6 @@ if(isset($_GET['carType_ID'])) {
 echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
 echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
