@@ -65,7 +65,7 @@
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <form method="POST" action="pages/produktuebersicht.php">
                                 <button type="submit" name="caruselCategory" value="Limousine">Limousine</button>
@@ -77,7 +77,7 @@
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <form method="POST" action="pages/produktuebersicht.php">
                                 <button type="submit" name="caruselCategory" value="Combi">Combi</button>
@@ -89,7 +89,7 @@
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <form method="POST" action="pages/produktuebersicht.php">
                                 <button type="submit" name="caruselCategory" value="Cabrio">Cabrio</button>
@@ -101,7 +101,7 @@
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <form method="POST" action="pages/produktuebersicht.php">
                                 <button type="submit" name="caruselCategory" value="SUV">SUV</button>
@@ -113,7 +113,7 @@
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <form method="POST" action="pages/produktuebersicht.php">
                                 <button type="submit" name="caruselCategory" value="Mehrsitzer">Mehrsitzer</button>
@@ -125,7 +125,7 @@
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
                     <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                        <img src="images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                         <form method="POST" action="pages/produktuebersicht.php">
                             <button type="submit" name="caruselCategory" value="Coup">Coup&eacute;</button>
