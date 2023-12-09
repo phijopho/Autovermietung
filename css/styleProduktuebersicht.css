@@ -138,6 +138,11 @@ flex-wrap: wrap;
 padding-left: 20px;
 padding-top: 20px;
 }
+
+.carLinkBox {
+  float: left;
+}
+
 .resultItemBox {
 float: left;
 background-color: #525252;
