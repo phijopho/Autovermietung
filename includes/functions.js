@@ -24,10 +24,8 @@ function togglemenu() {
     }
 }
 
-
 // Homepage
-
-//scroll to anker
+// scroll to anker
 
   document.addEventListener('DOMContentLoaded', function() {
     var scrollLinks = document.querySelectorAll('.scroll-link');
@@ -41,19 +39,14 @@ function togglemenu() {
           var targetOffset = targetSection.offsetTop - headerHeight;
           window.scrollTo({
             top: targetOffset,
-            behavior: 'smooth' // Glatte Scrollanimation
+            behavior: 'smooth'
           });
         }
       });
     });
   });
   
-  
-  
-  
-
-//Header
-
+// Header
 // Scrollfunction 
 window.onscroll = function() {
    scrollFunction();
