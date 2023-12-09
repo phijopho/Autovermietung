@@ -5,7 +5,6 @@
             include('includes/htmlhead.php');
             include('includes/dbConnection.php'); // connect database
             include('./includes/functions.php');
-
         ?>
         <!-- Einbinden der style.css -->
         <link rel="stylesheet" href="css/styleHomepage.css">
@@ -13,7 +12,6 @@
         <title>SWIFT rentals</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="includes/karussell-slider.js"></script>
-
         <?php 
             session_start();
 
@@ -143,7 +141,7 @@
     </div>     
     <div class="BackgroundAudi">
         <div class="section3">
-            <div class="map-container">
+            <div class="map-container" id="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
             
