@@ -11,12 +11,6 @@
   border-image: linear-gradient(to bottom, aqua, #92FE9D) 1;
 }
 
-.divContent {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 2%;
-}
-
 /* Box which includes the Model and Pictureframe including details of selected car */
 .divgallery {
   float: left;
@@ -27,7 +21,7 @@
 }
 
 /* Box with Image and Imagedescription */
-div.foto {
+.foto {
   border: none;
   float: left;
   width: 90%;
@@ -36,6 +30,7 @@ div.foto {
   background-color: #525252;
   border-radius: 30px;
 }
+
 .buttonToggle {
   background-color: #525252;
   color: aqua;
@@ -55,7 +50,6 @@ div.foto {
 
 
 .rotated {
-
   transform: rotate(180deg);
 }
 
@@ -66,7 +60,7 @@ div.foto img {
 }
 
 /* Image descriptionbox */
-div.desc {
+.desc {
   text-align: center;
   height: auto;
   border-bottom-left-radius: 30px;
@@ -99,7 +93,6 @@ table {
 
 /* Style of table header and table data */
 th, td {
-  padding: 15px;
   width: 30%;
 }
 
@@ -146,8 +139,6 @@ th, td {
   background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
 
-
-
 /* Button if user is not logged in*/
 .buttonNotSignedIn {
   background-color: aqua;
@@ -190,7 +181,6 @@ th, td {
 a:hover.button {
   color: #1a1818;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   opacity: 100%;
 }
@@ -200,7 +190,6 @@ a:hover.button {
 a:hover.buttonNotOldEnough {
   color: #1a1818;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
   font-size: 16px;
 }
 
@@ -209,7 +198,6 @@ a:hover.buttonNotOldEnough {
 a:hover.buttonNotSignedIn {
   color: #1a1818;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   opacity: 100%;
 }

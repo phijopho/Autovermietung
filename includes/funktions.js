@@ -10,11 +10,13 @@ window.onload = function() {
 function togglemenu() {
     var table = document.getElementById("desc");
     var button = document.querySelector('.buttonToggle');
-
-    if (table.style.opacity === '0') {
+    
+    // show table on click when not visible
+    if (table.style.opacity == '0') {
         table.style.opacity = '1.0';
-        table.style.maxHeight = '100%'; // Setzen Sie die Höhe des Elements auf 100% oder eine geeignete Höhe.
+        table.style.maxHeight = '100%';
         button.classList.add('rotated');
+    // hide table on click when visible
     } else {
         table.style.opacity = '0';
         table.style.maxHeight = '0';
