@@ -187,4 +187,23 @@ function getAvailableCars($stmt){
     }
     return $availableCars;  
 }
+
+function getAvailableCarsForModelQuery($CarType_ID){
+    // build sql statement
+    $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID";
+    $stmt .= " WHERE Car.CarType_ID=".$CarType_ID;
+
+    return $stmt;
+}
+
+function getAvailableCarsForModel($stmt){
+    include('dbConnection.php');
+    // execute statement
+    $availableCarsModel=0;
+    $stmt = $conn->query($stmt);
+    while($row=$stmt->fetch()){
+        $availableCarsModel=$row['COUNT(Car.Car_ID)'];
+    }
+    return $availableCarsModel;  
+}
 ?>
