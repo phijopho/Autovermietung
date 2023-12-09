@@ -147,18 +147,18 @@ if (isset($_POST["sort"])) {
 }
 
 // Checks:
-echo "<br><br><br><br>";
-$stmt=getAvailableCarsQuery();
-$availableCars=getAvailableCars($stmt);
-echo $stmt." -> ".$availableCars;
+// echo "<br><br><br><br>";
+// $stmt=getAvailableCarsQuery();
+// $availableCars=getAvailableCars($stmt);
+// echo $stmt." -> ".$availableCars;
 
 // echo getResultsQuery();
 // echo "Session Categories: ";
 // print_r($_SESSION['categories']);
 // echo "<br> Checked Categories: ";
 // echo var_dump($_SESSION['checkedCategories']);
-echo "<br> Session:";
-print_r($_SESSION);
+// echo "<br> Session:";
+// print_r($_SESSION);
 ?>
 
 <!-- page specific head elements -->
