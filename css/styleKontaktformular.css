@@ -1,11 +1,10 @@
-/* style registration page */
-
 /* style form box */
 form {
     height: 650px;
     width: 700px;
     border-radius: 10px;
-    margin-top: 0;
+    top: 50px
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -64,10 +63,10 @@ input::placeholder {
     color: #2f2e2c;
 }
 
-/* style for register button */
+/* style for login button */
 button {
     height: 50px;
-    width: 150px;
+    width: 200px;
     border-radius: 25px;
     border: none;
 
@@ -76,80 +75,13 @@ button {
     background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
 
-/* hover effects on register button */
+/* hover effects on login button */
 button:hover {
     transform: scale(1.1);
     width: 200px;
 }
 
-/* remove outline on register button */
+/* remove outline on login button */
 button:focus {
     outline: none;
 }
-
-.error {
-    height: 35px;
-    line-height: 35px;
-    width: 450px;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 500px;
-    background-color: #ffbaba;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.success {
-    height: 35px;
-    line-height: 35px;
-    width: 350px;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 125px;
-    background-color: #d3ffce;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.textError {
-    color: #a70000;
-    font-size: 16px;
-}
-
-.textSuccess {
-    color: #004b23;
-    font-size: 16px;
-}
-
-
-/* style and hover animation for login link */
-.linkHere {
-    text-decoration: none;
-    color: #004b23;
-    position: relative;
-}
-
-.linkHere:hover {
-    color: #004b23;
-    font-weight: bold;
-}
-
-.linkHere::before {
-    content:'';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    background-color: #004b23;
-    bottom: 0;
-    left: 0;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform .4s ease-in-out;
-}
-
-.linkHere:hover::before {
-    transform-origin: left;
-    transform: scaleX(1);
-}
-

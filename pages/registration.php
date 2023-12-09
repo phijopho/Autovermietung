@@ -80,7 +80,5 @@
         <button name="register">Registrieren</button>
     </form>
 
-    <?php
-    include('../includes/footer.html'); // Einbindung des Footers
-    ?>
+    
 </body>
