@@ -212,6 +212,7 @@ function getCarProperty($CarType_ID, $column){
     }
     return $result;    
 }
+
 function getTotalPrice($price) {
      // create new instance of class DateTime to convert session into a date
     $pickUpDate = new DateTime($_SESSION['pickUpDate']);

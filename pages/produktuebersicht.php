@@ -20,45 +20,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script>
-    <?php
-        // price range filter
-        if (isset($_POST['filter'])) {
-            $_SESSION['minPrice'] = $_POST['minPrice'];
-            $_SESSION['maxPrice'] = $_POST['maxPrice'];
-        }
-        // save minPrice or assign a default value
-        if (isset($_SESSION['minPrice'])) {
-            $minPrice = $_SESSION['minPrice'];
-        } else {
-            $minPrice = 0;
-        }
-        // save maxPrice or assign a default value
-        if (isset($_SESSION['maxPrice'])) {
-            $maxPrice = $_SESSION['maxPrice'];
-        } else {
-            $maxPrice = 1000;
-        }
-    ?>
-    $(function() {
-    $("#slider-range").slider({
-        range: true,
-        min: 0,
-        max: 1000,
-        values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>],
-        slide: function(event, ui) {
-            $("#amount").val("Preisspanne: " + ui.values[0] + " € - " + ui.values[1] + " €");
-            // update hidden fields
-            $("#minPrice").val(ui.values[0]);
-            $("#maxPrice").val(ui.values[1]);
-        }
-    });
-    // initialize hidden fields
-    $("#amount").val("Preisspanne: " + $("#slider-range").slider("values", 0) + " € - " + $("#slider-range").slider("values", 1) + " €");
-    $("#minPrice").val($("#slider-range").slider("values", 0));
-    $("#maxPrice").val($("#slider-range").slider("values", 1));
-});    
-</script>
 
 <?php
     // Sessions and variables
@@ -183,7 +144,51 @@
             $_SESSION['gps'] = 'off';
         }
     }
+    ?>
 
+    <script>
+    <?php
+        // price range filter
+        if (isset($_POST['filter'])) {
+            $_SESSION['minPrice'] = $_POST['minPrice'];
+            $_SESSION['maxPrice'] = $_POST['maxPrice'];
+        }
+        // save minPrice or assign a default value
+        if (isset($_SESSION['minPrice'])) {
+            $minPrice = $_SESSION['minPrice'];
+        } else {
+            $minPrice = 0;
+            $_SESSION['minPrice']=$minPrice;
+        }
+        // save maxPrice or assign a default value
+        if (isset($_SESSION['maxPrice'])) {
+            $maxPrice = $_SESSION['maxPrice'];
+        } else {
+            $maxPrice = 1000;
+            $_SESSION['maxPrice']=$maxPrice;
+        }
+    ?>
+    $(function() {
+    $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 1000,
+        values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>],
+        slide: function(event, ui) {
+            $("#amount").val("Preisspanne: " + ui.values[0] + " € - " + ui.values[1] + " €");
+            // update hidden fields
+            $("#minPrice").val(ui.values[0]);
+            $("#maxPrice").val(ui.values[1]);
+        }
+    });
+    // initialize hidden fields
+    $("#amount").val("Preisspanne: " + $("#slider-range").slider("values", 0) + " € - " + $("#slider-range").slider("values", 1) + " €");
+    $("#minPrice").val($("#slider-range").slider("values", 0));
+    $("#maxPrice").val($("#slider-range").slider("values", 1));
+    });    
+    </script>
+
+    <?php
     // sort
         // default
     if (!isset($_SESSION['sort'])){
@@ -200,7 +205,7 @@
     // $availableCars=getAvailableCars($stmt);
     // echo $stmt." -> ".$availableCars;
 
-    // echo getResultsQuery();
+    //s echo getResultsQuery();
     // echo "Session Categories: ";
     // print_r($_SESSION['categories']);
     // echo "<br> Checked Categories: ";
