@@ -59,7 +59,7 @@
                 </div>
             </div>
     </div>
-    <div class="section2">
+    <div id="section2" class="section2">
         <div class="cslider">
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
