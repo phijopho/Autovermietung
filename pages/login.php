@@ -28,7 +28,7 @@
     ?>
 <div class="contentBox">
     <div class="gif1">
-        <img src="./images/neonlights.gif">
+        <img src="./images/neonlightsrev.gif">
     </div>
     <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
         <h1>Anmelden</h1>

@@ -26,7 +26,7 @@
     preventEnterIfLoggedIn();
 
     ?>
-
+<div class="contentBox">
     <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
         <h1>Registrieren</h1>
 
@@ -42,7 +42,11 @@
         </div>
         <button name="register">Registrieren</button>
     </form>
+    <div class="gif1">
+        <img src="./images/neonlights.gif">
+    </div>
 
+</div>
     <?php
     include('../includes/footer.html');
     ?>
