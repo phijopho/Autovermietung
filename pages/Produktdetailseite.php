@@ -16,6 +16,7 @@
     }
 
     // checks
+    echo "<br><br><br><br><br><br>";
     echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
     echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
 ?>
@@ -36,10 +37,13 @@
 </header> 
 
 <body>
-
+<?php
+    // get car infos
+    $model=getModel($_SESSION['carType_ID']);
+?>
 <div class="divbody">
     <div class="divgallery">
-        <h1>"Fahrzeugmodell"</h1>
+        <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
         <div class="foto">
 
             <img src="images/cars/audi-a3-cabrio-rot-offen-2020.png" alt="Auto">
@@ -75,12 +79,12 @@
         <div class="divText">
             <h2> Zusammenfassung </h2><br>
             <h3>Ihr ausgewählter Zeitraum: </h3>
-            <p>"Variable Abholdatum" bis "Variable Rückgabedatum"</p>
-            <h3> Standort des Fahrzeugs: </h3> <p> "Variable Standort"</p>
-            <h3>Mindestalter: </h3><p> "Variable Alter"</p>
-            <h3>"Preis"/Tag</h3>
+            <p><?php echo formatDate($_SESSION['pickUpDate']) ?> bis <?php echo formatDate($_SESSION['returnDate']) ?></p>
+            <h3> Standort des Fahrzeugs: </h3> <p> <?php echo $_SESSION['location'] ?> </p>
+            <h3>Mindestalter: </h3><p> <?php echo getCarProperty($_SESSION['carType_ID'], 'Min_Age') ?></p>
+            <h3>Preis pro Tag: <?php $price=getCarProperty($_SESSION['carType_ID'], 'Price'); echo number_format($price, 2, ',', '.'); ?> &euro;</h3>
             <br>
-            <h3>Gesamt: "Preis"</h3>
+            <h3>Gesamtpreis: <?php $totalPrice=getTotalPrice($price); echo number_format($totalPrice, 2, ',', '.') ?> &euro;</h3>
 
         </div>
     </div>
