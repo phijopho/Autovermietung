@@ -16,6 +16,7 @@
     }
 
     // checks
+    echo "<br><br><br><br><br><br>";
     echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
     echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
 ?>
@@ -39,7 +40,7 @@
 
 <div class="divbody">
     <div class="divgallery">
-        <h1>"Fahrzeugmodell"</h1>
+        <h1><?php $model=getModel($_SESSION['carType_ID']); echo $model[0]." ".$model[1]; ?></h1>
         <div class="foto">
 
             <img src="images/cars/audi-a3-cabrio-rot-offen-2020.png" alt="Auto">
