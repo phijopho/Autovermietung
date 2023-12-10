@@ -56,17 +56,6 @@ function showImage($CarType_ID){
     }
 }
 
-function getPrice($CarType_ID){
-    include('dbConnection.php');
-    $getPrice=$conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
-    $getPrice->bindParam(':CarTypeIdent', $CarType_ID);
-    $getPrice->execute();
-    while($row=$getPrice->fetch()){
-        $price[]=$row['Price'];
-    }
-    return $price;    
-}
-
 function getModel($CarType_ID){
     include('dbConnection.php');
     $getModel=$conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
@@ -122,6 +111,10 @@ function getResultsQuery(){
     if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
         $stmt .= " AND GPS = 1";
     }
+        // Price filter
+    if (isset($_SESSION['price'])){
+        $stmt .= " AND Price BETWEEN '".$_SESSION['minPrice']."' AND '".$_SESSION['maxPrice']."'";
+    }
 
     // add order
     $stmt .= " ORDER BY";
@@ -156,10 +149,10 @@ function displayResults($stmt){
                     showImage($carType_ID);
                     echo "<div class='carDataBox'>";            
                         // Use the getPrice function to display car prices
-                        $price = getPrice($carType_ID);
-                        echo "Preis pro Tag: ".$price[0]." €<br>";
+                        $price = getCarProperty($carType_ID, 'Price');
+                        echo "Preis pro Tag: ".$price." &euro;<br>";
                         // Tage multiplizieren
-                        echo "Preis für den gewählten Zeitraum: ".$price[0]." € <br>";
+                        echo "Preis für den gewählten Zeitraum: ".getTotalPrice($price)." &euro;<br>";
                     echo "</div>";
                 echo "</div>";
             echo "</a>";
@@ -205,5 +198,30 @@ function getAvailableCarsForModel($stmt){
         $availableCarsModel=$row['COUNT(Car.Car_ID)'];
     }
     return $availableCarsModel;  
+}
+
+function formatDate($date){
+    $newDate = date('d.m.Y', strtotime($date));
+    return $newDate;
+}
+
+function getCarProperty($CarType_ID, $column){
+    include('dbConnection.php');
+    $stmt = $conn->query("SELECT $column FROM CarType WHERE CarType_ID=$CarType_ID");
+    while($row = $stmt->fetch()){
+        $result = $row[$column];
+    }
+    return $result;    
+}
+function getTotalPrice($price) {
+     // create new instance of class DateTime to convert session into a date
+    $pickUpDate = new DateTime($_SESSION['pickUpDate']);
+    $returnDate = new DateTime($_SESSION['returnDate']);     
+
+    $interval = $pickUpDate->diff($returnDate); // calculate difference between dates
+    $numberOfDays = $interval->days; // get difference in number of days
+    $totalPrice=$numberOfDays*$price;
+
+    return $totalPrice; 
 }
 ?>
