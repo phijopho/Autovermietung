@@ -37,10 +37,13 @@
 </header> 
 
 <body>
-
+<?php
+    // get car infos
+    $model=getModel($_SESSION['carType_ID']);
+?>
 <div class="divbody">
     <div class="divgallery">
-        <h1><?php $model=getModel($_SESSION['carType_ID']); echo $model[0]." ".$model[1]; ?></h1>
+        <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
         <div class="foto">
 
             <img src="images/cars/audi-a3-cabrio-rot-offen-2020.png" alt="Auto">
