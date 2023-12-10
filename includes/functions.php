@@ -26,7 +26,6 @@ function selectMinAndMaxFromColumn($column, $table){
         $result['min'] = $row['MIN('.$column.')'];
         $result['max'] = $row['MAX('.$column.')'];
     return $result;    
-
 }
 
 function selectColumn($column, $table){
@@ -112,7 +111,7 @@ function getResultsQuery(){
         $stmt .= " AND GPS = 1";
     }
         // Price filter
-    if (isset($_SESSION['price'])){
+    if (isset($_SESSION['minPrice']) OR $_SESSION['maxPrice']){
         $stmt .= " AND Price BETWEEN '".$_SESSION['minPrice']."' AND '".$_SESSION['maxPrice']."'";
     }
 
