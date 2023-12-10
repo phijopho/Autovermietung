@@ -34,7 +34,7 @@ $( function() {
         $( "#amount" ).val( "Price Range: " + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
     }
     });
-    $( "#amount" ).val( "Price Range:" + $( "#slider-range" ).slider( "values", 0 ) +
+    $( "#amount" ).val( "Price Range: " + $( "#slider-range" ).slider( "values", 0 ) +
     " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 } );
 </script>
@@ -356,10 +356,7 @@ include('../includes/header.html'); // include header
                 </label>
             </div>
             <div class="itemBox">
-                <p>
-                    <label for="amount">Preis:</label><br>
-                    <input type="text" id="amount">
-                </p>
+                <input type="text" id="amount">
                 <div id="slider-range"></div>
             </div>
             <br>

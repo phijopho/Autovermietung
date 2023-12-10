@@ -96,7 +96,7 @@ input:checked + .sliderRound:before {
   transform: translateX(35px);
 }
 
-/* Range slider */
+/* slider */
 input[type="range"] {
 width: 100%;
 }
