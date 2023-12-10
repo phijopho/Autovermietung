@@ -17,26 +17,27 @@
 
 
 
-<!--Buchungsdaten Übersicht-->
+  <form action="SENDEADRESSE" id="ft-form" method="POST" accept-charset="UTF-8">
+  <h1>Kontaktformular</h1>
+      <label>
+        	<input type="Vorname" required autofocus placeholder="Vorname" name="vorname"> <br>
+      </label>
 
-<form>
-        <h1>Kontaktformular</h1>
-        <div class="inputbox">
-            <input type="Vorname" required autofocus placeholder="Vorname" name="vorname"> <br>
-            <input type="Nachname" required placeholder="Nachname" name="nachname"> <br>
-            <input type="E-Mail" required placeholder="E-Mail" name="e-mail"> <br>
-            <input type="Nachricht" required placeholder="Nachricht" name="nachricht">
-        </div>
-        <button name="login">Anfrage senden</button>
-</form>
+      <label>
+        <input type="Nachname" required placeholder="Nachname" name="nachname"> <br>
+      </label>
 
+      <label>
+        <input type="E-Mail" required placeholder="E-Mail" name="e-mail"> <br>
+      </label>
       
+      <label>
+        <textarea rows="6" name="Nachricht" required></textarea> <br>
+      </label>
+      <div>
 
-
-
-
-
-
+      <button name="login">Anfrage senden</button>
+</form>
 
 
 </body>

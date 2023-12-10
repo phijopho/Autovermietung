@@ -84,3 +84,7 @@ button:hover {
 button:focus {
     outline: none;
 }
+
+textarea {
+    width: 300px;
+}
