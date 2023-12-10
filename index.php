@@ -64,12 +64,10 @@
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
+                    <a href="pages/produktuebersicht.php?carouselCategory=Limousine">                        
                         <img src="images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Limousine">Limousine</button>
-                            </form>
+                            <h2>Limousine</h2>
                             <p>Jeder Lord, f&auml;hrt einen Ford.</p>
                         </div>
                     </a>

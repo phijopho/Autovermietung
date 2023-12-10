@@ -62,10 +62,10 @@
     //category checkbox filter
     $checkedCategories=array();
 
-        // if user chose category via carusel on homepage
-    if(isset($_POST['caruselCategory'])){
+        // if user chose category via carousel on homepage
+    if(isset($_GET['carouselCategory'])){
         $_SESSION['categories']=array();
-        $_SESSION['categories'][]=$_POST['caruselCategory'];
+        $_SESSION['categories'][]=$_GET['carouselCategory'];
         $_SESSION['checkedCategories']=$_SESSION['categories'];
     }
         
@@ -200,12 +200,12 @@
     }
 
     // Checks:
-    // echo "<br><br><br><br><br><br><br>";
+     echo "<br><br><br><br><br><br><br>";
     // $stmt=getAvailableCarsQuery();
     // $availableCars=getAvailableCars($stmt);
     // echo $stmt." -> ".$availableCars;
 
-    //s echo getResultsQuery();
+    // echo getResultsQuery();
     // echo "Session Categories: ";
     // print_r($_SESSION['categories']);
     // echo "<br> Checked Categories: ";
