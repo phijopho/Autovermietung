@@ -192,3 +192,45 @@ max-width: 545px;
 line-height: 25px;
 padding: 5px
 }
+
+/* Slider Track */
+.ui-slider {
+  background: #ddd;
+  height: 10px;
+  border-radius: 5px;
+}
+
+/* Slider Handle */
+.ui-slider-handle {
+  background: #007bff;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: none;
+}
+
+/* Slider Handle beim Drücken */
+.ui-slider-handle:active {
+  background: aqua;
+}
+
+/* Active Range (Zwischenraum) */
+.ui-slider-range {
+  background: aqua;
+}
+
+/* Input Box */
+#amount {
+  color: white;
+  /* font-weight: bold; */
+  border: 0;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px; /* Schriftgröße auf 16px erhöht */
+}
+
+/* Optional: Adjusting the margin for visual spacing */
+#slider-range {
+  margin-top: 10px;
+}
