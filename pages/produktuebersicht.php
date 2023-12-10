@@ -1,8 +1,8 @@
 <?php 
     session_start(); 
     // show error messages
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+     error_reporting(E_ALL);
+     ini_set('display_errors', 1);
     //  session_unset();
     //  session_destroy();
 ?>
@@ -21,20 +21,18 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
-
-$(function() {
-  $("#slider-range").slider({
-    range: true,
-    min: 0,
-    max: 500,
-    values: [75, 300],
-    slide: function(event, ui) {
-      $("#amount").val("Preis-range: €" + ui.values[0] + " - €" + ui.values[1]);
-    }
-  });
-  $("#amount").val("Preis-range: €" + $("#slider-range").slider("values", 0) +
-    " - €" + $("#slider-range").slider("values", 1));
-});
+    $(function() {
+    $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 1000,
+        values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>],
+        slide: function(event, ui) {
+        $("#amount").val("Preisspanne: " + ui.values[0] + " \u20AC - " + ui.values[1] + " \u20AC");
+        }
+    });
+    $("#amount").val("Preisspanne: " + $("#slider-range").slider("values", 0) + " \u20AC - " + $("#slider-range").slider("values", 1) + " \u20AC");
+    });
 </script>
 
 <?php
@@ -50,6 +48,8 @@ $(function() {
         unset($_SESSION['transmission']);
         unset($_SESSION['ac']);
         unset($_SESSION['gps']);
+        unset($_SESSION['minPrice']);
+        unset($_SESSION['maxPrice']);
     }
 
     //Quick Search Filters: Location, pick-up date, return date
@@ -160,10 +160,22 @@ $(function() {
     }
 
     // price range filter
-    // if (isset($_POST['filter'])) {
-    //     $_SESSION['minPrice'] = $_POST['minPrice'];
-    //     $_SESSION['maxPrice'] = $_POST['maxPrice']; 
-    // }
+    if (isset($_POST['filter'])) {
+        $_SESSION['minPrice'] = $_POST['amount'][0];
+        $_SESSION['maxPrice'] = $_POST['amount'][1];
+    }
+        // save minPrice or assign a default value
+    if (isset($_SESSION['minPrice'])) {
+        $minPrice = $_SESSION['minPrice'];
+    } else {
+        $minPrice = 0;
+    }
+        // save maxPrice or assign a default value
+    if (isset($_SESSION['maxPrice'])) {
+        $maxPrice = $_SESSION['maxPrice'];
+    } else {
+        $maxPrice = 1000;
+    }
 
     // sort
         // default
@@ -354,7 +366,7 @@ include('../includes/header.html'); // include header
                 </label>
             </div>
             <div class="itemBox">
-                <input type="text" id="amount">
+                <input type="text" id="amount" name="amount">
                 <div id="slider-range"></div>
             </div>
             <br>
