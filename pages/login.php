@@ -52,7 +52,7 @@
             <input type="text" required autofocus placeholder="Username" name="username">
             <input type="password" required placeholder="Password" name="password">
         </div>
-        <button name="login">Login</button>
+        <button name="login" a href="">Login</button>
     </form>
 
     <?php

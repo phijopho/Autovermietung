@@ -13,11 +13,14 @@
   <?php
     include('../includes/header.html'); // Einbinden des Headers
   ?>
-    
+  
+
+
 
 
 
   <form action="SENDEADRESSE" id="ft-form" method="POST" accept-charset="UTF-8">
+    <div id="confirmation"></div>
   <h1>Kontaktformular</h1>
       <label>
         	<input type="Vorname" required autofocus placeholder="Vorname" name="vorname"> <br>
