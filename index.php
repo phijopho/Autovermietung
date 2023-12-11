@@ -39,7 +39,7 @@
                 <div class="containerBookingForm">
                     <form action="pages/produktuebersicht.php" method="post"> 
                         <label for="location">Standort:</label>
-                            <select id="location" name="location">
+                            <select class="selectLocation" id="location" name="location">
                                 <?php //aus Datenbank ziehen, außer HH
                                 foreach ($location as $city){
                                     if ($_SESSION['location'] == $city) {
