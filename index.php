@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,8 +17,6 @@
         <script src="includes/functions.js"></script>
 
         <?php 
-            session_start();
-
             $location=getCities();
 
             $today=date("Y-m-d");

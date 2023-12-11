@@ -25,17 +25,7 @@
     // Sessions and variables
     // Reset filters (except location and date)
     if (isset($_POST['resetButton'])) {
-        unset($_SESSION['categories']);
-        unset($_SESSION['vendor']);
-        unset($_SESSION['seats']);
-        unset($_SESSION['doors']);
-        unset($_SESSION['age']);
-        unset($_SESSION['drive']);
-        unset($_SESSION['transmission']);
-        unset($_SESSION['ac']);
-        unset($_SESSION['gps']);
-        unset($_SESSION['minPrice']);
-        unset($_SESSION['maxPrice']);
+        unsetSessions();
     }
 
     //Quick Search Filters: Location, pick-up date, return date
@@ -200,7 +190,7 @@
     }
 
     // Checks:
-     echo "<br><br><br><br><br><br><br>";
+    // echo "<br><br><br><br><br><br><br>";
     // $stmt=getAvailableCarsQuery();
     // $availableCars=getAvailableCars($stmt);
     // echo $stmt." -> ".$availableCars;

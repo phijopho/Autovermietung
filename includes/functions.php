@@ -1,4 +1,20 @@
 <?php 
+function unsetSessions() {
+    if (isset($_POST['resetButton'])) {
+        unset($_SESSION['categories']);
+        unset($_SESSION['vendor']);
+        unset($_SESSION['seats']);
+        unset($_SESSION['doors']);
+        unset($_SESSION['age']);
+        unset($_SESSION['drive']);
+        unset($_SESSION['transmission']);
+        unset($_SESSION['ac']);
+        unset($_SESSION['gps']);
+        unset($_SESSION['minPrice']);
+        unset($_SESSION['maxPrice']);
+    }
+}
+
 function getCities(){
     include('dbConnection.php');
     $stmtGetCities = $conn->query("SELECT City FROM Location");
