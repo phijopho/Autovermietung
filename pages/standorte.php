@@ -6,6 +6,7 @@
     <!-- Einbinden der style.css -->
     <link rel="stylesheet" href="../css/style.css"> 
     <link rel="stylesheet" href="../css/styleStandorte.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
     <title>Standorte</title>
     <base href="/Autovermietung/">
 </head>
@@ -83,11 +84,11 @@ include('../includes/header.html'); // Including the header
         </div>
     </div>
 
+</body>
 
 <?php
 // Integrating the footer
 include('../includes/footer.html');
 ?>
 
-</body>
 </html>
