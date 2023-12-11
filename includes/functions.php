@@ -160,6 +160,9 @@ function displayResults($stmt){
                         // Use the getModel and showImage functions to display car information
                         $model = getModel($carType_ID);
                         echo "<label>".$model[0]." ".$model[1]."</label>";
+                        $stmtAvailableCarsModel=getAvailableCarsForModelQuery($carType_ID);
+                        $availableCarsModel=getAvailableCarsForModel($stmtAvailableCarsModel);
+                        echo "<label>Verf&uuml;gbar: ".$availableCarsModel."</label>";
                     echo "</div>";
                     showImage($carType_ID);
                     echo "<div class='carDataBox'>";            
