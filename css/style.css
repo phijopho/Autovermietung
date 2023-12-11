@@ -1,29 +1,28 @@
-/* Allgemeine Einstellungen zu Schrift und Hintergrund */
+/* settings for font and background */
 body {
     font-family: "Montserrat", sans-serif;
     color: #f7f2ef;
     margin: 0;
     padding: 0;
     background-color: #2f2e2c;
+    scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
     color: #f7f2ef;
+    
 }
 
 a:hover {
-    /* Schriftfarbe noch aussuchen */
     color: aqua;
 }
 
-/* Überschriften stylen */
-
 /* Header: */
-/* Allgemeine Einstellungen zum Header */
 .headercontainer {
     background-color: #525252;
-    /* position: fixed; */
+    position: fixed;
+    padding: 10px;
     top: 0;
     left: 0;
     width: 100%;
@@ -31,51 +30,92 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 100;
+    transition: padding 0.2s ease;
+    border-bottom: 2px solid aqua;
 }
 
-/* Einstellungen des Logos im Header */
 .logobox {
     margin-left: 20px;
+    padding: 10px;
 }
 
-/* Einstellungen der div's im Header */
+/* settings for divs in header */
 .headerbox {
     float: left;
+    padding: 10px;
 }
 
-
-/* Einstellungen des Logins im Header */
 .loginbox {
-    margin-right: 20px;
-    margin-left: 200px;
+    margin-right: 5%;
+    margin-left: 10%;
+    padding: 10px;
+    font-size: 16px;
 }
-/* Header angemeldet*/
-/*Style des Hover-Menüs*/
+
+/* header signed in */
 .divhover {
-    margin-right: 20px;
-    margin-left: 200px;
-    background-color: #525252 ;
+    margin-right: 9%;
+    margin-left: 10%;
+    background-color: transparent;
+    font-size: 17px;
 }
 
 .divhover a {
     text-decoration: none;
     color: #f7f2ef;
-    font-size: 20px;
+    font-size: 17px;
     padding: 15px;
+    font-size: 16px;
     display:inline-block;
 }
+
 a:hover {
-    /* Schriftfarbe noch aussuchen */
     color: aqua;
+}
+
+/* Underlined if hovered and active */
+  .headerbox {
+    overflow: hidden;
+    background-color: #525252;
+  }
+  
+  .headerbox a {
+    float: left;
+    display: block;
+    color: #f7f2ef;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+  }
+  
+  
+  .headerbox a:hover {
+    border-bottom: 3px solid aqua;
+    background-color: #525252;
+    color: aqua;
+  }
+  
+  .headerbox a.active {
+    border-bottom: 3px solid aqua;
+    color: aqua;
+  }
+
+  .active {
+    font-weight: medium bold;
+    color: aqua; 
+    border-bottom: 3px solid aqua;
+    background-color: #525252;
+
 }
 
 ul {
     display: inline;
-    margin: 0;
-    padding: 0;
+    margin: 3px;
+    padding-left: 0px;
 }
-  
 
 ul li {
     display: inline-block;
@@ -87,19 +127,20 @@ ul li:hover {
 
 ul li:hover ul {
     display: block;
-
 }
+
 ul li ul {
   position: absolute;
-  width: 200px;
+  width: 15%;
   display: none;
 }
 
 ul li ul li { 
     background: #525252;
-    display: block; 
+    display: block;
 }
-  ul li ul li a {
+
+ul li ul li a {
     display:block !important;
 } 
 
@@ -121,6 +162,7 @@ ul li ul li {
     font-weight: 300;
     padding-left: 50px;
     padding-right: 50px;
+    border-top:2px solid aqua;
 }
 
 /* Copyright mit Firmenname einfügen */

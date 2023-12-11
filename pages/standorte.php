@@ -14,11 +14,12 @@
 
 <?php
 
-include('../includes/header.html'); // Including the header
+include('../includes/header.php'); // Including the header
 ?>
 
 
 <div class="map-heading">
+        <h1> </h1> <br>
         <h1>Unsere Standorte</h1>
     </div>
     <div class="map-container">
