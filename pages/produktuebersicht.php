@@ -21,18 +21,17 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
+    function validateDates() {
+        var pickupDate = document.getElementById('pickUpDate').value;
+        var returnDate = document.getElementById('returnDate').value;
 
-function validateDates() {
-    var pickupDate = document.getElementById('pickUpDate').value;
-    var returnDate = document.getElementById('returnDate').value;
-
-    if (pickUpDate && returnDate && returnDate < pickUpDate) {
-        alert('Das Rückgabedatum kann nicht vor dem Abholdatum liegen!');
-        document.getElementById('returnDate').value = ''; // Rückgabedatum zurücksetzen
-        return false;
+        if (pickUpDate && returnDate && returnDate < pickUpDate) {
+            alert('Das Rückgabedatum kann nicht vor dem Abholdatum liegen!');
+            document.getElementById('returnDate').value = ''; // Rückgabedatum zurücksetzen
+            return false;
+        }
+        return true;
     }
-    return true;
-}
 </script>
 
 <?php
