@@ -1,4 +1,5 @@
 <?php 
+// Filterung
 function unsetSessions() {
     if (isset($_POST['resetButton'])) {
         unset($_SESSION['categories']);
@@ -86,6 +87,7 @@ function getModel($CarType_ID){
     }
     return $model;
 }
+
 // pickUpDate and returnDate hinzufügen (mit gebuchten Autos verknüpfen)
 function getResultsQuery(){
     include('dbConnection.php');
@@ -184,6 +186,7 @@ function displayResults($stmt){
     }
 }
 
+// Availability
 function getAvailableCarsQuery() {
     // build sql statement
     $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID"; 
@@ -226,6 +229,7 @@ function formatDate($date){
     return $newDate;
 }
 
+// Car Details
 function getCarProperty($CarType_ID, $column){
     include('dbConnection.php');
     $stmt = $conn->query("SELECT $column FROM CarType WHERE CarType_ID=$CarType_ID");
@@ -247,6 +251,7 @@ function getTotalPrice($price) {
     return $totalPrice; 
 }
 
+// Carusel
 function getPriceForCategory($category){
     include('dbConnection.php');
     $stmt = $conn->prepare("SELECT MIN(Price) FROM CarType WHERE Type =:category");
@@ -263,6 +268,7 @@ function getPriceForCategory($category){
     }
 }
 
+// Login
 function preventEnterIfLoggedIn()
 {
     if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
@@ -270,7 +276,7 @@ function preventEnterIfLoggedIn()
     }
 }
 
-// functions for meineBuchungen
+// Meine Buchungen
 function getNumberOfBookings() {
     include('dbConnection.php');
     $username = $_SESSION['username'];
@@ -279,5 +285,31 @@ function getNumberOfBookings() {
     $stmt->execute();
     $row = $stmt->fetch();
     return $row['COUNT(Rental.User_ID)'];
+}
+
+function getBookingInfos($User_ID){
+    include('dbConnection.php');
+    $stmt = $conn->query(
+    "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price,2) AS TotalPrice
+    FROM Rental             
+    JOIN Car ON Rental.Car_ID = Car.Car_ID             
+    JOIN CarType ON Car.CarType_ID = CarType.CarType_ID             
+    JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID             
+    JOIN Location ON Car.Location_ID = Location.Location_ID             
+    WHERE Rental.User_ID = $User_ID");
+
+    while ($row = $stmt->fetch()) {
+        $result[] = array(
+            'Rent_ID' => $row['Rent_ID'],
+            'BookingDate' => $row['BookingDate'],
+            'StartDate' => $row['StartDate'],
+            'EndDate' => $row['EndDate'],
+            'Brand' => $row['Brand'],
+            'Model' => $row['Model'],
+            'CarLocation' => $row['CarLocation'],
+            'TotalPrice' => $row['TotalPrice']
+        );
+    }
+    return $result;
 }
 ?>

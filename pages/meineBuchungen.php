@@ -27,14 +27,12 @@ ini_set('display_errors', 1);
     <h3>Buchungsdatum</h3>
     <h3>Abholdatum</h3>
     <h3>Rückgabedatum</h3>
-    <h3>Hersteller</h3>
     <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
   </div>
 
   <dl id="ud_accordion">
     <?php
       $numberOfBookings=getNumberOfBookings();
-      echo "Number of Bookings: ".$numberOfBookings;
       if($numberOfBookings>0){
         for($i=1; $i<=$numberOfBookings; $i++){
         ?>
@@ -63,7 +61,9 @@ ini_set('display_errors', 1);
 <?php
   // checks
   // echo "Number of bookings: ".$numberOfBookings;
-  // echo "<br><br>Session: ";
+  echo "<br><br>";
+  $bookingInfos=getBookingInfos(5); 
+  echo var_dump($bookingInfos);
   // print_r($_SESSION);
 ?>
 
