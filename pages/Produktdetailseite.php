@@ -19,6 +19,7 @@
     // checks
     echo "<br> <br>";
     echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,13 +45,13 @@
 <div class="divbody">
     <div class="divgallery">
         <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
+
         <div class="foto">
-        <?php 
-            $carInfo = getCarInfo($_SESSION['carType_ID']);
-            echo $carInfo['image']; 
-        ?>
+            <?php
+                $carInfo = getCarInfo($_SESSION['carType_ID']);
+                echo $carInfo['image']; 
     
-            
+            ?>  
             <!-- create button with triangle -->
             <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
         
@@ -58,12 +59,11 @@
                 <table>
                     <tr>
                         <th>Fahrzeugtyp</th>
-                        <td><p><?php echo $model[0]." ".$model[1]; ?></p></td>
+                        <td><?php echo $carInfo['type']; ?></td>
                         <th>Getriebe</th>
                         <td>
                             <?php
-                                $gear = selectColumn('Gear', 'CarType'); 
-                                echo $gear[0]; 
+                                echo $carInfo['gear'];  
                             ?>
                         </td>
                     </tr>
@@ -71,15 +71,13 @@
                         <th>Anzahl Sitze</th>
                         <td>    
                             <?php
-                                $seats = selectColumn('Seats', 'CarType'); 
-                                echo $seats[0];  
+                                echo $carInfo['seats'];  
                             ?>
                         </td>
                         <th>GPS</th>
                         <td>
                             <?php
-                                $gps = selectColumn('GPS', 'CarType'); 
-                                echo $gps[0];
+                                echo $carInfo['gps'];
                             ?>
                         </td>
                     </tr>
@@ -87,15 +85,13 @@
                         <th>Anzahl Türen</th> 
                         <td>
                             <?php
-                                $doors = selectColumn('Doors', 'CarType'); 
-                                echo $doors[0];
+                                echo $carInfo['doors'];
                             ?>
                         </td>
                         <th>Klimaanlage</th>
                         <td>
                             <?php
-                                $airCondition = selectColumn('Air_Condition', 'CarType'); 
-                                echo $airCondition[0];
+                                echo $carInfo['airCondition'];
                             ?>
                         </td>    
                     </tr>

@@ -281,17 +281,34 @@ function getNumberOfBookings($User_ID) {
     return $row['COUNT(User_ID)'];
 }
 
+//Functions for Produktdetailseite
 function getCarInfo($carTypeID) {
+    include('dbConnection.php');
     $carInfo = [
         'image' => showImage($carTypeID),
-        'gear' => selectColumn('Gear', 'CarType'),
-        'seats' => selectColumn('Seats', 'CarType'),
-        'gps' => selectColumn('GPS', 'CarType'),
-        'doors' => selectColumn('Doors', 'CarType'),
-        'airCondition' => selectColumn('Air_Condition', 'CarType')
+        'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
+        'gear' => selectSpecificColumn('Gear', 'CarType', $carTypeID),
+        'seats' => selectSpecificColumn('Seats', 'CarType', $carTypeID),
+        'gps' => selectSpecificColumn('GPS', 'CarType', $carTypeID),
+        'doors' => selectSpecificColumn('Doors', 'CarType', $carTypeID),
+        'airCondition' => selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)
     ];
 
     return $carInfo;
 }
+
+function selectSpecificColumn($column, $table, $carTypeID) {
+    include('dbConnection.php');
+
+    $stmt = $conn->query("SELECT $column FROM $table WHERE CarType_ID=$carTypeID");
+    $result = null;
+
+    while($row = $stmt->fetch()) {
+        $result = $row[$column];
+    }
+
+    return $result;
+}
+
 
 ?>
