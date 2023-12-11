@@ -15,7 +15,7 @@
 
 <?php
 
-include('../includes/header.php'); // Including the header
+include('../includes/header.html'); // Including the header
 ?>
 
 <div class="DatenschutzContainer"> <!--Class to position text in the body -->
