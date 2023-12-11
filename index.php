@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/styleHomepage.css">
 
         <title>SWIFT rentals</title>
+        <link rel="stylesheet" href="../css/styleFooter.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="includes/karussell-slider.js"></script>
 

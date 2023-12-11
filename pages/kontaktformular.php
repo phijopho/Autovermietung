@@ -4,7 +4,9 @@
     include('../includes/htmlhead.php');
     ?>
     <title>Kontaktformular</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/styleKontaktformular.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
@@ -72,6 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 </body>
+
+
+
 </html>
 
 

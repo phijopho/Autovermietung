@@ -85,8 +85,6 @@
     
 </body>
 
-<?php
-    include('../includes/footer.html'); // Einbindung des Footers
-?>
+
 
 </html>

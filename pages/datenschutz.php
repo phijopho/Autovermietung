@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Einbinden der style.css -->
     <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/styleFooter.css">
     <link rel="stylesheet" href="../css/styleDatenschutz.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">
@@ -111,13 +112,8 @@ include('../includes/header.html'); // Including the header
     </div>
 </div>
 
-<?php
-
-// Integrating the footer
-include('../includes/footer.html');
-?>
-
 </body>
+
 
 
 </html>

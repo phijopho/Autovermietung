@@ -5,6 +5,8 @@
       include('../includes/htmlhead.php')
     ?>
     <!-- Einbinden der style.css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
     <link rel="stylesheet" href="css/styleRegistration.css">
     <title>Mein Profil</title>
 
@@ -72,10 +74,9 @@
     </script>
 
 
-    <?php
-    include('../includes/footer.html'); // Einbindung des Footers
-    ?>
-    
+
 </body>
+
+
 
 </html>

@@ -158,6 +158,8 @@ if (isset($_POST["sort"])) {
 
 <!-- page specific head elements -->
 <title>Unsere Flotte</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/styleFooter.css">
 <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
 </head>
 
@@ -371,9 +373,9 @@ include('../includes/header.html'); // include header
         ?>
     </div>
 </div>
-<?php
-include('../includes/footer.html'); // Einbinden des Footers
-?>
 
 </body>
+
+
+
 </html>
