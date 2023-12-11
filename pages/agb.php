@@ -15,7 +15,7 @@
 
 <?php
 
-include('../includes/header.html'); // Including the header
+include('../includes/header.php'); // Including the header
 ?>
 
 <div class="AGBContainer"> <!--Class to position text in the body -->
