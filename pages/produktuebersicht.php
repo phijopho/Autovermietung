@@ -233,11 +233,11 @@ include('../includes/header.html'); // include header
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
-                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
+                <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
             </div>
             <div class="twoSidedBox">
                 <label for="returnDate">R&uuml;ckgabedatum:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" />
+                <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" />
             </div>
             <div class="itemBox">
                 <label for="category">Fahrzeugkategorie: </label><br>
