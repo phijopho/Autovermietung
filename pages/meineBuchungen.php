@@ -34,8 +34,9 @@ ini_set('display_errors', 1);
 
   <dl id="ud_accordion">
     <?php
-      $username=$_SESSION['username'];
-      $numberOfBookings=getNumberOfBookings($username);
+      $numberOfBookings=0;
+      $numberOfBookings=getNumberOfBookings($_SESSION['username']);
+      echo "Number of Bookings: ".$numberOfBookings;
       if($numberOfBookings>0){
         for($i=1; $i<=$numberOfBookings; $i++){
         ?>
@@ -55,7 +56,7 @@ ini_set('display_errors', 1);
         <?php
         }     
       } else {
-        echo "Keine Buchungen vorhanden.";
+        echo "<br>Keine Buchungen vorhanden.";
       }
       ?>
   </dl>
@@ -64,6 +65,8 @@ ini_set('display_errors', 1);
 <?php
   // checks
   echo "Number of bookings: ".$numberOfBookings;
+  echo "<br><br>Session: ";
+  print_r($_SESSION);
 ?>
 
 <!--js code for accordion--> 
