@@ -5,6 +5,8 @@
 <head>
     <?php
         include('includes/htmlhead.php');
+        include('includes/functions.php');
+        include('includes/dbConnection.php');   
     ?>
     <!-- Einbinden der style.css -->
     <link rel="stylesheet" href="css/styleHomepage.css">
@@ -210,6 +212,6 @@
 </div>
 </body>
 <?php
-include('includes/footer.html'); // include footers
+include('includes/footer.html');
 ?>
 </html>
