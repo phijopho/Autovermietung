@@ -32,7 +32,7 @@
 </head>
 <header>
 <?php
-    include('../includes/header.html'); // Einbindung des Headers
+    include('../includes/header.php'); // Einbindung des Headers
 ?>
 </header> 
 
