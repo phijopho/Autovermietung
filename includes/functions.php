@@ -224,4 +224,20 @@ function getTotalPrice($price) {
 
     return $totalPrice; 
 }
-?>
+// von joshi deswegen doof
+function getPriceForCategory($category){
+    include('dbConnection.php');
+    $stmt = $conn->prepare("SELECT MIN(Price) FROM CarType WHERE Type =:category");
+    $stmt->bindParam(':category', $category);
+    $stmt->execute();
+    $row = $stmt->fetch();
+
+    if ($row) {
+        // Wenn ein Ergebnis vorhanden ist, gib den Preis zurück
+        return $row['MIN(Price)'];
+    } else {
+        // Wenn kein Ergebnis vorhanden ist, gib einen Hinweis zurück
+        return "Preis nicht verfügbar";
+    }
+}
+

@@ -68,7 +68,7 @@
                         <img src="images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Limousine</h2>
-                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
+                            <p> ab <?php echo getPriceForCategory('Limousine'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
@@ -78,7 +78,7 @@
                         <img src="images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Combi</h2>
-                            <p>Preis ab Zweifufzch</p>
+                            <p> ab <?php echo getPriceForCategory('Combi'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
@@ -88,7 +88,7 @@
                         <img src="images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Cabrio</h2>
-                            <p>Kopf Freiheit</p>
+                            <p> ab <?php echo getPriceForCategory('Cabrio'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
@@ -98,7 +98,7 @@
                         <img src="images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>SUV</h2>
-                            <p>Jeder Lord, f&auml;hrt einen SUV.</p>
+                            <p> ab <?php echo getPriceForCategory('SUV'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
@@ -108,7 +108,7 @@
                         <img src="images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Mehrsitzer</h2>
-                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
+                            <p> ab <?php echo getPriceForCategory('Mehrsitzer'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
@@ -118,7 +118,7 @@
                         <img src="images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Coupe</h2>
-                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
+                            <p> ab <?php echo getPriceForCategory('Coupe'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
