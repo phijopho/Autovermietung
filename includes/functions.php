@@ -280,4 +280,18 @@ function getNumberOfBookings($User_ID) {
     $row = $stmt->fetch();
     return $row['COUNT(User_ID)'];
 }
+
+function getCarInfo($carTypeID) {
+    $carInfo = [
+        'image' => showImage($carTypeID),
+        'gear' => selectColumn('Gear', 'CarType'),
+        'seats' => selectColumn('Seats', 'CarType'),
+        'gps' => selectColumn('GPS', 'CarType'),
+        'doors' => selectColumn('Doors', 'CarType'),
+        'airCondition' => selectColumn('Air_Condition', 'CarType')
+    ];
+
+    return $carInfo;
+}
+
 ?>

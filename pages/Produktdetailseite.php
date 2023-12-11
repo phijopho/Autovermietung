@@ -15,16 +15,16 @@
         echo "Ungültige Abfrage";
     }
 
+
     // checks
-    echo "<br><br><br><br><br><br>";
+    echo "<br> <br>";
     echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
-    echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-        include('../includes/htmlhead.php')
+        include('../includes/htmlhead.php');
     ?>
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
     <script src="includes/functions.js"></script> 
@@ -45,8 +45,11 @@
     <div class="divgallery">
         <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
         <div class="foto">
-
-            <img src="images/cars/audi-a3-cabrio-rot-offen-2020.png" alt="Auto">
+        <?php 
+            $carInfo = getCarInfo($_SESSION['carType_ID']);
+            echo $carInfo['image']; 
+        ?>
+    
             
             <!-- create button with triangle -->
             <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
@@ -55,21 +58,46 @@
                 <table>
                     <tr>
                         <th>Fahrzeugtyp</th>
-                        <td>"Variable"</td>
+                        <td><p><?php echo $model[0]." ".$model[1]; ?></p></td>
                         <th>Getriebe</th>
-                        <td>"Variable"</td>
+                        <td>
+                            <?php
+                                $gear = selectColumn('Gear', 'CarType'); 
+                                echo $gear[0]; 
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Anzahl Sitze</th>
-                        <td>"Variable"</td>
+                        <td>    
+                            <?php
+                                $seats = selectColumn('Seats', 'CarType'); 
+                                echo $seats[0];  
+                            ?>
+                        </td>
                         <th>GPS</th>
-                        <td>"Variable"</td>
+                        <td>
+                            <?php
+                                $gps = selectColumn('GPS', 'CarType'); 
+                                echo $gps[0];
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Anzahl Türen</th> 
-                        <td>"Variable"</td>
+                        <td>
+                            <?php
+                                $doors = selectColumn('Doors', 'CarType'); 
+                                echo $doors[0];
+                            ?>
+                        </td>
                         <th>Klimaanlage</th>
-                        <td>"Variable"</td>    
+                        <td>
+                            <?php
+                                $airCondition = selectColumn('Air_Condition', 'CarType'); 
+                                echo $airCondition[0];
+                            ?>
+                        </td>    
                     </tr>
                 </table>
                 </div>
@@ -85,7 +113,7 @@
             <h3>Preis pro Tag: <?php $price=getCarProperty($_SESSION['carType_ID'], 'Price'); echo number_format($price, 2, ',', '.'); ?> &euro;</h3>
             <br>
             <h3>Gesamtpreis: <?php $totalPrice=getTotalPrice($price); echo number_format($totalPrice, 2, ',', '.') ?> &euro;</h3>
-
+            <p>Von diesem Modell sind nur noch<?php  echo " ".$_SESSION['availableCarsModel']; ?> Autos in Ihrem gewählten Zeitraum verfügbar</p>
         </div>
     </div>
     
