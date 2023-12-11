@@ -20,6 +20,20 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+
+function validateDates() {
+    var pickupDate = document.getElementById('pickUpDate').value;
+    var returnDate = document.getElementById('returnDate').value;
+
+    if (pickUpDate && returnDate && returnDate < pickUpDate) {
+        alert('Das Rückgabedatum kann nicht vor dem Abholdatum liegen!');
+        document.getElementById('returnDate').value = ''; // Rückgabedatum zurücksetzen
+        return false;
+    }
+    return true;
+}
+</script>
 
 <?php
     // Sessions and variables
@@ -233,11 +247,11 @@ include('../includes/header.html'); // include header
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
-                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
+                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" id="pickUpDate"/>
             </div>
             <div class="twoSidedBox">
                 <label for="returnDate">R&uuml;ckgabedatum:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" />
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"  onchange="validateDates()"/>
             </div>
             <div class="itemBox">
                 <label for="category">Fahrzeugkategorie: </label><br>
