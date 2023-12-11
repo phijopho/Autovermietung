@@ -14,7 +14,7 @@
 
 <?php
 
-include('../includes/header.html'); // Einbinden des Headers
+include('../includes/header.php'); // Einbinden des Headers
 ?>
 
 <div class="AboutUsContainer"> <!--Class to position text in the body -->

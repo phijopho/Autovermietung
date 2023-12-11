@@ -127,7 +127,6 @@ ul li:hover {
 
 ul li:hover ul {
     display: block;
-
 }
 
 ul li ul {
@@ -138,9 +137,10 @@ ul li ul {
 
 ul li ul li { 
     background: #525252;
-    display: block; 
+    display: block;
 }
-  ul li ul li a {
+
+ul li ul li a {
     display:block !important;
 } 
 
