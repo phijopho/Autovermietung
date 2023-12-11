@@ -23,12 +23,14 @@ include('../includes/header.html'); // Including the header
         <h1>Unsere Standorte</h1>
     </div>
     <div class="map-container">
+        
+   
         <div class="ger-map">
             <img src="images/Deutschlandkarte.png" alt="map" >
             
             <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                 <span>Hamburg</span>
-            <</div>
+            </div>
 
             <div class="pin berlin" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                 <span>Berlin</span>

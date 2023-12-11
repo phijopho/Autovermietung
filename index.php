@@ -224,8 +224,6 @@
     </div>
     </body>
 
-    <?php
-    include('includes/footer.html'); // include footers
-    ?>
+
 
 </html>
