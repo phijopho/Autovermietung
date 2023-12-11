@@ -7,14 +7,15 @@
     //  session_destroy();
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- include html head -->
 <?php
-    include('../includes/htmlhead.php'); // include head
-    include('../includes/dbConnection.php'); // connect database
-    include('../includes/functions.php'); // get functions
+    include('../includes/htmlhead.php');
 ?>
+<!-- page specific head elements -->
+<title>Unsere Flotte</title>
+<link rel="stylesheet" href="css/styleProduktuebersicht.css">    
 
 <!-- jquery range slider -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -39,8 +40,8 @@ function validateDates() {
 }
 </script>
 
+<!-- sessions and variables -->
 <?php
-    // Sessions and variables
     // Reset filters (except location and date)
     if (isset($_POST['resetButton'])) {
         unsetSessions();
@@ -221,14 +222,10 @@ function validateDates() {
     // echo "<br> Session:";
     // print_r($_SESSION);
 ?>
-
-<!-- page specific head elements -->
-<title>Unsere Flotte</title>
-<link rel="stylesheet" href="css/styleProduktuebersicht.css">    
 </head>
 
 <?php
-include('../includes/header.html'); // include header
+include('../includes/header.php'); // include header
 ?>
 
 <body>

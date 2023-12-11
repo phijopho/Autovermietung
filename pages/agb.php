@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Including the style.css -->
-    <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" href="../css/styleAGB.css">
+    <?php
+        include('../includes/htmlhead.php');
+    ?>
+    <link rel="stylesheet" href="css/styleAGB.css">
     <title>SWIFT rentals</title>
-    <base href="/Autovermietung/">
-
 </head>
-<body>
 
 <?php
-
 include('../includes/header.php'); // Including the header
 ?>
-
+<body>
 <div class="AGBContainer"> <!--Class to position text in the body -->
     <h1 class="AGBUeberschrift"> Allgemeine Geschäftsbedingungen </h1>
     <div class="blocksatz">
@@ -107,11 +102,8 @@ include('../includes/header.php'); // Including the header
         </div>
     </div>
 </div>
-
+</body>
 <?php
-// Integrating the footer
 include('../includes/footer.html');
 ?>
-
-</body>
 </html>

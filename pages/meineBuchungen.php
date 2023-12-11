@@ -3,22 +3,21 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <?php
-      include('../includes/htmlhead.php')
-    ?>
-    <title>Meine Buchungen</title>
-    <link rel="stylesheet" href="css/styleMeineBuchungen.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  </head>
-
-<body>
-
+<head>
   <?php
-    include('../includes/header.php'); // Einbinden des Headers
+    include('../includes/htmlhead.php')
   ?>
-    
+  <title>Meine Buchungen</title>
+  <link rel="stylesheet" href="css/styleMeineBuchungen.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<?php
+    include('../includes/header.php'); // Einbinden des Headers
+?>
+<body>
 <!--Buchungsdaten Übersicht-->
 <article>
   <h1>Meine Buchungen</h1>
@@ -63,9 +62,9 @@ ini_set('display_errors', 1);
 
 <?php
   // checks
-  echo "Number of bookings: ".$numberOfBookings;
-  echo "<br><br>Session: ";
-  print_r($_SESSION);
+  // echo "Number of bookings: ".$numberOfBookings;
+  // echo "<br><br>Session: ";
+  // print_r($_SESSION);
 ?>
 
 <!--js code for accordion--> 
@@ -102,13 +101,9 @@ $(document).ready(function() { //code execudes when document is fully loaded
     });
 });
 </script>
-
-
+</body>
 <?php
     include('../includes/footer.html'); // Einbindung des Footers
 ?>
-
-
-</body>
 </html>
 
