@@ -12,6 +12,7 @@ function handleLogin()
     global $conn;
 
     $username = $_POST["username"];
+    $_SESSION['username']=$username;
     $password = $_POST["password"];
 
     $existingUser = getUserByUsername($username);
