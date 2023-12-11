@@ -21,22 +21,32 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
+
 function validateDates() {
     var pickUpDate = document.getElementById('pickUpDate').value;
     var returnDate = document.getElementById('returnDate').value;
+    var today = new Date().toISOString().split('T')[0];
 
-    // Konvertiere die Strings zu Date-Objekten
+    document.getElementById('returnDate').setAttribute('min', pickUpDate);
+
     var pickUpDateObj = new Date(pickUpDate);
     var returnDateObj = new Date(returnDate);
 
-    // Überprüfe, ob das Rückgabedatum vor dem Abholdatum liegt
-    if (returnDateObj < pickUpDateObj) {
-        alert('Das Rückgabedatum kann nicht vor dem Abholdatum liegen!');
-        return false; // Verhindert das Absenden des Formulars
+    if (pickUpDate < today) {
+        alert('Das Abholdatum kann nicht vor dem heutigen Datum liegen!');
+        document.getElementById('pickUpDate').value = today; // Reset to today's date
+        return false;
     }
 
-    return true; // Erlaubt das Absenden des Formulars
+    if (returnDateObj < pickUpDateObj) {
+        alert('Das Rückgabedatum kann nicht vor dem Abholdatum liegen!');
+        document.getElementById('returnDate').value = pickUpDate; // Reset to the pickup date
+        return false;
+    }
+
+    return true;
 }
+
 </script>
 
 <?php
@@ -251,7 +261,7 @@ include('../includes/header.html'); // include header
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
-                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" id="pickUpDate"/>
+                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" id="pickUpDate" onchange="validateDates()"/>
             </div>
             <div class="twoSidedBox">
                 <label for="returnDate">R&uuml;ckgabedatum:</label>
