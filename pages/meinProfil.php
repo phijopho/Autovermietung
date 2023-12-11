@@ -15,7 +15,7 @@
 <body>
     <?php
     include('../includes/dbConnection.php');
-    include('../includes/header.html'); // Einbinden des Headers
+    include('../includes/header.php'); // Einbinden des Headers
     ?>
 
     <form>

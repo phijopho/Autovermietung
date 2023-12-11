@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +7,6 @@
             include('includes/htmlhead.php');
             include('includes/dbConnection.php'); // connect database
             include('./includes/functions.php');
-
         ?>
         <!-- Einbinden der style.css -->
         <link rel="stylesheet" href="css/styleHomepage.css">
@@ -14,10 +15,9 @@
         <link rel="stylesheet" href="../css/styleFooter.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="includes/karussell-slider.js"></script>
+        <script src="includes/functions.js"></script>
 
         <?php 
-            session_start();
-
             $location=getCities();
 
             $today=date("Y-m-d");
@@ -31,7 +31,7 @@
 
     </head>
     <?php
-         include('includes/header.html'); // include header
+         include('includes/header.php'); // include header
     ?>
     <body>
     <div class="BackgroundKia">
@@ -60,78 +60,66 @@
                 </div>
             </div>
     </div>
-    <div class="section2">
+    <div id="section2" class="section2">
         <div class="cslider">
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Limousine">                        
+                        <img src="images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Limousine">Limousine</button>
-                            </form>
-                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
+                            <h2>Limousine</h2>
+                            <p> ab <?php echo getPriceForCategory('Limousine'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Combi">                        
+                        <img src="images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Combi">Combi</button>
-                            </form>
-                            <p>Combi Schlombie, sach ich immer</p>
+                            <h2>Combi</h2>
+                            <p> ab <?php echo getPriceForCategory('Combi'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Cabrio">                        
+                        <img src="images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Cabrio">Cabrio</button>
-                            </form>
-                            <p>Für mehr Kopffreiheit...</p>
+                            <h2>Cabrio</h2>
+                            <p> ab <?php echo getPriceForCategory('Cabrio'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=SUV">                        
+                        <img src="images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="SUV">SUV</button>
-                            </form>
-                            <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
+                            <h2>SUV</h2>
+                            <p> ab <?php echo getPriceForCategory('SUV'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Mehrsitzer">                        
+                        <img src="images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Mehrsitzer">Mehrsitzer</button>
-                            </form>
-                            <p>Für Ihre Kinder</p>
+                            <h2>Mehrsitzer</h2>
+                            <p> ab <?php echo getPriceForCategory('Mehrsitzer'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Coupe">                        
+                        <img src="images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                        <form method="POST" action="pages/produktuebersicht.php">
-                            <button type="submit" name="caruselCategory" value="Coup">Coup&eacute;</button>
-                        </form>
-                            <p>Für die Autobahn</p>
+                            <h2>Coupe</h2>
+                            <p> ab <?php echo getPriceForCategory('Coupe'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
@@ -144,7 +132,7 @@
     </div>     
     <div class="BackgroundAudi">
         <div class="section3">
-            <div class="map-container">
+            <div class="map-container" id="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
             

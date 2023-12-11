@@ -13,21 +13,9 @@
 <body>
 
   <?php
-    include('../includes/header.html'); // Einbinden des Headers
+    include('../includes/header.php'); // Einbinden des Headers
   ?>
     
-    <?php
-      // $lastBookingNumber enthält die aktuelle Buchungsnummer aus der Datenbank
-      $lastBookingNumber = 0; // Hier wird der tatsächliche Wert aus der Datenbank eingetzt
-
-      // Aktuelles Datum generieren
-      $currentDate = date("Ymd");
-
-      // Die Buchungs-ID für die erste Buchung formatieren (anzeigen lassen)
-      $bookingID = $currentDate . str_pad($lastBookingNumber + 1, 3, '0', STR_PAD_LEFT);
-    ?>
-
-
 <!--Buchungsdaten Übersicht-->
 <article>
       <h1>Meine Buchungen</h1>
@@ -42,37 +30,27 @@
       </div>
 
       <dl id="ud_accordion">
+        <?php
+          $numberOfBookings=getNumberOfBookings($_SESSION['User_ID']);
+          for($i=1; $i<=$numberOfBookings; $i++){
+        ?>
+            <dt>
+              <p><?php echo "BuchungsID"; ?></p>
+              <p><!--Variable--></p>
+              <p><!--Variable--></p>
+              <p><!--Variable--></p>
+              <p><!--Variable--></p>
+              <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </dt>
+  
+            <dd>
+              Abhol- und Rückgabeort: <!--Variable--><br>
+              Gesamtpreis der Buchung: <!--Variable--><br>
+            </dd>
+        <?php
+          }
+        ?>
 
-        <!--Buchungszeile 1-->
-        <dt>
-          <p><?php echo $bookingID; ?></p>
-          <p><!--Variable--></p>
-          <p><!--Variable--></p>
-          <p><!--Variable--></p>
-          <p><!--Variable--></p>
-          <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        </dt>
-
-        <dd>
-          Abhol- und Rückgabeort: <!--Variable--><br>
-          Gesamtpreis der Buchung: <!--Variable--><br>
-        </dd>
-
-
-        <!--Buchungszeile 1-->
-        <dt>
-          <p><?php echo $bookingID; ?></p>
-          <p><!--Variable--></p>
-          <p><!--Variable--></p>
-          <p><!--Variable--></p>
-          <p><!--Variable--></p>
-          <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        </dt>
-
-        <dd>
-          Abhol- und Rückgabeort: <!--Variable--><br>
-          Gesamtpreis der Buchung: <!--Variable--><br>
-        </dd>
         <?php
         // Schleife für das Generieren weiterer Buchungszeilen
         for ($i = 2; $i <= $lastBookingNumber; $i++) {
