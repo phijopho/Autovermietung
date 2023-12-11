@@ -1,41 +1,40 @@
 <?php 
     session_start(); 
-    include('../includes/functions.php');
     // show error messages
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
-
-    if(isset($_GET['carType_ID'])) {
-        // CarType ID
-        $_SESSION['carType_ID']=$_GET['carType_ID'];
-        // Availabe Cars of that type
-        $stmt=getAvailableCarsForModelQuery($_SESSION['carType_ID']);
-        $_SESSION['availableCarsModel']=getAvailableCarsForModel($stmt);
-    } else {
-        echo "Ungültige Abfrage";
-    }
-
-    // checks
-    echo "<br><br><br><br><br><br>";
-    echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
-    echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-        include('../includes/htmlhead.php')
-    ?>
+    <?php include('../includes/htmlhead.php'); ?>
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
     <script src="includes/functions.js"></script> 
     <title>Produktdetails</title> 
-</head>
-<header>
-<?php
-    include('../includes/header.html'); // Einbindung des Headers
-?>
-</header> 
 
+    <!-- sessions and variables -->
+    <?php
+        if(isset($_GET['carType_ID'])) {
+            // CarType ID
+            $_SESSION['carType_ID']=$_GET['carType_ID'];
+            // Availabe Cars of that type
+            $stmt=getAvailableCarsForModelQuery($_SESSION['carType_ID']);
+            $_SESSION['availableCarsModel']=getAvailableCarsForModel($stmt);
+        } else {
+            echo "Ungültige Abfrage";
+        }
+    
+        // checks
+        // echo "<br><br><br><br><br><br>";
+        // echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
+        // echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
+    
+    ?>
+</head>
+
+<?php
+    include('../includes/header.php'); // Einbindung des Headers
+?>
 <body>
 <?php
     // get car infos
@@ -91,16 +90,13 @@
     
     <!-- User is Old enough and signed in. -->
     <div class="divbutton">
-            <a href="#" class="buttonNotSignedIn">Jetzt Buchen</a>
+            <a href="pages/meineBuchungen.php" class="button">Jetzt Buchen</a>
     </div>
 </div>
 
 </body>
-
-<footer>
 <?php 
     include('../includes/footer.html'); // Einbindung des Footers
 ?>
-</footer>
 </html>
  
