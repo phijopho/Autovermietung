@@ -2,24 +2,25 @@
 
 /* style form box */
 form {
+    float: left;
     height: 650px;
     width: 700px;
     border-radius: 10px;
     margin: auto;
-    padding-top: 125px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    padding-top: 170px;
+
 }
 
 /* headline with gradient underlining */
 h1 {
+    text-align: center;
+    margin-top: 100px;
+
     color: #f7f2ef;
     font-size: 45px;
 
     background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    background-size: 100% 4px;
+    background-size: 50% 4px;
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
@@ -27,6 +28,7 @@ h1 {
 
 /* align input boxes underneath each other */
 .inputbox {
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +37,7 @@ h1 {
 
 /* style input boxes */
 input {
+    text-align: center;
     height: 40px;
     width: 300px;
     margin: 15px;
@@ -46,6 +49,8 @@ input {
     color: #f7f2ef;
     font-size: 18px;
     transition: 0.5s;
+    display: flex;
+    align-items: center;
 }
 
 /* hover effects on input boxes */
@@ -67,6 +72,8 @@ input::placeholder {
 
 /* style for register button */
 button {
+    text-align: center ;
+    margin-left: 39%;
     height: 50px;
     width: 150px;
     border-radius: 25px;
@@ -93,11 +100,12 @@ button:focus {
     line-height: 35px;
     width: 450px;
     border-radius: 10px;
-    margin: auto;
-    margin-top: 500px;
+    margin: -25px auto -10px;
     background-color: #ffbaba;
     text-align: center;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .success {
@@ -105,11 +113,12 @@ button:focus {
     line-height: 35px;
     width: 350px;
     border-radius: 10px;
-    margin: auto;
-    margin-top: 125px;
+    margin: -25px auto -10px;
     background-color: #d3ffce;
     text-align: center;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .textError {
@@ -154,3 +163,18 @@ button:focus {
     transform: scaleX(1);
 }
 
+.gif1 {
+    margin: 50px;
+    margin-top: 210px;
+    width: 45%;
+    float: left;
+
+}
+.gif1 img {
+    width: 100%;
+}
+
+.contentBox {
+    height: 93vh;
+    background-color: black;
+}

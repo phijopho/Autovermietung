@@ -1,4 +1,4 @@
-/* Allgemeine Einstellungen zu Schrift und Hintergrund */
+/* settings for font and background */
 body {
     font-family: "Montserrat", sans-serif;
     color: #f7f2ef;
@@ -16,14 +16,10 @@ a {
 }
 
 a:hover {
-    /* Schriftfarbe noch aussuchen */
     color: aqua;
 }
 
-
 /* Header: */
-/* Allgemeine Einstellungen zum Header */
-
 .headercontainer {
     background-color: #525252;
     position: fixed;
@@ -35,25 +31,22 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 100;
     transition: padding 0.2s ease;
     border-bottom: 2px solid aqua;
 }
 
-/* Einstellungen des Logos im Header */
 .logobox {
     margin-left: 20px;
     padding: 10px;
 }
 
-/* Einstellungen der div's im Header */
+/* settings for divs in header */
 .headerbox {
     float: left;
     padding: 10px;
 }
 
-
-/* Einstellungen des Logins im Header */
 .loginbox {
     margin-right: 5%;
     margin-left: 10%;
@@ -61,8 +54,7 @@ a:hover {
     font-size: 16px;
 }
 
-/* Header angemeldet*/
-/*Style des Hover-Menüs*/
+/* header signed in */
 .divhover {
     margin-right: 9%;
     margin-left: 10%;
@@ -83,7 +75,7 @@ a:hover {
     color: aqua;
 }
 
-  /* Underlined if hovered and active */
+/* Underlined if hovered and active */
   .headerbox {
     overflow: hidden;
     background-color: #525252;
@@ -120,7 +112,6 @@ a:hover {
 
 }
 
-
 ul {
     display: inline;
     margin: 3px;
@@ -137,7 +128,6 @@ ul li:hover {
 
 ul li:hover ul {
     display: block;
-
 }
 
 ul li ul {
@@ -148,9 +138,10 @@ ul li ul {
 
 ul li ul li { 
     background: #525252;
-    display: block; 
+    display: block;
 }
-  ul li ul li a {
+
+ul li ul li a {
     display:block !important;
 } 
 
