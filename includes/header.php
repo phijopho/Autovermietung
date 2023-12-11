@@ -11,7 +11,7 @@
                 <a>Hallo <?php echo $_SESSION["firstName"] ?> </a>
               <ul>
                 <li><a href="#">Mein Profil</a></li>
-                <li><a href="#">Meine Buchung</a></li>
+                <li><a href="pages/meineBuchungen.php">Meine Buchung</a></li>
                 <li><a href="./includes/logout.php">Abmelden</a></li>
               </ul>
             </li>
