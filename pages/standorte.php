@@ -14,7 +14,7 @@
 
 <?php
 
-include('../includes/header.php'); // Including the header
+include('../includes/header.html'); // Including the header
 ?>
 
 

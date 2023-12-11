@@ -20,32 +20,44 @@
 <body>
     <?php
     include('../includes/dbConnection.php');
-    include('../includes/header.php');
-    include('../includes/functions.php');
-    include('../includes/functionsLogin.php');
+    include('../includes/header.html'); // Einbinden des Headers
 
-    preventEnterIfLoggedIn();
+    if (isset($_POST["login"])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        $stmt = $conn->prepare("SELECT * FROM User WHERE Username=:username");
+        $stmt->bindParam(":username", $username);
+        $stmt->execute();
+        $existingUser = $stmt->fetchAll();
+        var_dump($existingUser);
+
+        $passwordHash = $existingUser[0]["Password"];
+        $checkPassword = password_verify($password, $passwordHash);
+
+        if ($checkPassword) {
+            session_start();
+            $_SESSION["username"] = $existingUser[0]["Username"];
+
+            header("Location: ../index.php");
+        } else {
+            // error
+        }
+    }
 
     ?>
-<div class="contentBox">
-    <div class="gif1">
-        <img src="./images/neonlightsrev.gif">
-    </div>
+
     <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
         <h1>Anmelden</h1>
-
-        <?php login(); ?>
-
         <div class="inputbox">
             <input type="text" required autofocus placeholder="Username" name="username">
             <input type="password" required placeholder="Password" name="password">
         </div>
         <button name="login" a href="">Login</button>
     </form>
-</div>
 
-    <?php   
-    include('../includes/footer.html');
+    <?php
+    include('../includes/footer.html'); // Einbindung des Footers
     ?>
 </body>
 
