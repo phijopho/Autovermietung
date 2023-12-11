@@ -74,61 +74,51 @@
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
+                    <a href="pages/produktuebersicht.php?carouselCategory=Combi">                        
                         <img src="images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Combi">Combi</button>
-                            </form>
-                            <p>Combi Schlombie, sach ich immer</p>
+                            <h2>Combi</h2>
+                            <p>Preis ab Zweifufzch</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
+                    <a href="pages/produktuebersicht.php?carouselCategory=Cabrio">                        
                         <img src="images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Cabrio">Cabrio</button>
-                            </form>
-                            <p>Für mehr Kopffreiheit...</p>
+                            <h2>Cabrio</h2>
+                            <p>Kopf Freiheit</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
+                    <a href="pages/produktuebersicht.php?carouselCategory=SUV">                        
                         <img src="images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="SUV">SUV</button>
-                            </form>
-                            <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
+                            <h2>SUV</h2>
+                            <p>Jeder Lord, f&auml;hrt einen SUV.</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
+                    <a href="pages/produktuebersicht.php?carouselCategory=Mehrsitzer">                        
                         <img src="images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Mehrsitzer">Mehrsitzer</button>
-                            </form>
-                            <p>Für Ihre Kinder</p>
+                            <h2>Mehrsitzer</h2>
+                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
+                    <a href="pages/produktuebersicht.php?carouselCategory=Coupe">                        
                         <img src="images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                        <form method="POST" action="pages/produktuebersicht.php">
-                            <button type="submit" name="caruselCategory" value="Coup">Coup&eacute;</button>
-                        </form>
-                            <p>Für die Autobahn</p>
+                            <h2>Coupe</h2>
+                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
                         </div>
                     </a>
                 </div>
