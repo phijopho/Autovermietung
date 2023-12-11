@@ -284,14 +284,23 @@ function getNumberOfBookings($User_ID) {
 //Functions for Produktdetailseite
 function getCarInfo($carTypeID) {
     include('dbConnection.php');
+     // Funktion zur Umwandlung von 0/1 in "Nein"/"Ja"
+     function booleanToJaNein($value) {
+        return $value == 1 ? 'Ja' : 'Nein';
+    }
+
+    // Funktion zur Umwandlung von 'gear' (Getriebe) in 'Manuell' oder 'Automatik'
+    function gearToText($value) {
+        return $value == 'manually' ? 'Manuell' : 'Automatik';
+    }
     $carInfo = [
         'image' => showImage($carTypeID),
         'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
-        'gear' => selectSpecificColumn('Gear', 'CarType', $carTypeID),
+        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)), // Umwandlung von 'gear'
         'seats' => selectSpecificColumn('Seats', 'CarType', $carTypeID),
-        'gps' => selectSpecificColumn('GPS', 'CarType', $carTypeID),
+        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)), // Umwandlung von 'gps'
         'doors' => selectSpecificColumn('Doors', 'CarType', $carTypeID),
-        'airCondition' => selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)
+        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)) // Umwandlung von 'airCondition'
     ];
 
     return $carInfo;
