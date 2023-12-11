@@ -246,7 +246,7 @@ function getTotalPrice($price) {
 
     return $totalPrice; 
 }
-// von joshi deswegen doof
+
 function getPriceForCategory($category){
     include('dbConnection.php');
     $stmt = $conn->prepare("SELECT MIN(Price) FROM CarType WHERE Type =:category");
@@ -270,4 +270,14 @@ function preventEnterIfLoggedIn()
     }
 }
 
+// functions for meineBuchungen
+function getNumberOfBookings($User_ID) {
+    include('dbConnection.php');
+    $stmt = $conn->prepare("SELECT COUNT(User_ID) FROM `Rental` WHERE User_ID=:user_id");
+    $stmt->bindParam(':user_id', $User_ID);
+    $stmt->execute();
+
+    $row = $stmt->fetch();
+    return $row['COUNT(User_ID)'];
+}
 ?>

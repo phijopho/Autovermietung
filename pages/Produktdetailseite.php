@@ -91,7 +91,7 @@
     
     <!-- User is Old enough and signed in. -->
     <div class="divbutton">
-            <a href="#" class="buttonNotSignedIn">Jetzt Buchen</a>
+            <a href="pages/meineBuchungen.php" class="button">Jetzt Buchen</a>
     </div>
 </div>
 

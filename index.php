@@ -30,7 +30,7 @@
 
     </head>
     <?php
-         include('includes/header.html'); // include header
+         include('includes/header.php'); // include header
     ?>
     <body>
     <div class="BackgroundKia">
