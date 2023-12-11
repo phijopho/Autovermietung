@@ -34,8 +34,7 @@ ini_set('display_errors', 1);
 
   <dl id="ud_accordion">
     <?php
-      $numberOfBookings=0;
-      $numberOfBookings=getNumberOfBookings($_SESSION['username']);
+      $numberOfBookings=getNumberOfBookings();
       echo "Number of Bookings: ".$numberOfBookings;
       if($numberOfBookings>0){
         for($i=1; $i<=$numberOfBookings; $i++){

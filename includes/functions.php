@@ -271,8 +271,9 @@ function preventEnterIfLoggedIn()
 }
 
 // functions for meineBuchungen
-function getNumberOfBookings($username) {
+function getNumberOfBookings() {
     include('dbConnection.php');
+    $username = $_SESSION['username'];
     $stmt = $conn->prepare("SELECT COUNT(Rental.User_ID) FROM `Rental` JOIN User ON User.User_ID=Rental.User_ID WHERE Username=:username");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
