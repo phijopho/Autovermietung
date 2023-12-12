@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-        include('../includes/htmlhead.php');
-    ?>
-
-    <!-- html page specifics -->
-    <link rel="stylesheet" href="css/styleDatenschutz.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Einbinden der style.css -->
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/styleDatenschutz.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">
+
 </head>
+<body>
 
 <?php
-    include('../includes/header.php'); // Including the header
+
+include('../includes/header.php'); // Including the header
 ?>
-<body>
+
 <div class="DatenschutzContainer"> <!--Class to position text in the body -->
         <h1 class="DatenschutzUeberschrift"> Datenschutzerklärung </h1>
     <div class="blocksatz">
@@ -108,8 +110,14 @@
         </div>
     </div>
 </div>
-</body>
+
 <?php
-    include('../includes/footer.html');
+
+// Integrating the footer
+include('../includes/footer.html');
 ?>
+
+</body>
+
+
 </html>

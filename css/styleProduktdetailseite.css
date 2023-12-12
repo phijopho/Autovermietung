@@ -3,8 +3,8 @@
 /* Box which covers the entire Body */
 .divbody {
   width: 90%;
-  height: 850px;
-  margin-top: 150px;
+  height: 83%;
+  margin-top: 5%;
   margin-bottom: 10%;
   margin-left: 5%;
   border: 2px solid aqua;
