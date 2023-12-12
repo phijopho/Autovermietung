@@ -168,8 +168,10 @@ $(document).ready(function() { //code execudes when document is fully loaded
 });
 </script>
 
-
-
 </body>
+
+<?php
+include('../includes/footer.html');
+?>
 
 </html>

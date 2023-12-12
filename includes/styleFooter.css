@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer {
+    height: 480px;
+    background-color: #1a1818;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  /*damit mehrere reihen im footer gebaut werden können*/
+  .footer-row {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /*für die einzelnen elemente im footer-row*/
+  .footer-col {
+    flex: 1;
+    margin: 0 0 0 0;
+    text-align: center;
+  }
+  
+  h3 {
+    color: #fff;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 2.5;
+  }
+
+
+
+  /* Settings all icons on the bottom */
+.instagram {
+  width:27px;
+  height:27px;
+  padding-left:0px;
+}
+
+.x {
+  width:30px;
+  height:30px;
+}
+
+.facebook {
+  width:22px;
+  height:22px;
+  margin-top: 0;
+}
+
+.instagram:hover, .x:hover, .facebook:hover{
+  transform: scale(1.2);
+}
+
+.zahlungsmethoden {
+  width: auto;
+  height: 20px;
+}
