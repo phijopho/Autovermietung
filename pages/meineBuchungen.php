@@ -15,7 +15,7 @@ ini_set('display_errors', 1);
 </head>
 
 <?php
-    include('../includes/header.php'); // Einbinden des Headers
+    include('../includes/header.php');
 ?>
 <body>
 <!--Buchungsdaten Übersicht-->
@@ -27,29 +27,31 @@ ini_set('display_errors', 1);
     <h3>Buchungsdatum</h3>
     <h3>Abholdatum</h3>
     <h3>Rückgabedatum</h3>
-    <h3>Hersteller</h3>
     <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
   </div>
 
+  <?php 
+  // retrieve Infos from database to fill them into accordion
+    $userID=getUserID();
+    $bookingInfos=getBookingInfos($userID); 
+  ?>
   <dl id="ud_accordion">
     <?php
       $numberOfBookings=getNumberOfBookings();
-      echo "Number of Bookings: ".$numberOfBookings;
       if($numberOfBookings>0){
-        for($i=1; $i<=$numberOfBookings; $i++){
+        for($i=0; $i<$numberOfBookings; $i++){
         ?>
           <dt>
-            <p><?php echo "BuchungsID"; ?></p>
-            <p><!--Variable--></p>
-            <p><!--Variable--></p>
-            <p><!--Variable--></p>
-            <p><!--Variable--></p>
-            <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p><?php echo $bookingInfos[$i]['Rent_ID']; ?></p>
+            <p><?php echo $bookingInfos[$i]['BookingDate']; ?></p>
+            <p><?php echo $bookingInfos[$i]['StartDate']; ?></p>
+            <p><?php echo $bookingInfos[$i]['EndDate']; ?></p>
+            <p><?php echo $bookingInfos[$i]['Brand']; echo " ".$bookingInfos[$i]['Model']; ?>&nbsp;&nbsp;&nbsp;</p>
           </dt>
 
           <dd>
-            Abhol- und Rückgabeort: <!--Variable--><br>
-            Gesamtpreis der Buchung: <!--Variable--><br>
+            Abhol- und Rückgabeort: <?php echo $bookingInfos[$i]['CarLocation']; ?><br>
+            Gesamtpreis der Buchung: <?php echo $bookingInfos[$i]['TotalPrice']; ?> &euro;<br>
           </dd>
         <?php
         }     
@@ -63,7 +65,9 @@ ini_set('display_errors', 1);
 <?php
   // checks
   // echo "Number of bookings: ".$numberOfBookings;
-  // echo "<br><br>Session: ";
+  // echo "<br><br>";
+  // echo var_dump($bookingInfos);
+  // echo "<br> User ID: ".$userID;
   // print_r($_SESSION);
 ?>
 
