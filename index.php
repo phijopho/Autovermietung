@@ -3,6 +3,8 @@
 
 <head>
     <?php
+    include('includes/functions.php');
+    include('includes/dbConnection.php');    
     include('includes/htmlhead.php');
     ?>
     <!-- Einbinden der style.css -->
@@ -30,7 +32,6 @@
 <?php
 include('includes/header.php'); // include header
 ?>
-
 <body>
     <div class="BackgroundKia">
         <div class="section1">
