@@ -12,6 +12,9 @@
     <?php
         include('../includes/htmlhead.php');
     ?>
+    <!-- html page specifics -->
+    <title>Unsere Flotte</title>
+    <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
 
     <!-- jquery range slider -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -218,10 +221,6 @@
         // echo "<br> Session:";
         // print_r($_SESSION);
     ?>
-    <!-- html page specifics -->
-    <title>Unsere Flotte</title>
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
-
 </head>
 
 <?php
