@@ -43,10 +43,13 @@
 <div class="divbody">
     <div class="divgallery">
         <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
-        <div class="foto">
 
-            <img src="images/cars/audi-a3-cabrio-rot-offen-2020.png" alt="Auto">
-            
+        <div class="foto">
+            <?php
+                $carInfo = getCarInfo($_SESSION['carType_ID']);
+                echo $carInfo['image']; 
+    
+            ?>  
             <!-- create button with triangle -->
             <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
         
@@ -54,21 +57,41 @@
                 <table>
                     <tr>
                         <th>Fahrzeugtyp</th>
-                        <td>"Variable"</td>
+                        <td><?php echo $carInfo['type']; ?></td>
                         <th>Getriebe</th>
-                        <td>"Variable"</td>
+                        <td>
+                            <?php
+                                echo $carInfo['gear'];  
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Anzahl Sitze</th>
-                        <td>"Variable"</td>
+                        <td>    
+                            <?php
+                                echo $carInfo['seats'];  
+                            ?>
+                        </td>
                         <th>GPS</th>
-                        <td>"Variable"</td>
+                        <td>
+                            <?php
+                                echo $carInfo['gps'];
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Anzahl Türen</th> 
-                        <td>"Variable"</td>
+                        <td>
+                            <?php
+                                echo $carInfo['doors'];
+                            ?>
+                        </td>
                         <th>Klimaanlage</th>
-                        <td>"Variable"</td>    
+                        <td>
+                            <?php
+                                echo $carInfo['airCondition'];
+                            ?>
+                        </td>    
                     </tr>
                 </table>
                 </div>
@@ -84,7 +107,7 @@
             <h3>Preis pro Tag: <?php $price=getCarProperty($_SESSION['carType_ID'], 'Price'); echo number_format($price, 2, ',', '.'); ?> &euro;</h3>
             <br>
             <h3>Gesamtpreis: <?php $totalPrice=getTotalPrice($price); echo number_format($totalPrice, 2, ',', '.') ?> &euro;</h3>
-
+            <p>Von diesem Modell sind nur noch<?php  echo " ".$_SESSION['availableCarsModel']; ?> Autos in Ihrem gewählten Zeitraum verfügbar</p>
         </div>
     </div>
     
