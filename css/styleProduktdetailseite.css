@@ -138,7 +138,7 @@ th, td {
   justify-content: center; 
   align-items: center; 
   text-decoration: none;
-  display: flex;
+  display: flex; 
   font-size: 16px;
   margin-left: 25%;
   cursor: pointer;
@@ -152,21 +152,26 @@ th, td {
 
 /* Button if user is not logged in*/
 .buttonNotSignedIn {
-  background-color: aqua;
+  background: aqua;
   border: none;
-  width: 40%;
-  opacity: 50%;
-  transform: scale(150%);
+  width: 45%;
+  height: 60px;
+  opacity: 0.5; 
+  transform: scale(100%);
   font-weight: 600;
   color: #1a1818;
-  padding: 15px 32px;
+  padding: 0 15px;
   border-radius: 20px;
+  line-height: 100%;
   text-align: center;
+  justify-content: center; 
+  align-items: center; 
   text-decoration: none;
-  display: inline-block;
+  display: flex;
   font-size: 16px;
-  margin: 4px 2px;
+  margin-left: 25%;
   cursor: pointer;
+  transition: transform 0.5s ease;
 }
 
 /* If User is not Old enough: hover.buttonNotOldEnough */
@@ -186,7 +191,7 @@ th, td {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 a:hover.button {
