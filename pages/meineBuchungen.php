@@ -18,6 +18,8 @@
 <?php
     include('../includes/header.php');
 ?>
+
+
 <body>
 <!--Buchungsdaten Übersicht-->
 <article>
@@ -30,7 +32,6 @@
     <h3>Rückgabedatum</h3>
     <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
   </div>
-
 
   <?php 
   // retrieve Infos from database to fill them into accordion
@@ -63,6 +64,7 @@
       ?>
   </dl>
 
+
   <div class="pagination">
   <a href="#">&laquo;</a>
   <a href="#">1</a>
@@ -73,7 +75,6 @@
   <a href="#">6</a>
   <a href="#">&raquo;</a>
 </div>
-
 </article>
 
 <?php
@@ -120,8 +121,7 @@ $(document).ready(function() { //code execudes when document is fully loaded
 });
 </script>
 </body>
-<?php
-    include('../includes/footer.html'); // Einbindung des Footers
-?>
+
+
 </html>
 
