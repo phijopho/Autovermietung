@@ -1,7 +1,6 @@
 // Produktdetailseite toggle Menu 
 
 window.onload = function() {
-    // Beim Laden der Seite die Höhe des divGallery auf die Höhe des divFoto setzen
     var fotoHeight = document.querySelector('.foto').clientHeight;
     var gallery = document.querySelector('.divgallery');
     gallery.style.height = fotoHeight + 'px';
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var targetOffset = targetSection.offsetTop - headerHeight;
         window.scrollTo({
           top: targetOffset,
-          behavior: 'smooth' // Glatte Scrollanimation
+          behavior: 'smooth'
         });
       }
     });
