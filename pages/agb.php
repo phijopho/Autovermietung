@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Including the style.css -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/styleFooter.css"> 
-    <link rel="stylesheet" href="../css/styleAGB.css">
-    <title>SWIFT rentals</title>
-    <base href="/Autovermietung/">
+    <?php
+        include('../includes/htmlhead.php');
+    ?>
 
+    <!-- html page specifics -->
+    <link rel="stylesheet" href="css/styleAGB.css">
+    <title>SWIFT rentals</title>
 </head>
-<body>
 
 <?php
-
-include('../includes/header.html'); // Including the header
+include('../includes/header.php'); // Including the header
 ?>
-
+<body>
 <div class="AGBContainer"> <!--Class to position text in the body -->
     <h1 class="AGBUeberschrift"> Allgemeine Geschäftsbedingungen </h1>
     <div class="blocksatz">
@@ -108,9 +104,8 @@ include('../includes/header.html'); // Including the header
         </div>
     </div>
 </div>
-
 </body>
-
-
-
+<?php
+include('../includes/footer.html');
+?>
 </html>

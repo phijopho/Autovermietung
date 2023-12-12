@@ -1,9 +1,7 @@
-
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Set Autovermietungg as Base href -->
+ 
+<!-- Set Autovermietungg as Base href -->
 <base href="/Autovermietung/">
 
     <!-- Load Font -->
@@ -16,5 +14,12 @@
 
     <!-- prelaod images -->
 <link rel="preload" href="images/Hintergrund.svg" as="image" />
+
+<!-- include php-files -->
+<?php
+    session_start();
+    include('../includes/functions.php');
+    include('../includes/dbConnection.php'); // connect database
+?>
 
     
