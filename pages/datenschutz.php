@@ -7,6 +7,7 @@
 
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleDatenschutz.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">
 </head>
@@ -110,6 +111,6 @@
 </div>
 </body>
 <?php
-    include('../includes/footer.html');
+include('../includes/footer.html');
 ?>
 </html>

@@ -41,7 +41,7 @@ include('../includes/header.php');
 </div>
 </body>
 <?php
-include('/includes/footer.html'); // Einbindung des Footers
+include('../includes/footer.html');
 ?>
 </html>
 
