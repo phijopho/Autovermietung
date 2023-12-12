@@ -323,4 +323,42 @@ function getBookingInfos($User_ID){
     }
     return $result;
 }
+
+//Functions for Produktdetailseite
+function getCarInfo($carTypeID) {
+    include('dbConnection.php');
+     // Funktion zur Umwandlung von 0/1 in "Nein"/"Ja"
+     function booleanToJaNein($value) {
+        return $value == 1 ? 'Ja' : 'Nein';
+    }
+
+    // Funktion zur Umwandlung von 'gear' (Getriebe) in 'Manuell' oder 'Automatik'
+    function gearToText($value) {
+        return $value == 'manually' ? 'Manuell' : 'Automatik';
+    }
+    $carInfo = [
+        'image' => showImage($carTypeID),
+        'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
+        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)), // Umwandlung von 'gear'
+        'seats' => selectSpecificColumn('Seats', 'CarType', $carTypeID),
+        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)), // Umwandlung von 'gps'
+        'doors' => selectSpecificColumn('Doors', 'CarType', $carTypeID),
+        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)) // Umwandlung von 'airCondition'
+    ];
+
+    return $carInfo;
+}
+
+function selectSpecificColumn($column, $table, $carTypeID) {
+    include('dbConnection.php');
+
+    $stmt = $conn->query("SELECT $column FROM $table WHERE CarType_ID=$carTypeID");
+    $result = null;
+
+    while($row = $stmt->fetch()) {
+        $result = $row[$column];
+    }
+
+    return $result;
+}
 ?>
