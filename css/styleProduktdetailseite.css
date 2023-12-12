@@ -2,214 +2,153 @@
 
 /* Box which covers the entire Body */
 .divbody {
-  width: 90%;
-  height: 850px;
-  margin-top: 150px;
-  margin-bottom: 10%;
-  margin-left: 5%;
-  border: 2px solid aqua;
-  border-image: linear-gradient(to bottom, aqua, #92FE9D) 1;
+    width: 100%;
+    margin-top: 100px;
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
 .divgallery {
-  float: left;
-  width: 50%;
-  height: fit-content;
-  margin-left: 2%;
-  margin-bottom: 5%;
+    float: left;
+    width: 60%;
+    margin-left: 20px;
+    margin-bottom: 100px;
 }
 
 /* Box with Image and Imagedescription */
-.foto {
-  border: none;
-  float: left;
-  width: 90%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  height: 70%;
-  background-color: #525252;
-  border-radius: 30px;
-}
-
-.buttonToggle {
-  background-color: #525252;
-  color: aqua;
-  margin-left: 45%;
-  margin-top: -1%;
-  border: none;
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-
-.buttonToggle:hover {
-  opacity: 1
-}
-
-
-.rotated {
-  transform: rotate(180deg);
-}
-
-/* Image Box */
-div.foto img {
-  width: 100%;
-  line-height: normal;
-}
-
-/* Image descriptionbox */
-.desc {
-  text-align: center;
-  height: auto;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  padding: 10px 20px;
-  color: #1a1818;
-  background: linear-gradient(to bottom, #525252, rgb(18, 162, 162));
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
+div.foto {
+    border: none;
+    float: left;
+    width: 90%;
+  }
+  
+  /* Image Box */
+  div.foto img {
+    width: 100%;
+  }
+  
+  /* Image descriptionbox */
+  div.desc {
+    padding: 0px;
+    text-align: center;
+  }
 
 /* Table which is included in the image description box */
 table, th, td {
-  border: none;
-  padding: 15px;
-  text-align: left;
-  width: 100%;
-  color: #1a1818;
-}
+    border: none;
+    padding: 15px;
+    text-align: left;
+    width: 100%;
+     
+  }
 
-/* Table Style */
+  /* Table Style */
 table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 50px;
-  margin-bottom: 0%;
-}
-
-/* Style of table header and table data */
+    border-collapse: collapse;
+    width: 50%;
+  }
+  
+  /* Style of table header and table data */
 th, td {
-  width: 30%;
-}
+    padding: 15px;
+  }
 
-/* box on the right side with selected filters */
-.divinfo {
-  float: left;
-  width: 43%;
-  text-align: left;
-  padding-top:3%;
-  padding-left: 3%;
-  padding-bottom: 3%;
-  margin-top: 5.5%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 5%;
-  background-color: #525252;
-  border-radius: 30px;
-  align-content: center;
+  /* box on the right side with selected filters */
+  .divinfo {
+    float: left;
+    width: 35%;
+    text-align: left;
+    padding-top:3%;
 }
 
 /* Box for button */
 .divbutton {
-  float: right;
-  width: 40%;
-  margin-right: 4.5%;
-  margin-top: -2%;
-  text-align: center;
+    width: 100%;
+    padding-top:30%;
+    padding-left: 15%;
+    align-content: center;
 }
 
 /* Button style if user is logged in and old enough to book the car */
 .button {
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-  border: none;
-  width: 45%;
-  height: 60px;
-  opacity: 0.5; 
-  transform: scale(100%);
-  font-weight: 600;
-  color: #1a1818;
-  padding: 0 15px;
-  border-radius: 20px;
-  line-height: 100%;
-  text-align: center;
-  justify-content: center; 
-  align-items: center; 
-  text-decoration: none;
-  display: flex;
-  font-size: 16px;
-  margin-left: 25%;
-  cursor: pointer;
-  transition: transform 0.5s ease;
-}
+    background-color: aqua;
+    border: none;
+    width: 40%;
+    opacity: 50%; 
+    transform: scale(150%);
+    font-weight: 600;
+    color: #1a1818;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
 
-.button:hover {
-  opacity: 1 !important;
-  transform: scale(1.2);
-}
+  /* Button if user is not logged in*/
+  .buttonNotSignedIn {
+    background-color: aqua;
+    border: none;
+    width: 40%;
+    opacity: 50%;
+    transform: scale(150%);
+    font-weight: 600;
+    color: #1a1818;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
 
-/* Button if user is not logged in*/
-.buttonNotSignedIn {
-  background-color: aqua;
-  border: none;
-  width: 40%;
-  opacity: 50%;
-  transform: scale(150%);
-  font-weight: 600;
-  color: #1a1818;
-  padding: 15px 32px;
-  border-radius: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+  /* If User is not Old enough: hover.buttonNotOldEnough */
 
-/* If User is not Old enough: hover.buttonNotOldEnough */
+  .buttonNotOldEnough {
+    background-color: grey;
+    border: none;
+    width: 40%;
+    opacity: 50%;
+    transform: scale(150%);
+    font-weight: 600;
+    color: #1a1818;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
 
-.buttonNotOldEnough {
-  background-color: grey;
-  border: none;
-  width: 40%;
-  opacity: 50%;
-  transform: scale(150%);
-  font-weight: 600;
-  color: #1a1818;
-  padding: 15px 32px;
-  border-radius: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-a:hover.button {
-  color: #1a1818;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 100%;
+  a:hover.button {
+    color: #1a1818;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    opacity: 100%;
 }
 
 /* If User is not Old enough: buttonNotOldEnough*/
 
 a:hover.buttonNotOldEnough {
-  color: #1a1818;
-  text-decoration: none;
-  font-size: 16px;
+    color: #1a1818;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
 }
 
 /* Style of hover Button if user is not logged in */
 
 a:hover.buttonNotSignedIn {
-  color: #1a1818;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 100%;
+    color: #1a1818;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    opacity: 100%;
 }
-

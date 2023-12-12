@@ -1,77 +1,109 @@
-<?php
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
-?>
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <?php
-    include('../includes/htmlhead.php')
-  ?>
+  <head>
+    <?php
+      include('../includes/htmlhead.php')
+    ?>
+    <title>Meine Buchungen</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/styleMeineBuchungen.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
 
-  <!-- html page specifics -->
-  <title>Meine Buchungen</title>
-  <link rel="stylesheet" href="css/styleMeineBuchungen.css">
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-</head>
-
-<?php
-    include('../includes/header.php');
-?>
 <body>
+
+  <?php
+    include('../includes/header.html'); // Einbinden des Headers
+  ?>
+    
+    <?php
+      // $lastBookingNumber enthält die aktuelle Buchungsnummer aus der Datenbank
+      $lastBookingNumber = 0; // Hier wird der tatsächliche Wert aus der Datenbank eingetzt
+
+      // Aktuelles Datum generieren
+      $currentDate = date("Ymd");
+
+      // Die Buchungs-ID für die erste Buchung formatieren (anzeigen lassen)
+      $bookingID = $currentDate . str_pad($lastBookingNumber + 1, 3, '0', STR_PAD_LEFT);
+    ?>
+
+
 <!--Buchungsdaten Übersicht-->
 <article>
-  <h1>Meine Buchungen</h1>
+      <h1>Meine Buchungen</h1>
 
-  <div class="onTopContainer">
-    <h3>Buchungs-ID</h3>
-    <h3>Buchungsdatum</h3>
-    <h3>Abholdatum</h3>
-    <h3>Rückgabedatum</h3>
-    <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
-  </div>
+      <div class="onTopContainer">
+        <h3>Buchungs-ID</h3>
+        <h3>Buchungsdatum</h3>
+        <h3>Abholdatum</h3>
+        <h3>Rückgabedatum</h3>
+        <h3>Hersteller</h3>
+        <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
+      </div>
 
-  <?php 
-  // retrieve Infos from database to fill them into accordion
-    $userID=getUserID();
-    $bookingInfos=getBookingInfos($userID); 
-  ?>
-  <dl id="ud_accordion">
-    <?php
-      $numberOfBookings=getNumberOfBookings();
-      if($numberOfBookings>0){
-        for($i=0; $i<$numberOfBookings; $i++){
+      <dl id="ud_accordion">
+
+        <!--Buchungszeile 1-->
+        <dt>
+          <p><?php echo $bookingID; ?></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dt>
+
+        <dd>
+          Abhol- und Rückgabeort: <!--Variable--><br>
+          Gesamtpreis der Buchung: <!--Variable--><br>
+        </dd>
+
+
+        <!--Buchungszeile 1-->
+        <dt>
+          <p><?php echo $bookingID; ?></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable--></p>
+          <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dt>
+
+        <dd>
+          Abhol- und Rückgabeort: <!--Variable--><br>
+          Gesamtpreis der Buchung: <!--Variable--><br>
+        </dd>
+        <?php
+        // Schleife für das Generieren weiterer Buchungszeilen
+        for ($i = 2; $i <= $lastBookingNumber; $i++) {
+
+          // Formatiere die Buchungs-ID für die neue Buchung | neue Buchungszeilen werden nur nach Bedarf generiert
+          $newBookingID = $currentDate . str_pad($lastBookingNumber + $i, 2, '0', STR_PAD_LEFT);
         ?>
+
+          <!-- Neue Buchungszeile -->
           <dt>
-            <p><?php echo $bookingInfos[$i]['Rent_ID']; ?></p>
-            <p><?php echo $bookingInfos[$i]['BookingDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['StartDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['EndDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['Brand']; echo " ".$bookingInfos[$i]['Model']; ?>&nbsp;&nbsp;&nbsp;</p>
+            <p><?php echo $newBookingID; ?></p>
+            <p><!--Variable--></p>
+            <p><!--Variable--></p>
+            <p><!--Variable--></p>
+            <p><!--Variable--></p>
+            <p><!--Variable-->&nbsp;&nbsp;&nbsp;&nbsp;</p>
           </dt>
 
           <dd>
-            Abhol- und Rückgabeort: <?php echo $bookingInfos[$i]['CarLocation']; ?><br>
-            Gesamtpreis der Buchung: <?php echo $bookingInfos[$i]['TotalPrice']; ?> &euro;<br>
+            Abhol- und Rückgabeort: <!--Variable--><br>
+            Gesamtpreis der Buchung: <!--Variable--><br>
           </dd>
+
         <?php
-        }     
-      } else {
-        echo "<br>Keine Buchungen vorhanden.";
-      }
-      ?>
-  </dl>
-</article>
+        }
+        ?>
+      </dl>
+    </article>
 
-<?php
-  // checks
-  // echo "Number of bookings: ".$numberOfBookings;
-  // echo "<br><br>";
-  // echo var_dump($bookingInfos);
-  // echo "<br> User ID: ".$userID;
-  // print_r($_SESSION);
-?>
 
+    
 <!--js code for accordion--> 
 <script>
 $(document).ready(function() { //code execudes when document is fully loaded
@@ -106,9 +138,9 @@ $(document).ready(function() { //code execudes when document is fully loaded
     });
 });
 </script>
+
 </body>
-<?php
-    include('../includes/footer.html'); // Einbindung des Footers
-?>
+
+
 </html>
 
