@@ -11,6 +11,8 @@
 
     <!-- load stylesheet -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="includes/styleFooter.css">
+
 
     <!-- prelaod images -->
 <link rel="preload" href="images/Hintergrund.svg" as="image" />
