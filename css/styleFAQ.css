@@ -1,0 +1,112 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+/*settings for article*/
+article {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 0 auto;
+  padding: 130px 0 0 0;
+  margin-bottom: 300px;
+  height: 47vh;
+}
+
+/*settings when element is clicked(active)*/
+.ud_active {
+  background: aqua;
+  color: black;
+  padding: 4% 0 4% 4%;
+  border-radius: 0 0 0 0;
+}
+
+
+/*general settings for dt*/
+dt {
+    font-family: "Oswald", sans-serif;
+    background: #00C9FF;
+    color: #fff;
+    border-top: 1px solid #222;
+    cursor: pointer;
+    justify-content: space-between;
+    display: inline-flex;
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+  }
+
+
+/*when you hover over the elements*/
+dt:hover {
+  background: aqua;
+  color: black;
+}
+
+dt,
+dd {
+  width: 96%;
+  float: left;
+  padding: 2%;
+  margin: 0;
+}
+
+/*erstes dt element hat immer abgerundete ecken oben*/
+dt:first-of-type {
+    border-radius: 20px 20px 0 0;
+  }
+  
+  /*wenn dt beim klicken aktiviert wird, bleiben die abgrundeten Ecken bestehen*/
+  dt:first-of-type.ud_active {
+    border-radius: 20px 20px 0 0;
+  }
+  
+  
+
+/*letztes dt element hat immer unten abgerundete Ecken, wenn nicht geöffnet */
+dt:last-of-type {
+  border-radius: 0 0 20px 20px;
+}
+
+/*letztes dt elemtent ändert sich zu eckig wenn geöffnet*/
+dt:last-of-type.ud_active {
+  border-radius: 0;
+}
+
+/*letztes dd element hat immer abgerundete ecken*/
+dd:last-child {
+  border-radius: 0 0 20px 20px;
+}
+
+
+/*general settings for dd*/
+dd {
+  background: #ffffff;
+  line-height: 25px;
+  font-size: 16px;
+  word-spacing: 3px;
+  color: black;
+  display: none;
+}
+
+
+.onTopContainer h3 {
+    margin: 0;
+  }
+
+/* headline with gradient underlining */
+h1 {
+  color: #f7f2ef;
+  font-size: 35px;
+  align-items: center;
+  background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 43%, transparent 43%);
+  background-size: 100% 4px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  line-height: 42px;
+  margin-bottom: 20px;
+  margin-top: -70px;
+}
