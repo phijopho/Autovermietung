@@ -3,7 +3,7 @@
 /* Box which covers the entire Body */
 .divbody {
   width: 90%;
-  height: 78%;
+  height: 83%;
   margin-top: 5%;
   margin-bottom: 10%;
   margin-left: 5%;
@@ -35,7 +35,7 @@
   background-color: #525252;
   color: aqua;
   margin-left: 45%;
-  margin-top: -3%;
+  margin-top: -1%;
   border: none;
   text-align: center;
   font-size: 30px;
@@ -116,7 +116,9 @@ th, td {
 .divbutton {
   float: right;
   width: 40%;
-  margin-right: -5%;
+  margin-right: 4.5%;
+  margin-top: -2%;
+  text-align: center;
 }
 
 /* Button style if user is logged in and old enough to book the car */
