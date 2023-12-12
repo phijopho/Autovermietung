@@ -1,8 +1,3 @@
-<?php 
-    // show error messages
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +32,13 @@
     include('../includes/header.php'); // Einbindung des Headers
 ?>
 <body>
-<?php
-    // get car infos
-    $model=getModel($_SESSION['carType_ID']);
-?>
-<div class="divbody">
-    <div class="divgallery">
-        <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
+    <?php
+        // get car infos
+        $model=getModel($_SESSION['carType_ID']);
+    ?>
+    <div class="divbody">
+        <div class="divgallery">
+            <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
 
         <div class="foto">
             <?php

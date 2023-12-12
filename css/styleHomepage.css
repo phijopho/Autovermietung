@@ -256,7 +256,7 @@ input[type="submit"]:focus {
     border-radius: 3em;
     padding: 0.3em 0.6em;
     font-size: 13px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     color: black;
 }
@@ -267,20 +267,6 @@ input[type="submit"]:focus {
         transform:
             translate(-50%, -50%) scale(2.5);
     }
-}
-
-.map-heading h1 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 50px;
-    /* Schriftformatierung */
-    color: #000000;
-    text-decoration: none;
-    text-align: center;
-}
-
-.map-heading {
-    padding: 20px 0;
 }
 
 .hamburg {
