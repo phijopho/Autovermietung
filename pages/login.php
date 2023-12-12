@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php
         include('../includes/htmlhead.php');
     ?>
+
+    <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleLogin.css">
     <title>Anmelden</title>
 </head>
@@ -37,3 +38,4 @@ include('../includes/header.php'); // include header
 <?php   
     include('../includes/footer.html');
 ?>
+</html>

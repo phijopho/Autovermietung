@@ -4,6 +4,8 @@
     <?php
         include('../includes/htmlhead.php');
     ?>
+
+    <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleAboutUs.css">
     <title>SWIFT rentals</title>
 </head>

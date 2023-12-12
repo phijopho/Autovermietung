@@ -1,7 +1,6 @@
 <?php
-session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +8,8 @@ ini_set('display_errors', 1);
   <?php
     include('../includes/htmlhead.php')
   ?>
+
+  <!-- html page specifics -->
   <title>Meine Buchungen</title>
   <link rel="stylesheet" href="css/styleMeineBuchungen.css">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

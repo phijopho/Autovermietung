@@ -3,17 +3,11 @@
 
 <head>
     <?php
+    // include functions and db connection because of different folder location as in head
     include('includes/functions.php');
     include('includes/dbConnection.php');    
     include('includes/htmlhead.php');
     ?>
-    <!-- Einbinden der style.css -->
-    <link rel="stylesheet" href="css/styleHomepage.css">
-
-    <title>SWIFT rentals</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="includes/karussell-slider.js"></script>
-    <script src="includes/functions.js"></script>
 
     <!-- sessions and variables -->
     <?php
@@ -27,6 +21,13 @@
         $_SESSION['returnDate'] = $tomorrow;
     }
     ?>
+
+    <!-- html page specifis -->
+    <link rel="stylesheet" href="css/styleHomepage.css">
+    <title>SWIFT rentals</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="includes/karussell-slider.js"></script>
+    <script src="includes/functions.js"></script>
 </head>
 
 <?php

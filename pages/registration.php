@@ -5,6 +5,8 @@
         include('../includes/htmlhead.php'); 
         include('../includes/functionsRegister.php');
     ?>
+
+    <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleRegistration.css">
     <title>Registrieren</title>
 </head>
@@ -34,9 +36,8 @@
         <img src="./images/neonlights.gif">
     </div>
 
-</div>
-    <?php
-    include('../includes/footer.html');
-    ?>
-    
+</div>    
 </body>
+<?php
+    include('../includes/footer.html');
+?>

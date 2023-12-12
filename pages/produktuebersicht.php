@@ -1,5 +1,4 @@
 <?php 
-    session_start(); 
     // show error messages
      error_reporting(E_ALL);
      ini_set('display_errors', 1);
@@ -36,11 +35,6 @@
         return true; // Erlaubt das Absenden des Formulars
     }
     </script>
-
-    <!-- page specific head elements -->
-    <title>Unsere Flotte</title>
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
-
 
     <!-- sessions and variables -->
     <?php
@@ -224,6 +218,10 @@
         // echo "<br> Session:";
         // print_r($_SESSION);
     ?>
+    <!-- html page specifics -->
+    <title>Unsere Flotte</title>
+    <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
+
 </head>
 
 <?php
@@ -444,9 +442,8 @@
         ?>
     </div>
 </div>
+</body>
 <?php
     include('../includes/footer.html'); // Einbinden des Footers
 ?>
-
-</body>
 </html>

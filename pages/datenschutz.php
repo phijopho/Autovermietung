@@ -4,6 +4,8 @@
     <?php
         include('../includes/htmlhead.php');
     ?>
+
+    <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleDatenschutz.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">

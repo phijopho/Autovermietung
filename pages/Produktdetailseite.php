@@ -1,5 +1,4 @@
 <?php 
-    session_start(); 
     // show error messages
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
@@ -8,9 +7,6 @@
 <html lang="en">
 <head>
     <?php include('../includes/htmlhead.php'); ?>
-    <link rel="stylesheet" href="css/styleProduktdetailseite.css">
-    <script src="includes/functions.js"></script> 
-    <title>Produktdetails</title> 
 
     <!-- sessions and variables -->
     <?php
@@ -30,6 +26,11 @@
         // echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
     
     ?>
+    <!-- html page specifics -->
+    <link rel="stylesheet" href="css/styleProduktdetailseite.css">
+    <script src="includes/functions.js"></script> 
+    <title>Produktdetails</title> 
+
 </head>
 
 <?php
@@ -116,7 +117,6 @@
             <a href="pages/meineBuchungen.php" class="button">Jetzt Buchen</a>
     </div>
 </div>
-
 </body>
 <?php 
     include('../includes/footer.html'); // Einbindung des Footers
