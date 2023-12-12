@@ -8,6 +8,7 @@ body {
     background-color: #1a1818;
     color: #fff;
     padding: 20px;
+    position: relative;
   }
   
   /*damit mehrere reihen im footer gebaut werden können*/
