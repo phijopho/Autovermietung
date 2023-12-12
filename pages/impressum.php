@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Einbinden der style.css -->
-    <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" href="../css/styleImpressum.css">
+    <?php
+        include('../includes/htmlhead.php');
+    ?>
+
+    <!-- html page specifics -->
+    <link rel="stylesheet" href="css/styleImpressum.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">
-
 </head>
-<body>
 
 <?php
-
 include('../includes/header.php'); // Including the header
 ?>
-
+<body>
 <div class="ImpressumContainer"> <!--Class to position text in the body -->
     <h1 class="ImpressumUeberschrift"> Impressum</h1>
 
@@ -90,11 +88,8 @@ include('../includes/header.php'); // Including the header
     </div>
 
 </div>
-
+</body>
 <?php
-// Integrating the footer
 include('../includes/footer.html');
 ?>
-
-</body>
 </html>

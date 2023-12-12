@@ -1,4 +1,5 @@
 <?php 
+// Filterung
 function unsetSessions() {
     if (isset($_POST['resetButton'])) {
         unset($_SESSION['categories']);
@@ -86,6 +87,7 @@ function getModel($CarType_ID){
     }
     return $model;
 }
+
 // pickUpDate and returnDate hinzufügen (mit gebuchten Autos verknüpfen)
 function getResultsQuery(){
     include('dbConnection.php');
@@ -184,6 +186,7 @@ function displayResults($stmt){
     }
 }
 
+// Availability
 function getAvailableCarsQuery() {
     // build sql statement
     $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID"; 
@@ -226,6 +229,7 @@ function formatDate($date){
     return $newDate;
 }
 
+// Car Details
 function getCarProperty($CarType_ID, $column){
     include('dbConnection.php');
     $stmt = $conn->query("SELECT $column FROM CarType WHERE CarType_ID=$CarType_ID");
@@ -247,6 +251,7 @@ function getTotalPrice($price) {
     return $totalPrice; 
 }
 
+// Carusel
 function getPriceForCategory($category){
     include('dbConnection.php');
     $stmt = $conn->prepare("SELECT MIN(Price) FROM CarType WHERE Type =:category");
@@ -263,6 +268,7 @@ function getPriceForCategory($category){
     }
 }
 
+// Login
 function preventEnterIfLoggedIn()
 {
     if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
@@ -270,15 +276,90 @@ function preventEnterIfLoggedIn()
     }
 }
 
-// functions for meineBuchungen
-function getNumberOfBookings($User_ID) {
+// Meine Buchungen
+function getUserID() { // username is unique and User_ID is assigned within the database logic so it must be deducted from the db
     include('dbConnection.php');
-    $stmt = $conn->prepare("SELECT COUNT(User_ID) FROM `Rental` WHERE User_ID=:user_id");
-    $stmt->bindParam(':user_id', $User_ID);
+    $username = $_SESSION['username'];
+    $stmt = $conn->prepare("SELECT User_ID FROM User WHERE Username=:username");
+    $stmt->bindParam(':username', $username);
     $stmt->execute();
-
     $row = $stmt->fetch();
-    return $row['COUNT(User_ID)'];
+    return $row['User_ID'];
+}
+
+function getNumberOfBookings() {
+    include('dbConnection.php');
+    $username = $_SESSION['username'];
+    $stmt = $conn->prepare("SELECT COUNT(Rental.User_ID) FROM `Rental` JOIN User ON User.User_ID=Rental.User_ID WHERE Username=:username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['COUNT(Rental.User_ID)'];
+}
+
+function getBookingInfos($User_ID){
+    include('dbConnection.php');
+    $stmt = $conn->query(
+    "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price,2) AS TotalPrice
+    FROM Rental             
+    JOIN Car ON Rental.Car_ID = Car.Car_ID             
+    JOIN CarType ON Car.CarType_ID = CarType.CarType_ID             
+    JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID             
+    JOIN Location ON Car.Location_ID = Location.Location_ID             
+    WHERE Rental.User_ID = $User_ID");
+
+    // save infos in two-dimensional array
+    while ($row = $stmt->fetch()) {
+        $result[] = array(
+            'Rent_ID' => $row['Rent_ID'],
+            'BookingDate' => $row['BookingDate'],
+            'StartDate' => $row['StartDate'],
+            'EndDate' => $row['EndDate'],
+            'Brand' => $row['Brand'],
+            'Model' => $row['Model'],
+            'CarLocation' => $row['CarLocation'],
+            'TotalPrice' => $row['TotalPrice']
+        );
+    }
+    return $result;
+}
+
+//Functions for Produktdetailseite
+function getCarInfo($carTypeID) {
+    include('dbConnection.php');
+     // Funktion zur Umwandlung von 0/1 in "Nein"/"Ja"
+     function booleanToJaNein($value) {
+        return $value == 1 ? 'Ja' : 'Nein';
+    }
+
+    // Funktion zur Umwandlung von 'gear' (Getriebe) in 'Manuell' oder 'Automatik'
+    function gearToText($value) {
+        return $value == 'manually' ? 'Manuell' : 'Automatik';
+    }
+    $carInfo = [
+        'image' => showImage($carTypeID),
+        'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
+        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)), // Umwandlung von 'gear'
+        'seats' => selectSpecificColumn('Seats', 'CarType', $carTypeID),
+        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)), // Umwandlung von 'gps'
+        'doors' => selectSpecificColumn('Doors', 'CarType', $carTypeID),
+        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)) // Umwandlung von 'airCondition'
+    ];
+
+    return $carInfo;
+}
+
+function selectSpecificColumn($column, $table, $carTypeID) {
+    include('dbConnection.php');
+
+    $stmt = $conn->query("SELECT $column FROM $table WHERE CarType_ID=$carTypeID");
+    $result = null;
+
+    while($row = $stmt->fetch()) {
+        $result = $row[$column];
+    }
+
+    return $result;
 }
 
 //Functions for Produktdetailseite

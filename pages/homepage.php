@@ -2,8 +2,6 @@
 include('./includes/functions.php');
 $location=getCities();
 ?>
-<script src="../includes/funktions.js"></script> 
-
 <div class="contentBox">
     <div class="BackgroundAudi">
         <div class="containerBookingForm">
