@@ -194,13 +194,13 @@
             </div>
             <div class="aboutUs">
                 <div class="txtBox1">
-                    <h1>12 Standorte</h1>
+                    <h1>14 Standorte</h1>
                 </div>
                 <div class="txtBox2">
                     <h1>64 Modelle</h1>
                 </div>
                 <div class="txtBox3">
-                    <h1>256 Mietwagen</h1> 
+                    <h1>230 Mietwagen</h1> 
                 </div>
                 <div class="txtBox4">
                     <h2>Erfahren Sie mehr -></h2> 

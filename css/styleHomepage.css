@@ -1,5 +1,6 @@
 body {
     height: fit-content;
+    scroll-behavior: smooth;
 
 }
 
@@ -191,6 +192,8 @@ input[type="submit"]:focus {
 /* MAP */
 
 
+
+
 .ger-map {
     text-align: center;
     position: relative;
@@ -219,11 +222,14 @@ input[type="submit"]:focus {
     width: 0.7em;
     height: 0.7em;
     border-radius: 50%;
+    transition: transform 0.5s ease;
 }
 
 .pin:hover {
     cursor: pointer;
+    transform: scale(1.7); 
 }
+
 
 .pin::before {
     content: '';
@@ -231,7 +237,7 @@ input[type="submit"]:focus {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) ease;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -385,7 +391,7 @@ input[type="submit"]:focus {
     max-width: 1400px;
     padding-bottom: 44px;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 .cslider-item {
