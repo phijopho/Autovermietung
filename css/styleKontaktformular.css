@@ -88,19 +88,4 @@ textarea {
     width: 300px;
 }
 
-.success {
-    height: 35px;
-    line-height: 35px;
-    width: 350px;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 125px;
-    background-color: #d3ffce;
-    text-align: center;
-    vertical-align: middle;
-}
 
-.textSuccess {
-    color: #004b23;
-    font-size: 16px;
-}

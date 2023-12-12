@@ -10,12 +10,14 @@ body {
     padding: 20px;
   }
   
+  /*damit mehrere reihen im footer gebaut werden können*/
   .footer-row {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
   }
   
+  /*für die einzelnen elemente im footer-row*/
   .footer-col {
     flex: 1;
     margin: 0 20px 0 0;
@@ -34,7 +36,7 @@ body {
 
 
 
-  /* Settings Social Media Icons */
+  /* Settings all icons on the bottom */
 .instagram {
   width:27px;
   height:27px;

@@ -1,24 +1,20 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php
       include('../includes/htmlhead.php')
     ?>
-    <!-- Einbinden der style.css -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/styleFooter.css">
     <link rel="stylesheet" href="css/styleRegistration.css">
     <title>Mein Profil</title>
-
 </head>
 
+<?php
+    include('../includes/header.php'); // Einbinden des Headers
+?>
 <body>
-    <?php
-    include('../includes/dbConnection.php');
-    include('../includes/header.html'); // Einbinden des Headers
-    ?>
-
-    <form>
+    <form> <!--Text wird in button angezeigt und verschwindet sobald etwas eingetippt wird.-->
         <h1>Mein Profil</h1>
         <div class="inputbox">
             <input type="text" required placeholder="Vorname">
@@ -67,16 +63,9 @@
             function togglePassword() {
                 passwordInput.type = passwordInput.type === "password" ? "text" : "password";
             }
-
-            // Event listener for displaying/hiding the password
-            document.getElementById('togglePassword').addEventListener('click', togglePassword);
-        });
-    </script>
-
-
-
+    </script>    
 </body>
-
-
-
+<?php
+    include('../includes/footer.html'); // Einbindung des Footers
+?>
 </html>

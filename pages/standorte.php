@@ -24,10 +24,11 @@ include('../includes/header.html'); // Including the header
     </div>
     <div class="map-container">
         
-   
+        <!--Klasse um die Karte auf der Seite zu positionieren-->
         <div class="ger-map">
             <img src="images/Deutschlandkarte.png" alt="map" >
             
+            <!--Klasse für jede Stadt,um die Pins genau auszurichten-->
             <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                 <span>Hamburg</span>
             </div>
