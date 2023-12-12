@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <div class="headercontainer">
     <div class="logobox"><a href="index.php"><img src="images/SWIFT.svg" alt="SWIFT logo"></a></div>
     <div class="headerbox"><a class="nav-link" href="./pages/produktuebersicht.php">Auto mieten</a></div>
