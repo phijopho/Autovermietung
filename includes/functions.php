@@ -284,23 +284,22 @@ function getNumberOfBookings($User_ID) {
 //Functions for Produktdetailseite
 function getCarInfo($carTypeID) {
     include('dbConnection.php');
-     // Funktion zur Umwandlung von 0/1 in "Nein"/"Ja"
+     
      function booleanToJaNein($value) {
         return $value == 1 ? 'Ja' : 'Nein';
     }
 
-    // Funktion zur Umwandlung von 'gear' (Getriebe) in 'Manuell' oder 'Automatik'
     function gearToText($value) {
         return $value == 'manually' ? 'Manuell' : 'Automatik';
     }
     $carInfo = [
         'image' => showImage($carTypeID),
         'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
-        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)), // Umwandlung von 'gear'
+        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)),
         'seats' => selectSpecificColumn('Seats', 'CarType', $carTypeID),
-        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)), // Umwandlung von 'gps'
+        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)),
         'doors' => selectSpecificColumn('Doors', 'CarType', $carTypeID),
-        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)) // Umwandlung von 'airCondition'
+        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID))
     ];
 
     return $carInfo;
@@ -319,5 +318,41 @@ function selectSpecificColumn($column, $table, $carTypeID) {
     return $result;
 }
 
+//Button functions for Produktdetailseite
+function getUserAge($userId) {
+    include('dbConnection.php');
+    $stmt = $conn->prepare("SELECT age FROM User WHERE user_id = :userId");
+    $stmt->bindParam(':userId', $userId);
+    $stmt->execute();
+    $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $userData['age'] ?? null;
+}
+
+function checkUserAgeForCarType($userAge, $carTypeMinAge) {
+    if ($userAge >= $carTypeMinAge) {
+        return true; // User is old enough
+    } else {
+        return false; // user is not old enough
+    }
+}
+
+function displayBookingButton($userAge, $carTypeMinAge) {
+    if ($userAge === null) {
+        echo '<button class="buttonNotSignedIn">Bitte anmelden oder registrieren</button>';
+    } elseif (checkUserAgeForCarType($userAge, $carTypeMinAge)) {
+        echo '<button class="button">Jetzt buchen</button>';
+    } else {
+        echo '<button class="buttonNotOldEnough">Leider sind Sie noch nicht alt genug das Fahrzeug zu mieten.</button>';
+    }
+}
+
+function displayBookingButtonForCarType($userId, $carTypeMinAge) {
+    $userAge = getUserAge($userId);
+    displayBookingButton($userAge, $carTypeMinAge);
+}
+
 
 ?>
+
+

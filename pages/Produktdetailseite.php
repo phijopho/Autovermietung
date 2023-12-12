@@ -41,6 +41,9 @@
 <?php
     // get car infos
     $model=getModel($_SESSION['carType_ID']);
+    $userId = $_SESSION['user_id'] ?? null; 
+$carTypeMinAge = 18; 
+
 ?>
 <div class="divbody">
     <div class="divgallery">
@@ -115,7 +118,8 @@
     
     <!-- User is Old enough and signed in. -->
     <div class="divbutton">
-            <a href="pages/meineBuchungen.php" class="button">Jetzt Buchen</a>
+            <!-- <a href="pages/meineBuchungen.php" class="button">Jetzt Buchen</a> -->
+            <?php displayBookingButtonForCarType($userId, $carTypeMinAge);?>
     </div>
 </div>
 
