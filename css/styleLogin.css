@@ -1,7 +1,7 @@
 /* style login page */
 
 /* style form box */
-form {  
+form {
     float: left;
     height: 650px;
     width: 700px;
@@ -119,6 +119,7 @@ button:focus {
     float: left;
 
 }
+
 .gif1 img {
     width: 100%;
 }
@@ -127,4 +128,3 @@ button:focus {
     height: 93vh;
     background-color: black;
 }
-

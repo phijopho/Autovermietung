@@ -1,21 +1,20 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php
       include('../includes/htmlhead.php')
     ?>
-    <!-- Einbinden der style.css -->
+
+    <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleRegistration.css">
     <title>Mein Profil</title>
-
 </head>
 
-<body>
-    <?php
-    include('../includes/dbConnection.php');
+<?php
     include('../includes/header.php'); // Einbinden des Headers
-    ?>
-
+?>
+<body>
     <form>
         <h1>Mein Profil</h1>
         <div class="inputbox">
@@ -69,13 +68,9 @@
             // Event listener for displaying/hiding the password
             document.getElementById('togglePassword').addEventListener('click', togglePassword);
         });
-    </script>
-
-
-    <?php
-    include('../includes/footer.html'); // Einbindung des Footers
-    ?>
-    
+    </script>    
 </body>
-
+<?php
+    include('../includes/footer.html'); // Einbindung des Footers
+?>
 </html>

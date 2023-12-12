@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <div class="headercontainer">
     <div class="logobox"><a href="index.php"><img src="images/SWIFT.svg" alt="SWIFT logo"></a></div>
     <div class="headerbox"><a class="nav-link" href="./pages/produktuebersicht.php">Auto mieten</a></div>
@@ -11,7 +10,7 @@
                 <a>Hallo <?php echo $_SESSION["firstName"] ?> </a>
               <ul>
                 <li><a href="#">Mein Profil</a></li>
-                <li><a href="#">Meine Buchung</a></li>
+                <li><a href="pages/meineBuchungen.php">Meine Buchung</a></li>
                 <li><a href="./includes/logout.php">Abmelden</a></li>
               </ul>
             </li>
