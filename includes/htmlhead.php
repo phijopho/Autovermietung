@@ -17,6 +17,7 @@
 
 <!-- include php-files -->
 <?php
+    session_start();
     include('../includes/functions.php');
     include('../includes/dbConnection.php'); // connect database
 ?>
