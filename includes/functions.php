@@ -277,6 +277,16 @@ function preventEnterIfLoggedIn()
 }
 
 // Meine Buchungen
+function getUserID() { // username is unique and User_ID is assigned within the database logic so it must be deducted from the db
+    include('dbConnection.php');
+    $username = $_SESSION['username'];
+    $stmt = $conn->prepare("SELECT User_ID FROM User WHERE Username=:username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['User_ID'];
+}
+
 function getNumberOfBookings() {
     include('dbConnection.php');
     $username = $_SESSION['username'];
@@ -298,6 +308,7 @@ function getBookingInfos($User_ID){
     JOIN Location ON Car.Location_ID = Location.Location_ID             
     WHERE Rental.User_ID = $User_ID");
 
+    // save infos in two-dimensional array
     while ($row = $stmt->fetch()) {
         $result[] = array(
             'Rent_ID' => $row['Rent_ID'],
