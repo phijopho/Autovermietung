@@ -72,21 +72,22 @@ input::placeholder {
 
 /* style for register button */
 button {
-    text-align: center ;
-    margin-left: 39%;
+    margin-left: 50%;
+    transform: translateX(-50%);
     height: 50px;
     width: 150px;
     border-radius: 25px;
     border: none;
-
+    font-weight: bold;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    transition: width .5s;
 }
 
 /* hover effects on register button */
 button:hover {
-    transform: scale(1.1);
+    cursor: pointer;
     width: 200px;
 }
 
