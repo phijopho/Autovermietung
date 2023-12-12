@@ -5,14 +5,15 @@
     <div class="headerbox"><a class="nav-link scroll-link" data-target="section2" href="#">Preise</a></div>
     <div class="headerbox"><a class="nav-link scroll-link" data-target="map-container" href="#map-container" >Standorte</a></div>
     <?php if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) { ?>
-        <div class="divhover">
-        <ul>
-            <li>
+
+      <div class="divhover nav-link" onmouseleave="handleMouseLeave(event)">
+    <ul>
+        <li onmouseenter="handleMouseEnter()">
                 <a>Hallo <?php echo $_SESSION["firstName"] ?> </a>
-              <ul>
-                <li><a href="#">Mein Profil</a></li>
-                <li><a href="#">Meine Buchung</a></li>
-                <li><a href="./includes/logout.php">Abmelden</a></li>
+              <ul id="submenu" onmouseenter="cancelCloseTimer()" onmouseleave="startCloseTimer()">
+              <li class="nav-link"><a href="#"><p>Mein Profil</p></a></li>
+                <li class="nav-link"><a href="#"><p>Meine Buchung</p></a></li>
+                <li class="nav-link" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"><a href="./includes/logout.php">Abmelden</a></li>
               </ul>
             </li>
           </ul>

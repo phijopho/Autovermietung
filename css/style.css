@@ -112,10 +112,15 @@ a:hover {
 
 }
 
+#submenu {
+    display: none;
+}
+
 ul {
     display: inline;
     margin: 3px;
     padding-left: 0px;
+    padding-bottom: 10px;
 }
 
 ul li {
@@ -144,7 +149,6 @@ ul li ul li {
 ul li ul li a {
     display:block !important;
 } 
-
 
 /* Footer: */
 /* Allgemeine Einstellungen zum Footer */
