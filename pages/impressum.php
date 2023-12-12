@@ -7,6 +7,7 @@
 
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleImpressum.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">
 </head>
@@ -47,7 +48,7 @@ include('../includes/header.php'); // Including the header
     <br> <!--To add paragraph-->
 
     <b>Vertretungsberechtige:</b> <br>
-    Philipp Rinau (Geschäftsführer) <br>
+    Brianna Kruschke (Geschäftsführerin) <br>
 
     <br> <!--To add paragraph-->
 

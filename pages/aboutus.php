@@ -7,6 +7,7 @@
 
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleAboutUs.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <title>SWIFT rentals</title>
 </head>
 
@@ -40,7 +41,7 @@ include('../includes/header.php');
 </div>
 </body>
 <?php
-include('../includes/footer.html'); // Einbindung des Footers
+include('/includes/footer.html'); // Einbindung des Footers
 ?>
 </html>
 
