@@ -253,17 +253,20 @@
                 <label for="returnDate">R&uuml;ckgabedatum:</label>
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"  onchange="validateDates()"/>
             </div>
-            <div class="itemBox">
+            <div class="categoryBox">
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
+                            echo "<div class='checkbox-container'>";
                             if(in_array($category, $_SESSION['checkedCategories'])){
-                                echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
-                                echo "<label for '".$category."'>".$category."</label><br>"; 
+                                echo "<input type='checkbox' id=".$category." name=".$category." value='".$category."' checked>";
                             } else {
-                                echo "<input type='checkbox' name=".$category." value='".$category."'>";
-                                echo "<label for '".$category."'>".$category."</label><br>";    
-                            }    
+                                echo "<input type='checkbox' id=".$category." name=".$category." value='".$category."'>";  
+                            }
+                            echo "<label class='categoryLabel' for='".$category."'>";
+                            echo "<span class='iconCheckbox'></span> ";
+                            echo "$category</label>";
+                            echo "</div>";
                         }
                     ?>
             </div>
