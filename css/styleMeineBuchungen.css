@@ -12,7 +12,7 @@ article {
   max-width: 1000px;
   margin: 0 auto 0 auto;
   padding: 130px 0 0 0;
-  margin-bottom: 300px;
+  margin-bottom: 0;
   height: 47vh;
 }
 
@@ -113,4 +113,27 @@ h1 {
   line-height: 42px;
   margin-bottom: 20px;
   margin-top: -70px;
+}
+
+.pagination {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
 }
