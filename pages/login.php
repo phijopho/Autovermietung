@@ -56,10 +56,8 @@
         <button name="login" a href="">Login</button>
     </form>
 
-    <?php
-    include('../includes/footer.html'); // Einbindung des Footers
-    ?>
 </body>
+
 
 
 

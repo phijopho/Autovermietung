@@ -172,19 +172,23 @@ include('../includes/header.html'); // include header
     <div class="filterBox">
         <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="filter">
             <div class="itemBox">
-                <label for="location">Standort:</label><br>
-                <select class="customSelect" name="location">
-                    <?php 
-                    foreach ($location as $city) {
-                        if ($_SESSION['location'] == $city) {
-                            echo "<option value='$city' selected>$city</option>";
-                        } else {
-                            echo "<option value='$city'>$city</option>";
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
+            <label for="location">Standort:</label><br>
+    	    <select class="customSelect" name="location">
+
+                <?php 
+                // Überprüfe, ob die ausgewählte Stadt in der Session vorhanden ist
+                $selectedCity = (isset($_SESSION['selectedCity'])) ? $_SESSION['selectedCity'] : '';
+
+                foreach ($location as $city) {
+                    $selected = ($selectedCity == $city) ? 'selected' : '';
+                    echo "<option value='$city' $selected>$city</option>";
+                }
+                ?>
+            </select>
+
+
+            
+        </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
                         <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
