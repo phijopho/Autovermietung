@@ -1,137 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <?php
-            include('includes/htmlhead.php');
-            include('includes/dbConnection.php'); // connect database
-            include('./includes/functions.php');
 
-        ?>
-        <!-- Einbinden der style.css -->
-        <link rel="stylesheet" href="css/styleHomepage.css">
-
-        <title>SWIFT rentals</title>
-        <link rel="stylesheet" href="../css/styleFooter.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="includes/karussell-slider.js"></script>
-
-        <?php 
-            session_start();
-
-            $location=getCities();
-
-            $today=date("Y-m-d");
-            $tomorrow=date("Y-m-d", strtotime($today . " +2 day"));
-            if(!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])){
-                $_SESSION['location']="Hamburg";
-                $_SESSION['pickUpDate']=$today;
-                $_SESSION['returnDate']=$tomorrow;
-            }
-        ?>
-
-    </head>
+<head>
     <?php
-         include('includes/header.html'); // include header
+    // include functions and db connection because of different folder location as in head
+    include('includes/functions.php');
+    include('includes/dbConnection.php');    
+    include('includes/htmlhead.php');
     ?>
-    <body>
+
+    <!-- sessions and variables -->
+    <?php
+    $location = getCities();
+
+    $today = date("Y-m-d");
+    $tomorrow = date("Y-m-d", strtotime($today . " +2 day"));
+    if (!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])) {
+        $_SESSION['location'] = "Hamburg";
+        $_SESSION['pickUpDate'] = $today;
+        $_SESSION['returnDate'] = $tomorrow;
+    }
+    ?>
+
+    <!-- html page specifis -->
+    <link rel="stylesheet" href="css/styleHomepage.css">
+    <title>SWIFT rentals</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="includes/karussell-slider.js"></script>
+    <script src="includes/functions.js"></script>
+</head>
+
+<?php
+include('includes/header.php'); // include header
+?>
+<body>
     <div class="BackgroundKia">
-    
-            <div class="section1">
-                <div class="containerBookingForm">
-                    <form action="pages/produktuebersicht.php" method="post"> 
-                        <label for="location">Standort:</label>
-                            <select id="location" name="location">
-                                <?php //aus Datenbank ziehen, außer HH
-                                foreach ($location as $city){
-                                    if ($_SESSION['location'] == $city) {
-                                        echo "<option value='$city' selected>$city</option>";
-                                    } else {
-                                        echo "<option value='$city'>$city</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                        <label for "pickUpDate">Abholdatum:</label>
-                            <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
-                        <label for "returnDate">R&uuml;ckgabedatum:</label>
-                            <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" /><br><br>
-                        <input type="submit" value="Suchen" name="quickSearch">
-                    </form>
-                </div>
+        <div class="section1">
+            <div class="containerBookingForm">
+                <form action="pages/produktuebersicht.php" method="post">
+                    <label for="location">Standort:</label>
+                    <select class="selectLocation" id="location" name="location">
+                        <?php //aus Datenbank ziehen, außer HH
+                        foreach ($location as $city) {
+                            if ($_SESSION['location'] == $city) {
+                                echo "<option value='$city' selected>$city</option>";
+                            } else {
+                                echo "<option value='$city'>$city</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                    <label for "pickUpDate">Abholdatum:</label>
+                    <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
+                    <label for "returnDate">R&uuml;ckgabedatum:</label>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" /><br><br>
+                    <input type="submit" value="Suchen" name="quickSearch">
+                </form>
             </div>
+        </div>
     </div>
-    <div class="section2">
+    <div id="section2" class="section2">
         <div class="cslider">
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Limousine">
+                        <img src="images/category images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Limousine">Limousine</button>
-                            </form>
-                            <p>Jeder Lord, f&auml;hrt einen Ford.</p>
+                            <h2>Limousine</h2>
+                            <p> ab <?php echo getPriceForCategory('Limousine'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Combi">
+                        <img src="images/category images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Combi">Combi</button>
-                            </form>
-                            <p>Combi Schlombie, sach ich immer</p>
+                            <h2>Combi</h2>
+                            <p> ab <?php echo getPriceForCategory('Combi'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Cabrio">
+                        <img src="images/category images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Cabrio">Cabrio</button>
-                            </form>
-                            <p>Für mehr Kopffreiheit...</p>
+                            <h2>Cabrio</h2>
+                            <p> ab <?php echo getPriceForCategory('Cabrio'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=SUV">
+                        <img src="images/category images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="SUV">SUV</button>
-                            </form>
-                            <p>Fuer alle, die auf Off-Road in der Stadt nicht verzichten koennen.</p>
+                            <h2>SUV</h2>
+                            <p> ab <?php echo getPriceForCategory('SUV'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Mehrsitzer">
+                        <img src="images/category images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                            <form method="POST" action="pages/produktuebersicht.php">
-                                <button type="submit" name="caruselCategory" value="Mehrsitzer">Mehrsitzer</button>
-                            </form>
-                            <p>Für Ihre Kinder</p>
+                            <h2>Mehrsitzer</h2>
+                            <p> ab <?php echo getPriceForCategory('Mehrsitzer'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php">                        
-                        <img src="images/cars/bmw-x4-m40i-5d-schwarz-2019-1.png" alt="Slider Image" />
+                    <a href="pages/produktuebersicht.php?carouselCategory=Coupe">
+                        <img src="images/category images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
-                        <form method="POST" action="pages/produktuebersicht.php">
-                            <button type="submit" name="caruselCategory" value="Coup">Coup&eacute;</button>
-                        </form>
-                            <p>Für die Autobahn</p>
+                            <h2>Coupe</h2>
+                            <p> ab <?php echo getPriceForCategory('Coupe'); ?> &euro;</p>
                         </div>
                     </a>
                 </div>
@@ -140,14 +127,14 @@
                 <div class="cslider-prev"></div>
                 <div class="cslider-next"></div>
             </div>
-        </div>   
-    </div>     
+        </div>
+    </div>
     <div class="BackgroundAudi">
         <div class="section3">
-            <div class="map-container">
+            <div class="map-container" id="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
-            
+
                     <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Hamburg</span>
                     </div>
@@ -213,17 +200,18 @@
                     <h1>64 Modelle</h1>
                 </div>
                 <div class="txtBox3">
-                    <h1>256 Mietwagen</h1> 
+                    <h1>256 Mietwagen</h1>
                 </div>
                 <div class="txtBox4">
-                    <h2>Erfahren Sie mehr -></h2> 
+                    <h2>Erfahren Sie mehr -></h2>
                 </div>
 
             </div>
         </div>
     </div>
-    </body>
-
-
+</body>
+<?php
+include('includes/footer.html');
+?>
 
 </html>

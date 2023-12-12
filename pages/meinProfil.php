@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +5,8 @@
     <?php
       include('../includes/htmlhead.php')
     ?>
+
+    <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleRegistration.css">
     <title>Mein Profil</title>
 </head>
@@ -14,7 +15,7 @@
     include('../includes/header.php'); // Einbinden des Headers
 ?>
 <body>
-    <form> <!--Text wird in button angezeigt und verschwindet sobald etwas eingetippt wird.-->
+    <form>
         <h1>Mein Profil</h1>
         <div class="inputbox">
             <input type="text" required placeholder="Vorname">
@@ -63,6 +64,10 @@
             function togglePassword() {
                 passwordInput.type = passwordInput.type === "password" ? "text" : "password";
             }
+
+            // Event listener for displaying/hiding the password
+            document.getElementById('togglePassword').addEventListener('click', togglePassword);
+        });
     </script>    
 </body>
 <?php

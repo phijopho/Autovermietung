@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Einbinden der style.css -->
-    <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" href="../css/styleFooter.css">
-    <link rel="stylesheet" href="../css/styleAboutUs.css">
-    <title>SWIFT rentals</title>
-    <base href="/Autovermietung/">
+    <?php
+        include('../includes/htmlhead.php');
+    ?>
 
+    <!-- html page specifics -->
+    <link rel="stylesheet" href="css/styleAboutUs.css">
+    <title>SWIFT rentals</title>
 </head>
-<body>
 
 <?php
-
-include('../includes/header.html'); // Einbinden des Headers
+include('../includes/header.php');
 ?>
-
+<body>
 <div class="AboutUsContainer"> <!--Class to position text in the body -->
     <h1 class="AboutUsUeberschrift">About Us</h1>
 
@@ -42,10 +38,10 @@ include('../includes/header.html'); // Einbinden des Headers
     </div>
 
 </div>
-
 </body>
-
-
+<?php
+include('../includes/footer.html'); // Einbindung des Footers
+?>
 </html>
 
 

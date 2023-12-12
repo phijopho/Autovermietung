@@ -1,82 +1,91 @@
 <?php 
+// Filterung
+function unsetSessions() {
+    if (isset($_POST['resetButton'])) {
+        unset($_SESSION['categories']);
+        unset($_SESSION['vendor']);
+        unset($_SESSION['seats']);
+        unset($_SESSION['doors']);
+        unset($_SESSION['age']);
+        unset($_SESSION['drive']);
+        unset($_SESSION['transmission']);
+        unset($_SESSION['ac']);
+        unset($_SESSION['gps']);
+        unset($_SESSION['minPrice']);
+        unset($_SESSION['maxPrice']);
+    }
+}
+
 function getCities(){
     include('dbConnection.php');
     $stmtGetCities = $conn->query("SELECT City FROM Location");
     while($row = $stmtGetCities->fetch()){
         $location[] = $row['City'];
     }
-    return $location;    
+    return $location;
 }
 
-function selectDistinctColumn($column, $table){
-    include('dbConnection.php');  
-    $result=array();  
+function selectDistinctColumn($column, $table)
+{
+    include('dbConnection.php');
+    $result = array();
     $stmt = $conn->query("SELECT DISTINCT $column FROM $table");
-    while($row = $stmt->fetch()){
+    while ($row = $stmt->fetch()) {
         $array[] = $row[$column];
     }
-    return $array;    
+    return $array;
 }
 
-function selectMinAndMaxFromColumn($column, $table){
+function selectMinAndMaxFromColumn($column, $table)
+{
     include('dbConnection.php');
-    $result=array();
+    $result = array();
     $stmt = $conn->query("SELECT MIN($column), MAX($column) FROM $table");
     $row = $stmt->fetch();
         $result['min'] = $row['MIN('.$column.')'];
         $result['max'] = $row['MAX('.$column.')'];
     return $result;    
-
 }
 
-function selectColumn($column, $table){
+function selectColumn($column, $table)
+{
     include('dbConnection.php');
-    $result=array();
+    $result = array();
     $stmt = $conn->query("SELECT $column FROM $table");
-    while($row = $stmt->fetch()){
+    while ($row = $stmt->fetch()) {
         $result[] = $row[$column];
     }
-    return $result;    
+    return $result;
 }
 
-function showImage($CarType_ID){
+function showImage($CarType_ID)
+{
     include('dbConnection.php');
-    $image=$conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $image = $conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
     $image->bindParam(':CarTypeIdent', $CarType_ID);
     $image->execute();
 
-    if($image->rowCount()>0){ 
+    if ($image->rowCount() > 0) {
         echo "<div class='pictureBox'>";
-            while($row=$image->fetch()){
-                echo "<img src='data:image/png;charset=utf8;base64,".base64_encode($row['Image'])."'>";
-            }
+        while ($row = $image->fetch()) {
+            echo "<img src='data:image/png;charset=utf8;base64," . base64_encode($row['Image']) . "'>";
+        }
         echo "</div>";
-    } else { 
+    } else {
         echo "<div class='pictureBox'>Image(s) not found...</div>";
     }
 }
 
-function getPrice($CarType_ID){
-    include('dbConnection.php');
-    $getPrice=$conn->prepare("SELECT Price FROM CarType WHERE CarType_ID=:CarTypeIdent");
-    $getPrice->bindParam(':CarTypeIdent', $CarType_ID);
-    $getPrice->execute();
-    while($row=$getPrice->fetch()){
-        $price[]=$row['Price'];
-    }
-    return $price;    
-}
-
 function getModel($CarType_ID){
     include('dbConnection.php');
-    $getModel=$conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
+    $getModel = $conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
     $getModel->bindParam(':CarTypeIdent', $CarType_ID);
     $getModel->execute();
-    while($row=$getModel->fetch()){
-        $model[]=$row['Brand'];
-        $model[]=$row['Model'];
+    while ($row = $getModel->fetch()) {
+        $model[] = $row['Brand'];
+        $model[] = $row['Model'];
     }
-    return $model;    
+    return $model;
 }
 
 // pickUpDate and returnDate hinzufügen (mit gebuchten Autos verknüpfen)
@@ -122,6 +131,10 @@ function getResultsQuery(){
     if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
         $stmt .= " AND GPS = 1";
     }
+        // Price filter
+    if (isset($_SESSION['minPrice']) OR $_SESSION['maxPrice']){
+        $stmt .= " AND Price BETWEEN '".$_SESSION['minPrice']."' AND '".$_SESSION['maxPrice']."'";
+    }
 
     // add order
     $stmt .= " ORDER BY";
@@ -146,24 +159,206 @@ function displayResults($stmt){
         // loop through each result and display it
         while ($row = $result->fetch()){
             $carType_ID = $row['CarType_ID'];
-            echo "<div class='resultItemBox'>";
-                echo "<div class='modelBox'>";
-                    // Use the getModel and showImage functions to display car information
-                    $model = getModel($carType_ID);
-                    echo "<label>".$model[0]." ".$model[1]."</label>";
+            echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                echo "<div class='resultItemBox'>";
+                    echo "<div class='modelBox'>";
+                        // Use the getModel and showImage functions to display car information
+                        $model = getModel($carType_ID);
+                        echo "<label>".$model[0]." ".$model[1]."</label>";
+                        $stmtAvailableCarsModel=getAvailableCarsForModelQuery($carType_ID);
+                        $availableCarsModel=getAvailableCarsForModel($stmtAvailableCarsModel);
+                        echo "<label>Verf&uuml;gbar: ".$availableCarsModel."</label>";
+                    echo "</div>";
+                    showImage($carType_ID);
+                    echo "<div class='carDataBox'>";            
+                        // Use the getPrice function to display car prices
+                        $price = getCarProperty($carType_ID, 'Price');
+                        echo "Preis pro Tag: ".$price." &euro;<br>";
+                        // Tage multiplizieren
+                        echo "Preis für den gewählten Zeitraum: ".getTotalPrice($price)." &euro;<br>";
+                    echo "</div>";
                 echo "</div>";
-                showImage($carType_ID);
-                echo "<div class='carDataBox'>";            
-                    // Use the getPrice function to display car prices
-                    $price = getPrice($carType_ID);
-                    echo "Preis pro Tag: ".$price[0]." €<br>";
-                    // Tage multiplizieren
-                    echo "Preis für den gewählten Zeitraum: ".$price[0]." € <br>";
-                echo "</div>";
-            echo "</div>";
+            echo "</a>";
         }
         echo "</div>";
     } else {
         echo "<p>Keine Ergebnisse gefunden.</p>";
     }
 }
+
+// Availability
+function getAvailableCarsQuery() {
+    // build sql statement
+    $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID"; 
+    $stmt .= " WHERE Location.City='".$_SESSION['location']."'";
+    return $stmt;
+}
+
+function getAvailableCars($stmt){
+    include('dbConnection.php');
+    // execute statement
+    $availableCars=0;
+    $stmt = $conn->query($stmt);
+    while($row=$stmt->fetch()){
+        $availableCars=$row['COUNT(Car.Car_ID)'];
+    }
+    return $availableCars;  
+}
+
+function getAvailableCarsForModelQuery($CarType_ID){
+    // build sql statement
+    $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID";
+    $stmt .= " WHERE Car.CarType_ID=".$CarType_ID;
+
+    return $stmt;
+}
+
+function getAvailableCarsForModel($stmt){
+    include('dbConnection.php');
+    // execute statement
+    $availableCarsModel=0;
+    $stmt = $conn->query($stmt);
+    while($row=$stmt->fetch()){
+        $availableCarsModel=$row['COUNT(Car.Car_ID)'];
+    }
+    return $availableCarsModel;  
+}
+
+function formatDate($date){
+    $newDate = date('d.m.Y', strtotime($date));
+    return $newDate;
+}
+
+// Car Details
+function getCarProperty($CarType_ID, $column){
+    include('dbConnection.php');
+    $stmt = $conn->query("SELECT $column FROM CarType WHERE CarType_ID=$CarType_ID");
+    while($row = $stmt->fetch()){
+        $result = $row[$column];
+    }
+    return $result;    
+}
+
+function getTotalPrice($price) {
+     // create new instance of class DateTime to convert session into a date
+    $pickUpDate = new DateTime($_SESSION['pickUpDate']);
+    $returnDate = new DateTime($_SESSION['returnDate']);     
+
+    $interval = $pickUpDate->diff($returnDate); // calculate difference between dates
+    $numberOfDays = $interval->days; // get difference in number of days
+    $totalPrice=$numberOfDays*$price;
+
+    return $totalPrice; 
+}
+
+// Carusel
+function getPriceForCategory($category){
+    include('dbConnection.php');
+    $stmt = $conn->prepare("SELECT MIN(Price) FROM CarType WHERE Type =:category");
+    $stmt->bindParam(':category', $category);
+    $stmt->execute();
+    $row = $stmt->fetch();
+
+    if ($row) {
+        // Wenn ein Ergebnis vorhanden ist, gib den Preis zurück
+        return $row['MIN(Price)'];
+    } else {
+        // Wenn kein Ergebnis vorhanden ist, gib einen Hinweis zurück
+        return "Preis nicht verfügbar";
+    }
+}
+
+// Login
+function preventEnterIfLoggedIn()
+{
+    if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
+        header("Location: ../index.php");
+    }
+}
+
+// Meine Buchungen
+function getUserID() { // username is unique and User_ID is assigned within the database logic so it must be deducted from the db
+    include('dbConnection.php');
+    $username = $_SESSION['username'];
+    $stmt = $conn->prepare("SELECT User_ID FROM User WHERE Username=:username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['User_ID'];
+}
+
+function getNumberOfBookings() {
+    include('dbConnection.php');
+    $username = $_SESSION['username'];
+    $stmt = $conn->prepare("SELECT COUNT(Rental.User_ID) FROM `Rental` JOIN User ON User.User_ID=Rental.User_ID WHERE Username=:username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['COUNT(Rental.User_ID)'];
+}
+
+function getBookingInfos($User_ID){
+    include('dbConnection.php');
+    $stmt = $conn->query(
+    "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price,2) AS TotalPrice
+    FROM Rental             
+    JOIN Car ON Rental.Car_ID = Car.Car_ID             
+    JOIN CarType ON Car.CarType_ID = CarType.CarType_ID             
+    JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID             
+    JOIN Location ON Car.Location_ID = Location.Location_ID             
+    WHERE Rental.User_ID = $User_ID");
+
+    // save infos in two-dimensional array
+    while ($row = $stmt->fetch()) {
+        $result[] = array(
+            'Rent_ID' => $row['Rent_ID'],
+            'BookingDate' => $row['BookingDate'],
+            'StartDate' => $row['StartDate'],
+            'EndDate' => $row['EndDate'],
+            'Brand' => $row['Brand'],
+            'Model' => $row['Model'],
+            'CarLocation' => $row['CarLocation'],
+            'TotalPrice' => $row['TotalPrice']
+        );
+    }
+    return $result;
+}
+
+//Functions for Produktdetailseite
+function getCarInfo($carTypeID) {
+    include('dbConnection.php');
+     // Funktion zur Umwandlung von 0/1 in "Nein"/"Ja"
+     function booleanToJaNein($value) {
+        return $value == 1 ? 'Ja' : 'Nein';
+    }
+
+    // Funktion zur Umwandlung von 'gear' (Getriebe) in 'Manuell' oder 'Automatik'
+    function gearToText($value) {
+        return $value == 'manually' ? 'Manuell' : 'Automatik';
+    }
+    $carInfo = [
+        'image' => showImage($carTypeID),
+        'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
+        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)), // Umwandlung von 'gear'
+        'seats' => selectSpecificColumn('Seats', 'CarType', $carTypeID),
+        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)), // Umwandlung von 'gps'
+        'doors' => selectSpecificColumn('Doors', 'CarType', $carTypeID),
+        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)) // Umwandlung von 'airCondition'
+    ];
+
+    return $carInfo;
+}
+
+function selectSpecificColumn($column, $table, $carTypeID) {
+    include('dbConnection.php');
+
+    $stmt = $conn->query("SELECT $column FROM $table WHERE CarType_ID=$carTypeID");
+    $result = null;
+
+    while($row = $stmt->fetch()) {
+        $result = $row[$column];
+    }
+
+    return $result;
+}
+?>
