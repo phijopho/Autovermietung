@@ -10,6 +10,7 @@
         ?>
         <!-- Einbinden der style.css -->
         <link rel="stylesheet" href="css/styleHomepage.css">
+        <link rel="stylesheet" href="css/styleFooter.css">
 
         <title>SWIFT rentals</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
