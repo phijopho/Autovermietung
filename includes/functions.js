@@ -26,23 +26,30 @@ function togglemenu() {
 // Homepage
 // scroll to anker
 document.addEventListener('DOMContentLoaded', function() {
-var scrollLinks = document.querySelectorAll('.scroll-link');
-scrollLinks.forEach(function(scrollLink) {
-  scrollLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    var targetId = this.getAttribute('data-target');
-    var targetSection = document.getElementById(targetId);
-    if (targetSection) {
-      var headerHeight = document.querySelector('.headerbox').offsetHeight;
-      var targetOffset = targetSection.offsetTop - headerHeight;
-      window.scrollTo({
-        top: targetOffset,
-        behavior: 'smooth'
+  var scrollLinks = document.querySelectorAll('.scroll-link');
+  scrollLinks.forEach(function(scrollLink) {
+      scrollLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          var targetId = this.getAttribute('data-target');
+          var targetSection = document.getElementById(targetId);
+          if (targetSection) {
+              var headerHeight = document.querySelector('.headerbox').offsetHeight;
+              var targetOffset = targetSection.offsetTop - headerHeight;
+              // Überprüfen, ob sich die aktuelle Seite auf der index.php befindet
+              if (window.location.pathname === '/Autovermietung/index.php') {
+                  window.scrollTo({
+                      top: targetOffset,
+                      behavior: 'smooth'
+                  });
+              } else {
+                  // Wenn nicht, leiten Sie den Benutzer zur index.php-Seite weiter
+                  window.location.href = 'index.php#' + targetId;
+              }
+          }
       });
-    }
   });
 });
-});
+
 
 
 // Header
