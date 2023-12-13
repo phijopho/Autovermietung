@@ -11,8 +11,8 @@ form {
 
 }
 
-/* headline with gradient underlining */
-h1 {
+/* headline with gradient underlining */ /*h1 zerstört den footer. problem finden und beheben! deswegen ist der code erstmal auskommenntiert*/
+/*h1 {
     text-align: center;
     margin-top: 100px;
 
@@ -25,7 +25,11 @@ h1 {
     background-repeat: no-repeat;
     line-height: 42px;
 }
+*/
 
+h1 {
+    text-align: center;
+}
 /* align input boxes underneath each other */
 .inputbox {
     text-align: center;

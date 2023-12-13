@@ -15,6 +15,7 @@
 
     <!-- jquery range slider -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
@@ -447,6 +448,6 @@
 </div>
 </body>
 <?php
-    include('../includes/footer.html'); // Einbinden des Footers
+include('../includes/footer.html');
 ?>
 </html>
