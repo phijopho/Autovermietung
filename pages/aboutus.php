@@ -8,7 +8,11 @@
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleAboutUs.css">
     <link rel="stylesheet" href="css/styleFooter.css">
+<<<<<<< Updated upstream
     <title>SWIFT rentals</title>
+=======
+    <title>About Us</title>
+>>>>>>> Stashed changes
 </head>
 
 <?php
