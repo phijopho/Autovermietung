@@ -60,7 +60,7 @@ if (isset($_POST['addBooking'])) {
   <dl id="ud_accordion">
     <?php
       $numberOfBookings=getNumberOfBookings();
-      if($numberOfBookings>0){
+      if($numberOfBookings>0)
         for($i=0; $i<$numberOfBookings; $i++){
         ?>
             <dt>
