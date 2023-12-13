@@ -1,0 +1,19 @@
+/* Style About us */
+
+/* Einstellungen für den About us container */
+.AboutUsUeberschrift {
+    font-weight: 700;
+}
+
+.AboutUsContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    line-height: 2;
+}
+
+  .blocksatz {
+    text-align: justify;
+}
