@@ -1,6 +1,7 @@
 // Produktdetailseite toggle Menu 
 
 window.onload = function() {
+    // Beim Laden der Seite die Höhe des divGallery auf die Höhe des divFoto setzen
     var fotoHeight = document.querySelector('.foto').clientHeight;
     var gallery = document.querySelector('.divgallery');
     gallery.style.height = fotoHeight + 'px';
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var targetOffset = targetSection.offsetTop - headerHeight;
         window.scrollTo({
           top: targetOffset,
-          behavior: 'smooth'
+          behavior: 'smooth' // Glatte Scrollanimation
         });
       }
     });
@@ -93,28 +94,4 @@ document.addEventListener('DOMContentLoaded', function() {
   setActiveLink();
 });
 
-//Hovermenu closing slower
-let closeTimer;
 
-
-function handleMouseEnter() {
-    document.getElementById('submenu').style.display = 'block';
-}
-
-
-function startCloseTimer() {
-    closeTimer = setTimeout(() => {
-        document.getElementById('submenu').style.display = 'none';
-    }, 800); 
-}
-
-
-function cancelCloseTimer() {
-    clearTimeout(closeTimer);
-}
-
-function handleMouseLeave(event) {
-    if (!event.relatedTarget || (event.relatedTarget !== document.getElementById('submenu') && !document.getElementById('submenu').contains(event.relatedTarget))) {
-        startCloseTimer(); 
-}
-}
