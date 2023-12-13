@@ -329,6 +329,7 @@ function getUserAge(){
     $row = $stmt->fetch();
     return $row['Age'];
 }
+
 function getNumberOfBookings() {
     include('dbConnection.php');
     $username = $_SESSION['username'];
