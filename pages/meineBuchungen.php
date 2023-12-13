@@ -56,7 +56,7 @@ $offset = ($currentPage - 1) * $perPage;
 $numberOfBookings = getNumberOfBookings();
 $totalPages = ceil($numberOfBookings / $perPage);
 
-$bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
+// $bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
 ?>
 
 <!--Buchungsdaten Übersicht-->
