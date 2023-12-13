@@ -64,6 +64,7 @@ padding-top: 15px;
   height: 23px;
   background: url('../images/category\ icons/mehrsitzer.png') no-repeat;
   background-size: cover;
+  transition: all .25s ease-in-out;
 }
 
 /* style if checked */
