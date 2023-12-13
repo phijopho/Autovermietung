@@ -446,15 +446,6 @@ function selectSpecificColumn($column, $table, $carTypeID) {
 }
 
 //Button functions for Produktdetailseite
-function getUserAge($userId) {
-    include('dbConnection.php');
-    $stmt = $conn->prepare("SELECT age FROM User WHERE user_id = :userId");
-    $stmt->bindParam(':userId', $userId);
-    $stmt->execute();
-    $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    return $userData['age'] ?? null;
-}
 
 function checkUserAgeForCarType($userAge, $carTypeMinAge) {
     if ($userAge >= $carTypeMinAge) {
