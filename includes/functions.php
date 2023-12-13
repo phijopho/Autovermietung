@@ -339,7 +339,6 @@ function getNumberOfBookings() {
     return $row['COUNT(Rental.User_ID)'];
 }
 
-
 function getBookingInfos($User_ID){
     include('dbConnection.php');
     $stmt = $conn->query(
