@@ -112,8 +112,7 @@ button:focus {
 }
 
 .contentBox {
-    height: 93vh;
+    height: 99vh;
     background-color: black;
     align-items: center;
-    z-index: 1;
 }

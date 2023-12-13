@@ -24,6 +24,9 @@ ini_set('display_errors', 1);
 <body>
 <?php
 include('dbConnection.php');
+?>
+
+<?php
 if (isset($_POST['addBooking'])) {
     $carTypeId = $_POST['carType_ID'];
  
@@ -56,7 +59,7 @@ $offset = ($currentPage - 1) * $perPage;
 $numberOfBookings = getNumberOfBookings();
 $totalPages = ceil($numberOfBookings / $perPage);
 
-// $bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
+$bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
 ?>
 
 <!--Buchungsdaten Übersicht-->
@@ -140,6 +143,72 @@ $(document).ready(function() { //code execudes when document is fully loaded
         }
       }
     });
+});
+
+
+// code für pagination site switch
+document.addEventListener("DOMContentLoaded", function() {
+  const itemsPerPage = 5; // Anzahl der anzuzeigenden Elemente auf einer Seite
+  const bookings = <?php echo json_encode($bookingInfos); ?>; // Booking Infos werden gefüllt
+  let currentPage = 1;
+
+  function displayBookings(page) { //Start- und Endindex werden berechnet | Buchungen werden beim Seitenwechsel mit neuen Buchungsinfos gefüllt.(Der HTML inhalt des Accordions wird neu geladen)
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageBookings = bookings.slice(startIndex, endIndex);
+
+    const accordionContainer = document.getElementById('ud_accordion');
+    accordionContainer.innerHTML = generateBookingHtml(pageBookings);
+  }
+
+  //html code wird für jede Buchung erstellt
+  function generateBookingHtml(bookings) {
+    let html = '';
+    bookings.forEach(booking => { 
+      html += `
+        <dt>
+          <p>${booking['Rent_ID']}</p>
+          <p>${booking['BookingDate']}</p>
+          <p>${booking['StartDate']}</p>
+          <p>${booking['EndDate']}</p>
+          <p>${booking['Brand']} ${booking['Model']}&nbsp;&nbsp;&nbsp;</p>
+        </dt>
+        <dd>
+          Abhol- und Rückgabeort: ${booking['CarLocation']}<br>
+          Gesamtpreis der Buchung: ${booking['TotalPrice']} &euro;<br>
+        </dd>
+      `;
+    });
+
+    return html; //html code wird wiedergegeben
+  }
+
+  //Pagination Links werden aktualisiert
+  function updatePagination() {
+    const paginationContainer = document.querySelector('.pagination-container'); //paginationContainer ist nur für das Positionen auf der Website notwendig
+    paginationContainer.innerHTML = '';
+
+    const totalGroups = Math.ceil(bookings.length / itemsPerPage); //Gesamtzahl der Seiten berechnen
+
+    //Für jede Seite wird eine Zahl erstellt und für jede Seite ein neues HTML Dokument
+    for (let i = 1; i <= totalGroups; i++) {
+      const pageLink = document.createElement('a');
+      pageLink.href = '#';
+      pageLink.classList.add('pagination-link');
+      pageLink.textContent = i;
+      pageLink.addEventListener('click', function(event) { //Wenn man auf eine Zahl klickt wird reagiert der code
+        event.preventDefault(); // Verhindert das Standardverhalten des Links
+        currentPage = i;
+        displayBookings(currentPage); //Wenn auf eine Zahl geklickt wird die Funktion displayBookings hervorgerufen
+        updatePagination();
+      });
+
+      paginationContainer.appendChild(pageLink);
+    }
+  }
+
+  displayBookings(currentPage);
+  updatePagination();
 });
 </script>
 
