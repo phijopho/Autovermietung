@@ -12,7 +12,7 @@ form {
 }
 
 /* headline with gradient underlining */ /*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
-/*h1 {
+h1 {
     color: #f7f2ef;
     font-size: 45px;
 
@@ -21,7 +21,9 @@ form {
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
-} */
+} 
+
+
 
 /*align input boxes underneath each other*/
 .inputbox {
