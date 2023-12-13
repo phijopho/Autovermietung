@@ -65,33 +65,39 @@ function scrollFunction() {
 
 //Link stays active and marked while on page
 document.addEventListener('DOMContentLoaded', function() {
-const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-// add 'active'-class bbsed on current url
-function setActiveLink() {
-    const currentUrl = window.location.href;
-    navLinks.forEach(link => {
-        if (currentUrl.includes(link.href)) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
+  // Funktion zum Markieren des aktiven Links
+  function setActiveLink() {
+      const currentUrl = window.location.href;
+      navLinks.forEach(link => {
+          if (currentUrl.includes(link.href)) {
+              link.classList.add('active');
+          } else {
+              link.classList.remove('active');
+          }
+      });
+  }
 
-// Event-Listener for clicked links
-navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        navLinks.forEach(item => {
-            item.classList.remove('active');
-        });
-        this.classList.add('active');
-    });
+  // Event-Listener für geklickte Links
+  navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+          navLinks.forEach(item => {
+              item.classList.remove('active');
+          });
+          this.classList.add('active');
+          // Aktivieren des Links, wenn darauf geklickt wird
+          setActiveLink();
+      });
+  });
+
+  // Aktiviere den Link basierend auf der aktuellen URL beim Laden der Seite
+  setActiveLink();
+
+  // Überwache Änderungen in der URL (Seitenwechsel)
+  window.addEventListener('popstate', setActiveLink);
 });
 
-// Set links as active while on page
-setActiveLink();
-});
 
 //Hovermenu closing slower
 let closeTimer;
