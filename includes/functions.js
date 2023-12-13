@@ -1,97 +1,129 @@
 // Produktdetailseite toggle Menu 
 
 window.onload = function() {
-    // Beim Laden der Seite die Höhe des divGallery auf die Höhe des divFoto setzen
-    var fotoHeight = document.querySelector('.foto').clientHeight;
-    var gallery = document.querySelector('.divgallery');
-    gallery.style.height = fotoHeight + 'px';
+  var fotoHeight = document.querySelector('.foto').clientHeight;
+  var gallery = document.querySelector('.divgallery');
+  gallery.style.height = fotoHeight + 'px';
 }
 
 function togglemenu() {
-    var table = document.getElementById("desc");
-    var button = document.querySelector('.buttonToggle');
-    
-    // show table on click when not visible
-    if (table.style.opacity == '0') {
-        table.style.opacity = '1.0';
-        table.style.maxHeight = '100%';
-        button.classList.add('rotated');
-    // hide table on click when visible
-    } else {
-        table.style.opacity = '0';
-        table.style.maxHeight = '0';
-        button.classList.remove('rotated');
-    }
+  var table = document.getElementById("desc");
+  var button = document.querySelector('.buttonToggle');
+  
+  // show table on click when not visible
+  if (table.style.opacity == '0') {
+      table.style.opacity = '1.0';
+      table.style.maxHeight = '100%';
+      button.classList.add('rotated');
+  // hide table on click when visible
+  } else {
+      table.style.opacity = '0';
+      table.style.maxHeight = '0';
+      button.classList.remove('rotated');
+  }
 }
 
 // Homepage
 // scroll to anker
-document.addEventListener('DOMContentLoaded', function() {
-  var scrollLinks = document.querySelectorAll('.scroll-link');
-  scrollLinks.forEach(function(scrollLink) {
+function scrollToAnchor() {
+var scrollLinks = document.querySelectorAll('.scroll-link');
+scrollLinks.forEach(function(scrollLink) {
     scrollLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      var targetId = this.getAttribute('data-target');
-      var targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        var headerHeight = document.querySelector('.headerbox').offsetHeight;
-        var targetOffset = targetSection.offsetTop - headerHeight;
-        window.scrollTo({
-          top: targetOffset,
-          behavior: 'smooth' // Glatte Scrollanimation
-        });
-      }
+        event.preventDefault();
+        var targetId = this.getAttribute('data-target');
+        var targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            var headerHeight = document.querySelector('.headerbox').offsetHeight;
+            var targetOffset = targetSection.offsetTop - headerHeight;
+            window.scrollTo({
+                top: targetOffset,
+                behavior: 'smooth'
+            });
+        }
     });
-  });
 });
+}
 
-  
+// Initialisieren Sie die Scroll-Funktion nur, wenn sich die Seite auf der index.php befindet
+if (window.location.pathname === '/Autovermietung/index.php') {
+document.addEventListener('DOMContentLoaded', function() {
+    scrollToAnchor();
+});
+}
+
+
+
 // Header
 // Scrollfunction 
 window.onscroll = function() {
-   scrollFunction();
- };
+ scrollFunction();
+};
 
- //Change of padding when scroll
- function scrollFunction() {
-   var headerContainer = document.querySelector(".headercontainer");
-   if (document.documentElement.scrollTop > 30) {
-     headerContainer.style.padding = "0px 20px";
+//Change of padding when scroll
+function scrollFunction() {
+ var headerContainer = document.querySelector(".headercontainer");
+ if (document.documentElement.scrollTop > 30) {
+   headerContainer.style.padding = "0px 20px";
 
-   } else {
-     headerContainer.style.padding = "10px 10px";
-   }
+ } else {
+   headerContainer.style.padding = "10px 10px";
+ }
 }
 
 
 //Link stays active and marked while on page
 document.addEventListener('DOMContentLoaded', function() {
-  const navLinks = document.querySelectorAll('.nav-link');
+const navLinks = document.querySelectorAll('.nav-link');
 
-  // add 'active'-class bbsed on current url
-  function setActiveLink() {
-      const currentUrl = window.location.href;
-      navLinks.forEach(link => {
-          if (currentUrl.includes(link.href)) {
-              link.classList.add('active');
-          } else {
-              link.classList.remove('active');
-          }
-      });
-  }
+// add 'active'-class bbsed on current url
+function setActiveLink() {
+    const currentUrl = window.location.href;
+    navLinks.forEach(link => {
+        if (currentUrl.includes(link.href)) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
 
-  // Event-Listener for clicked links
-  navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-          navLinks.forEach(item => {
-              item.classList.remove('active');
-          });
-          this.classList.add('active');
-      });
-  });
-
-  // Set links as active while on page
-  setActiveLink();
+// Event-Listener for clicked links
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        navLinks.forEach(item => {
+            item.classList.remove('active');
+        });
+        this.classList.add('active');
+    });
 });
 
+// Set links as active while on page
+setActiveLink();
+});
+
+//Hovermenu closing slower
+let closeTimer;
+
+
+function handleMouseEnter() {
+  document.getElementById('submenu').style.display = 'block';
+}
+
+
+function startCloseTimer() {
+  closeTimer = setTimeout(() => {
+      document.getElementById('submenu').style.display = 'none';
+  }, 800); 
+}
+
+
+function cancelCloseTimer() {
+  clearTimeout(closeTimer);
+}
+
+function handleMouseLeave(event) {
+  if (!event.relatedTarget || (event.relatedTarget !== document.getElementById('submenu') && !document.getElementById('submenu').contains(event.relatedTarget))) {
+      startCloseTimer(); 
+}
+}
 
