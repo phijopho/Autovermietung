@@ -136,7 +136,7 @@ include('includes/header.php'); // include header
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
 
-                    <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin hamburg" onclick="submitFormWithCity('Hamburg');">
                         <span>Hamburg</span>
                     </div>
 
@@ -144,51 +144,51 @@ include('includes/header.php'); // include header
                         <span>Berlin</span>
                     </div>
 
-                    <div class="pin paderborn" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin paderborn" onclick="submitFormWithCity('Paderborn');">
                         <span>Paderborn</span>
                     </div>
 
-                    <div class="pin rostock" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin rostock" onclick="submitFormWithCity('Rostock');">
                         <span>Rostock</span>
                     </div>
 
-                    <div class="pin bielefeld" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin bielefeld" onclick="submitFormWithCity('Bielefeld');">
                         <span>Bielefeld</span>
                     </div>
 
-                    <div class="pin bochum" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin bochum" onclick="submitFormWithCity('Bochum');">
                         <span>Bochum</span>
                     </div>
 
-                    <div class="pin bremen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin bremen" onclick="submitFormWithCity('Bremen');">
                         <span>Bremen</span>
                     </div>
 
-                    <div class="pin dortmund" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin dortmund" onclick="submitFormWithCity('Dortmund');">
                         <span>Dortmund</span>
                     </div>
 
-                    <div class="pin dresden" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin dresden" onclick="submitFormWithCity('Dresden');">
                         <span>Dresden</span>
                     </div>
 
-                    <div class="pin freiburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin freiburg" onclick="submitFormWithCity('Freiburg');">
                         <span>Freiburg</span>
                     </div>
 
-                    <div class="pin koeln" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin koeln" onclick="submitFormWithCity('Koeln');">
                         <span>Köln</span>
                     </div>
 
-                    <div class="pin leipzig" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin leipzig" onclick="submitFormWithCity('Leipzig');">
                         <span>Leipzig</span>
                     </div>
 
-                    <div class="pin muenchen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin muenchen" onclick="submitFormWithCity('Muenchen');">
                         <span>München</span>
                     </div>
 
-                    <div class="pin nuernberg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin nuernberg" onclick="submitFormWithCity('Nuernberg');">
                         <span>Nürnberg</span>
                     </div>
                 </div>
