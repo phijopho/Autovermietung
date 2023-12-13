@@ -1,24 +1,20 @@
 <html lang="en">
   <head>
-    <?php
-      include('../includes/htmlhead.php')
-    ?>
     <title>Fragen und Antworten</title>
    
+    <link rel="stylesheet" href="../css/styleFAQ.css">
     <link rel="stylesheet" href="../css/styleFooter.css">
-    <link rel="stylesheet" href="css/styleFAQ.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
 
-<body>
-
   <?php
-    include('../includes/header.html'); // Einbinden des Headers
-  ?>
-    
+      include('../includes/htmlhead.php')
+    ?>
 
-
-
+<?php
+    include('../includes/header.php'); // Including the header
+?>
+<body>
 <!--Buchungsdaten Übersicht-->
 <article>
       <h1>Fragen und Antworten</h1>

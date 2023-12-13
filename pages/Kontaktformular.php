@@ -1,20 +1,27 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-    include('../includes/htmlhead.php');
+        include('../includes/htmlhead.php');
     ?>
-    <title>Kontaktformular</title>
-    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleKontaktformular.css">
-    <link rel="stylesheet" href="../css/styleFooter.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Kontaktformular</title>
+    <base href="/Autovermietung/">
+
+    <?php
+    include('../includes/header.php'); // Including the header
+?>
 </head>
 
 <body>
 
 <?php
 include('../includes/dbConnection.php');
-include('../includes/header.html'); // Einbinden des Headers
 
 $confirmationMessage = ''; // Neue Variable für die Bestätigungsnachricht
 
@@ -52,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="ft-form" method="POST" accept-charset="UTF-8">
     <div id="confirmation"></div>
+    <h1> </h1>
     <h1>Kontaktformular</h1>
     <label>
         <input type="text" required autofocus placeholder="Vorname" name="vorname"> <br>
@@ -71,12 +79,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div>
         <button type="submit" name="login">Anfrage senden</button>
     </div>
+    <h1></h1>
 </form>
 
 </body>
-    <?php
-    include('../includes/footer.html');
-    ?>
+<?php
+include('../includes/footer.html');
+?>
 </html>
 
 

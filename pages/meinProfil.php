@@ -15,6 +15,12 @@
     include('../includes/header.php'); // Einbinden des Headers
 ?>
 <body>
+
+<div class="contentBox">
+    <div class="gif1">
+        <img src="./images/neonlightsrev.gif">
+    </div>
+    
     <form>
         <h1>Mein Profil</h1>
         <div class="inputbox">
@@ -70,7 +76,4 @@
         });
     </script>    
 </body>
-<?php
-    include('../includes/footer.html'); // Einbindung des Footers
-?>
 </html>

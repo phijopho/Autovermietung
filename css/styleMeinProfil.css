@@ -73,6 +73,7 @@ button {
     border-radius: 25px;
     padding-top: 200px;
     border: none;
+    align-items: center;
 
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
@@ -88,4 +89,21 @@ button:hover {
 /* remove outline on register button */
 button:focus {
     outline: none;
+}
+
+.gif1 {
+    margin: 50px;
+    margin-top: 210px;
+    width: 45%;
+    float: left;
+
+}
+
+.gif1 img {
+    width: 100%;
+}
+
+.contentBox {
+    height: 93vh;
+    background-color: black;
 }
