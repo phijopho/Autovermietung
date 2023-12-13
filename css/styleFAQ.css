@@ -5,15 +5,20 @@ html {
   width: 100%;
   height: 100%;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /*settings for article*/
 article {
   width: 90%;
   max-width: 1000px;
-  margin: 230px auto 0 auto;
+  margin: 160px auto 500px auto;
   height: 47vh;
   position: relative;
+  flex: 1;
+  z-index: 1;
 }
 
 /*settings when element is clicked(active)*/
