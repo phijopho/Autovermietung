@@ -23,9 +23,6 @@
 
 <!--Benutzerdaten abrufen und in $user speichern-->
 <?php
-
-
-// Nehmen wir an, dass die Benutzer-ID in einer Session gespeichert ist.
 $userID = $_SESSION['User_ID'];
 
 // Benutzerdaten abrufen und in $user speichern
@@ -36,7 +33,7 @@ $query->execute();
 // Holen der Ergebnisse als assoziatives Array
 $user = $query->fetch(PDO::FETCH_ASSOC);
 
-// Datenbankverbindung schließen (wichtig am Ende jeder PHP-Datei)
+// Datenbankverbindung schließen
 $conn = null;
 ?>
 
@@ -54,7 +51,7 @@ $conn = null;
         <input type="text" required placeholder="Alter" value="<?php echo $user['Age']; ?>">
         <input type="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>">
         <input type= "text" required placeholder="Username" value="<?php echo $user['Username']; ?>">
-        <input type="password" required placeholder="Password" value="<?php echo $user['Password']; ?>">
+        <input type="text" required placeholder="Password" value="<?php echo $user['Password']; ?>">
 
             <button>Bearbeiten</button>
         </div>
