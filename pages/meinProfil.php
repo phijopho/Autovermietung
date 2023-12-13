@@ -6,6 +6,11 @@
       include('../includes/htmlhead.php')
     ?>
 
+    <?php
+        include('dbConnection.php');
+
+    ?>
+
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleRegistration.css">
     <link rel="stylesheet" href="css/styleFooter.css">
@@ -44,7 +49,7 @@
 
             // example data | müssen später mit variablen gefüllt werden
             var userData = {
-                vorname: "",
+                vorname:  <?php echo json_encode($user['FirstName']); ?>,
                 nachname: "Mustermann",
                 alter: "25",
                 email: "max@example.com",

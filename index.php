@@ -140,7 +140,7 @@ include('includes/header.php'); // include header
                         <span>Hamburg</span>
                     </div>
 
-                    <div class="pin berlin" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
+                    <div class="pin berlin" onclick="submitFormWithCity('Berlin');">
                         <span>Berlin</span>
                     </div>
 
@@ -211,6 +211,25 @@ include('includes/header.php'); // include header
         </div>
     </div>
 </body>
+
+<script>
+    function submitFormWithCity(city) {
+        var form = document.createElement("form");
+        form.method = "POST";
+        form.action = "http://localhost/Autovermietung/pages/produktuebersicht.php";
+
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "selectedLocation";
+        input.value = city;
+
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+
+
 <?php
 include('includes/footer.html');
 ?>
