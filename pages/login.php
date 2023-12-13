@@ -17,15 +17,11 @@
 </head>
 
 <body>
-    <?php
-    include('../includes/dbConnection.php');
-    include('../includes/header.php');
-    include('../includes/functions.php');
+<?php
     include('../includes/functionsLogin.php');
 
     preventEnterIfLoggedIn();
-
-    ?>
+?>
 <div class="contentBox">
     <div class="gif1">
         <img src="./images/neonlightsrev.gif">

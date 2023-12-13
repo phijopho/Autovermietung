@@ -1,3 +1,8 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <?php
@@ -9,11 +14,32 @@
   </head>
 
 <body>
+<?php
+include('dbConnection.php');
+if (isset($_POST['addBooking'])) {
+    $carTypeId = $_POST['carType_ID'];
+ 
+    $availableCarIDs=getAvailableCarIDs($carTypeId);
+    if($availableCarIDs>1){
+      $randomIndex = array_rand($availableCarIDs);
+      $carID = $availableCarIDs[$randomIndex];
+    } else {
+      $carID=$availableCarIDs[0];
+    }
 
-  <?php
-    include('../includes/header.php'); // Einbinden des Headers
-  ?>
-    
+    $stmt = "INSERT INTO Rental (User_ID, Car_ID, StartDate, EndDate) VALUES (:user_id, :car_id, :startDate, :endDate)";
+    $stmt = $conn->prepare($stmt);
+    $stmt->bindParam(':user_id', $_SESSION['User_ID']);
+    $stmt->bindParam(':car_id', $carID);
+    $stmt->bindParam(':startDate', $_SESSION['pickUpDate']);
+    $stmt->bindParam(':endDate', $_SESSION['returnDate']);
+
+    $stmt->execute();
+    header('Location: ' .$_SERVER['PHP_SELF']);
+ 
+    echo "<br>Buchung erfolgreich hinzugefügt!";
+}
+?>
 <!--Buchungsdaten Übersicht-->
 <article>
       <h1>Meine Buchungen</h1>
@@ -27,10 +53,15 @@
         <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
       </div>
 
-      <dl id="ud_accordion">
-        <?php
-          $numberOfBookings=getNumberOfBookings($_SESSION['User_ID']);
-          for($i=1; $i<=$numberOfBookings; $i++){
+  <?php 
+  // retrieve Infos from database to fill them into accordion
+    $bookingInfos=getBookingInfos($_SESSION['User_ID']); 
+  ?>
+  <dl id="ud_accordion">
+    <?php
+      $numberOfBookings=getNumberOfBookings();
+      if($numberOfBookings>0){
+        for($i=0; $i<$numberOfBookings; $i++){
         ?>
             <dt>
               <p><?php echo "BuchungsID"; ?></p>
