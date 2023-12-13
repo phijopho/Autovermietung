@@ -7,22 +7,23 @@
             include('includes/dbConnection.php'); // connect database
             include('./includes/functions.php');
         ?>
+        <title>Homepage</title>
         <!-- Einbinden der style.css -->
         <link rel="stylesheet" href="css/styleHomepage.css">
         <link rel="stylesheet" href="css/styleFooter.css">
-=======
->>>>>>> parent of 14eec2b (Merge branch 'Clara' into Philipp2)
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="includes/karussell-slider.js"></script>
+        <script src="includes/functions.js"></script>
+    </head>
 
-<head>
-    <?php
-    // include functions and db connection because of different folder location as in head
-    include('includes/functions.php');
-    include('includes/dbConnection.php');    
-    include('includes/htmlhead.php');
-    ?>
 
-    <!-- sessions and variables -->
-    <?php
+<?php
+include('includes/header.php'); // include header
+?>
+<body>
+
+ <!-- sessions and variables -->
+ <?php
     $location = getCities();
 
     $today = date("Y-m-d");
@@ -34,18 +35,6 @@
     }
     ?>
 
-    <!-- html page specifis -->
-    <link rel="stylesheet" href="css/styleHomepage.css">
-    <title>SWIFT rentals</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="includes/karussell-slider.js"></script>
-    <script src="includes/functions.js"></script>
-</head>
-
-<?php
-include('includes/header.php'); // include header
-?>
-<body>
     <div class="BackgroundKia">
         <div class="section1">
             <div class="containerBookingForm">
