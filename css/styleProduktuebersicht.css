@@ -35,37 +35,46 @@ justify-content: space-between;
 padding-top: 15px;
 }
 
-/* checkboxes with categories style */
+/* style for category filter */
+
+/* style for category section */
+.categoryBox {
+  padding-top: 15px;
+}
+
+/* category style for each row */
 .checkbox-container {
   display: flex;
   align-items: center;
 }
 
+/* hide default checkbox */
 .checkbox-container input {
-  display: none; /* Hide the default checkbox */
+  display: none;
 }
 
 .categoryLabel {
   cursor: pointer;
 }
 
+/* style if not checked */
 .iconCheckbox {
   display: inline-block;
   width: 50px;
   height: 23px;
-  background: url('../images/category\ icons/cabrio.png') no-repeat;
-  background-size: cover;
-}
-
-/* Styles for checked state */
-.checkbox-container input:checked + .categoryLabel .iconCheckbox {
-  background: url('../images/category\ icons/coupe.png') no-repeat;
-  background-size: cover;
-}
-
-/* Additional styles for a better visual effect */
-.categoryLabel:hover .iconCheckbox {
   background: url('../images/category\ icons/mehrsitzer.png') no-repeat;
+  background-size: cover;
+}
+
+/* style if checked */
+.checkbox-container input:checked + .categoryLabel .iconCheckbox {
+  background: url('../images/category\ icons/mehrsitzer_checked.png') no-repeat;
+  background-size: cover;
+}
+
+/* style on hover */
+.categoryLabel:hover .iconCheckbox {
+  background: url('../images/category\ icons/mehrsitzer_hover.png') no-repeat;
   background-size: cover;
 }
 
