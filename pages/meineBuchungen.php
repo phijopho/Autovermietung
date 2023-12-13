@@ -19,6 +19,11 @@
     include('../includes/header.php');
 ?>
 <body>
+ 
+ <?php
+ preventEnterIfLoggedOut();
+ ?>
+ 
 <!--Buchungsdaten Übersicht-->
 <article>
   <h1>Meine Buchungen</h1>
