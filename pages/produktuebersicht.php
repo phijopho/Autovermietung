@@ -15,6 +15,8 @@
 
     <!-- jquery range slider -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="includes/functions.js"></script>
@@ -235,16 +237,16 @@
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
                 <select class="customSelect" name="location">
-                    <?php 
-                    foreach ($location as $city) {
-                        if ($_SESSION['location'] == $city) {
-                            echo "<option value='$city' selected>$city</option>";
-                        } else {
-                            echo "<option value='$city'>$city</option>";
-                        }
-                    }
-                    ?>
-                </select>
+    <?php 
+    foreach ($location as $city) {
+        echo "<option value='$city' ";
+        if (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city) {
+            echo "selected";
+        }
+        echo ">$city</option>";
+    }
+    ?>
+</select>
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
@@ -254,17 +256,20 @@
                 <label for="returnDate">R&uuml;ckgabedatum:</label>
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"  onchange="validateDates()"/>
             </div>
-            <div class="itemBox">
+            <div class="categoryBox">
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
+                            echo "<div class='checkbox-container'>";
                             if(in_array($category, $_SESSION['checkedCategories'])){
-                                echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
-                                echo "<label for '".$category."'>".$category."</label><br>"; 
+                                echo "<input type='checkbox' id=".$category." name=".$category." value='".$category."' checked>";
                             } else {
-                                echo "<input type='checkbox' name=".$category." value='".$category."'>";
-                                echo "<label for '".$category."'>".$category."</label><br>";    
-                            }    
+                                echo "<input type='checkbox' id=".$category." name=".$category." value='".$category."'>";  
+                            }
+                            echo "<label class='categoryLabel' for='".$category."'>";
+                            echo "<span class='iconCheckbox'></span> ";
+                            echo "$category</label>";
+                            echo "</div>";
                         }
                     ?>
             </div>
@@ -443,8 +448,13 @@
         ?>
     </div>
 </div>
+
+
 </body>
+
 <?php
-    include('../includes/footer.html'); // Einbinden des Footers
+    include('../includes/footer.html');
 ?>
+
+
 </html>

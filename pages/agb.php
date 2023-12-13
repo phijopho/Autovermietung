@@ -7,6 +7,7 @@
 
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleAGB.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <title>SWIFT rentals</title>
 </head>
 

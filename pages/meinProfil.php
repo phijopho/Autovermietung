@@ -6,8 +6,14 @@
       include('../includes/htmlhead.php')
     ?>
 
+    <?php
+        include('dbConnection.php');
+
+    ?>
+
     <!-- html page specifics -->
-    <link rel="stylesheet" href="css/styleRegistration.css">
+    <link rel="stylesheet" href="css/styleMeinProfil.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <title>Mein Profil</title>
 </head>
 
@@ -15,27 +21,35 @@
     include('../includes/header.php'); // Einbinden des Headers
 ?>
 <body>
+
+
+<div class="contentBox">
+    <div class="gif1">
+        <img src="./images/neonlightsrev.gif">
+    </div>
+    
     <form>
         <h1>Mein Profil</h1>
         <div class="inputbox">
-            <input type="text" required placeholder="Vorname">
-            <input type="text" required placeholder="Nachname">
-            <input type="text" required placeholder="Alter">
-            <input type="email" required placeholder="Email">
-            <input type="text" required placeholder="Username">
-            <input type="password" required placeholder="Password">
+            <input type="Vorname" required placeholder="Vorname">
+            <input type="Nachmane" required placeholder="Nachname">
+            <input type="Alter" required placeholder="Alter">
+            <input type="Email" required placeholder="Email">
+            <input type="Uext" required placeholder="Username">
+            <input type="Password" required placeholder="Password">
 
             <button>Bearbeiten</button>
         </div>
     </form>
 
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
             // example data | müssen später mit variablen gefüllt werden
             var userData = {
-                vorname: "Max",
+                vorname:  <?php echo json_encode($user['FirstName']); ?>,
                 nachname: "Mustermann",
                 alter: "25",
                 email: "max@example.com",
@@ -70,7 +84,8 @@
         });
     </script>    
 </body>
+
 <?php
-    include('../includes/footer.html'); // Einbindung des Footers
+    include('../includes/footer.html');
 ?>
 </html>
