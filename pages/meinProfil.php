@@ -8,7 +8,6 @@
 
     <?php
         include('dbConnection.php');
-
     ?>
 
     <!-- html page specifics -->
@@ -31,12 +30,12 @@
     <form>
         <h1>Mein Profil</h1>
         <div class="inputbox">
-            <input type="Vorname" required placeholder="Vorname">
-            <input type="Nachmane" required placeholder="Nachname">
-            <input type="Alter" required placeholder="Alter">
-            <input type="Email" required placeholder="Email">
-            <input type="Uext" required placeholder="Username">
-            <input type="Password" required placeholder="Password">
+        <input type="text" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>">
+        <input type="text" required placeholder="Nachname" value="<?php echo $user['LastName']; ?>">
+        <input type="text" required placeholder="Alter" value="<?php echo $user['Age']; ?>">
+        <input type="email" required placeholder="Email" value="<?php echo $user['Email']; ?>">
+        <input type="text" required placeholder="Username" value="<?php echo $user['Username']; ?>">
+        <input type="password" required placeholder="Password" value="<?php echo $user['Password']; ?>">
 
             <button>Bearbeiten</button>
         </div>
