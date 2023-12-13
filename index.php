@@ -8,6 +8,8 @@
     include('includes/dbConnection.php');    
     include('includes/htmlhead.php');
     ?>
+    <script> src="includes/functions.js"</script>
+    <script src="path/to/scrollFunction.js"></script>
 
     <!-- sessions and variables -->
     <?php
