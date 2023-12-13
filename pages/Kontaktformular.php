@@ -8,6 +8,7 @@
     <!-- html page specifics -->
     
     <link rel="stylesheet" href="css/styleKontaktformular.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Kontaktformular</title>
     <base href="/Autovermietung/">
