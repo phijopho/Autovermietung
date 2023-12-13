@@ -16,6 +16,7 @@
 ?>
 <body>
 
+
 <div class="contentBox">
     <div class="gif1">
         <img src="./images/neonlightsrev.gif">
@@ -24,24 +25,25 @@
     <form>
         <h1>Mein Profil</h1>
         <div class="inputbox">
-            <input type="text" required placeholder="Vorname">
-            <input type="text" required placeholder="Nachname">
-            <input type="text" required placeholder="Alter">
-            <input type="email" required placeholder="Email">
-            <input type="text" required placeholder="Username">
-            <input type="password" required placeholder="Password">
+            <input type="Vorname" required placeholder="Vorname">
+            <input type="Nachmane" required placeholder="Nachname">
+            <input type="Alter" required placeholder="Alter">
+            <input type="Email" required placeholder="Email">
+            <input type="Uext" required placeholder="Username">
+            <input type="Password" required placeholder="Password">
 
             <button>Bearbeiten</button>
         </div>
     </form>
 
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
             // example data | müssen später mit variablen gefüllt werden
             var userData = {
-                vorname: "Max",
+                vorname: "",
                 nachname: "Mustermann",
                 alter: "25",
                 email: "max@example.com",

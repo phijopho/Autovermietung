@@ -3,6 +3,7 @@
 <head>
     <?php
         include('../includes/htmlhead.php');
+        include('../includes/functionsRegister.php');
     ?>
 
     <!-- html page specifics -->

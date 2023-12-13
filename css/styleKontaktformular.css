@@ -8,11 +8,11 @@ form {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding-top: 20px;
+    margin-top: 120px;
 }
 
-/* headline with gradient underlining */
-h1 {
+/* headline with gradient underlining */ /*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
+/*h1 {
     color: #f7f2ef;
     font-size: 45px;
 
@@ -21,9 +21,9 @@ h1 {
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
-}
+} */
 
-/* align input boxes underneath each other */
+/*align input boxes underneath each other*/
 .inputbox {
     display: flex;
     flex-direction: column;
@@ -87,6 +87,10 @@ button:focus {
 
 textarea {
     width: 300px;
+}
+
+label {
+    margin-block: 20px;
 }
 
 

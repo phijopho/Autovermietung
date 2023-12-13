@@ -6,9 +6,8 @@
     ?>
 
     <!-- html page specifics -->
-    <link rel="stylesheet" href="css/styleKontaktformular.css">
     <link rel="stylesheet" href="css/styleFooter.css">
-
+    <link rel="stylesheet" href="css/styleKontaktformular.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Kontaktformular</title>
     <base href="/Autovermietung/">
@@ -83,9 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 </body>
+<footer>
 <?php
 include('../includes/footer.html');
 ?>
+</footer>
 </html>
 
 

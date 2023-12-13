@@ -11,10 +11,9 @@ html {
 article {
   width: 90%;
   max-width: 1000px;
-  margin: 0 auto 0 auto;
-  padding: 130px 0 0 0;
-  margin-bottom: 300px;
+  margin: 230px auto 0 auto;
   height: 47vh;
+  position: relative;
 }
 
 /*settings when element is clicked(active)*/
@@ -28,7 +27,6 @@ article {
 
 /*general settings for dt*/
 dt {
-    font-family: "Oswald", sans-serif;
     background: #00C9FF;
     color: #fff;
     border-top: 1px solid #222;
@@ -97,8 +95,8 @@ dd {
     margin: 0;
   }
 
-/* headline with gradient underlining */
-h1 {
+/* headline with gradient underlining */ /*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
+/*h1 {
   color: #f7f2ef;
   font-size: 35px;
   align-items: center;
@@ -109,4 +107,8 @@ h1 {
   line-height: 42px;
   margin-bottom: 20px;
   margin-top: -70px;
+}
+*/
+p {
+  text-align: center;
 }
