@@ -1,6 +1,7 @@
 // Produktdetailseite toggle Menu 
 
 window.onload = function() {
+    // Beim Laden der Seite die Höhe des divGallery auf die Höhe des divFoto setzen
     var fotoHeight = document.querySelector('.foto').clientHeight;
     var gallery = document.querySelector('.divgallery');
     gallery.style.height = fotoHeight + 'px';
@@ -23,29 +24,36 @@ function togglemenu() {
     }
 }
 
+
 // Homepage
-// scroll to anker
-document.addEventListener('DOMContentLoaded', function() {
-  var scrollLinks = document.querySelectorAll('.scroll-link');
-  scrollLinks.forEach(function(scrollLink) {
-    scrollLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      var targetId = this.getAttribute('data-target');
-      var targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        var headerHeight = document.querySelector('.headerbox').offsetHeight;
-        var targetOffset = targetSection.offsetTop - headerHeight;
-        window.scrollTo({
-          top: targetOffset,
-          behavior: 'smooth'
-        });
-      }
+
+//scroll to anker
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var scrollLinks = document.querySelectorAll('.scroll-link');
+    scrollLinks.forEach(function(scrollLink) {
+      scrollLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        var targetId = this.getAttribute('data-target');
+        var targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          var headerHeight = document.querySelector('.headerbox').offsetHeight;
+          var targetOffset = targetSection.offsetTop - headerHeight;
+          window.scrollTo({
+            top: targetOffset,
+            behavior: 'smooth' // Glatte Scrollanimation
+          });
+        }
+      });
     });
   });
-});
-
   
-// Header
+  
+  
+  
+
+//Header
+
 // Scrollfunction 
 window.onscroll = function() {
    scrollFunction();
@@ -93,28 +101,5 @@ document.addEventListener('DOMContentLoaded', function() {
   setActiveLink();
 });
 
-//Hovermenu closing slower
-let closeTimer;
 
 
-function handleMouseEnter() {
-    document.getElementById('submenu').style.display = 'block';
-}
-
-
-function startCloseTimer() {
-    closeTimer = setTimeout(() => {
-        document.getElementById('submenu').style.display = 'none';
-    }, 800); 
-}
-
-
-function cancelCloseTimer() {
-    clearTimeout(closeTimer);
-}
-
-function handleMouseLeave(event) {
-    if (!event.relatedTarget || (event.relatedTarget !== document.getElementById('submenu') && !document.getElementById('submenu').contains(event.relatedTarget))) {
-        startCloseTimer(); 
-}
-}
