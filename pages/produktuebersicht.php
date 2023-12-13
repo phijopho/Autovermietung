@@ -87,6 +87,9 @@
                 if (isset($_POST[$category])){
                     $_SESSION['categories'][] = $category;
                     $_SESSION['checkedCategories'][]=$category;
+                } else {
+                    // if checkbox is not set remove the category from checkedCategories
+                    $_SESSION['checkedCategories'] = array_diff($_SESSION['checkedCategories'], [$category]);
                 }
             }
             // if no categories were checked add all to session
