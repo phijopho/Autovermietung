@@ -12,6 +12,7 @@ ini_set('display_errors', 1);
   <!-- html page specifics -->
   <title>Meine Buchungen</title>
   <link rel="stylesheet" href="css/styleMeineBuchungen.css">
+  <link rel="stylesheet" href="css/styleFooter.css">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
@@ -143,4 +144,8 @@ $(document).ready(function() { //code execudes when document is fully loaded
 </script>
 
 </body>
+
+<?php
+    include('../includes/footer.html');
+?>
 </html>
