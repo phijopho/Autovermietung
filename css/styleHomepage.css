@@ -1,6 +1,7 @@
 body {
     height: fit-content;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 
 }
 /* First Section  */
