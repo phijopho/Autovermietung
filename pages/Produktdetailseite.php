@@ -1,3 +1,7 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +13,7 @@
             // CarType ID
             $_SESSION['carType_ID']=$_GET['carType_ID'];
             // Availabe Cars of that type
-            $stmt=getAvailableCarsForModelQuery($_SESSION['carType_ID']);
-            $_SESSION['availableCarsModel']=getAvailableCarsForModel($stmt);
+            $_SESSION['availableCarsModel']=getAvailableCarsForModel($_SESSION['carType_ID']);
         } else {
             echo "Ungültige Abfrage";
         }
@@ -99,18 +102,45 @@
             <h3>Ihr ausgewählter Zeitraum: </h3>
             <p><?php echo formatDate($_SESSION['pickUpDate']) ?> bis <?php echo formatDate($_SESSION['returnDate']) ?></p>
             <h3> Standort des Fahrzeugs: </h3> <p> <?php echo $_SESSION['location'] ?> </p>
-            <h3>Mindestalter: </h3><p> <?php echo getCarProperty($_SESSION['carType_ID'], 'Min_Age') ?></p>
+            <h3>Mindestalter: </h3><p> <?php $minAge=getCarProperty($_SESSION['carType_ID'], 'Min_Age'); echo $minAge; ?></p>
             <h3>Preis pro Tag: <?php $price=getCarProperty($_SESSION['carType_ID'], 'Price'); echo number_format($price, 2, ',', '.'); ?> &euro;</h3>
             <br>
             <h3>Gesamtpreis: <?php $totalPrice=getTotalPrice($price); echo number_format($totalPrice, 2, ',', '.') ?> &euro;</h3>
-            <p>Von diesem Modell sind nur noch<?php  echo " ".$_SESSION['availableCarsModel']; ?> Autos in Ihrem gewählten Zeitraum verfügbar</p>
+            <?php 
+                if($_SESSION['availableCarsModel']==0){
+                    echo "<p> Dieses Modell ist in ".$_SESSION['location']." im gew&ouml;hlten Zeitraum nicht verf&uuml;gbar. </p>";
+                } elseif ($_SESSION['availableCarsModel']==1){
+                    echo "<p> Von diesem Modell ist in ".$_SESSION['location']." nur noch 1 verf&uuml;gbar.</p>";
+                } else {
+                    echo "<p>Von diesem Modell sind nur noch ".$_SESSION['availableCarsModel'] ." Autos in Ihrem gewählten Zeitraum verfügbar. </p>"; 
+                }
+            ?>
         </div>
     </div>
     
-    <!-- User is Old enough and signed in. -->
-    <div class="divbutton">
-            <a href="pages/meineBuchungen.php" class="button">Jetzt Buchen</a>
-    </div>
+    <?php
+        if(isset($_SESSION['User_ID'])){
+            $UserAge=getUserAge();
+            if($UserAge<$minAge){ 
+                echo "<div class='divbutton'>";
+                    echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
+                echo "</div>";
+            } else { ?>
+                <div class="divbutton">
+                <form action="pages/meineBuchungen.php" method="post">
+                    <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
+                    <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
+                </form>
+            </div> <?php
+            }
+        } else {
+            echo "<div class='divbutton'>";
+                echo "<a href='pages/login.php'>";
+                    echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
+                echo "</a>";
+            echo "</div>";
+        }
+    ?>
 </div>
 </body>
 <?php 

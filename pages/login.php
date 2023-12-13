@@ -16,10 +16,10 @@
 include('../includes/header.php'); // include header
 ?>
 <body>
-    <?php
+<?php
     include('../includes/functionsLogin.php');
     preventEnterIfLoggedIn();
-    ?>
+?>
 <div class="contentBox">
     <div class="gif1">
         <img src="./images/neonlightsrev.gif">

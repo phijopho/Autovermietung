@@ -156,7 +156,7 @@ function displayResults($stmt){
     // check if there are results
     if ($result->rowCount() > 0) {
         echo "<div class='resultWrapBox'>";
-        // loop through each result and display it
+        // loop through each available result and display it
         while ($row = $result->fetch()){
             $carType_ID = $row['CarType_ID'];
             $availableCarsModel=getAvailableCarsForModel($carType_ID);
@@ -181,6 +181,7 @@ function displayResults($stmt){
                 echo "</a>";
             } 
         }
+        // loop through each unavailable result and display it
         $result = $conn->query($stmt);
         while ($row = $result->fetch()){
             $carType_ID = $row['CarType_ID'];
@@ -334,6 +335,15 @@ function getUserID() { // username is unique and User_ID is assigned within the 
     return $row['User_ID'];
 }
 
+function getUserAge(){
+    include('dbConnection.php');
+    $stmt = $conn->prepare("SELECT Age FROM User WHERE USER_ID=:user_id");
+    $stmt->bindParam('user_id', $_SESSION['User_ID']);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['Age'];
+}
+
 function getNumberOfBookings() {
     include('dbConnection.php');
     $username = $_SESSION['username'];
@@ -369,6 +379,38 @@ function getBookingInfos($User_ID){
         );
     }
     return $result;
+}
+
+function getAvailableCarIDs($carType_ID){
+    include('dbConnection.php');
+    
+    $startDate = $_SESSION['pickUpDate'];
+    $endDate = $_SESSION['returnDate'];
+    $location = $_SESSION['location'];
+    
+    $stmt = "SELECT Car.Car_ID AS AvailableCarIDs
+            FROM Car
+            INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
+            INNER JOIN Location ON Car.Location_ID = Location.Location_ID
+            LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
+                AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
+    
+    // Bereiten Sie die Abfrage vor und führen Sie sie aus
+    $stmt = $conn->prepare($stmt);
+    $stmt->bindParam(':startDate', $startDate);
+    $stmt->bindParam(':endDate',$endDate);
+    $stmt->bindParam(':location',$location);
+    $stmt->bindParam(':carType_ID', $carType_ID);
+
+    $stmt->execute();
+    
+    $IDs=array();
+    while ($row = $stmt->fetch()) {
+        $IDs[] = $row['AvailableCarIDs'];
+    }
+
+    return $IDs;
 }
 
 //Functions for Produktdetailseite
