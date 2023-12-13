@@ -138,6 +138,9 @@ ul li ul {
 ul li ul li { 
     background: #525252;
     display: block;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    align-content: center;
 }
 
 ul li ul li a {
