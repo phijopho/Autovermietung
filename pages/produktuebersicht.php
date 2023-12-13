@@ -394,10 +394,10 @@
                 <input type="hidden" name="maxPrice" id="maxPrice">
             </div>
             <br>
-            <input type="submit" value="Filtern" name="filter">
+            <input class="filterButton" type="submit" value="Filtern" name="filter">
         </form>
         <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">     
-            <input type="submit" value="Filter zurücksetzen" name="resetButton"> 
+            <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton"> 
         </form>
     </div>
 

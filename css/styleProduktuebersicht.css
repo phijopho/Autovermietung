@@ -20,7 +20,7 @@
 
 .itemBox {
   height:fit-content;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 /* Select Box */
@@ -32,10 +32,8 @@ width: 100%;
 .twoSidedBox {
 display: flex;
 justify-content: space-between;
-padding-top: 15px;
+padding-top: 12px;
 }
-
-/* style for category filter */
 
 /* style for category section */
 .categoryBox {
@@ -139,6 +137,55 @@ input:checked + .sliderRound:before {
 /* slider */
 input[type="range"] {
 width: 100%;
+}
+
+/* style for filter button */
+.filterButton {
+  width: 65px;
+  height: 23px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  transition: width .5s;
+}
+
+/* hover effects on filter button */
+.filterButton:hover {
+  cursor: pointer;
+  width: 80px;
+}
+
+/* remove outline on filter button */
+.filterButton:focus {
+  outline: none;
+}
+
+/* style for reset button */
+.resetButton {
+  width: 155px;
+  height: 23px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  background: linear-gradient(to right, #7b4397, #dc2430);
+  transition: width .5s;
+}
+
+/* hover effects on filter button */
+.resetButton:hover {
+  cursor: pointer;
+  width: 170px;
+}
+
+/* remove outline on filter button */
+.resetButton:focus {
+  outline: none;
 }
 
 /* Result area: */
