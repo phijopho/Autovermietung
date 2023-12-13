@@ -8,6 +8,7 @@
 
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleRegistration.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <title>Mein Profil</title>
 </head>
 
@@ -78,4 +79,6 @@
         });
     </script>    
 </body>
+
+
 </html>

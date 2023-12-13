@@ -46,7 +46,18 @@ if (isset($_POST['addBooking'])) {
  
     echo "<br>Buchung erfolgreich hinzugefügt!";
 }
+
+// Pagination
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+$perPage = 5;
+$offset = ($currentPage - 1) * $perPage;
+
+$numberOfBookings = getNumberOfBookings();
+$totalPages = ceil($numberOfBookings / $perPage);
+
+$bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
 ?>
+
 <!--Buchungsdaten Übersicht-->
 <article>
   <h1>Meine Buchungen</h1>
@@ -59,57 +70,42 @@ if (isset($_POST['addBooking'])) {
     <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
   </div>
 
-  <?php 
-  // retrieve Infos from database to fill them into accordion
-    $bookingInfos=getBookingInfos($_SESSION['User_ID']); 
-  ?>
   <dl id="ud_accordion">
     <?php
-      $numberOfBookings=getNumberOfBookings();
-      if($numberOfBookings>0){
-        for($i=0; $i<$numberOfBookings; $i++){
-        ?>
+      if (count($bookingInfos) > 0) {
+        foreach ($bookingInfos as $bookingInfo) {
+          ?>
           <dt>
-            <p><?php echo $bookingInfos[$i]['Rent_ID']; ?></p>
-            <p><?php echo $bookingInfos[$i]['BookingDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['StartDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['EndDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['Brand']; echo " ".$bookingInfos[$i]['Model']; ?>&nbsp;&nbsp;&nbsp;</p>
+            <p><?php echo $bookingInfo['Rent_ID']; ?></p>
+            <p><?php echo $bookingInfo['BookingDate']; ?></p>
+            <p><?php echo $bookingInfo['StartDate']; ?></p>
+            <p><?php echo $bookingInfo['EndDate']; ?></p>
+            <p><?php echo $bookingInfo['Brand'] . " " . $bookingInfo['Model']; ?>&nbsp;&nbsp;&nbsp;</p>
           </dt>
 
           <dd>
-            Abhol- und Rückgabeort: <?php echo $bookingInfos[$i]['CarLocation']; ?><br>
-            Gesamtpreis der Buchung: <?php echo $bookingInfos[$i]['TotalPrice']; ?> &euro;<br>
+            Abhol- und Rückgabeort: <?php echo $bookingInfo['CarLocation']; ?><br>
+            Gesamtpreis der Buchung: <?php echo $bookingInfo['TotalPrice']; ?> &euro;<br>
           </dd>
-        <?php
-        }     
+          <?php
+        }
       } else {
         echo "<br>Keine Buchungen vorhanden.";
       }
-      ?>
+    ?>
   </dl>
 
-
-  <div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">1</a>
-  <a href="#" class="active">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">&raquo;</a>
-</div>
+  <div class="pagination-container">
+    <?php
+      if ($totalPages > 1) {
+        for ($i = 1; $i <= $totalPages; $i++) {
+          $activeClass = ($i == $currentPage) ? 'ud_active' : '';
+          echo "<a href='?page=$i' class='pagination-link $activeClass'>$i</a>";
+        }
+      }
+    ?>
+  </div>
 </article>
-
-<?php
-  // checks
-  // echo "Number of bookings: ".$numberOfBookings;
-  // echo "<br><br>";
-  // echo var_dump($bookingInfos);
-  // echo "<br> User ID: ".$userID;
-  // print_r($_SESSION);
-?>
 
 <!--js code for accordion--> 
 <script>
@@ -145,8 +141,6 @@ $(document).ready(function() { //code execudes when document is fully loaded
     });
 });
 </script>
+
 </body>
-
-
 </html>
-

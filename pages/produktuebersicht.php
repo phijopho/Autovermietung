@@ -220,7 +220,8 @@
     ?>
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
+    <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleFooter.css">     
 
 </head>
 
@@ -446,7 +447,9 @@
     </div>
 </div>
 </body>
+
 <?php
-    include('../includes/footer.html'); // Einbinden des Footers
+include('../includes/footer.html');
 ?>
+
 </html>
