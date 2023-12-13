@@ -4,12 +4,13 @@ body {
     overflow-x: hidden;
 
 }
+
 /* First Section  */
 .BackgroundKia {
     /* backround settings */
     background-image: url('../images/3M.gif');
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: local;
     /* content settings */
@@ -24,24 +25,91 @@ body {
     border-bottom: 0px;
     border-color: aqua;
 }
+
+/* style for location */
+.selectLocation {
+    height: 45px;
+    background-color: #aba6a1;
+    padding: 5px;
+    color: #2f2e2c;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+/* style for date picker */
+input[type="date"] {
+    height: 16px;
+    background-color: #aba6a1;
+    padding: 15px;
+    color: #2f2e2c;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+/* style for calendar icon */
+::-webkit-calendar-picker-indicator {
+    background-color: #F7F2EF;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+::-webkit-calendar-picker-indicator:hover {
+    transform: scale(1.2);
+    transition: transform .5s;
+}
+
+/* style for search button */
+input[type="submit"] {
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 140px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    transition: .5s;
+}
+
+/* hover effects on search button */
+input[type="submit"]:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* remove outline on search button */
+input[type="submit"]:focus {
+    outline: none;
+}
+
 /* Background second section */
 
 .BackgroundAudi {
     background-image: url('../images/Hintergrund.svg');
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     /* content settings */
-    height: 160vh;    
+    height: 110vh;
 }
 
 .section1 {
     position: relative;
     height: 500px;
     border-bottom: 0px;
-    border-color: aqua; 
+    border-color: aqua;
 }
+
 /* Booking Form  */
 .containerBookingForm {
     margin-top: 149px;
@@ -60,6 +128,7 @@ body {
     border-color: white;
     border-radius: 25px;
 }
+
 .section2 {
     height: fit-content;
 }
@@ -73,6 +142,7 @@ body {
 .section4 {
     width: 100%;
 }
+
 .aboutUs {
     text-align: center;
     margin-left: 100px;
@@ -80,21 +150,23 @@ body {
     max-width: 200px;
     float: left;
 }
+
 .txtBox1 {
     margin-top: 110px;
     padding: 10px;
     width: 350px;
-    background: radial-gradient(#484848, #272626);  
+    background: radial-gradient(#484848, #272626);
     border: solid;
     border-radius: 25px;
-    
+
 }
+
 .txtBox2 {
     margin-top: 120px;
     margin-left: 120px;
     padding: 10px;
     width: 300px;
-    background: radial-gradient(#484848, #272626);  
+    background: radial-gradient(#484848, #272626);
     border: solid;
     border-radius: 25px;
 }
@@ -103,24 +175,28 @@ body {
     margin-top: 120px;
     padding: 10px;
     width: 350px;
-    background: radial-gradient(#484848, #272626);  
+    background: radial-gradient(#484848, #272626);
     border: solid;
     border-radius: 25px;
 }
+
 .txtBox4 {
     margin-top: 120px;
     margin-left: 270px;
     padding: 10px;
     width: 300px;
-    background: radial-gradient(#484848, #272626);  
+    background: radial-gradient(#484848, #272626);
     border: solid;
     border-radius: 25px;
 }
 
-
 /* MAP */
+
+
+
+
 .ger-map {
-    text-align:center;
+    text-align: center;
     position: relative;
     margin-left: 50px;
     margin-top: 0;
@@ -180,7 +256,7 @@ body {
     border-radius: 3em;
     padding: 0.3em 0.6em;
     font-size: 13px;
-    /* font-family: "Poppins", sans-serif; */
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     color: black;
 }
@@ -189,16 +265,14 @@ body {
     100% {
         opacity: 0;
         transform:
-            translate(-50%, -50%)
-            scale(2.5);
-    }       
+            translate(-50%, -50%) scale(2.5);
+    }
 }
-
 
 .hamburg {
     top: 20.5%;
     left: 44%;
-    
+
 }
 
 .berlin {
@@ -228,40 +302,48 @@ body {
 
 .dortmund {
     top: 44.5%;
-    left: 14%; 
+    left: 14%;
 }
+
 .nuernberg {
     top: 70%;
-    left: 54%; 
+    left: 54%;
 }
+
 .muenchen {
     top: 88%;
-    left: 62%;    
+    left: 62%;
 }
+
 .leipzig {
     top: 48%;
     left: 70%;
 }
+
 .koeln {
     top: 52%;
-    left: 15%; 
+    left: 15%;
 }
+
 .freiburg {
     top: 92%;
     left: 21%;
 }
+
 .dresden {
     top: 53%;
     left: 87%;
 }
+
 .bremen {
     top: 26%;
     left: 32%;
 }
+
 /* ----------- */
 /* slider settings */
 .cslider {
-    background: radial-gradient(#484848, #272626);  
+    background: radial-gradient(#484848, #272626);
     color: #fff;
     padding: 80px 20px 20px 20px;
     position: relative;
@@ -269,11 +351,13 @@ body {
     border-bottom: 3px solid aqua;
     border-top: 3px solid aqua;
 }
+
 .cslider img {
     height: auto;
     max-width: 100%;
     width: 100%;
 }
+
 .cslider h3,
 .cslider .h3,
 .cslider .p,
@@ -283,8 +367,8 @@ body {
 
 .cslider-carousel {
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -302,7 +386,7 @@ body {
     position: absolute;
     text-align: center;
     -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     -webkit-transition: opacity 150ms ease-in-out, width 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
     transition: opacity 150ms ease-in-out, width 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
     transition: opacity 150ms ease-in-out, width 300ms ease-in-out, transform 300ms ease-in-out, left 300ms ease-in-out;
@@ -310,11 +394,13 @@ body {
     width: 10%;
     z-index: 0;
 }
+
 @media (min-width: 1200px) {
     .cslider-item {
         left: 5%;
     }
 }
+
 .cslider-item img {
     height: auto;
     max-height: 315px;
@@ -326,24 +412,27 @@ body {
     opacity: 1;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     -webkit-transition: all 300ms ease-in-out, -webkit-transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
     transition: all 300ms ease-in-out, -webkit-transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
     transition: all 300ms ease-in-out, transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
     transition: all 300ms ease-in-out, transform 300ms cubic-bezier(0.25, 0.75, 1, 1), -webkit-transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
     z-index: 2;
 }
+
 @media (min-width: 768px) {
     .cslider-item-selected {
         -webkit-transition: all 300ms ease-in-out;
         transition: all 300ms ease-in-out;
     }
 }
+
 @media (max-width: 575px) {
     .cslider-item-selected {
         width: 50%;
     }
 }
+
 @media (min-width: 576px) {
     .cslider-item-selected {
         width: 40%;
@@ -370,15 +459,17 @@ body {
 }
 
 @media (max-width: 575px) {
+
     .cslider-item-previous,
-.cslider-item-next {
+    .cslider-item-next {
         opacity: 0;
     }
 }
 
 @media (max-width: 1519px) {
+
     .cslider-item-first,
-.cslider-item-last {
+    .cslider-item-last {
         opacity: 0;
     }
 }
@@ -394,6 +485,7 @@ body {
 .cslider-item-first {
     left: 20%;
 }
+
 @media (min-width: 1520px) {
     .cslider-item-first {
         left: 5%;
@@ -403,11 +495,13 @@ body {
 .cslider-item-last {
     left: 80%;
 }
+
 @media (min-width: 1520px) {
     .cslider-item-last {
         left: 95%;
     }
 }
+
 .cslider-text {
     height: 0;
     left: 0;
@@ -439,14 +533,14 @@ body {
     position: absolute;
     top: 50%;
     -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    transform: rotate(-45deg);
     width: 28px;
     z-index: 2;
 }
 
 .cslider-prev {
     -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
+    transform: rotate(135deg);
     left: 20px;
 }
 

@@ -14,11 +14,10 @@ html {
 article {
   width: 90%;
   max-width: 1000px;
-  margin: 160px auto 500px auto;
+  margin: 260px auto 400px auto;
   height: 47vh;
   position: relative;
   flex: 1;
-  z-index: 1;
 }
 
 /*settings when element is clicked(active)*/
@@ -100,8 +99,8 @@ dd {
     margin: 0;
   }
 
-/* headline with gradient underlining */ /*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
-/*h1 {
+/* headline with gradient underlining */
+h1 {
   color: #f7f2ef;
   font-size: 35px;
   align-items: center;
@@ -113,7 +112,7 @@ dd {
   margin-bottom: 20px;
   margin-top: -70px;
 }
-*/
+
 p {
   text-align: center;
 }
