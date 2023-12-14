@@ -1,5 +1,9 @@
 /* style login page */
 
+body {
+    overflow-x: hidden;
+}
+
 /* style form box */
 form {
     float: left;
@@ -125,6 +129,6 @@ button:focus {
 }
 
 .contentBox {
-    height: 93vh;
+    height: 100vh;
     background-color: black;
 }
