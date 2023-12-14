@@ -220,6 +220,7 @@ a:hover.buttonNotSignedIn {
 
 .buttonBack {
   background: transparent;
+  position: absolute;
   border: none;
   height: 30px;
   opacity: 0.7; 
@@ -247,7 +248,7 @@ a:hover.buttonNotSignedIn {
 
 .buttonContainer {
   width: 500px;
-  position: fixed;
+  position: relative;
   top: 120px; 
-  left: -150px;  
+  left: -60px;
 }
