@@ -26,6 +26,7 @@ ini_set('display_errors', 1);
     ?>
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <script src="includes/functions.js"></script> 
     <title>Produktdetails</title> 
 
