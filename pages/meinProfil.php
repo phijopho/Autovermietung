@@ -46,22 +46,28 @@ $conn = null;
     <form>
         <h1>Mein Profil</h1>
         <div class="inputbox">
-        <input type="text" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>">
-        <input type="text" required placeholder="Nachname" value="<?php echo $user['LastName']; ?>">
-        <input type="text" required placeholder="Alter" value="<?php echo $user['Age']; ?>">
-        <input type="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>">
-        <input type= "text" required placeholder="Username" value="<?php echo $user['Username']; ?>">
-        <input type="text" required placeholder="Password" value="<?php echo $user['Password']; ?>">
-
-            <button>Bearbeiten</button>
+            <input type="text" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>">
+            <input type="text" required placeholder="Nachname" value="<?php echo $user['LastName']; ?>">
+            <input type="text" required placeholder="Alter" value="<?php echo $user['Age']; ?>">
+            <input type="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>">
+            <input type= "text" required placeholder="Username" value="<?php echo $user['Username']; ?>">
+            <input type="text" required placeholder="Password" value="<?php echo $user['Password']; ?>">
         </div>
+        <button>Bearbeiten</button>
     </form>
-
-    </script>
+</div>
 
 
 </body>
 
+<?php
+    include('../includes/footer.html');
+?>
 
 </html>
+
+
+
+
+
 
