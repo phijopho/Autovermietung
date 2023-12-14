@@ -25,9 +25,6 @@ footer {
   text-align: center;
 }
 
-h3 {
-  color: #fff;
-}
 
 a {
   color: #fff;
@@ -39,6 +36,14 @@ a {
 .h1Footer {
   color: #f7f2ef;
   font-size: 50px;
+  font-weight: 600;
+}
+
+.h2Footer {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 34px;
   font-weight: 600;
 }
 

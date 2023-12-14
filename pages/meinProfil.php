@@ -59,38 +59,9 @@ $conn = null;
 
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
 
-            // Function for filling the form fields with the existing data
-            function fillForm() {
-                document.querySelector('input[placeholder="Vorname"]').value = userData.vorname;
-                document.querySelector('input[placeholder="Nachname"]').value = userData.nachname;
-                document.querySelector('input[placeholder="Alter"]').value = userData.alter;
-                document.querySelector('input[placeholder="Email"]').value = userData.email;
-                document.querySelector('input[placeholder="Username"]').value = userData.username;
-                document.querySelector('input[placeholder="Password"]').value = userData.password;
-            }
-
-            // Calls the function to fill the form when loading the page
-            fillForm();
-
-            // Mask password field
-            var passwordInput = document.querySelector('input[placeholder="Password"]');
-            passwordInput.type = "password";
-
-            // Function for displaying/hiding the password
-            function togglePassword() {
-                passwordInput.type = passwordInput.type === "password" ? "text" : "password";
-            }
-
-            // Event listener for displaying/hiding the password
-            document.getElementById('togglePassword').addEventListener('click', togglePassword);
-        });
-    </script>    
 </body>
 
-<?php
-    include('../includes/footer.html');
-?>
+
 </html>
+
