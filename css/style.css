@@ -26,11 +26,11 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 9999;
     transition: padding 0.2s ease;
     border-bottom: 2px solid aqua;
 }
@@ -44,6 +44,7 @@ a:hover {
 .headerbox {
     float: left;
     padding: 10px;
+    background: transparent;
 }
 
 .loginbox {
