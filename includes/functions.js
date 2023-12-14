@@ -127,3 +127,16 @@ function handleMouseLeave(event) {
 }
 }
 
+//Backbutton Produktdetailseite
+window.addEventListener('scroll', function() {
+    var button = document.getElementById('scrollButton');
+    var scrollOffset = 20;
+
+    if (window.scrollY > scrollOffset) {
+        button.innerHTML = 'X'; 
+       
+    } else {
+        button.innerHTML = 'Zurück zur Produktübersicht'; 
+        
+    }
+});
