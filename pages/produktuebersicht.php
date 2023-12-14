@@ -221,7 +221,8 @@
     ?>
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
+    <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleFooter.css">    
 
 </head>
 
@@ -442,9 +443,15 @@
         displayResults($stmt);
         ?>
     </div>
+
+
 </div>
+
 </body>
-<?php
-    include('../includes/footer.html'); // Einbinden des Footers
-?>
+
+<div class="footer">
+    <?php
+    include('../includes/footer.html');
+    ?>
+</div>
 </html>
