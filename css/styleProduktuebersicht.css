@@ -111,6 +111,10 @@ padding-top: 12px;
 }
 
 /* style if checked for each category */
+.checkbox-container input:checked + .categoryLabel {
+  color: aqua;
+  transition: var(--transition);
+}
 .checkbox-container input:checked + .categoryLabel .iconCheckboxLimousine {
   background: var(--limousineChecked);
   background-size: var(--background-size);
@@ -142,6 +146,11 @@ padding-top: 12px;
 }
 
 /* style on hover for each category */
+.categoryLabel:hover {
+  color: aqua;
+  transition: var(--transition);
+}
+
 .categoryLabel:hover .iconCheckboxLimousine {
   background: var(--limousineHover);
   background-size: var(--background-size);
