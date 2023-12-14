@@ -42,7 +42,7 @@ ini_set('display_errors', 1);
         
     ?>
     <div class="buttonContainer">
-    <a href="./pages/produktuebersicht.php?carType_ID=<?php echo $_SESSION['carType_ID']; ?>" class="buttonBack" id="scrollButton">Zurück zur Produktübersicht</a>
+    <a href="./pages/produktuebersicht.php" class="buttonBack" id="scrollButton">Zurück zur Produktübersicht</a>
     </div>
     <br>
     <div class="divbody">
