@@ -1,3 +1,4 @@
+
 body,
 html {
   margin: 0;
@@ -5,15 +6,22 @@ html {
   width: 100%;
   height: 100%;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+
 article {
+  min-height: 130vh;
   width: 90%;
   max-width: 1000px;
   margin: 0 auto 0 auto;
-  padding: 130px 0 0 0;
-  margin-bottom: 300px;
+  padding: 0px 0 0 0;
+  margin-bottom: 0;
   height: 47vh;
+  flex: 1;
+  position: relative;;
 }
 
 /*settings when element is clicked(active)*/
@@ -101,16 +109,38 @@ dt:last-child {
     margin: 0;
   }
 
-/* headline with gradient underlining */
+
 h1 {
-  color: #f7f2ef;
-  font-size: 35px;
-  align-items: center;
-  background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 34%, transparent 34%);
-  background-size: 100% 4px;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  line-height: 42px;
-  margin-bottom: 20px;
-  margin-top: -70px;
+    text-align: center;
+    margin-top: 200px;
+    color: #f7f2ef;
+    font-size: 45px;
+    background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background-size: 50% 4px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    line-height: 42px;
 }
+
+/* Pagination Styles */
+.pagination-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pagination-link {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 5px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.pagination-link:hover {
+  background-color: aqua;
+  color: black;
+}
+
