@@ -5,10 +5,12 @@
     <?php
     // include functions and db connection because of different folder location as in head
     include('includes/functions.php');
-    include('includes/dbConnection.php');    
+    include('includes/dbConnection.php');
     include('includes/htmlhead.php');
     ?>
-    <script> src="includes/functions.js"</script>
+    <script>
+        src = "includes/functions.js"
+    </script>
     <script src="path/to/scrollFunction.js"></script>
 
     <!-- sessions and variables -->
@@ -35,6 +37,7 @@
 <?php
 include('includes/header.php'); // include header
 ?>
+
 <body>
     <div class="BackgroundKia">
         <div class="section1">
@@ -204,9 +207,11 @@ include('includes/header.php'); // include header
                 <div class="txtBox3">
                     <h1>230 Mietwagen</h1>
                 </div>
-                <div class="txtBox4">
-                    <h2>Erfahren Sie mehr -></h2>
-                </div>
+                <a href="pages/aboutus.php">
+                    <div class="txtBox4">
+                        <h2>Erfahren Sie mehr</h2>
+                    </div>
+                </a>
 
             </div>
         </div>
