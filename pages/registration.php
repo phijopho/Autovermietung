@@ -8,6 +8,7 @@
 
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleRegistration.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
     <title>Registrieren</title>
 </head>
 
