@@ -25,7 +25,7 @@
   padding-top: 5px;
 }
 
-/* style for dropdown filters */
+/* dropdown filters */
 .customSelect {
 background: var(--dropdownBackground);
 color: var(--dropdownColor);
@@ -52,12 +52,12 @@ justify-content: space-between;
 padding-top: 12px;
 }
 
-/* style for category section */
+/* category section */
 .categoryBox {
   padding-top: 15px;
 }
 
-/* category style for each row */
+/* category rows */
 .checkbox-container {
   display: flex;
   align-items: center;
@@ -239,7 +239,7 @@ padding-top: 12px;
   width: 26px;
   left: 0px;
   bottom: -3px;
-  background-color: #f7f2ef;
+  background-color: var(--mainLight);
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
@@ -259,13 +259,50 @@ input:checked + .sliderRound:before {
   transform: translateX(35px);
 }
 
-/* slider */
+/* slider for "sitze", "türen", "alter" */
 input[type="range"] {
-width: 100%;
-background-color: #f7f2ef;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%
 }
 
-/* style for filter button */
+/* slider track */
+/* chrome, safari, edge, opera, chromium browsers */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--trackBackground);
+  height: var(--trackHeight);
+  border-radius: var(--trackBorderRadius);
+}
+
+/* firefox */
+input[type="range"]::-moz-range-track {
+  background: var(--trackBackground);
+  height: var(--trackHeight);
+  border-radius: var(--trackBorderRadius);
+}
+
+/* slider button */
+/* chrome, safari, edge, opera, chromium browsers  */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: var(--buttonBackground);
+  height: var(--buttonHeight);
+  width: var(--buttonWidth);
+  border-radius: var(--buttonBorderRadius);
+  margin-top: var(--buttonMargin);
+}
+
+input[type=range]::-moz-range-thumb {
+  border: none;
+  background: var(--buttonBackground);
+  height: var(--buttonHeight);
+  width: var(--buttonWidth);
+  border-radius: var(--buttonBorderRadius);
+}
+
+/* filter button */
 .filterButton {
   width: 65px;
   height: 23px;
@@ -290,7 +327,7 @@ background-color: #f7f2ef;
   outline: none;
 }
 
-/* style for reset button */
+/* reset button */
 .resetButton {
   width: 155px;
   height: 23px;
@@ -435,7 +472,7 @@ padding: 5px
 
 /* Input Box */
 #amount {
-  color: white;
+  color: var(--mainLight);
   /* font-weight: bold; */
   border: 0;
   background: transparent;

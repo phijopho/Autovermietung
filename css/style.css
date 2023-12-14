@@ -210,6 +210,8 @@ ul li ul li a {
     --mainMidDark: #aba6a1;
     --mainDark: #2f2e2c;
     --mainBackgroundColor: #525252;
+    /* font family */
+    --fontFamily: "Montserrat", sans-serif;
     /* gradient for various buttons and underlinings throughout whole website */
     --mainGradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); 
 
@@ -255,10 +257,21 @@ ul li ul li a {
     /* keep style for select dropdown filters on produktuebersicht and on homepage easy to modify  */
     --dropdownBackground: var(--mainMidDark);
     --dropdownColor: var(--mainDark);
-    --dropdownFontFamily: "Montserrat", sans-serif;
+    --dropdownFontFamily: var(--fontFamily);
     --dropdownFontWeight: bold;
     --dropdownFontSize: 14px;
     --dropdownBorder: none;
     --dropdownCursor: pointer;
     --optionBackground: var(--mainMidLight);
+
+    /* variables for range slider "Sitze", "Türen", "Alter" on produktuebersicht */
+    --trackBackground: var(--mainLight);
+    --trackHeight: 10px;
+    --trackBorderRadius: 10px;
+    --buttonBackground: aqua;
+    --buttonHeight: 22px;
+    --buttonWidth: 10px;
+    --buttonMargin: calc((var(--trackHeight) / 2) - (var(--buttonHeight) / 2)); /* center button on track */
+    --buttonBorderRadius: 10px;
+    
 }
