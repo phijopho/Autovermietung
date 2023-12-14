@@ -267,7 +267,7 @@
                                 echo "<input type='checkbox' id=".$category." name=".$category." value='".$category."'>";  
                             }
                             echo "<label class='categoryLabel' for='".$category."'>";
-                            echo "<span class='iconCheckbox'></span> ";
+                            echo "<span class='iconCheckbox$category'></span> ";
                             echo "$category</label>";
                             echo "</div>";
                         }

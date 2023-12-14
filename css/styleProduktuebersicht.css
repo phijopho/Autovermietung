@@ -55,26 +55,121 @@ padding-top: 12px;
   cursor: pointer;
 }
 
-/* style if not checked */
-.iconCheckbox {
-  display: inline-block;
-  width: 50px;
-  height: 23px;
-  background: url('../images/category\ icons/mehrsitzer.png') no-repeat;
-  background-size: cover;
-  transition: all .25s ease-in-out;
+/* style if not checked for each category (variables are declared at bottom of style.css) */
+.iconCheckboxLimousine {
+  display: var(--display);
+  width: var(--width);
+  height: var(--height);
+  transition: var(--transition);
+  background: var(--limousine);
+  background-size: var(--background-size);
 }
 
-/* style if checked */
-.checkbox-container input:checked + .categoryLabel .iconCheckbox {
-  background: url('../images/category\ icons/mehrsitzer_checked.png') no-repeat;
-  background-size: cover;
+.iconCheckboxCombi {
+  display: var(--display);
+  width: var(--width);
+  height: var(--height);
+  transition: var(--transition);
+  background: var(--combi);
+  background-size: var(--background-size);
 }
 
-/* style on hover */
-.categoryLabel:hover .iconCheckbox {
-  background: url('../images/category\ icons/mehrsitzer_hover.png') no-repeat;
-  background-size: cover;
+.iconCheckboxCabrio {
+  display: var(--display);
+  width: var(--width);
+  height: var(--height);
+  transition: var(--transition);
+  background: var(--cabrio);
+  background-size: var(--background-size);
+}
+
+.iconCheckboxSUV {
+  display: var(--display);
+  width: var(--width);
+  height: var(--height);
+  transition: var(--transition);
+  background: var(--suv);
+  background-size: var(--background-size);
+}
+
+.iconCheckboxMehrsitzer {
+  display: var(--display);
+  width: var(--width);
+  height: var(--height);
+  transition: var(--transition);
+  background: var(--mehrsitzer);
+  background-size: var(--background-size);
+}
+
+.iconCheckboxCoupe {
+  display: var(--display);
+  width: var(--width);
+  height: var(--height);
+  transition: var(--transition);
+  background: var(--coupe);
+  background-size: var(--background-size);
+}
+
+/* style if checked for each category */
+.checkbox-container input:checked + .categoryLabel .iconCheckboxLimousine {
+  background: var(--limousineChecked);
+  background-size: var(--background-size);
+}
+
+.checkbox-container input:checked + .categoryLabel .iconCheckboxCombi {
+  background: var(--combiChecked);
+  background-size: var(--background-size);
+}
+
+.checkbox-container input:checked + .categoryLabel .iconCheckboxCabrio {
+  background: var(--cabrioChecked);
+  background-size: var(--background-size);
+}
+
+.checkbox-container input:checked + .categoryLabel .iconCheckboxSUV {
+  background: var(--suvChecked);
+  background-size: var(--background-size);
+}
+
+.checkbox-container input:checked + .categoryLabel .iconCheckboxMehrsitzer {
+  background: var(--mehrsitzerChecked);
+  background-size: var(--background-size);
+}
+
+.checkbox-container input:checked + .categoryLabel .iconCheckboxCoupe {
+  background: var(--coupeChecked);
+  background-size: var(--background-size);
+}
+
+/* style on hover for each category */
+.categoryLabel:hover .iconCheckboxLimousine {
+  background: var(--limousineHover);
+  background-size: var(--background-size);
+}
+
+.categoryLabel:hover .iconCheckboxCombi {
+  background: var(--combiHover);
+  background-size: var(--background-size);
+}
+
+.categoryLabel:hover .iconCheckboxCabrio {
+  background: var(--cabrioHover);
+  background-size: var(--background-size);
+}
+
+.categoryLabel:hover .iconCheckboxSUV {
+  background: var(--suvHover);
+  background-size: var(--background-size);
+}
+
+.categoryLabel:hover .iconCheckboxMehrsitzer {
+  background: var(--mehrsitzerHover);
+  background-size: var(--background-size);
+}
+
+.categoryLabel:hover .iconCheckboxCoupe {
+  background: var(--coupeHover);
+  background-size: var(--background-size);
 }
 
 /* Toggle */

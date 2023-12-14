@@ -205,4 +205,42 @@ ul li ul li a {
 /* variables */
 :root {
     --mainGradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); /* gradient for various buttons and underlinings throughout whole website */
+
+    /* keep style for category filter menu in "styleProduktuebersicht" easy to modify */
+    --display: inline-block;
+    --width: 50px;
+    --height: 23px;
+    --background-size: cover;
+    --transition: all .25s ease-in-out;
+    
+    /* file paths for category checkbox icons to keep "styleProduktuebersicht" cleaner */
+    /* limousine */
+    --limousine: url('../images/category\ icons/limousine.png') no-repeat;
+    --limousineChecked: url('../images/category\ icons/limousine_checked.png') no-repeat;
+    --limousineHover: url('../images/category\ icons/limousine_hover.png') no-repeat;
+    
+    /* combi */
+    --combi: url('../images/category\ icons/combi.png') no-repeat;
+    --combiChecked: url('../images/category\ icons/combi_checked.png') no-repeat;
+    --combiHover: url('../images/category\ icons/combi_hover.png') no-repeat;
+    
+    /* cabrio */
+    --cabrio: url('../images/category\ icons/cabrio.png') no-repeat;
+    --cabrioChecked: url('../images/category\ icons/cabrio_checked.png') no-repeat;
+    --cabrioHover: url('../images/category\ icons/cabrio_hover.png') no-repeat;
+    
+    /* suv */
+    --suv: url('../images/category\ icons/suv.png') no-repeat;
+    --suvChecked: url('../images/category\ icons/suv_checked.png') no-repeat;
+    --suvHover: url('../images/category\ icons/suv_hover.png') no-repeat;
+    
+    /* mehrsitzer */
+    --mehrsitzer: url('../images/category\ icons/mehrsitzer.png') no-repeat;
+    --mehrsitzerChecked: url('../images/category\ icons/mehrsitzer_checked.png') no-repeat;
+    --mehrsitzerHover: url('../images/category\ icons/mehrsitzer_hover.png') no-repeat;
+
+    /* coupe */
+    --coupe: url('../images/category\ icons/coupe.png') no-repeat;
+    --coupeChecked: url('../images/category\ icons/coupe_checked.png') no-repeat;
+    --coupeHover: url('../images/category\ icons/coupe_hover.png') no-repeat;
 }
