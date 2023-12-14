@@ -1,4 +1,4 @@
-/* style Filter und Ergebnisse */
+/* style Filter und Ergebnisse (variables are declared at bottom of style.css)  */
 .contentBox {
   min-height: 100vh;
   margin-bottom: -60px;
@@ -16,6 +16,8 @@
   padding-bottom: 20px;
   position: fixed;
   border-radius: 15px;
+  transform: scaleY(0.9);
+  transform-origin: top;
 }
 
 .itemBox {
@@ -23,9 +25,24 @@
   padding-top: 5px;
 }
 
-/* Select Box */
+/* style for dropdown filters */
 .customSelect {
+background: var(--dropdownBackground);
+color: var(--dropdownColor);
+font-family: var(--dropdownFontFamily);
+font-weight: var(--dropdownFontWeight);
+font-size: var(--dropdownFontSize);
+border: var(--dropdownBorder);
+outline: var(--dropdownBorder);
+cursor: var(--dropdownCursor);
 width: 100%;
+padding: 1px 5px;
+margin-top: 2px;
+border-radius: 7px;
+}
+
+option {
+  background: var(--optionBackground);
 }
 
 /* Date style */
@@ -55,7 +72,7 @@ padding-top: 12px;
   cursor: pointer;
 }
 
-/* style if not checked for each category (variables are declared at bottom of style.css) */
+/* style if not checked for each category */
 /* ps: i couldnt find any way to make the following feel less redundant, sorry */
 .iconCheckboxLimousine {
   display: var(--display);
@@ -222,7 +239,7 @@ padding-top: 12px;
   width: 26px;
   left: 0px;
   bottom: -3px;
-  background-color: white;
+  background-color: #f7f2ef;
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
@@ -245,6 +262,7 @@ input:checked + .sliderRound:before {
 /* slider */
 input[type="range"] {
 width: 100%;
+background-color: #f7f2ef;
 }
 
 /* style for filter button */
@@ -321,11 +339,6 @@ display: flex;
 justify-content: space-between;
 }
 
-.customSelectSort {
-width: 100%;
-margin-left: 7px;
-}
-
 /* Show Cars Area */
 .resultWrapBox {
 background-color: #272626;
@@ -395,7 +408,7 @@ padding: 5px
 
 /* Slider Track */
 .ui-slider {
-  background: #ddd;
+  background: #f7f2ef;
   height: 10px;
   border-radius: 5px;
 }

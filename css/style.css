@@ -1,7 +1,7 @@
 /* settings for font and background */
 body {
     font-family: "Montserrat", sans-serif;
-    color: #f7f2ef;
+    color: var(--mainLight);
     margin: 0;
     padding: 0;
     background-color: #2f2e2c;
@@ -204,7 +204,14 @@ ul li ul li a {
 
 /* variables */
 :root {
-    --mainGradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); /* gradient for various buttons and underlinings throughout whole website */
+    /* colors */
+    --mainLight: #f7f2ef;
+    --mainMidLight: #e7e3e2;
+    --mainMidDark: #aba6a1;
+    --mainDark: #2f2e2c;
+    --mainBackgroundColor: #525252;
+    /* gradient for various buttons and underlinings throughout whole website */
+    --mainGradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); 
 
     /* keep style for category filter menu in "styleProduktuebersicht" easy to modify */
     --display: inline-block;
@@ -244,4 +251,14 @@ ul li ul li a {
     --coupe: url('../images/category\ icons/coupe.png') no-repeat;
     --coupeChecked: url('../images/category\ icons/coupe_checked.png') no-repeat;
     --coupeHover: url('../images/category\ icons/coupe_hover.png') no-repeat;
+
+    /* keep style for select dropdown filters on produktuebersicht and on homepage easy to modify  */
+    --dropdownBackground: var(--mainMidDark);
+    --dropdownColor: var(--mainDark);
+    --dropdownFontFamily: "Montserrat", sans-serif;
+    --dropdownFontWeight: bold;
+    --dropdownFontSize: 14px;
+    --dropdownBorder: none;
+    --dropdownCursor: pointer;
+    --optionBackground: var(--mainMidLight);
 }

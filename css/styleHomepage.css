@@ -25,18 +25,24 @@ body {
     border-color: aqua;
 }
 
-/* style for location */
+/* style for location filter */
 .selectLocation {
+    background: var(--dropdownBackground);
+    color: var(--dropdownColor);
+    font-family: var(--dropdownFontFamily);
+    font-weight: var(--dropdownFontWeight);
+    font-size: var(--dropdownFontSize);
+    border: var(--dropdownBorder);
+    outline: var(--dropdownBorder);
+    cursor: var(--dropdownCursor);
     height: 45px;
-    background-color: #aba6a1;
     padding: 5px;
-    color: #2f2e2c;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    border: none;
-    outline: none;
     border-radius: 15px;
 }
+
+option {
+    background: var(--optionBackground);
+  }
 
 /* style for date picker */
 input[type="date"] {

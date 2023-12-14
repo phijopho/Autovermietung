@@ -410,7 +410,7 @@
             <div class="sortBox">
                 <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" id="sortForm">
                     <label for="sort" >Sortierung: </label>
-                    <select class="customSelectSort" name="sort" onchange="submitForm()">
+                    <select class="customSelect" name="sort" onchange="submitForm()">
                         <option value="alphabetic"
                         <?php 
                             if($_SESSION['sort']=='alphabetic'){
