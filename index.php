@@ -229,7 +229,6 @@ include('includes/header.php'); // include header
     }
 </script>
 
-
 <?php
 include('includes/footer.html');
 ?>
