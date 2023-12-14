@@ -8,11 +8,7 @@
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleAboutUs.css">
     <link rel="stylesheet" href="css/styleFooter.css">
-<<<<<<< Updated upstream
     <title>SWIFT rentals</title>
-=======
-    <title>About Us</title>
->>>>>>> Stashed changes
 </head>
 
 <?php
@@ -45,7 +41,7 @@ include('../includes/header.php');
 </div>
 </body>
 <?php
-include('../includes/footer.html');
+include('../includes/footer.html'); // Einbindung des Footers
 ?>
 </html>
 

@@ -3,13 +3,11 @@
 <head>
     <?php
         include('../includes/htmlhead.php');
-        include('../includes/functionsRegister.php');
     ?>
 
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleLogin.css">
     <link rel="stylesheet" href="css/styleFooter.css">
-    
     <title>Anmelden</title>
 </head>
 
@@ -38,9 +36,7 @@ include('../includes/header.php'); // include header
     </form>
 </div>
 </body>
-
-<?php
+<?php   
     include('../includes/footer.html');
 ?>
-
 </html>

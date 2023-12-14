@@ -15,10 +15,9 @@
 
     <!-- jquery range slider -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">
-    <link rel="stylesheet" href="css/styleFooter.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="includes/functions.js"></script>
     <script>
     function validateDates() {
         var pickUpDate = document.getElementById('pickUpDate').value;
@@ -222,12 +221,8 @@
     ?>
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
-<<<<<<< Updated upstream
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
-=======
     <link rel="stylesheet" href="css/styleProduktuebersicht.css">
-    <link rel="stylesheet" href="css/styleFooter.css">   
->>>>>>> Stashed changes
+    <link rel="stylesheet" href="css/styleFooter.css">    
 
 </head>
 
@@ -241,16 +236,16 @@
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
                 <select class="customSelect" name="location">
-    <?php 
-    foreach ($location as $city) {
-        echo "<option value='$city' ";
-        if (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city) {
-            echo "selected";
-        }
-        echo ">$city</option>";
-    }
-    ?>
-</select>
+                    <?php 
+                    foreach ($location as $city) {
+                        if ($_SESSION['location'] == $city) {
+                            echo "<option value='$city' selected>$city</option>";
+                        } else {
+                            echo "<option value='$city'>$city</option>";
+                        }
+                    }
+                    ?>
+                </select>
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
@@ -260,20 +255,17 @@
                 <label for="returnDate">R&uuml;ckgabedatum:</label>
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"  onchange="validateDates()"/>
             </div>
-            <div class="categoryBox">
+            <div class="itemBox">
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 
                         foreach($categories as $category){
-                            echo "<div class='checkbox-container'>";
                             if(in_array($category, $_SESSION['checkedCategories'])){
-                                echo "<input type='checkbox' id=".$category." name=".$category." value='".$category."' checked>";
+                                echo "<input type='checkbox' name=".$category." value='".$category."' checked>";
+                                echo "<label for '".$category."'>".$category."</label><br>"; 
                             } else {
-                                echo "<input type='checkbox' id=".$category." name=".$category." value='".$category."'>";  
-                            }
-                            echo "<label class='categoryLabel' for='".$category."'>";
-                            echo "<span class='iconCheckbox'></span> ";
-                            echo "$category</label>";
-                            echo "</div>";
+                                echo "<input type='checkbox' name=".$category." value='".$category."'>";
+                                echo "<label for '".$category."'>".$category."</label><br>";    
+                            }    
                         }
                     ?>
             </div>
@@ -451,44 +443,15 @@
         displayResults($stmt);
         ?>
     </div>
+
+
 </div>
 
-<<<<<<< Updated upstream
-
 </body>
 
-<?php
-    include('../includes/footer.html');
-?>
-
-
-=======
-<script>
-    window.addEventListener('scroll', function() {
-      var filterBox = document.querySelector('.filterBox');
-      var footer = document.querySelector('.footer');
-      
-      // Überprüfe, ob der Footer erreicht wurde
-      if (window.scrollY + window.innerHeight >= footer.offsetTop) {
-        
-        // Wenn ja, ändere die Position der filterBox
-        filterBox.style.position = 'absolute';
-        filterBox.style.top = (footer.offsetTop - filterBox.offsetHeight) + 'px';
-      } else {
-
-        // Andernfalls, setze die Position auf 'fixed'
-        filterBox.style.position = 'fixed';
-        filterBox.style.top = '8%'; 
-      }
-    });
-  </script>
-
-
-</body>
 <div class="footer">
-<?php
-    include('../includes/footer.html'); // Einbinden des Footers
-?>
+    <?php
+    include('../includes/footer.html');
+    ?>
 </div>
->>>>>>> Stashed changes
 </html>

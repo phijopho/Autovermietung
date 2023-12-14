@@ -1,17 +1,23 @@
-/* style registration page */
+/* style login page */
+
+body {
+    overflow-x: hidden;
+}
 
 /* style form box */
 form {
-    text-align: center;
+    float: left;
     height: 650px;
     width: 700px;
     border-radius: 10px;
     margin: auto;
-    padding-top: 170px;
+    margin-top: 40px;
+    padding-top: 100px;
 }
 
 /* headline with gradient underlining */
 h1 {
+    margin-bottom: 70px;
     text-align: center;
     color: #f7f2ef;
     font-size: 45px;
@@ -20,12 +26,10 @@ h1 {
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
-    text-align: center;
 }
 
 /* align input boxes underneath each other */
 .inputbox {
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,8 +50,6 @@ input {
     color: #f7f2ef;
     font-size: 18px;
     transition: 0.5s;
-    display: flex;
-    align-items: center;
 }
 
 /* hover effects on input boxes */
@@ -67,9 +69,10 @@ input::placeholder {
     color: #2f2e2c;
 }
 
-/* style for register button */
+/* style for bearbeiten button */
 button {
-    margin-top: 20px; /* Adjust this margin as needed */
+    margin-top: 70px;
+    margin-bottom: 50px;
     height: 50px;
     width: 150px;
     border-radius: 25px;
@@ -81,23 +84,23 @@ button {
     transition: width .5s;
 }
 
-/* hover effects on register button */
+/* hover effects on login button */
 button:hover {
     cursor: pointer;
     width: 200px;
 }
 
-/* remove outline on register button */
+/* remove outline on login button */
 button:focus {
     outline: none;
 }
-
 
 .gif1 {
     margin: 50px;
     margin-top: 210px;
     width: 45%;
     float: left;
+
 }
 
 .gif1 img {

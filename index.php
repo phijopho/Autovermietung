@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-    <head>
-        <?php
-            include('includes/htmlhead.php');
-            include('includes/dbConnection.php'); // connect database
-            include('./includes/functions.php');
-        ?>
-        <title>Homepage</title>
-        <!-- Einbinden der style.css -->
-        <link rel="stylesheet" href="css/styleHomepage.css">
-        <link rel="stylesheet" href="css/styleFooter.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="includes/karussell-slider.js"></script>
-        <script src="includes/functions.js"></script>
-    </head>
 
+<head>
+    <?php
+    // include functions and db connection because of different folder location as in head
+    include('includes/functions.php');
+    include('includes/dbConnection.php');
+    include('includes/htmlhead.php');
+    ?>
+    <script>
+        src = "includes/functions.js"
+    </script>
+    <script src="path/to/scrollFunction.js"></script>
 
-<?php
-include('includes/header.php'); // include header
-?>
-<body>
-
- <!-- sessions and variables -->
- <?php
+    <!-- sessions and variables -->
+    <?php
     $location = getCities();
 
     $today = date("Y-m-d");
@@ -35,6 +26,22 @@ include('includes/header.php'); // include header
     }
     ?>
 
+    <!-- html page specifis -->
+    <link rel="stylesheet" href="css/styleHomepage.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
+
+    <title>SWIFT rentals</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="includes/karussell-slider.js"></script>
+    <script src="includes/functions.js"></script>
+</head>
+
+<?php
+include('includes/header.php'); // include header
+?>
+
+
+<body>
     <div class="BackgroundKia">
         <div class="section1">
             <div class="containerBookingForm">
@@ -48,6 +55,7 @@ include('includes/header.php'); // include header
                             } else {
                                 echo "<option value='$city'>$city</option>";
                             }
+                            $_SESSION['location'] = "Hamburg";
                         }
                         ?>
                     </select>
@@ -131,105 +139,88 @@ include('includes/header.php'); // include header
         </div>
     </div>
     <div class="BackgroundAudi">
-        <div class="section3">
-            <div class="map-container" id="map-container">
+        <div id="section3" class="section3">
+            <div class="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
 
-                    <div class="pin hamburg" onclick="submitFormWithCity('Hamburg');">
+                    <div class="pin hamburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Hamburg</span>
                     </div>
 
-                    <div class="pin berlin" onclick="submitFormWithCity('Berlin');">
+                    <div class="pin berlin" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Berlin</span>
                     </div>
 
-                    <div class="pin paderborn" onclick="submitFormWithCity('Paderborn');">
+                    <div class="pin paderborn" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Paderborn</span>
                     </div>
 
-                    <div class="pin rostock" onclick="submitFormWithCity('Rostock');">
+                    <div class="pin rostock" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Rostock</span>
                     </div>
 
-                    <div class="pin bielefeld" onclick="submitFormWithCity('Bielefeld');">
+                    <div class="pin bielefeld" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Bielefeld</span>
                     </div>
 
-                    <div class="pin bochum" onclick="submitFormWithCity('Bochum');">
+                    <div class="pin bochum" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Bochum</span>
                     </div>
 
-                    <div class="pin bremen" onclick="submitFormWithCity('Bremen');">
+                    <div class="pin bremen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Bremen</span>
                     </div>
 
-                    <div class="pin dortmund" onclick="submitFormWithCity('Dortmund');">
+                    <div class="pin dortmund" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Dortmund</span>
                     </div>
 
-                    <div class="pin dresden" onclick="submitFormWithCity('Dresden');">
+                    <div class="pin dresden" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Dresden</span>
                     </div>
 
-                    <div class="pin freiburg" onclick="submitFormWithCity('Freiburg');">
+                    <div class="pin freiburg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Freiburg</span>
                     </div>
 
-                    <div class="pin koeln" onclick="submitFormWithCity('Koeln');">
+                    <div class="pin koeln" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Köln</span>
                     </div>
 
-                    <div class="pin leipzig" onclick="submitFormWithCity('Leipzig');">
+                    <div class="pin leipzig" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Leipzig</span>
                     </div>
 
-                    <div class="pin muenchen" onclick="submitFormWithCity('Muenchen');">
+                    <div class="pin muenchen" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>München</span>
                     </div>
 
-                    <div class="pin nuernberg" onclick="submitFormWithCity('Nuernberg');">
+                    <div class="pin nuernberg" onclick="window.location.href='http://localhost/Autovermietung/pages/produktuebersicht.php';">
                         <span>Nürnberg</span>
                     </div>
                 </div>
             </div>
             <div class="aboutUs">
                 <div class="txtBox1">
-                    <h1>12 Standorte</h1>
+                    <h1>14 Standorte</h1>
                 </div>
                 <div class="txtBox2">
                     <h1>64 Modelle</h1>
                 </div>
                 <div class="txtBox3">
-                    <h1>256 Mietwagen</h1>
+                    <h1>230 Mietwagen</h1>
                 </div>
-                <div class="txtBox4">
-                    <h2>Erfahren Sie mehr -></h2>
-                </div>
+                <a href="pages/aboutus.php">
+                    <div class="txtBox4">
+                        <h2>Erfahren Sie mehr</h2>
+                    </div>
+                </a>
 
             </div>
         </div>
     </div>
 </body>
-
-<script>
-    function submitFormWithCity(city) {
-        var form = document.createElement("form");
-        form.method = "POST";
-        form.action = "http://localhost/Autovermietung/pages/produktuebersicht.php";
-
-        var input = document.createElement("input");
-        input.type = "hidden";
-        input.name = "selectedLocation";
-        input.value = city;
-
-        form.appendChild(input);
-        document.body.appendChild(form);
-        form.submit();
-    }
-</script>
-
-
 <?php
 include('includes/footer.html');
 ?>

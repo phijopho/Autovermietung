@@ -35,11 +35,17 @@ ini_set('display_errors', 1);
 <?php
     include('../includes/header.php'); // Einbindung des Headers
 ?>
+
 <body>
     <?php
         // get car infos
         $model=getModel($_SESSION['carType_ID']);
+        
     ?>
+    <div class="buttonContainer">
+    <a href="./pages/produktuebersicht.php" class="buttonBack">Zurück zur Produktübersicht</a>
+    </div>
+    <br>
     <div class="divbody">
         <div class="divgallery">
             <h1> <?php echo $model[0]." ".$model[1]; ?></h1>
@@ -96,6 +102,7 @@ ini_set('display_errors', 1);
                 </table>
                 </div>
             </div>
+            
     </div>
     <div class="divinfo">
         <div class="divText">
