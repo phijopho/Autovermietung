@@ -1,4 +1,6 @@
 footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
   height: 410px;
   background-color: #1a1818;
   color: #fff;
@@ -22,19 +24,24 @@ footer {
 
 
 a {
-  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
   text-decoration: none;
   line-height: 2.5;
 }
 
 
 .h1Footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
   color: #f7f2ef;
   font-size: 50px;
   font-weight: 600;
 }
 
 .h2Footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
   margin-top: 100px;
   margin-bottom: 10px;
   color: #fff;
@@ -70,10 +77,11 @@ height: 20px;
 }
 
 .footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
   height: 410px;
   width: 100%;
   background-color: #1a1818;
-  color: #fff;
   padding: 20px;
   margin-bottom: 0;
   z-index: -1;
