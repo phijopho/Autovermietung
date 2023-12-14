@@ -56,6 +56,7 @@ padding-top: 12px;
 }
 
 /* style if not checked for each category (variables are declared at bottom of style.css) */
+/* ps: i couldnt find any way to make the following feel less redundant, sorry */
 .iconCheckboxLimousine {
   display: var(--display);
   width: var(--width);
@@ -110,11 +111,13 @@ padding-top: 12px;
   background-size: var(--background-size);
 }
 
-/* style if checked for each category */
+/* change color of category name if checked */
 .checkbox-container input:checked + .categoryLabel {
-  color: aqua;
+  color: var(--checkedAndHoverColor);
   transition: var(--transition);
 }
+
+/* style if checked for each category */
 .checkbox-container input:checked + .categoryLabel .iconCheckboxLimousine {
   background: var(--limousineChecked);
   background-size: var(--background-size);
@@ -145,12 +148,13 @@ padding-top: 12px;
   background-size: var(--background-size);
 }
 
-/* style on hover for each category */
+/* change color of category name if on hover */
 .categoryLabel:hover {
-  color: aqua;
+  color: var(--checkedAndHoverColor);
   transition: var(--transition);
 }
 
+/* style on hover for each category */
 .categoryLabel:hover .iconCheckboxLimousine {
   background: var(--limousineHover);
   background-size: var(--background-size);

@@ -212,6 +212,7 @@ ul li ul li a {
     --height: 23px;
     --background-size: cover;
     --transition: all .25s ease-in-out;
+    --checkedAndHoverColor: aqua;
     
     /* file paths for category checkbox icons to keep "styleProduktuebersicht" cleaner */
     /* limousine */
