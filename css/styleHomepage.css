@@ -1,6 +1,7 @@
 body {
     height: fit-content;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 
 }
 
@@ -99,7 +100,7 @@ input[type="submit"]:focus {
     background-repeat: no-repeat;
     background-attachment: fixed;
     /* content settings */
-    height: 100vh;
+    height: 110vh;
 }
 
 .section1 {
