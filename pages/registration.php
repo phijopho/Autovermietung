@@ -42,3 +42,5 @@
 <?php
     include('../includes/footer.html');
 ?>
+
+</html>
