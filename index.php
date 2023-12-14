@@ -40,6 +40,7 @@
 include('includes/header.php'); // include header
 ?>
 
+
 <body>
     <div class="BackgroundKia">
         <div class="section1">
@@ -54,6 +55,7 @@ include('includes/header.php'); // include header
                             } else {
                                 echo "<option value='$city'>$city</option>";
                             }
+                            $_SESSION['location'] = "Hamburg";
                         }
                         ?>
                     </select>
