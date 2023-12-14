@@ -72,4 +72,20 @@ transform: scale(1.2);
 .zahlungsmethoden {
 width: auto;
 height: 20px;
+<<<<<<< Updated upstream
+=======
+}
+
+.footer {
+  height: 410px;
+  width: 97%;
+  background-color: #1a1818;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 0;
+  z-index: -1;
+  float: left;
+  margin-top: 5%;
+  position: relative;
+>>>>>>> Stashed changes
 }

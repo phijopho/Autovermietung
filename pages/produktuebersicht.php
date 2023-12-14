@@ -222,7 +222,12 @@
     ?>
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="css/styleProduktuebersicht.css">    
+=======
+    <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleFooter.css">   
+>>>>>>> Stashed changes
 
 </head>
 
@@ -448,6 +453,7 @@
     </div>
 </div>
 
+<<<<<<< Updated upstream
 
 </body>
 
@@ -456,4 +462,33 @@
 ?>
 
 
+=======
+<script>
+    window.addEventListener('scroll', function() {
+      var filterBox = document.querySelector('.filterBox');
+      var footer = document.querySelector('.footer');
+      
+      // Überprüfe, ob der Footer erreicht wurde
+      if (window.scrollY + window.innerHeight >= footer.offsetTop) {
+        
+        // Wenn ja, ändere die Position der filterBox
+        filterBox.style.position = 'absolute';
+        filterBox.style.top = (footer.offsetTop - filterBox.offsetHeight) + 'px';
+      } else {
+
+        // Andernfalls, setze die Position auf 'fixed'
+        filterBox.style.position = 'fixed';
+        filterBox.style.top = '8%'; 
+      }
+    });
+  </script>
+
+
+</body>
+<div class="footer">
+<?php
+    include('../includes/footer.html'); // Einbinden des Footers
+?>
+</div>
+>>>>>>> Stashed changes
 </html>
