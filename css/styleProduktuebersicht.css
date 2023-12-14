@@ -149,7 +149,7 @@ width: 100%;
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background: var(--mainGradient);
   transition: width .5s;
 }
 
@@ -173,7 +173,7 @@ width: 100%;
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  background: linear-gradient(to right, #7b4397, #dc2430);
+  background: linear-gradient(90deg, #7b4397, #dc2430);
   transition: width .5s;
 }
 

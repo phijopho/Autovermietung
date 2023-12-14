@@ -201,3 +201,8 @@ ul li ul li a {
 .instagram:hover, .x:hover, .facebook:hover{
     transform: scale(1.2);
 }
+
+/* variables */
+:root {
+    --mainGradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); /* gradient for various buttons and underlinings throughout whole website */
+}

@@ -123,7 +123,7 @@ th, td {
 
 /* Button style if user is logged in and old enough to book the car */
 .button {
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background: var(--mainGradient);
   border: none;
   width: 45%;
   height: 60px;

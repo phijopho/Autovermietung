@@ -19,8 +19,8 @@ h1 {
     color: #f7f2ef;
     font-size: 45px;
 
-    background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    background-size: 50% 4px;
+    background-image: var(--mainGradient);
+    background-size: 42% 4px;
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
@@ -81,7 +81,7 @@ button {
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background: var(--mainGradient);
     transition: width .5s;
 }
 
