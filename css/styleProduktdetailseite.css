@@ -9,6 +9,8 @@
   margin-left: 5%;
   border: 2px solid aqua;
   border-image: linear-gradient(to bottom, aqua, #92FE9D) 1;
+  z-index: 1000;
+  background: #2f2e2c;
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
@@ -216,5 +218,39 @@ a:hover.buttonNotSignedIn {
   text-decoration: none;
   font-size: 16px;
   opacity: 100%;
+}
+
+.buttonBack {
+  background: transparent;
+  border: none;
+  height: 30px;
+  opacity: 0.7; 
+  transform: scale(100%);
+  font-weight: 600;
+  color: #f7f2ef;
+  padding: 0 15px;
+  border-radius: 20px;
+  line-height: 100%;
+  text-align: center;
+  justify-content: center; 
+  align-items: center; 
+  text-decoration: none;
+  display: flex; 
+  font-size: 16px;
+  margin-left: 25%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.buttonBack:hover {
+  opacity: 1 !important;
+  transform: scale(1.1);
+}
+
+.buttonContainer {
+  width: 500px;
+  position: fixed;
+  top: 120px; 
+  left: -150px;  
 }
 
