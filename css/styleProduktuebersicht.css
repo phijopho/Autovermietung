@@ -226,7 +226,7 @@ padding-top: 12px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #cccccc;
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 30px;
@@ -302,6 +302,13 @@ input[type=range]::-moz-range-thumb {
   border-radius: var(--buttonBorderRadius);
 }
 
+/* text underneath "sitze", "türen", "alter" slider */
+.sliderText {
+  font-family: var(--fontFamily);
+  font-size: 16px;
+  color: var(--mainLight);
+}
+
 /* filter button */
 .filterButton {
   width: 65px;
@@ -338,6 +345,7 @@ input[type=range]::-moz-range-thumb {
   font-size: 14px;
   background: linear-gradient(90deg, #7b4397, #dc2430);
   transition: width .5s;
+  margin-bottom: -10px;
 }
 
 /* hover effects on filter button */

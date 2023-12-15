@@ -215,6 +215,8 @@ ul li ul li a {
     /* gradient for various buttons and underlinings throughout whole website */
     --mainGradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); 
 
+    /* produktuebersicht */
+    --filterSecondaryColor: #cccccc; 
     /* keep style for category filter menu in "styleProduktuebersicht" easy to modify */
     --display: inline-block;
     --width: 50px;
@@ -265,13 +267,12 @@ ul li ul li a {
     --optionBackground: var(--mainMidLight);
 
     /* variables for range slider "Sitze", "Türen", "Alter" on produktuebersicht */
-    --trackBackground: var(--mainLight);
+    --trackBackground: var(--filterSecondaryColor);
     --trackHeight: 10px;
     --trackBorderRadius: 10px;
     --buttonBackground: aqua;
-    --buttonHeight: 22px;
+    --buttonHeight: 20px;
     --buttonWidth: 10px;
     --buttonMargin: calc((var(--trackHeight) / 2) - (var(--buttonHeight) / 2)); /* center button on track */
     --buttonBorderRadius: 10px;
-    
 }

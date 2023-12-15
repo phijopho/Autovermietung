@@ -290,39 +290,36 @@
                 </select>
             </div>
             <div class="itemBox">
-                <label for="seats">Sitze:</label><br>
                 <?php
                 $seats=selectMinAndMaxFromColumn("Seats", "CarType");
                 $selectedSeats=2;
                 if(isset($_SESSION['seats'])){
                     $selectedSeats=$_SESSION['seats'];
                 }
-                echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' class='slider' value='".$selectedSeats."' name='seats'>";
-                //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
+                echo "<input type='range' min='".$seats['min']."' max='".$seats['max']."' oninput='this.nextElementSibling.value = this.value' class='slider' value='".$selectedSeats."' name='seats' id='seatsRange'>";
+                echo "Sitze: <output>".$selectedSeats."</output>+";
                 ?>
             </div>
             <div class="itemBox">
-                <label for="doors">T&uuml;ren:</label><br>
                 <?php
                 $doors=selectMinAndMaxFromColumn("Doors", "CarType");
                 $selectedDoors=2;
                 if(isset($_SESSION['doors'])){
                     $selectedDoors=$_SESSION['doors'];
                 }
-                echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' class='slider' value='".$selectedDoors."' name='doors'>";
-                //evtl mit Jquery Funktion einbauen, dass aktueller Wert angezeigt wird
+                echo "<input type='range' min='".$doors['min']."' max='".$doors['max']."' oninput='this.nextElementSibling.value = this.value' class='slider' value='".$selectedDoors."' name='doors' id='doorsRange'>";
+                echo "T&uuml;ren: <output>".$selectedDoors."</output>+";
                 ?>
             </div>
             <div class="itemBox">
-                <label for="age">Alter:</label><br>
                 <?php
                 $age=selectMinAndMaxFromColumn("Min_Age", "CarType");
                 $selectedAge=25;
                 if(isset($_SESSION['age'])){
                     $selectedAge=$_SESSION['age'];
                 }
-                echo "<input type='range' min='".$age['min']."' max='".$age['max']."' class='slider' value='".$selectedAge."' name='age'>";
-                //Funktion einbauen, dass Slider Altersgrenzen anzeigt (18+, 21+, 25+)
+                echo "<input type='range' min='".$age['min']."' max='".$age['max']."' oninput='this.nextElementSibling.value = this.value' class='slider' value='".$selectedAge."' name='age' id='ageRange'>";
+                echo "Alter: <output>".$selectedAge."</output>+";
                 ?>
             </div>
             <div class="itemBox">
