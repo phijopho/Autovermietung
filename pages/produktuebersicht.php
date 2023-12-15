@@ -401,7 +401,7 @@
     <div class="resultBox">
         <div class="topBox">
             <?php 
-            $_SESSION['totalAvailableCars']=getAvailableCars(getAvailableCarsQuery());
+            $_SESSION['totalAvailableCars']=getAvailableCars(getAvailableCars());
             ?>
             <label for="available">Verf&uuml;gbare Fahrzeugmodelle: <?php echo $_SESSION['totalAvailableCars'] ?></label>
             <div class="sortBox">
