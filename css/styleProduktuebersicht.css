@@ -52,7 +52,7 @@ justify-content: space-between;
 padding-top: 12px;
 }
 
-.datePicker {
+input[type="date"] {
   background: var(--dropdownBackground);
   color: var(--dropdownColor);
   font-family: var(--dropdownFontFamily);
@@ -61,9 +61,8 @@ padding-top: 12px;
   border: var(--dropdownBorder);
   outline: var(--dropdownBorder);
   cursor: var(--dropdownCursor);
-  width: 246px;
-  height: 20px;
   margin-top: 2px;
+  width: 60%;
   border-radius: 7px;
   text-align: center;
 }

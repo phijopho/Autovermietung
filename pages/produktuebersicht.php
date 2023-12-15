@@ -249,11 +249,11 @@
                 </select>
             </div>
             <div class="twoSidedBox">
-                <label for="pickUpDate">Abholdatum:</label>
+                <label for="pickUpDate">Abholung:</label>
                         <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" id="pickUpDate"/>
             </div>
             <div class="twoSidedBox">
-                <label for="returnDate">R&uuml;ckgabedatum:</label>
+                <label for="returnDate">R&uuml;ckgabe:</label>
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"  onchange="validateDates()"/>
             </div>
             <div class="categoryBox">
