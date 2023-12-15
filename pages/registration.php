@@ -39,6 +39,7 @@
 
 </div>    
 </body>
+
 <?php
     include('../includes/footer.html');
 ?>

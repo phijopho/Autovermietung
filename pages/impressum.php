@@ -48,7 +48,7 @@ include('../includes/header.php'); // Including the header
     <br> <!--To add paragraph-->
 
     <b>Vertretungsberechtige:</b> <br>
-    Philipp Rinau (Geschäftsführer) <br>
+    Brianna Kruschke (Geschäftsführerin) <br>
 
     <br> <!--To add paragraph-->
 

@@ -8,7 +8,6 @@ form {
     border-radius: 10px;
     margin: auto;
     padding-top: 170px;
-
 }
 
 /* headline with gradient underlining */
@@ -24,7 +23,10 @@ h1 {
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
+    text-align: center;
 }
+
+
 
 /* align input boxes underneath each other */
 .inputbox {

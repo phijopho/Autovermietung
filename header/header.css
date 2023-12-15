@@ -1,0 +1,67 @@
+header {
+  width: 100%;
+  height: 80px;
+  background-color: #525252;
+  position: fixed;
+  top: 0; /* damit header direkt oben anliegt. ansonsten ist dort ein Abstand */
+  left: 0; /* damit der header links keinen Abstand hat. anonsten ist dort ein abstand */
+  display: flex; /* Füge Flexbox ein */
+  justify-content: space-between; /* Elemente werden am Anfang und am Ende ausgerichtet, zentriert sie */
+  align-items: center; /* Zentriert die Elemente vertikal */
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+ /* Navigation Stile */
+
+/* gesamte Navigationsleiste (allgemein) */
+.navigation {
+  list-style: none;
+  display: flex;
+  padding-right: 200px;
+  margin-left: 60px; 
+}
+
+.navigation li {
+  margin-left: 100px; /* Verschieben der Elemente der Navigationsleiste nach rechts */
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* zur Veränderung der Links im Header bezüglich Aussehen */
+.navigation a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  position: sticky;
+}
+
+
+/* Änderung der Farbe beim Herübergehen über die Links */
+.navigation a:hover { /* Farbe ändert sich zu rot, wenn man mit dem Mauszeiger über einen Hyperlink in Textform geht. Verbessert die Nutzererfahrung. */
+  color: #FF0000; /* Rot Farbe für Hover-Effekt */
+}
+
+
+/* Logo Einstellungen */
+
+/* Position des Logos innerhlab des Headers */
+.logo-container {
+  position: absolute;
+  justify-content: space-between; /* Elemente werden am Anfang und am Ende ausgerichtet, zentriert sie */
+  align-items: center; /* elemente werden vertikal zentriert */
+  top: 15px;
+  left: 15px;
+}
+
+/* Einstellungen bezüglich des Logos selbst. wie höhe, breite etc. */
+.logo-container img {
+  width: 70px; /* Passe die Breite nach Bedarf an */
+  height: auto; /* Skaliere die Höhe entsprechend, um das Bild nicht zu verzerren */
+}
+
+
+
+
+

@@ -151,8 +151,10 @@ ini_set('display_errors', 1);
     ?>
 </div>
 </body>
-<?php 
-    include('../includes/footer.html'); // Einbindung des Footers
+
+<?php
+include('../includes/footer.html');
 ?>
+
 </html>
  
