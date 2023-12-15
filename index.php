@@ -49,6 +49,7 @@ include('includes/header.php'); // include header
                                 echo "<option value='$city'>$city</option>";
                             }
                         }
+                        $_SESSION['location'] = "Hamburg";
                         ?>
                     </select>
                     <label for="pickUpDate">Abholdatum:</label>
