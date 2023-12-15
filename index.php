@@ -50,9 +50,9 @@ include('includes/header.php'); // include header
                         }
                         ?>
                     </select>
-                    <label for "pickUpDate">Abholdatum:</label>
+                    <label for="pickUpDate">Abholdatum:</label>
                     <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
-                    <label for "returnDate">R&uuml;ckgabedatum:</label>
+                    <label for="returnDate">R&uuml;ckgabedatum:</label>
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" /><br><br>
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
