@@ -156,29 +156,56 @@ function displayResults($stmt){
     // check if there are results
     if ($result->rowCount() > 0) {
         echo "<div class='resultWrapBox'>";
-        // loop through each result and display it
+        // loop through each available result and display it
         while ($row = $result->fetch()){
             $carType_ID = $row['CarType_ID'];
-            echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
-                echo "<div class='resultItemBox'>";
-                    echo "<div class='modelBox'>";
-                        // Use the getModel and showImage functions to display car information
-                        $model = getModel($carType_ID);
-                        echo "<label>".$model[0]." ".$model[1]."</label>";
-                        $stmtAvailableCarsModel=getAvailableCarsForModelQuery($carType_ID);
-                        $availableCarsModel=getAvailableCarsForModel($stmtAvailableCarsModel);
-                        echo "<label>Verf&uuml;gbar: ".$availableCarsModel."</label>";
+            $availableCarsModel=getAvailableCarsForModel($carType_ID);
+            if($availableCarsModel>0){
+                echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                    echo "<div class='resultItemBox'>";
+                        echo "<div class='modelBox'>";
+                            // Use the getModel and showImage functions to display car information
+                            $model = getModel($carType_ID);
+                            echo "<label>".$model[0]." ".$model[1]."</label>";
+                            echo "<label>Verf&uuml;gbar: ".$availableCarsModel."</label>";
+                        echo "</div>";
+                        showImage($carType_ID);
+                        echo "<div class='carDataBox'>";            
+                            // Use the getPrice function to display car prices
+                            $price = getCarProperty($carType_ID, 'Price');
+                            echo "Preis pro Tag: ".$price." &euro;<br>";
+                            // Tage multiplizieren
+                            echo "Preis für den gewählten Zeitraum: ".getTotalPrice($price)." &euro;<br>";
+                        echo "</div>";
                     echo "</div>";
-                    showImage($carType_ID);
-                    echo "<div class='carDataBox'>";            
-                        // Use the getPrice function to display car prices
-                        $price = getCarProperty($carType_ID, 'Price');
-                        echo "Preis pro Tag: ".$price." &euro;<br>";
-                        // Tage multiplizieren
-                        echo "Preis für den gewählten Zeitraum: ".getTotalPrice($price)." &euro;<br>";
+                echo "</a>";
+            } 
+        }
+        // loop through each unavailable result and display it
+        $result = $conn->query($stmt);
+        while ($row = $result->fetch()){
+            $carType_ID = $row['CarType_ID'];
+            $availableCarsModel=getAvailableCarsForModel($carType_ID);
+            if($availableCarsModel==0){
+                echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                    echo "<div class='resultItemBox'>";
+                        echo "<div class='modelBox'>";
+                            // Use the getModel and showImage functions to display car information
+                            $model = getModel($carType_ID);
+                            echo "<label>".$model[0]." ".$model[1]."</label>";
+                            echo "<label>Verf&uuml;gbar: ".$availableCarsModel."</label>";
+                        echo "</div>";
+                        showImage($carType_ID);
+                        echo "<div class='carDataBox'>";            
+                            // Use the getPrice function to display car prices
+                            $price = getCarProperty($carType_ID, 'Price');
+                            echo "Preis pro Tag: ".$price." &euro;<br>";
+                            // Tage multiplizieren
+                            echo "Preis für den gewählten Zeitraum: ".getTotalPrice($price)." &euro;<br>";
+                        echo "</div>";
                     echo "</div>";
-                echo "</div>";
-            echo "</a>";
+                echo "</a>";
+            } 
         }
         echo "</div>";
     } else {
@@ -187,42 +214,63 @@ function displayResults($stmt){
 }
 
 // Availability
-function getAvailableCarsQuery() {
-    // build sql statement
-    $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID"; 
-    $stmt .= " WHERE Location.City='".$_SESSION['location']."'";
-    return $stmt;
-}
-
-function getAvailableCars($stmt){
+function getAvailableCars() {
     include('dbConnection.php');
-    // execute statement
-    $availableCars=0;
-    $stmt = $conn->query($stmt);
-    while($row=$stmt->fetch()){
-        $availableCars=$row['COUNT(Car.Car_ID)'];
-    }
-    return $availableCars;  
+ 
+    $startDate = $_SESSION['pickUpDate'];
+    $endDate = $_SESSION['returnDate'];
+    $location = $_SESSION['location'];
+ 
+    $stmt = "SELECT COUNT(Car.Car_ID) AS AvailableCars
+            FROM Car
+            INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
+            INNER JOIN Location ON Car.Location_ID = Location.Location_ID
+            LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
+                AND Location.City = :location";
+ 
+    // Bereiten Sie die Abfrage vor und führen Sie sie aus
+    $stmt = $conn->prepare($stmt);
+    $stmt->bindParam(':startDate', $startDate);
+    $stmt->bindParam(':endDate',$endDate);
+    $stmt->bindParam(':location',$location);
+
+    $stmt->execute();
+    
+    $row = $stmt->fetch();
+
+    return $row['AvailableCars'];
 }
 
-function getAvailableCarsForModelQuery($CarType_ID){
-    // build sql statement
-    $stmt = "SELECT COUNT(Car.Car_ID) FROM Car INNER JOIN CarType ON Car.CarType_ID=CarType.CarType_ID INNER JOIN Location ON Location.Location_ID=Car.Location_ID";
-    $stmt .= " WHERE Car.CarType_ID=".$CarType_ID;
-
-    return $stmt;
-}
-
-function getAvailableCarsForModel($stmt){
+function getAvailableCarsForModel($carType_ID){
     include('dbConnection.php');
-    // execute statement
-    $availableCarsModel=0;
-    $stmt = $conn->query($stmt);
-    while($row=$stmt->fetch()){
-        $availableCarsModel=$row['COUNT(Car.Car_ID)'];
-    }
-    return $availableCarsModel;  
+    
+    $startDate = $_SESSION['pickUpDate'];
+    $endDate = $_SESSION['returnDate'];
+    $location = $_SESSION['location'];
+    
+    $stmt = "SELECT COUNT(Car.Car_ID) AS AvailableCarsForModel
+            FROM Car
+            INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
+            INNER JOIN Location ON Car.Location_ID = Location.Location_ID
+            LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
+                AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
+    
+    // Bereiten Sie die Abfrage vor und führen Sie sie aus
+    $stmt = $conn->prepare($stmt);
+    $stmt->bindParam(':startDate', $startDate);
+    $stmt->bindParam(':endDate',$endDate);
+    $stmt->bindParam(':location',$location);
+    $stmt->bindParam(':carType_ID', $carType_ID);
+
+    $stmt->execute();
+    
+    $row = $stmt->fetch();
+
+    return $row['AvailableCarsForModel'];
 }
+    
 
 function formatDate($date){
     $newDate = date('d.m.Y', strtotime($date));
@@ -295,6 +343,15 @@ function getUserID() { // username is unique and User_ID is assigned within the 
     return $row['User_ID'];
 }
 
+function getUserAge(){
+    include('dbConnection.php');
+    $stmt = $conn->prepare("SELECT Age FROM User WHERE USER_ID=:user_id");
+    $stmt->bindParam('user_id', $_SESSION['User_ID']);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    return $row['Age'];
+}
+
 function getNumberOfBookings() {
     include('dbConnection.php');
     $username = $_SESSION['username'];
@@ -330,6 +387,38 @@ function getBookingInfos($User_ID){
         );
     }
     return $result;
+}
+
+function getAvailableCarIDs($carType_ID){
+    include('dbConnection.php');
+    
+    $startDate = $_SESSION['pickUpDate'];
+    $endDate = $_SESSION['returnDate'];
+    $location = $_SESSION['location'];
+    
+    $stmt = "SELECT Car.Car_ID AS AvailableCarIDs
+            FROM Car
+            INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
+            INNER JOIN Location ON Car.Location_ID = Location.Location_ID
+            LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
+                AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
+    
+    // Bereiten Sie die Abfrage vor und führen Sie sie aus
+    $stmt = $conn->prepare($stmt);
+    $stmt->bindParam(':startDate', $startDate);
+    $stmt->bindParam(':endDate',$endDate);
+    $stmt->bindParam(':location',$location);
+    $stmt->bindParam(':carType_ID', $carType_ID);
+
+    $stmt->execute();
+    
+    $IDs=array();
+    while ($row = $stmt->fetch()) {
+        $IDs[] = $row['AvailableCarIDs'];
+    }
+
+    return $IDs;
 }
 
 //Functions for Produktdetailseite

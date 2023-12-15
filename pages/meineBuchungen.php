@@ -1,6 +1,6 @@
-<?php
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,18 +12,54 @@
   <!-- html page specifics -->
   <title>Meine Buchungen</title>
   <link rel="stylesheet" href="css/styleMeineBuchungen.css">
+  <link rel="stylesheet" href="css/styleFooter.css">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <?php
     include('../includes/header.php');
 ?>
+
+
 <body>
+
+
+<?php
+if (isset($_POST['addBooking'])) {
+    $carTypeId = $_POST['carType_ID'];
  
- <?php
- preventEnterIfLoggedOut();
- ?>
+    $availableCarIDs=getAvailableCarIDs($carTypeId);
+    if($availableCarIDs>1){
+      $randomIndex = array_rand($availableCarIDs);
+      $carID = $availableCarIDs[$randomIndex];
+    } else {
+      $carID=$availableCarIDs[0];
+    }
+
+    $stmt = "INSERT INTO Rental (User_ID, Car_ID, StartDate, EndDate) VALUES (:user_id, :car_id, :startDate, :endDate)";
+    $stmt = $conn->prepare($stmt);
+    $stmt->bindParam(':user_id', $_SESSION['User_ID']);
+    $stmt->bindParam(':car_id', $carID);
+    $stmt->bindParam(':startDate', $_SESSION['pickUpDate']);
+    $stmt->bindParam(':endDate', $_SESSION['returnDate']);
+
+    $stmt->execute();
+    header('Location: ' .$_SERVER['PHP_SELF']);
  
+    echo "<br>Buchung erfolgreich hinzugefügt!";
+}
+
+// Pagination
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+$perPage = 5;
+$offset = ($currentPage - 1) * $perPage;
+
+$numberOfBookings = getNumberOfBookings();
+$totalPages = ceil($numberOfBookings / $perPage);
+
+$bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
+?>
+
 <!--Buchungsdaten Übersicht-->
 <article>
   <h1>Meine Buchungen</h1>
@@ -36,46 +72,42 @@
     <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
   </div>
 
-  <?php 
-  // retrieve Infos from database to fill them into accordion
-    $userID=getUserID();
-    $bookingInfos=getBookingInfos($userID); 
-  ?>
   <dl id="ud_accordion">
     <?php
-      $numberOfBookings=getNumberOfBookings();
-      if($numberOfBookings>0){
-        for($i=0; $i<$numberOfBookings; $i++){
-        ?>
+      if (count($bookingInfos) > 0) {
+        foreach ($bookingInfos as $bookingInfo) {
+          ?>
           <dt>
-            <p><?php echo $bookingInfos[$i]['Rent_ID']; ?></p>
-            <p><?php echo $bookingInfos[$i]['BookingDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['StartDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['EndDate']; ?></p>
-            <p><?php echo $bookingInfos[$i]['Brand']; echo " ".$bookingInfos[$i]['Model']; ?>&nbsp;&nbsp;&nbsp;</p>
+            <p><?php echo $bookingInfo['Rent_ID']; ?></p>
+            <p><?php echo $bookingInfo['BookingDate']; ?></p>
+            <p><?php echo $bookingInfo['StartDate']; ?></p>
+            <p><?php echo $bookingInfo['EndDate']; ?></p>
+            <p><?php echo $bookingInfo['Brand'] . " " . $bookingInfo['Model']; ?>&nbsp;&nbsp;&nbsp;</p>
           </dt>
 
           <dd>
-            Abhol- und Rückgabeort: <?php echo $bookingInfos[$i]['CarLocation']; ?><br>
-            Gesamtpreis der Buchung: <?php echo $bookingInfos[$i]['TotalPrice']; ?> &euro;<br>
+            Abhol- und Rückgabeort: <?php echo $bookingInfo['CarLocation']; ?><br>
+            Gesamtpreis der Buchung: <?php echo $bookingInfo['TotalPrice']; ?> &euro;<br>
           </dd>
-        <?php
-        }     
+          <?php
+        }
       } else {
         echo "<br>Keine Buchungen vorhanden.";
       }
-      ?>
+    ?>
   </dl>
-</article>
 
-<?php
-  // checks
-  // echo "Number of bookings: ".$numberOfBookings;
-  // echo "<br><br>";
-  // echo var_dump($bookingInfos);
-  // echo "<br> User ID: ".$userID;
-  // print_r($_SESSION);
-?>
+  <div class="pagination-container">
+    <?php
+      if ($totalPages > 1) {
+        for ($i = 1; $i <= $totalPages; $i++) {
+          $activeClass = ($i == $currentPage) ? 'ud_active' : '';
+          echo "<a href='?page=$i' class='pagination-link $activeClass'>$i</a>";
+        }
+      }
+    ?>
+  </div>
+</article>
 
 <!--js code for accordion--> 
 <script>
@@ -110,10 +142,77 @@ $(document).ready(function() { //code execudes when document is fully loaded
       }
     });
 });
+
+
+// code für pagination site switch
+document.addEventListener("DOMContentLoaded", function() {
+  const itemsPerPage = 5; // Anzahl der anzuzeigenden Elemente auf einer Seite
+  const bookings = <?php echo json_encode($bookingInfos); ?>; // Booking Infos werden gefüllt
+  let currentPage = 1;
+
+  function displayBookings(page) { //Start- und Endindex werden berechnet | Buchungen werden beim Seitenwechsel mit neuen Buchungsinfos gefüllt.(Der HTML inhalt des Accordions wird neu geladen)
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageBookings = bookings.slice(startIndex, endIndex);
+
+    const accordionContainer = document.getElementById('ud_accordion');
+    accordionContainer.innerHTML = generateBookingHtml(pageBookings);
+  }
+
+  //html code wird für jede Buchung erstellt
+  function generateBookingHtml(bookings) {
+    let html = '';
+    bookings.forEach(booking => { 
+      html += `
+        <dt>
+          <p>${booking['Rent_ID']}</p>
+          <p>${booking['BookingDate']}</p>
+          <p>${booking['StartDate']}</p>
+          <p>${booking['EndDate']}</p>
+          <p>${booking['Brand']} ${booking['Model']}&nbsp;&nbsp;&nbsp;</p>
+        </dt>
+        <dd>
+          Abhol- und Rückgabeort: ${booking['CarLocation']}<br>
+          Gesamtpreis der Buchung: ${booking['TotalPrice']} &euro;<br>
+        </dd>
+      `;
+    });
+
+    return html; //html code wird wiedergegeben
+  }
+
+  //Pagination Links werden aktualisiert
+  function updatePagination() {
+    const paginationContainer = document.querySelector('.pagination-container'); //paginationContainer ist nur für das Positionen auf der Website notwendig
+    paginationContainer.innerHTML = '';
+
+    const totalGroups = Math.ceil(bookings.length / itemsPerPage); //Gesamtzahl der Seiten berechnen
+
+    //Für jede Seite wird eine Zahl erstellt und für jede Seite ein neues HTML Dokument
+    for (let i = 1; i <= totalGroups; i++) {
+      const pageLink = document.createElement('a');
+      pageLink.href = '#';
+      pageLink.classList.add('pagination-link');
+      pageLink.textContent = i;
+      pageLink.addEventListener('click', function(event) { //Wenn man auf eine Zahl klickt wird reagiert der code
+        event.preventDefault(); // Verhindert das Standardverhalten des Links
+        currentPage = i;
+        displayBookings(currentPage); //Wenn auf eine Zahl geklickt wird die Funktion displayBookings hervorgerufen
+        updatePagination();
+      });
+
+      paginationContainer.appendChild(pageLink);
+    }
+  }
+
+  displayBookings(currentPage);
+  updatePagination();
+});
 </script>
+
 </body>
+
 <?php
-    include('../includes/footer.html'); // Einbindung des Footers
+    include('../includes/footer.html');
 ?>
 </html>
-

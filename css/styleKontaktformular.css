@@ -1,33 +1,32 @@
-/* style registration page */
-
 /* style form box */
 form {
-    float: left;
     height: 650px;
     width: 700px;
     border-radius: 10px;
     margin: auto;
-    padding-top: 170px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 120px;
 }
 
-/* headline with gradient underlining */
+/* headline with gradient underlining */ /*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
 h1 {
-    text-align: center;
-    margin-top: 100px;
     color: #f7f2ef;
     font-size: 45px;
+
     background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    background-size: 50% 4px;
+    background-size: 100% 4px;
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
-}
+} 
 
 
-/* align input boxes underneath each other */
+
+/*align input boxes underneath each other*/
 .inputbox {
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,11 +35,9 @@ h1 {
 
 /* style input boxes */
 input {
-    text-align: center;
     height: 40px;
     width: 300px;
-    margin: 15px;
-    padding: 0px 20px;
+    padding: 0px 10px;
     border-radius: 15px;
     border: none;
     background-color: #aba6a1;
@@ -48,8 +45,6 @@ input {
     color: #f7f2ef;
     font-size: 18px;
     transition: 0.5s;
-    display: flex;
-    align-items: center;
 }
 
 /* hover effects on input boxes */
@@ -69,7 +64,7 @@ input::placeholder {
     color: #2f2e2c;
 }
 
-/* style for register button */
+/* style for login button */
 button {
     margin-left: 50%;
     transform: translateX(-50%);
@@ -95,36 +90,10 @@ button:focus {
     outline: none;
 }
 
-.error {
-    height: 35px;
-    line-height: 35px;
-    width: 450px;
-    border-radius: 10px;
-    margin: -25px auto -10px;
-    background-color: #ffbaba;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+textarea {
+    width: 300px;
 }
 
-.textError {
-    color: #a70000;
-    font-size: 16px;
-}
-
-.gif1 {
-    margin: 50px;
-    margin-top: 210px;
-    width: 45%;
-    float: left;
-}
-
-.gif1 img {
-    width: 100%;
-}
-
-.contentBox {
-    height: 100vh;
-    background-color: black;
+label {
+    margin-block: 20px;
 }
