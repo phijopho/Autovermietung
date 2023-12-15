@@ -9,15 +9,15 @@
   width: 250px;
   height: fit-content;
   background-color: #272626;
-  margin-top: 120px;
+  margin-top: 120px; /*  vorher 120 falls verschoben wenn fehler weg sind */
   margin-left: 20px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
   position: fixed;
   border-radius: 15px;
-  transform: scaleY(0.9);
-  transform-origin: top;
+  /* transform: scaleY(0.9);
+  transform-origin: top; */
 }
 
 .itemBox {
@@ -50,6 +50,22 @@ option {
 display: flex;
 justify-content: space-between;
 padding-top: 12px;
+}
+
+.datePicker {
+  background: var(--dropdownBackground);
+  color: var(--dropdownColor);
+  font-family: var(--dropdownFontFamily);
+  font-weight: var(--dropdownFontWeight);
+  font-size: var(--dropdownFontSize);
+  border: var(--dropdownBorder);
+  outline: var(--dropdownBorder);
+  cursor: var(--dropdownCursor);
+  width: 246px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 7px;
+  text-align: center;
 }
 
 /* category section */
@@ -362,7 +378,7 @@ input[type=range]::-moz-range-thumb {
 /* Result area: */
 .resultBox {
   float: left;
-  margin-top: 120px;
+  margin-top: 120px; /* vorher 120 falls verschoben wird wenn fehler weg sind  */
   margin-left: 320px;
   width: 1330px;
 }
