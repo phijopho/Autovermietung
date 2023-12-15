@@ -236,16 +236,25 @@
             <div class="itemBox">
                 <label for="location">Standort:</label><br>
                 <select class="customSelect" name="location">
-                    <?php 
+                 <?php 
+                foreach ($location as $city) {
+                    if ($_SESSION['location'] == $city) {
+                        echo "<option value='$city' selected>$city</option>";
+                    } else {
+                        echo "<option value='$city'>$city</option>";
+                    }}
+
+
                     foreach ($location as $city) {
-                        if ($_SESSION['location'] == $city) {
-                            echo "<option value='$city' selected>$city</option>";
-                        } else {
-                            echo "<option value='$city'>$city</option>";
-                        }
+                    echo "<option value='$city' ";
+                    if (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city) {
+                    echo "selected";
+                    }
+                    echo ">$city</option>";
                     }
                     ?>
                 </select>
+
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholdatum:</label>
