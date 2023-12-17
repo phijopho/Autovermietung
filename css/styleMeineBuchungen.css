@@ -64,6 +64,7 @@ dd {
   margin: 0;
 }
 
+
 dt:last-of-type {
   border-radius: 0 0 20px 20px;
 }
@@ -109,7 +110,7 @@ dt:last-child {
     margin: 0;
   }
 
-
+/*h1 styles*/
 h1 {
     text-align: center;
     margin-top: 200px;
@@ -139,6 +140,7 @@ h1 {
   transition: background-color 0.3s;
 }
 
+/*when you hover over each dt element*/
 .pagination-link:hover {
   background-color: aqua;
   color: black;

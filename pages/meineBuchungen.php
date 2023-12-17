@@ -36,6 +36,7 @@ if (isset($_POST['addBooking'])) {
       $carID=$availableCarIDs[0];
     }
 
+    //New query is added to the table rental
     $stmt = "INSERT INTO Rental (User_ID, Car_ID, StartDate, EndDate) VALUES (:user_id, :car_id, :startDate, :endDate)";
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':user_id', $_SESSION['User_ID']);
@@ -58,9 +59,11 @@ $numberOfBookings = getNumberOfBookings();
 $totalPages = ceil($numberOfBookings / $perPage);
 
 $bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
+
+$bookingInfos = array_reverse($bookingInfos); //To arrange bookings in descending order
 ?>
 
-<!--Buchungsdaten Übersicht-->
+<!--Booking data overview-->
 <article>
   <h1>Meine Buchungen</h1>
 
@@ -146,11 +149,11 @@ $(document).ready(function() { //code execudes when document is fully loaded
 
 // code für pagination site switch
 document.addEventListener("DOMContentLoaded", function() {
-  const itemsPerPage = 5; // Anzahl der anzuzeigenden Elemente auf einer Seite
-  const bookings = <?php echo json_encode($bookingInfos); ?>; // Booking Infos werden gefüllt
+  const itemsPerPage = 5; //Number of elements to be displayed on a page
+  const bookings = <?php echo json_encode($bookingInfos); ?>; //Booking info will be filled
   let currentPage = 1;
 
-  function displayBookings(page) { //Start- und Endindex werden berechnet | Buchungen werden beim Seitenwechsel mit neuen Buchungsinfos gefüllt.(Der HTML inhalt des Accordions wird neu geladen)
+  function displayBookings(page) { //Start and end index are calculated | Bookings are filled with new booking information when the page is changed (the HTML content of the accordion is reloaded).
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const pageBookings = bookings.slice(startIndex, endIndex);
@@ -159,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
     accordionContainer.innerHTML = generateBookingHtml(pageBookings);
   }
 
-  //html code wird für jede Buchung erstellt
+  //html code is created for each booking (or per 5 bookings on a page)
   function generateBookingHtml(bookings) {
     let html = '';
     bookings.forEach(booking => { 
@@ -178,26 +181,26 @@ document.addEventListener("DOMContentLoaded", function() {
       `;
     });
 
-    return html; //html code wird wiedergegeben
+    return html; //html code is rendered
   }
 
-  //Pagination Links werden aktualisiert
+  //Pagination links are updated
   function updatePagination() {
-    const paginationContainer = document.querySelector('.pagination-container'); //paginationContainer ist nur für das Positionen auf der Website notwendig
+    const paginationContainer = document.querySelector('.pagination-container'); //paginationContainer is only necessary for the positions on the website
     paginationContainer.innerHTML = '';
 
-    const totalGroups = Math.ceil(bookings.length / itemsPerPage); //Gesamtzahl der Seiten berechnen
+    const totalGroups = Math.ceil(bookings.length / itemsPerPage); //Calculate total number of pages
 
-    //Für jede Seite wird eine Zahl erstellt und für jede Seite ein neues HTML Dokument
+    //A number is created for each page and a new HTML document is created for each page
     for (let i = 1; i <= totalGroups; i++) {
       const pageLink = document.createElement('a');
       pageLink.href = '#';
       pageLink.classList.add('pagination-link');
       pageLink.textContent = i;
-      pageLink.addEventListener('click', function(event) { //Wenn man auf eine Zahl klickt wird reagiert der code
-        event.preventDefault(); // Verhindert das Standardverhalten des Links
+      pageLink.addEventListener('click', function(event) {
+        event.preventDefault();
         currentPage = i;
-        displayBookings(currentPage); //Wenn auf eine Zahl geklickt wird die Funktion displayBookings hervorgerufen
+        displayBookings(currentPage); //When a number is clicked, the displayBookings function is called up
         updatePagination();
       });
 

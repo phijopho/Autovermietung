@@ -62,6 +62,7 @@ $conn = null;
             <img src="./images/neonlightsrev.gif">
         </div>
 
+        <!--Boxen wo der User seine Daten einsehen und verändern kann-->
         <form action="pages/meinProfil.php" method="post">
             <h1>Mein Profil</h1>
             <div class="inputbox">
