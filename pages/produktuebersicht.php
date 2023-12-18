@@ -1,4 +1,3 @@
-[7:40 PM] Philipp Spiegel
 <?php
 // show error messages
 error_reporting(E_ALL);
