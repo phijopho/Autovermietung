@@ -30,10 +30,10 @@
         if (returnDateObj < pickUpDateObj) {
             alert('Das Rückgabedatum kann nicht vor dem Abholdatum liegen!');
             return false; // Verhindert das Absenden des Formulars
+        } else {
+            return true; // Erlaubt das Absenden des Formulars
         }
-
-        return true; // Erlaubt das Absenden des Formulars
-    }
+     }
     </script>
 
     <!-- sessions and variables -->
@@ -250,12 +250,23 @@
             </div>
             <div class="twoSidedBox">
                 <label for="pickUpDate">Abholung:</label>
-                        <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" id="pickUpDate"/>
+                        <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate"/>
             </div>
             <div class="twoSidedBox">
                 <label for="returnDate">R&uuml;ckgabe:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"  onchange="validateDates()"/>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/>
             </div>
+            
+            <!-- ensure that return date cant be earlier than pick up date -->
+            <script>
+                function setMinReturnDate() {
+                    var pickUpDate = document.getElementById("pickUpDate").value;
+                    document.getElementById("returnDate").min = pickUpDate;
+                }
+
+                setMinReturnDate();
+            </script>
+
             <div class="categoryBox">
                 <label for="category">Fahrzeugkategorie: </label><br>
                     <?php 

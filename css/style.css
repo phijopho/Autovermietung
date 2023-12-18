@@ -217,7 +217,7 @@ ul li ul li a {
 
     /* produktuebersicht */
     --filterSecondaryColor: #cccccc; 
-    /* keep style for category filter menu in "styleProduktuebersicht" easy to modify */
+    /* category filter in "produktuebersicht" */
     --display: inline-block;
     --width: 50px;
     --height: 23px;
@@ -225,7 +225,7 @@ ul li ul li a {
     --transition: all .25s ease-in-out;
     --checkedAndHoverColor: aqua;
     
-    /* file paths for category checkbox icons to keep "styleProduktuebersicht" cleaner */
+    /* file paths for category checkbox icons */
     /* limousine */
     --limousine: url('../images/category\ icons/limousine.png') no-repeat;
     --limousineChecked: url('../images/category\ icons/limousine_checked.png') no-repeat;
@@ -256,7 +256,7 @@ ul li ul li a {
     --coupeChecked: url('../images/category\ icons/coupe_checked.png') no-repeat;
     --coupeHover: url('../images/category\ icons/coupe_hover.png') no-repeat;
 
-    /* keep style for select dropdown filters on produktuebersicht and on homepage easy to modify  */
+    /* select / dropdown filters in produktuebersicht and homepage */
     --dropdownBackground: var(--mainMidDark);
     --dropdownColor: var(--mainDark);
     --dropdownFontFamily: var(--fontFamily);
@@ -266,7 +266,7 @@ ul li ul li a {
     --dropdownCursor: pointer;
     --optionBackground: var(--mainMidLight);
 
-    /* variables for range slider "Sitze", "Türen", "Alter" on produktuebersicht */
+    /* range / slider filters "Sitze", "Türen", "Alter" in produktuebersicht */
     --trackBackground: var(--filterSecondaryColor);
     --trackHeight: 10px;
     --trackBorderRadius: 10px;
