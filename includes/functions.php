@@ -185,6 +185,7 @@ function displayResults($stmt)
             }
         }
         // loop through each unavailable result and display it
+        echo "<div class='separatingBox'> Zu Ihren ausgew&auml;hlten Daten nicht verf&uuml;gbare Modelle: </div>";
         $result = $conn->query($stmt);
         while ($row = $result->fetch()) {
             $carType_ID = $row['CarType_ID'];
