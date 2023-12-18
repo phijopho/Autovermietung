@@ -133,28 +133,35 @@ include('../includes/header.php'); // Einbindung des Headers
         </div>
 
         <?php
-        if (isset($_SESSION['User_ID'])) {
-            $UserAge = getUserAge();
-            if ($UserAge < $minAge) {
-                echo "<div class='divbutton'>";
-                echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
-                echo "</div>";
-            } else { ?>
-                <div class="divbutton">
-                    <form action="pages/meineBuchungen.php" method="post">
-                        <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
-                        <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
-                    </form>
-                </div> <?php
-                    }
-                } else {
+        $availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
+        if ($availableCars>0){
+            if (isset($_SESSION['User_ID'])) {
+                $UserAge = getUserAge();
+                if ($UserAge < $minAge) {
                     echo "<div class='divbutton'>";
-                    echo "<a href='pages/login.php'>";
-                    echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
-                    echo "</a>";
+                    echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
                     echo "</div>";
+                } else { ?>
+                    <div class="divbutton">
+                        <form action="pages/meineBuchungen.php" method="post">
+                            <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
+                            <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
+                        </form>
+                    </div> <?php
                 }
-                        ?>
+            } else {
+                echo "<div class='divbutton'>";
+                echo "<a href='pages/login.php'>";
+                echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
+                echo "</a>";
+                echo "</div>";
+            }
+        } else {
+            echo "<div class='divbutton'>";
+            echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </body>
 
