@@ -117,8 +117,6 @@ ini_set('display_errors', 1);
         // age slider filter
         if (isset($_POST['filter'])) {
             $_SESSION['age'] = $_POST['age'];
-        } else if(isset($_SESSION['User_ID'])){
-            $_SESSION['age']=getUserAge();
         }
     
         // drive dropdown filter
@@ -317,13 +315,17 @@ include('../includes/header.php'); // include header
                 </div>
                 <div class="itemBox">
                     <?php
-                    $age = selectMinAndMaxFromColumn("Min_Age", "CarType");
-                    $selectedAge = 25;
-                    if (isset($_SESSION['age'])) {
-                        $selectedAge = $_SESSION['age'];
-                    }
-                    echo "<input type='range' min='" . $age['min'] . "' max='" . $age['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedAge . "' name='age' id='ageRange'>";
-                    echo "Alter: <output>" . $selectedAge . "</output>+";
+                        $age = selectMinAndMaxFromColumn("Min_Age", "CarType");
+                        if(isset($_SESSION['User_ID'])){
+                            $selectedAge=getUserAge();
+                        } else {
+                            $selectedAge = 25;
+                        }
+                        if (isset($_SESSION['age'])) {
+                            $selectedAge = $_SESSION['age'];
+                        }
+                        echo "<input type='range' min='" . $age['min'] . "' max='" . $age['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedAge . "' name='age' id='ageRange'>";
+                        echo "Alter: <output>" . $selectedAge . "</output>+";
                     ?>
                 </div>
                 <div class="itemBox">
