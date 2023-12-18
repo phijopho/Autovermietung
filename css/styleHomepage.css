@@ -146,8 +146,8 @@ input[type="submit"]:focus {
 .aboutUs {
     text-align: center;
     margin-left: 100px;
-    height: 200px;
-    max-width: 200px;
+    height: fit-content;
+    max-width: fit-content;
     float: left;
 }
 
@@ -228,7 +228,7 @@ input[type="submit"]:focus {
 
 .pin:hover {
     cursor: pointer;
-    transform: scale(1.7);
+    transform: scale(1.7); 
 }
 
 
@@ -237,7 +237,7 @@ input[type="submit"]:focus {
     background-color: aqua;
     position: absolute;
     top: 47%;
-    left: 47%;
+    left: 47%; 
     transform: translate(-50%, -50%);
     width: 0.7em;
     height: 0.7em;
@@ -505,6 +505,7 @@ input[type="submit"]:focus {
 .cslider-text {
     height: 0;
     left: 0;
+    padding: 0;
     opacity: 0;
     overflow: hidden;
     position: absolute;
@@ -514,7 +515,8 @@ input[type="submit"]:focus {
 }
 
 .cslider-item-selected .cslider-text {
-    height: 210px;
+    height: 150px;
+    padding: 0;
     opacity: 1;
     -webkit-transition: height 0ms, opacity 300ms ease-in-out 300ms;
     transition: height 0ms, opacity 300ms ease-in-out 300ms;
