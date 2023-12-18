@@ -22,7 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updatedAge = $_POST['age'];
     $updatedEmail = $_POST['email'];
     $updatedUsername = $_POST['username'];
-    $updatedPassword = $_POST['password'];
+    $updatedPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
 
     $query = $conn->prepare("
         UPDATE user
@@ -71,8 +72,7 @@ $conn = null;
                 <input type="text" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>">
                 <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>">
                 <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>">
-                <input type="text" name="password" required placeholder="Password" value="<?php echo $user['Password']; ?>">
-                <button type="submit">Bearbeiten</button>
+                <input type="text" name="password" required placeholder="Neues Password">                <button type="submit">Bearbeiten</button>
             </div>
         </form>
     </div>
