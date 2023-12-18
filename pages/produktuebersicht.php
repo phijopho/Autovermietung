@@ -117,8 +117,10 @@ ini_set('display_errors', 1);
         // age slider filter
         if (isset($_POST['filter'])) {
             $_SESSION['age'] = $_POST['age'];
+        } else if(isset($_SESSION['User_ID'])){
+            $_SESSION['age']=getUserAge();
         }
-
+    
         // drive dropdown filter
         if (isset($_POST['filter'])) {
             $_SESSION['drive'] = $_POST['drive'];

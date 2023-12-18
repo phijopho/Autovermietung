@@ -53,8 +53,6 @@ $query->bindParam(':userID', $userID);
 $query->execute();
 
 $user = $query->fetch(PDO::FETCH_ASSOC);
-
-$conn = null;
 ?>
 
 <body>
