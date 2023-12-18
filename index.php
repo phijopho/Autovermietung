@@ -132,8 +132,8 @@ include('includes/header.php'); // include header
             </div>
         </div>
     </div>
-    <div class="BackgroundAudi" id="section3">
-        <div class="section3">
+    <div class="BackgroundAudi">
+        <div class="section3" id="section3">
             <div class="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
