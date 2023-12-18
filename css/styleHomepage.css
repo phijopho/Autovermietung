@@ -228,7 +228,7 @@ input[type="submit"]:focus {
 
 .pin:hover {
     cursor: pointer;
-    transform: scale(1.7); 
+    transform: scale(1.7);
 }
 
 
@@ -237,7 +237,7 @@ input[type="submit"]:focus {
     background-color: aqua;
     position: absolute;
     top: 47%;
-    left: 47%; 
+    left: 47%;
     transform: translate(-50%, -50%);
     width: 0.7em;
     height: 0.7em;

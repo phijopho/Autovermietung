@@ -11,7 +11,8 @@ form {
     margin-top: 120px;
 }
 
-/* headline with gradient underlining */ /*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
+/* headline with gradient underlining */
+/*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
 h1 {
     color: #f7f2ef;
     font-size: 45px;
@@ -21,7 +22,7 @@ h1 {
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
-} 
+}
 
 
 /*align input boxes underneath each other*/

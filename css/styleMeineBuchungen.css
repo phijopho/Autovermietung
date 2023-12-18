@@ -1,4 +1,3 @@
-
 body,
 html {
   margin: 0;
@@ -21,7 +20,8 @@ article {
   margin-bottom: 0;
   height: 47vh;
   flex: 1;
-  position: relative;;
+  position: relative;
+  ;
 }
 
 /*settings when element is clicked(active)*/
@@ -93,34 +93,36 @@ dt:last-child {
 
 /*booking detail names container*/
 .onTopContainer {
-    margin: 0;
-    display: flex;
-    padding: 15px;
-    background: #00C9FF;
-    color: #fff;
-    text-transform: uppercase;
-    border-top: 1px solid #222;
-    justify-content: space-between; /* Gleichmäßiger Abstand zwischen den Elementen */
-    width: 97%; /* Füllt die gesamte Breite der Klasse aus */
-    text-transform: capitalize;
-    border-radius: 20px 20px 0 0;
-  }
-  
+  margin: 0;
+  display: flex;
+  padding: 15px;
+  background: #00C9FF;
+  color: #fff;
+  text-transform: uppercase;
+  border-top: 1px solid #222;
+  justify-content: space-between;
+  /* Gleichmäßiger Abstand zwischen den Elementen */
+  width: 97%;
+  /* Füllt die gesamte Breite der Klasse aus */
+  text-transform: capitalize;
+  border-radius: 20px 20px 0 0;
+}
+
 .onTopContainer h3 {
-    margin: 0;
-  }
+  margin: 0;
+}
 
 /*h1 styles*/
 h1 {
-    text-align: center;
-    margin-top: 200px;
-    color: #f7f2ef;
-    font-size: 45px;
-    background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    background-size: 50% 4px;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    line-height: 42px;
+  text-align: center;
+  margin-top: 200px;
+  color: #f7f2ef;
+  font-size: 45px;
+  background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background-size: 50% 4px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  line-height: 42px;
 }
 
 /* Pagination Styles */
@@ -145,4 +147,3 @@ h1 {
   background-color: aqua;
   color: black;
 }
-

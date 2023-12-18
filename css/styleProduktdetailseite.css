@@ -75,7 +75,9 @@ div.foto img {
 
 
 /* Table which is included in the image description box */
-table, th, td {
+table,
+th,
+td {
   border: none;
   padding: 15px;
   text-align: left;
@@ -92,7 +94,8 @@ table {
 }
 
 /* Style of table header and table data */
-th, td {
+th,
+td {
   width: 30%;
 }
 
@@ -101,7 +104,7 @@ th, td {
   float: left;
   width: 43%;
   text-align: left;
-  padding-top:3%;
+  padding-top: 3%;
   padding-left: 3%;
   padding-bottom: 3%;
   margin-top: 5.5%;
@@ -127,7 +130,7 @@ th, td {
   border: none;
   width: 45%;
   height: 60px;
-  opacity: 0.5; 
+  opacity: 0.5;
   transform: scale(100%);
   font-weight: 600;
   color: #1a1818;
@@ -135,10 +138,10 @@ th, td {
   border-radius: 20px;
   line-height: 100%;
   text-align: center;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  display: flex; 
+  display: flex;
   font-size: 16px;
   margin-left: 25%;
   cursor: pointer;
@@ -156,7 +159,7 @@ th, td {
   border: none;
   width: 45%;
   height: 60px;
-  opacity: 0.5; 
+  opacity: 0.5;
   transform: scale(100%);
   font-weight: 600;
   color: #1a1818;
@@ -164,8 +167,8 @@ th, td {
   border-radius: 20px;
   line-height: 100%;
   text-align: center;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   display: flex;
   font-size: 16px;
@@ -223,7 +226,7 @@ a:hover.buttonNotSignedIn {
   position: absolute;
   border: none;
   height: 30px;
-  opacity: 0.7; 
+  opacity: 0.7;
   transform: scale(100%);
   font-weight: 600;
   color: #f7f2ef;
@@ -231,10 +234,10 @@ a:hover.buttonNotSignedIn {
   border-radius: 20px;
   line-height: 100%;
   text-align: center;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  display: flex; 
+  display: flex;
   font-size: 16px;
   margin-left: 25%;
   cursor: pointer;
@@ -249,6 +252,6 @@ a:hover.buttonNotSignedIn {
 .buttonContainer {
   width: 500px;
   position: relative;
-  top: 120px; 
+  top: 120px;
   left: -60px;
 }
