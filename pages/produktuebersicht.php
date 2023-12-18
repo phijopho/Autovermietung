@@ -39,188 +39,188 @@ ini_set('display_errors', 1);
 
     <!-- sessions and variables -->
     <?php
-    // Reset filters (except location and date)
-    if (isset($_POST['resetButton'])) {
-        unsetSessions();
-    }
+        // Reset filters (except location and date)
+        if (isset($_POST['resetButton'])) {
+            unsetSessions();
+        }
 
-    //Quick Search Filters: Location, pick-up date, return date
-    $today = date("Y-m-d");
-    $tomorrow = date("Y-m-d", strtotime($today . " +2 day"));
-    // set default values if nothing else is specified
-    if (!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])) {
-        $_SESSION['location'] = "Hamburg";
-        $_SESSION['pickUpDate'] = $today;
-        $_SESSION['returnDate'] = $tomorrow;
-    }
+        //Quick Search Filters: Location, pick-up date, return date
+        $today = date("Y-m-d");
+        $tomorrow = date("Y-m-d", strtotime($today . " +2 day"));
+        // set default values if nothing else is specified
+        if (!isset($_SESSION['location'], $_SESSION['pickUpDate'], $_SESSION['returnDate'])) {
+            $_SESSION['location'] = "Hamburg";
+            $_SESSION['pickUpDate'] = $today;
+            $_SESSION['returnDate'] = $tomorrow;
+        }
 
-    // use user input
-    if (isset($_POST['quickSearch']) or isset($_POST['filter'])) {
-        $_SESSION['location'] = $_POST['location'];
-        $_SESSION['pickUpDate'] = $_POST['pickUpDate'];
-        $_SESSION['returnDate'] = $_POST['returnDate'];
-    }
+        // use user input
+        if (isset($_POST['quickSearch']) or isset($_POST['filter'])) {
+            $_SESSION['location'] = $_POST['location'];
+            $_SESSION['pickUpDate'] = $_POST['pickUpDate'];
+            $_SESSION['returnDate'] = $_POST['returnDate'];
+        }
 
 
-    $location = getCities();
-    $categories = selectDistinctColumn("Type", "CarType");
+        $location = getCities();
+        $categories = selectDistinctColumn("Type", "CarType");
 
-    //category checkbox filter
-    $checkedCategories = array();
+        //category checkbox filter
+        $checkedCategories = array();
 
-    // if user chose category via carousel on homepage
-    if (isset($_GET['carouselCategory'])) {
-        $_SESSION['categories'] = array();
-        $_SESSION['categories'][] = $_GET['carouselCategory'];
-        $_SESSION['checkedCategories'] = $_SESSION['categories'];
-    }
+        // if user chose category via carousel on homepage
+        if (isset($_GET['carouselCategory'])) {
+            $_SESSION['categories'] = array();
+            $_SESSION['categories'][] = $_GET['carouselCategory'];
+            $_SESSION['checkedCategories'] = $_SESSION['categories'];
+        }
 
-    // if first visit on site check no boxes but select all categories
-    if (!isset($_SESSION['categories']) or empty($_SESSION['categories'])) {
-        $_SESSION['checkedCategories'] = array();
-        $_SESSION['categories'] = $categories;
-    }
+        // if first visit on site check no boxes but select all categories
+        if (!isset($_SESSION['categories']) or empty($_SESSION['categories'])) {
+            $_SESSION['checkedCategories'] = array();
+            $_SESSION['categories'] = $categories;
+        }
 
-    // if filter is set add categories to session
-    if (isset($_POST['filter'])) {
-        $_SESSION['categories'] = array();
-        foreach ($categories as $category) {
-            if (isset($_POST[$category])) {
-                $_SESSION['categories'][] = $category;
-                $_SESSION['checkedCategories'][] = $category;
-            } else {
-                // if checkbox is not set remove the category from checkedCategories
-                $_SESSION['checkedCategories'] = array_diff($_SESSION['checkedCategories'], [$category]);
+        // if filter is set add categories to session
+        if (isset($_POST['filter'])) {
+            $_SESSION['categories'] = array();
+            foreach ($categories as $category) {
+                if (isset($_POST[$category])) {
+                    $_SESSION['categories'][] = $category;
+                    $_SESSION['checkedCategories'][] = $category;
+                } else {
+                    // if checkbox is not set remove the category from checkedCategories
+                    $_SESSION['checkedCategories'] = array_diff($_SESSION['checkedCategories'], [$category]);
+                }
+            }
+            // if no categories were checked add all to session
+            if (empty($_SESSION['categories'])) {
+                $_SESSION['categories'] = $categories;
+                $_SESSION['checkedCategories'] = array();
             }
         }
-        // if no categories were checked add all to session
-        if (empty($_SESSION['categories'])) {
-            $_SESSION['categories'] = $categories;
-            $_SESSION['checkedCategories'] = array();
-        }
-    }
 
-    // car brand dropdown filter
-    if (isset($_POST['filter'])) {
-        $_SESSION['vendor'] = $_POST['vendor'];
-    }
-    // seats slider filter
-    if (isset($_POST['filter'])) {
-        $_SESSION['seats'] = $_POST['seats'];
-    }
-
-    // doors slider filter
-    if (isset($_POST['filter'])) {
-        $_SESSION['doors'] = $_POST['doors'];
-    }
-
-    // age slider filter
-    if (isset($_POST['filter'])) {
-        $_SESSION['age'] = $_POST['age'];
-    }
-
-    // drive dropdown filter
-    if (isset($_POST['filter'])) {
-        $_SESSION['drive'] = $_POST['drive'];
-    }
-
-    // transmission toggle filter
-    if (isset($_POST['filter'])) {
-        // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
-        if (isset($_POST['transmission'])) {
-            $_SESSION['transmission'] = 'on';
-        } else {
-            $_SESSION['transmission'] = 'off';
-        }
-    }
-
-    // AC toggle filter
-    if (isset($_POST['filter'])) {
-        // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
-        if (isset($_POST['ac'])) {
-            $_SESSION['ac'] = 'on';
-        } else {
-            $_SESSION['ac'] = 'off';
-        }
-    }
-
-    // GPS toggle filter
-    if (isset($_POST['filter'])) {
-        // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
-        if (isset($_POST['gps'])) {
-            $_SESSION['gps'] = 'on';
-        } else {
-            $_SESSION['gps'] = 'off';
-        }
-    }
-    ?>
-
-    <script>
-        <?php
-        // price range filter
+        // car brand dropdown filter
         if (isset($_POST['filter'])) {
-            $_SESSION['minPrice'] = $_POST['minPrice'];
-            $_SESSION['maxPrice'] = $_POST['maxPrice'];
+            $_SESSION['vendor'] = $_POST['vendor'];
         }
-        // save minPrice or assign a default value
-        if (isset($_SESSION['minPrice'])) {
-            $minPrice = $_SESSION['minPrice'];
-        } else {
-            $minPrice = 0;
-            $_SESSION['minPrice'] = $minPrice;
+        // seats slider filter
+        if (isset($_POST['filter'])) {
+            $_SESSION['seats'] = $_POST['seats'];
         }
-        // save maxPrice or assign a default value
-        if (isset($_SESSION['maxPrice'])) {
-            $maxPrice = $_SESSION['maxPrice'];
-        } else {
-            $maxPrice = 1000;
-            $_SESSION['maxPrice'] = $maxPrice;
+
+        // doors slider filter
+        if (isset($_POST['filter'])) {
+            $_SESSION['doors'] = $_POST['doors'];
+        }
+
+        // age slider filter
+        if (isset($_POST['filter'])) {
+            $_SESSION['age'] = $_POST['age'];
+        }
+
+        // drive dropdown filter
+        if (isset($_POST['filter'])) {
+            $_SESSION['drive'] = $_POST['drive'];
+        }
+
+        // transmission toggle filter
+        if (isset($_POST['filter'])) {
+            // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
+            if (isset($_POST['transmission'])) {
+                $_SESSION['transmission'] = 'on';
+            } else {
+                $_SESSION['transmission'] = 'off';
+            }
+        }
+
+        // AC toggle filter
+        if (isset($_POST['filter'])) {
+            // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
+            if (isset($_POST['ac'])) {
+                $_SESSION['ac'] = 'on';
+            } else {
+                $_SESSION['ac'] = 'off';
+            }
+        }
+
+        // GPS toggle filter
+        if (isset($_POST['filter'])) {
+            // If the checkbox is checked, set the session variable to 'on', otherwise, set it to 'off'
+            if (isset($_POST['gps'])) {
+                $_SESSION['gps'] = 'on';
+            } else {
+                $_SESSION['gps'] = 'off';
+            }
         }
         ?>
-        $(function() {
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 1000,
-                values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>],
-                slide: function(event, ui) {
-                    $("#amount").val("Preisspanne: " + ui.values[0] + " € - " + ui.values[1] + " €");
-                    // update hidden fields
-                    $("#minPrice").val(ui.values[0]);
-                    $("#maxPrice").val(ui.values[1]);
-                }
+
+        <script>
+            <?php
+            // price range filter
+            if (isset($_POST['filter'])) {
+                $_SESSION['minPrice'] = $_POST['minPrice'];
+                $_SESSION['maxPrice'] = $_POST['maxPrice'];
+            }
+            // save minPrice or assign a default value
+            if (isset($_SESSION['minPrice'])) {
+                $minPrice = $_SESSION['minPrice'];
+            } else {
+                $minPrice = 0;
+                $_SESSION['minPrice'] = $minPrice;
+            }
+            // save maxPrice or assign a default value
+            if (isset($_SESSION['maxPrice'])) {
+                $maxPrice = $_SESSION['maxPrice'];
+            } else {
+                $maxPrice = 1000;
+                $_SESSION['maxPrice'] = $maxPrice;
+            }
+            ?>
+            $(function() {
+                $("#slider-range").slider({
+                    range: true,
+                    min: 0,
+                    max: 1000,
+                    values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>],
+                    slide: function(event, ui) {
+                        $("#amount").val("Preisspanne: " + ui.values[0] + " € - " + ui.values[1] + " €");
+                        // update hidden fields
+                        $("#minPrice").val(ui.values[0]);
+                        $("#maxPrice").val(ui.values[1]);
+                    }
+                });
+                // initialize hidden fields
+                $("#amount").val("Preisspanne: " + $("#slider-range").slider("values", 0) + " € - " + $("#slider-range").slider("values", 1) + " €");
+                $("#minPrice").val($("#slider-range").slider("values", 0));
+                $("#maxPrice").val($("#slider-range").slider("values", 1));
             });
-            // initialize hidden fields
-            $("#amount").val("Preisspanne: " + $("#slider-range").slider("values", 0) + " € - " + $("#slider-range").slider("values", 1) + " €");
-            $("#minPrice").val($("#slider-range").slider("values", 0));
-            $("#maxPrice").val($("#slider-range").slider("values", 1));
-        });
-    </script>
+        </script>
 
-    <?php
-    // sort
-    // default
-    if (!isset($_SESSION['sort'])) {
-        $_SESSION['sort'] = "alphabetic";
-    }
-    // use user input
-    if (isset($_POST["sort"])) {
-        $_SESSION["sort"] = $_POST["sort"];
-    }
+        <?php
+        // sort
+        // default
+        if (!isset($_SESSION['sort'])) {
+            $_SESSION['sort'] = "alphabetic";
+        }
+        // use user input
+        if (isset($_POST["sort"])) {
+            $_SESSION["sort"] = $_POST["sort"];
+        }
 
-    // Checks:
-    // echo "<br><br><br><br><br><br><br>";
-    // $stmt=getAvailableCarsQuery();
-    // $availableCars=getAvailableCars($stmt);
-    // echo $stmt." -> ".$availableCars;
+        // Checks:
+        // echo "<br><br><br><br><br><br><br>";
+        // $stmt=getAvailableCarsQuery();
+        // $availableCars=getAvailableCars($stmt);
+        // echo $stmt." -> ".$availableCars;
 
-    // echo getResultsQuery();
-    // echo "Session Categories: ";
-    // print_r($_SESSION['categories']);
-    // echo "<br> Checked Categories: ";
-    // echo var_dump($_SESSION['checkedCategories']);
-    // echo "<br> Session:";
-    // print_r($_SESSION);
+        // echo getResultsQuery();
+        // echo "Session Categories: ";
+        // print_r($_SESSION['categories']);
+        // echo "<br> Checked Categories: ";
+        // echo var_dump($_SESSION['checkedCategories']);
+        // echo "<br> Session:";
+        // print_r($_SESSION);
     ?>
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
@@ -392,9 +392,12 @@ include('../includes/header.php'); // include header
                 <br>
                 <input class="filterButton" type="submit" value="Filtern" name="filter">
             </form>
-            <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
-                <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
-            </form>
+            <?php
+            if(isset($_POST['filter'])){ ?>
+                <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
+                    <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
+                </form>
+            <?php } ?>
         </div>
 
         <div class="resultBox">
