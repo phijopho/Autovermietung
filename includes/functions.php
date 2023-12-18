@@ -98,12 +98,10 @@ function getResultsQuery()
 
     // build select statement
     $stmt = "SELECT CarType_ID FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE 1=1";
-    // location filter
-    // $stmt .= " AND Location = '".$_SESSION['location'];
     // category filter
     $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
     $stmt .= " AND Type IN ('" . $categories . "')";
-    // vendor filter (AND hinzufügen)
+    // vendor filter
     if (!empty($_SESSION['vendor']) && $_SESSION['vendor'] != 'all') {
         $stmt .= " AND Vendor.Abbreviation = '" . $_SESSION['vendor'] . "'";
     }
