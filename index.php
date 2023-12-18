@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-    <head>
-        <?php
-            include('includes/htmlhead.php');
-            include('includes/dbConnection.php'); // connect database
-            include('./includes/functions.php');
-        ?>
-        <title>Homepage</title>
-        <!-- Einbinden der style.css -->
-        <link rel="stylesheet" href="css/styleHomepage.css">
-        <link rel="stylesheet" href="css/styleFooter.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="includes/karussell-slider.js"></script>
-        <script src="includes/functions.js"></script>
-    </head>
+
+<head>
+    <?php
+    include('includes/htmlhead.php');
+    include('includes/dbConnection.php'); // connect database
+    include('./includes/functions.php');
+    ?>
+    <title>Homepage</title>
+    <!-- Einbinden der style.css -->
+    <link rel="stylesheet" href="css/styleHomepage.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="includes/karussell-slider.js"></script>
+    <script src="includes/functions.js"></script>
+</head>
 
 
 <?php
 include('includes/header.php'); // include header
 ?>
+
 <body>
 
- <!-- sessions and variables -->
- <?php
+    <!-- sessions and variables -->
+    <?php
     $location = getCities();
 
     $today = date("Y-m-d");
@@ -131,7 +132,7 @@ include('includes/header.php'); // include header
             </div>
         </div>
     </div>
-    <div id="section3" class="BackgroundAudi">
+    <div class="BackgroundAudi" id="section3">
         <div class="section3">
             <div class="map-container">
                 <div class="ger-map">
@@ -195,7 +196,7 @@ include('includes/header.php'); // include header
                 </div>
             </div>
             <div class="aboutUs">
-            <div class="txtBox1">
+                <div class="txtBox1">
                     <h1>14 Standorte</h1>
                 </div>
                 <div class="txtBox2">

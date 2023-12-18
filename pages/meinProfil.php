@@ -11,7 +11,7 @@
 
 <!--Userdaten updaten-->
 <?php
-include('../includes/header.php'); 
+include('../includes/header.php');
 include('db_connection.php');
 
 $userID = $_SESSION['User_ID'];
@@ -80,4 +80,5 @@ $conn = null;
 <?php
 include('../includes/footer.html');
 ?>
+
 </html>
