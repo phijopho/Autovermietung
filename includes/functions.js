@@ -140,3 +140,28 @@ window.addEventListener('scroll', function() {
         
     }
 });
+
+// JavaScript für die Modal-Funktionalität
+document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById("myModal");
+    var button = document.getElementById("button");
+    var closeBtn = document.getElementsByClassName("close")[0];
+  
+    // Öffnen der Modal-Box
+    button.addEventListener('click', function() {
+      modal.style.display = "block";
+    });
+  
+    // Schließen der Modal-Box
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = "none";
+    });
+  
+    // Schließen der Modal-Box beim Klicken außerhalb der Box
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+  
