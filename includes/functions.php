@@ -104,7 +104,7 @@ function getResultsQuery()
     // vendor filter
     if (!empty($_SESSION['vendor']) && $_SESSION['vendor'] != 'all') {
         $stmt .= " AND Vendor.Abbreviation = '" . $_SESSION['vendor'] . "'";
-    }
+    }   
     // seats filter
     if (isset($_SESSION['seats'])) {
         $stmt .= " AND Seats >= " . $_SESSION['seats'];
@@ -235,14 +235,56 @@ function getAvailableCars()
     $startDate = $_SESSION['pickUpDate'];
     $endDate = $_SESSION['returnDate'];
     $location = $_SESSION['location'];
+    $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
+
 
     $stmt = "SELECT COUNT(Car.Car_ID) AS AvailableCars
             FROM Car
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
             INNER JOIN Location ON Car.Location_ID = Location.Location_ID
             LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
+            JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID
             WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
                 AND Location.City = :location";
+    //category filter
+    $stmt .= " AND Type IN ('" . $categories . "')";
+    // vendor filter
+    if (!empty($_SESSION['vendor']) && $_SESSION['vendor'] != 'all') {
+        $stmt .= " AND Vendor.Abbreviation = '" . $_SESSION['vendor'] . "'";
+    }   
+    // seats filter
+    if (isset($_SESSION['seats'])) {
+        $stmt .= " AND Seats >= " . $_SESSION['seats'];
+    }
+    // doors filter
+    if (isset($_SESSION['doors'])) {
+        $stmt .= " AND Doors >= " . $_SESSION['doors'];
+    }
+    // age filter
+    if (isset($_SESSION['age'])) {
+        $stmt .= " AND Min_Age <= " . $_SESSION['age'];
+    }
+    // drive filter
+    if (isset($_SESSION['drive']) && $_SESSION['drive'] != 'all') {
+        $stmt .= " AND Drive = '" . $_SESSION['drive'] . "'";
+    }
+    // transmission filter
+    if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
+        $stmt .= " AND Gear = 'automatic'";
+    }
+    // ac filter
+    if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
+        $stmt .= " AND Air_Condition = 1";
+    }
+    // GPS filter
+    if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
+        $stmt .= " AND GPS = 1";
+    }
+    // Price filter
+    if (isset($_SESSION['minPrice']) or $_SESSION['maxPrice']) {
+        $stmt .= " AND Price BETWEEN '" . $_SESSION['minPrice'] . "' AND '" . $_SESSION['maxPrice'] . "'";
+    }
+
 
     // Bereiten Sie die Abfrage vor und führen Sie sie aus
     $stmt = $conn->prepare($stmt);

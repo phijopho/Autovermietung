@@ -392,10 +392,7 @@ include('../includes/header.php'); // include header
 
         <div class="resultBox">
             <div class="topBox">
-                <?php
-                $_SESSION['totalAvailableCars'] = getAvailableCars(getAvailableCars());
-                ?>
-                <label for="available">Verf&uuml;gbare Fahrzeugmodelle: <?php echo $_SESSION['totalAvailableCars'] ?></label>
+                <label for="available">Verf&uuml;gbare Fahrzeugmodelle: <?php echo getAvailableCars(); ?></label>
                 <div class="sortBox">
                     <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>" id="sortForm">
                         <label for="sort">Sortierung: </label>
