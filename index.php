@@ -40,7 +40,6 @@ include('includes/header.php'); // include header
         <div class="section1">
             <div class="containerBookingForm">
                 <form action="pages/produktuebersicht.php" method="post" class="formContainer">
-                    <!-- <label for="location">Standort:</label> -->
                     <select class="selectLocation" id="location" name="location">
                         <?php //aus Datenbank ziehen, außer HH
                         foreach ($location as $city) {
