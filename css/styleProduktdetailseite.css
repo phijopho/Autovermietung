@@ -134,6 +134,7 @@ td {
   margin-top: -2%;
   background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
   border: none;
+  width: 45%;
   height: 60px;
   opacity: 0.5;
   transform: scale(100%);
@@ -148,6 +149,7 @@ td {
   text-decoration: none;
   display: flex;
   font-size: 16px;
+  margin-left: 25%;
   cursor: pointer;
   transition: transform 0.5s ease;
 }
@@ -170,30 +172,6 @@ td {
   background-color: rgba(0, 0, 0, 0.561);
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #1a1818;
-  margin: 28%;
-  padding: 25px;
-  border: 1px solid aqua;
-  width: 600px;
-  height: 200px;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: aqua;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 
 /* Button if user is not logged in*/

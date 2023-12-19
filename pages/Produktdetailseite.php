@@ -142,21 +142,11 @@ include('../includes/header.php'); // Einbindung des Headers
                     echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
                     echo "</div>";
                 } else { ?>
-                     <button id="button" class="button">Jetzt Buchen</button>
-
-                    <!-- Modalbox -->
-                    <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <br>
-                        <h3>Ihre Buchung war erfolgreich </h3>
-                        <br>
-                        <p><a href="./pages/produktuebersicht.php">Zurück zur Produktübersicht </a></p>
-                        <p><a href="pages/meineBuchungen.php"> Meine Buchung ansehen </a></p>
-                        <br>
-                    </div>
-                    </div>
-                    </div> <?php
+                    <div class="divbutton">
+                        <form action="pages/meineBuchungen.php" method="post">
+                            <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
+                            <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
+                        </form> <?php
                 }
             } else {
                 echo "<div class='divbutton'>";
