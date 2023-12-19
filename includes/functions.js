@@ -142,6 +142,12 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// date filter: disallow return dates that are before selected pick up date
+function setMinReturnDate() {
+    var pickUpDate = document.getElementById("pickUpDate").value;
+    document.getElementById("returnDate").min = pickUpDate;
+}
+
 
 // JavaScript für die Modal-Funktionalität
 document.addEventListener('DOMContentLoaded', function() {
@@ -149,17 +155,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var button = document.getElementById("button");
     var closeBtn = document.getElementsByClassName("close")[0];
   
-    // Öffnen der Modal-Box
+    // Open Modal-Box
     button.addEventListener('click', function() {
       modal.style.display = "block";
     });
   
-    // Schließen der Modal-Box
+    // Close der Modal-Box
     closeBtn.addEventListener('click', function() {
       modal.style.display = "none";
     });
   
-    // Schließen der Modal-Box beim Klicken außerhalb der Box
+    // Close modal-Box when click anywhere
     window.addEventListener('click', function(event) {
       if (event.target === modal) {
         modal.style.display = "none";
@@ -167,8 +173,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-// date filter: disallow return dates that are before selected pick up date
-function setMinReturnDate() {
-    var pickUpDate = document.getElementById("pickUpDate").value;
-    document.getElementById("returnDate").min = pickUpDate;
-}
+
