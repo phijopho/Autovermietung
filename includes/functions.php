@@ -160,6 +160,7 @@ function displayResults($stmt)
     if ($result->rowCount() > 0) {
         echo "<div class='resultWrapBox'>";
         // loop through each available result and display it
+        $hasUnavailableModels = false; // variable to see if the second while-loop needs to be executed
         while ($row = $result->fetch()) {
             $carType_ID = $row['CarType_ID'];
             $availableCarsModel = getAvailableCarsForModel($carType_ID);
@@ -182,33 +183,37 @@ function displayResults($stmt)
                 echo "</div>";
                 echo "</div>";
                 echo "</a>";
+            } else {
+                $hasUnavailableModels=true;
             }
         }
         // loop through each unavailable result and display it
-        echo "<div class='separatingBox'> Zu Ihren ausgew&auml;hlten Daten nicht verf&uuml;gbare Modelle: </div>";
-        $result = $conn->query($stmt);
-        while ($row = $result->fetch()) {
-            $carType_ID = $row['CarType_ID'];
-            $availableCarsModel = getAvailableCarsForModel($carType_ID);
-            if ($availableCarsModel == 0) {
-                echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
-                echo "<div class='resultItemBox'>";
-                echo "<div class='modelBox'>";
-                // Use the getModel and showImage functions to display car information
-                $model = getModel($carType_ID);
-                echo "<label>" . $model[0] . " " . $model[1] . "</label>";
-                echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
-                echo "</div>";
-                showImage($carType_ID);
-                echo "<div class='carDataBox'>";
-                // Use the getPrice function to display car prices
-                $price = getCarProperty($carType_ID, 'Price');
-                echo "Preis pro Tag: " . $price . " &euro;<br>";
-                // Tage multiplizieren
-                echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
-                echo "</div>";
-                echo "</div>";
-                echo "</a>";
+        if($hasUnavailableModels==true){
+            $result = $conn->query($stmt);
+            echo "<div class='separatingBox'> Zu Ihren ausgew&auml;hlten Daten nicht verf&uuml;gbare Modelle: </div>";
+            while ($row = $result->fetch()) {
+                $carType_ID = $row['CarType_ID'];
+                $availableCarsModel = getAvailableCarsForModel($carType_ID);
+                if ($availableCarsModel == 0) {
+                    echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                    echo "<div class='resultItemBox'>";
+                    echo "<div class='modelBox'>";
+                    // Use the getModel and showImage functions to display car information
+                    $model = getModel($carType_ID);
+                    echo "<label>" . $model[0] . " " . $model[1] . "</label>";
+                    echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
+                    echo "</div>";
+                    showImage($carType_ID);
+                    echo "<div class='carDataBox'>";
+                    // Use the getPrice function to display car prices
+                    $price = getCarProperty($carType_ID, 'Price');
+                    echo "Preis pro Tag: " . $price . " &euro;<br>";
+                    // Tage multiplizieren
+                    echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</a>";
+                }
             }
         }
         echo "</div>";
