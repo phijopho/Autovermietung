@@ -110,19 +110,28 @@ include('../includes/header.php'); // Einbindung des Headers
                 <h2> Zusammenfassung </h2><br>
                 <h3>Ihr ausgewählter Zeitraum: </h3>
                 <p><?php echo formatDate($_SESSION['pickUpDate']) ?> bis <?php echo formatDate($_SESSION['returnDate']) ?></p>
-                <h3> Standort des Fahrzeugs: </h3>
-                <p> <?php echo $_SESSION['location'] ?> </p>
+                <?php
+                    if($_SESSION['availableCarsModel']==0){
+                        echo "<h3> Standort: </h3>";
+                        echo "<p>";
+                            $locations=getCarLocations($_SESSION['carType_ID']); 
+                            echo implode(', ',$locations); 
+                        echo "</p>";
+                    } else {
+                        echo "<h3> Ihr ausgew&auml;hlter Standort: </h3>";
+                        echo "<p>".$_SESSION['location']."</p>";      
+                    }
+                ?>
                 <h3>Mindestalter: </h3>
                 <p> <?php $minAge = getCarProperty($_SESSION['carType_ID'], 'Min_Age');
                     echo $minAge; ?></p>
                 <h3>Preis pro Tag: <?php $price = getCarProperty($_SESSION['carType_ID'], 'Price');
                                     echo number_format($price, 2, ',', '.'); ?> &euro;</h3>
-                <br>
                 <h3>Gesamtpreis: <?php $totalPrice = getTotalPrice($price);
                                     echo number_format($totalPrice, 2, ',', '.') ?> &euro;</h3>
                 <?php
                 if ($_SESSION['availableCarsModel'] == 0) {
-                    echo "<p> Dieses Modell ist in " . $_SESSION['location'] . " im gew&ouml;hlten Zeitraum nicht verf&uuml;gbar. </p>";
+                    echo "<p> Dieses Modell ist in " . $_SESSION['location'] . " im gew&auml;hlten Zeitraum nicht verf&uuml;gbar. </p>";
                 } elseif ($_SESSION['availableCarsModel'] == 1) {
                     echo "<p> Von diesem Modell ist in " . $_SESSION['location'] . " nur noch 1 verf&uuml;gbar.</p>";
                 } else {

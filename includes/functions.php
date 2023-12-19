@@ -161,10 +161,12 @@ function displayResults($stmt)
         echo "<div class='resultWrapBox'>";
         // loop through each available result and display it
         $hasUnavailableModels = false; // variable to see if the second while-loop needs to be executed
+        $hasAvailableModels = false;
         while ($row = $result->fetch()) {
             $carType_ID = $row['CarType_ID'];
             $availableCarsModel = getAvailableCarsForModel($carType_ID);
             if ($availableCarsModel > 0) {
+                $hasAvailableModels = true;
                 echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
                 echo "<div class='resultItemBox'>";
                 echo "<div class='modelBox'>";
@@ -187,10 +189,13 @@ function displayResults($stmt)
                 $hasUnavailableModels=true;
             }
         }
-        // loop through each unavailable result and display it
+        if ($hasAvailableModels==false){
+            echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
+        }
+        // loop through each for the selected location or time unavailable result and display it
         if($hasUnavailableModels==true){
             $result = $conn->query($stmt);
-            echo "<div class='separatingBox'> Zu Ihren ausgew&auml;hlten Daten nicht verf&uuml;gbare Modelle: </div>";
+            echo "<div class='separatingBox'> Nicht verf&uuml;gbare Modelle: </div>";
             while ($row = $result->fetch()) {
                 $carType_ID = $row['CarType_ID'];
                 $availableCarsModel = getAvailableCarsForModel($carType_ID);
@@ -435,6 +440,20 @@ function getAvailableCarIDs($carType_ID)
 }
 
 //Functions for Produktdetailseite
+function getCarLocations($CarType_ID){
+    include('dbConnection.php');
+    $stmt=$conn->query("SELECT City FROM Location
+    JOIN Car on Car.Location_ID=Location.Location_ID
+    JOIN CarType on CarType.CarType_ID=Car.CarType_ID
+    WHERE Car.CarType_ID=$CarType_ID");
+
+    $result=array();
+    while ($row = $stmt->fetch()) {
+        $result[] = $row['City'];
+    }
+    return $result;
+}
+
 function getCarInfo($carTypeID)
 {
     include('dbConnection.php');
