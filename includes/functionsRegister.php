@@ -1,7 +1,7 @@
 <?php
 
 function register()
-{   
+{
     if (isset($_POST["register"])) {
         $firstName = $_POST["firstName"];
         $lastName = $_POST["lastName"];
@@ -9,12 +9,12 @@ function register()
         $email = $_POST["email"];
         $username = $_POST["username"];
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-        
+
         $userExists = userExists($username, $email);
 
         handleRegistration($userExists, $firstName, $lastName, $age, $email, $username, $password);
     }
-} 
+}
 
 function userExists($username, $email)
 {
@@ -30,7 +30,7 @@ function handleRegistration($userExists, $firstName, $lastName, $age, $email, $u
 {
     if (!$userExists) {
         addUserToDatabase($firstName, $lastName, $age, $email, $username, $password);
-        displaySuccessMessage(); 
+        displaySuccessMessage();
     } else {
         displayErrorMessage();
     }
@@ -50,11 +50,11 @@ function addUserToDatabase($firstName, $lastName, $age, $email, $username, $pass
 }
 
 function displaySuccessMessage()
-{ 
+{
 ?>
     <div class="success">
         <p class="textSuccess"> Erfolgreich registriert, <a href="./pages/login.php" class="linkHere"> jetzt Anmelden! </a></p>
-    </div> 
+    </div>
 <?php
 }
 
@@ -64,6 +64,6 @@ function displayErrorMessage()
     <div class="error">
         <p class="textError"> Der Username oder die Email ist bereits vergeben. </p>
     </div> <?php
-}
+        }
 
-?>
+            ?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function login()
 {
@@ -12,7 +12,8 @@ function handleLogin()
     global $conn;
 
     $username = $_POST["username"];
-    $_SESSION['username']=$username;
+    $_SESSION['username'] = $username;
+    $_SESSION['User_ID'] = getUserID();
     $password = $_POST["password"];
 
     $existingUser = getUserByUsername($username);

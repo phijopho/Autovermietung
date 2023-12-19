@@ -9,7 +9,8 @@
   width: 250px;
   height: fit-content;
   background-color: #272626;
-  margin-top: 120px; /*  vorher 120 falls verschoben wenn fehler weg sind */
+  margin-top: 120px;
+  /*  vorher 120 falls verschoben wenn fehler weg sind */
   margin-left: 20px;
   padding-left: 10px;
   padding-right: 10px;
@@ -21,24 +22,24 @@
 }
 
 .itemBox {
-  height:fit-content;
-  padding-top: 5px;
+  height: fit-content;
+  padding-top: 10px;
 }
 
 /* dropdown filters */
 .customSelect {
-background: var(--dropdownBackground);
-color: var(--dropdownColor);
-font-family: var(--dropdownFontFamily);
-font-weight: var(--dropdownFontWeight);
-font-size: var(--dropdownFontSize);
-border: var(--dropdownBorder);
-outline: var(--dropdownBorder);
-cursor: var(--dropdownCursor);
-width: 100%;
-padding: 1px 5px;
-margin-top: 2px;
-border-radius: 7px;
+  background: var(--dropdownBackground);
+  color: var(--dropdownColor);
+  font-family: var(--dropdownFontFamily);
+  font-weight: var(--dropdownFontWeight);
+  font-size: var(--dropdownFontSize);
+  border: var(--dropdownBorder);
+  outline: var(--dropdownBorder);
+  cursor: var(--dropdownCursor);
+  width: 100%;
+  padding: 1px 5px;
+  margin-top: 2px;
+  border-radius: 7px;
 }
 
 option {
@@ -47,9 +48,9 @@ option {
 
 /* Date style */
 .twoSidedBox {
-display: flex;
-justify-content: space-between;
-padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
 }
 
 input[type="date"] {
@@ -144,38 +145,38 @@ input[type="date"] {
 }
 
 /* change color of category name if checked */
-.checkbox-container input:checked + .categoryLabel {
+.checkbox-container input:checked+.categoryLabel {
   color: var(--checkedAndHoverColor);
   transition: var(--transition);
 }
 
 /* style if checked for each category */
-.checkbox-container input:checked + .categoryLabel .iconCheckboxLimousine {
+.checkbox-container input:checked+.categoryLabel .iconCheckboxLimousine {
   background: var(--limousineChecked);
   background-size: var(--background-size);
 }
 
-.checkbox-container input:checked + .categoryLabel .iconCheckboxCombi {
+.checkbox-container input:checked+.categoryLabel .iconCheckboxCombi {
   background: var(--combiChecked);
   background-size: var(--background-size);
 }
 
-.checkbox-container input:checked + .categoryLabel .iconCheckboxCabrio {
+.checkbox-container input:checked+.categoryLabel .iconCheckboxCabrio {
   background: var(--cabrioChecked);
   background-size: var(--background-size);
 }
 
-.checkbox-container input:checked + .categoryLabel .iconCheckboxSUV {
+.checkbox-container input:checked+.categoryLabel .iconCheckboxSUV {
   background: var(--suvChecked);
   background-size: var(--background-size);
 }
 
-.checkbox-container input:checked + .categoryLabel .iconCheckboxMehrsitzer {
+.checkbox-container input:checked+.categoryLabel .iconCheckboxMehrsitzer {
   background: var(--mehrsitzerChecked);
   background-size: var(--background-size);
 }
 
-.checkbox-container input:checked + .categoryLabel .iconCheckboxCoupe {
+.checkbox-container input:checked+.categoryLabel .iconCheckboxCoupe {
   background: var(--coupeChecked);
   background-size: var(--background-size);
 }
@@ -227,14 +228,14 @@ input[type="date"] {
 }
 
 /* Hide default HTML checkbox */
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
 /* The slider */
-.sliderRound{
+.sliderRound {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -260,15 +261,15 @@ input[type="date"] {
   border-radius: 50%;
 }
 
-input:checked + .sliderRound {
+input:checked+.sliderRound {
   background-color: aqua;
 }
 
-input:focus + .sliderRound {
+input:focus+.sliderRound {
   box-shadow: 0 0 1px aqua;
 }
 
-input:checked + .sliderRound:before {
+input:checked+.sliderRound:before {
   -webkit-transform: translateX(35px);
   -ms-transform: translateX(35px);
   transform: translateX(35px);
@@ -377,36 +378,50 @@ input[type=range]::-moz-range-thumb {
 /* Result area: */
 .resultBox {
   float: left;
-  margin-top: 120px; /* vorher 120 falls verschoben wird wenn fehler weg sind  */
+  margin-top: 120px;
+  /* vorher 120 falls verschoben wird wenn fehler weg sind  */
   margin-left: 320px;
   width: 1330px;
 }
 
 .topBox {
-padding: 1%;
-display: flex;
-justify-content: space-between;
-border-bottom: 3px solid #525252;
-background-color: #272626;
-position: relative;
-z-index: 0;
-border-top-left-radius: 15px;
-border-top-right-radius: 15px;
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #525252;
+  background-color: #272626;
+  position: relative;
+  z-index: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .sortBox {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+.separatingBox {
+  font-weight: 500;
+  font-size: large;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 1280px; 
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background: linear-gradient(90deg, #7b4397, #dc2430);
+  border-radius: 20px;
 }
 
 /* Show Cars Area */
 .resultWrapBox {
-background-color: #272626;
-max-width: 1330px;
-display: flex;
-flex-wrap: wrap;
-padding-left: 20px;
-padding-top: 20px;
+  background-color: #272626;
+  max-width: 1330px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .carLinkBox {
@@ -414,56 +429,57 @@ padding-top: 20px;
 }
 
 .resultItemBox {
-float: left;
-background-color: #525252;
-width: 630px;
-margin-right: 20px;
-margin-bottom: 20px;
-border-radius: 5px;
+  float: left;
+  background-color: #525252;
+  width: 630px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 .modelBox {
-width: 98%;
-padding: 5px;
-display: flex;
-justify-content: space-between;
+  width: 98%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .pictureBox {
-border-top: 3px solid #2f2e2c;
-border-bottom: 3px solid #2f2e2c;
-height: 200px;
-text-align: center;  
+  border-top: 3px solid #2f2e2c;
+  border-bottom: 3px solid #2f2e2c;
+  height: 200px;
+  text-align: center;
 }
 
 .pictureBox img {
-max-width: 630px;
-max-height: 200px;
-/* SCALE */
--webkit-transform: scale(1);
--moz-transform: scale(1);
--ms-transform: scale(1);
--o-transform: scale(1);
-transform: scale(1);
-/* VERZÖGERUNG */
--webkit-transition: all 0.3s linear;
--moz-transition: all 0.3s linear;
--ms-transition: all 0.3s linear;
--o-transition: all 0.3s linear;
-transition: all 0.3s linear;
+  max-width: 630px;
+  max-height: 200px;
+  /* SCALE */
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  /* VERZÖGERUNG */
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
+
 .pictureBox img:hover {
--webkit-transform: scale(1.1);
--moz-transform: scale(1.1);
--ms-transform: scale(1.1);
--o-transform: scale(1.1);
-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .carDataBox {
-max-width: 545px;
-line-height: 25px;
-padding: 5px
+  max-width: 545px;
+  line-height: 25px;
+  padding: 5px
 }
 
 /* Slider Track */
@@ -500,7 +516,8 @@ padding: 5px
   border: 0;
   background: transparent;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px; /* Schriftgröße auf 16px erhöht */
+  font-size: 16px;
+  /* Schriftgröße auf 16px erhöht */
 }
 
 /* Optional: Adjusting the margin for visual spacing */
