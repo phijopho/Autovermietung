@@ -207,6 +207,7 @@ ini_set('display_errors', 1);
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
     <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
 </head>
 
 <?php
@@ -440,7 +441,11 @@ include('../includes/header.php'); // include header
         </div>
     </div>
 </body>
+
+<div class="footer">
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
 ?>
+</div>
+
 </html>
