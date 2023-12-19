@@ -1,4 +1,4 @@
-/* Productdetail page */
+/* Produktdetailseite */
 
 /* Box which covers the entire Body */
 .divbody {
@@ -9,6 +9,8 @@
   margin-left: 5%;
   border: 2px solid aqua;
   border-image: linear-gradient(to bottom, aqua, #92FE9D) 1;
+  z-index: 1000;
+  background: #2f2e2c;
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
@@ -126,9 +128,12 @@ td {
 
 /* Button style if user is logged in and old enough to book the car */
 .button {
+  float: right;
+  width: 25%;
+  margin-right: 12%;
+  margin-top: -2%;
   background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
   border: none;
-  width: 45%;
   height: 60px;
   opacity: 0.5;
   transform: scale(100%);
@@ -143,7 +148,6 @@ td {
   text-decoration: none;
   display: flex;
   font-size: 16px;
-  margin-left: 25%;
   cursor: pointer;
   transition: transform 0.5s ease;
 }
@@ -152,6 +156,45 @@ td {
   opacity: 1 !important;
   transform: scale(1.2);
 }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.561);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #1a1818;
+  margin: 28%;
+  padding: 25px;
+  border: 1px solid aqua;
+  width: 600px;
+  height: 200px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: aqua;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 /* Button if user is not logged in*/
 .buttonNotSignedIn {

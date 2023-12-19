@@ -1,3 +1,4 @@
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -103,7 +104,6 @@ include('../includes/header.php'); // Einbindung des Headers
                     </table>
                 </div>
             </div>
-
         </div>
         <div class="divinfo">
             <div class="divText">
@@ -142,11 +142,20 @@ include('../includes/header.php'); // Einbindung des Headers
                     echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
                     echo "</div>";
                 } else { ?>
-                    <div class="divbutton">
-                        <form action="pages/meineBuchungen.php" method="post">
-                            <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
-                            <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
-                        </form>
+                     <button id="button" class="button">Jetzt Buchen</button>
+
+                    <!-- Modalbox -->
+                    <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <br>
+                        <h3>Ihre Buchung war erfolgreich </h3>
+                        <br>
+                        <p><a href="./pages/produktuebersicht.php">Zurück zur Produktübersicht </a></p>
+                        <p><a href="pages/meineBuchungen.php"> Meine Buchung ansehen </a></p>
+                        <br>
+                    </div>
+                    </div>
                     </div> <?php
                 }
             } else {
@@ -155,6 +164,10 @@ include('../includes/header.php'); // Einbindung des Headers
                 echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
                 echo "</a>";
                 echo "</div>";
+     ?>
+
+
+        <?php
             }
         } else {
             echo "<div class='divbutton'>";
@@ -170,3 +183,4 @@ include('../includes/footer.html');
 ?>
 
 </html>
+

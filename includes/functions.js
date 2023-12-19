@@ -1,3 +1,4 @@
+
 // Produktdetailseite toggle Menu 
 
 window.onload = function () {
@@ -123,12 +124,52 @@ function cancelCloseTimer() {
 
 function handleMouseLeave(event) {
     if (!event.relatedTarget || (event.relatedTarget !== document.getElementById('submenu') && !document.getElementById('submenu').contains(event.relatedTarget))) {
-        startCloseTimer();
-    }
+        startCloseTimer(); 
 }
+}
+
+
+//Backbutton Produktdetailseite
+window.addEventListener('scroll', function() {
+    var button = document.getElementById('scrollButton');
+    var scrollOffset = 20;
+
+    if (window.scrollY > scrollOffset) {
+        button.innerHTML = 'X'; 
+       
+    } else {
+        button.innerHTML = 'Zurück zur Produktübersicht'; 
+        
+    }
+});
 
 // date filter: disallow return dates that are before selected pick up date
 function setMinReturnDate() {
     var pickUpDate = document.getElementById("pickUpDate").value;
     document.getElementById("returnDate").min = pickUpDate;
 }
+
+
+// JavaScript für die Modal-Funktionalität
+document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById("myModal");
+    var button = document.getElementById("button");
+    var closeBtn = document.getElementsByClassName("close")[0];
+  
+    // Open Modal-Box
+    button.addEventListener('click', function() {
+      modal.style.display = "block";
+    });
+  
+    // Close der Modal-Box
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = "none";
+    });
+  
+    // Close modal-Box when click anywhere
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
