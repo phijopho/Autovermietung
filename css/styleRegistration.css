@@ -13,7 +13,7 @@ form {
 /* headline with gradient underlining */
 h1 {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 40px;
 
     color: #f7f2ef;
     font-size: 45px;
@@ -35,6 +35,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
 }
 
 /* style input boxes */
@@ -99,12 +100,13 @@ button:focus {
     outline: none;
 }
 
+/* style for success and error messages */
 .error {
     height: 35px;
     line-height: 35px;
     width: 450px;
     border-radius: 10px;
-    margin: -25px auto -10px;
+    margin: -2px auto -25px;
     background-color: #ffbaba;
     text-align: center;
     display: flex;
@@ -113,11 +115,11 @@ button:focus {
 }
 
 .success {
-    height: 35px;
-    line-height: 35px;
+    height: 45px;
+    line-height: 30px;
     width: 350px;
     border-radius: 10px;
-    margin: -25px auto -10px;
+    margin: -5px auto -25px;
     background-color: #d3ffce;
     text-align: center;
     display: flex;
@@ -154,7 +156,7 @@ button:focus {
     height: 2px;
     border-radius: 2px;
     background-color: #004b23;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     transform-origin: right;
     transform: scaleX(0);
