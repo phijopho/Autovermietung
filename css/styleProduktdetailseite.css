@@ -170,12 +170,11 @@ td {
   background-color: rgba(0, 0, 0, 0.561);
 }
 
-
 /* Modal Content */
 .modal-content {
   background-color: #1a1818;
-  margin: 30%;
-  padding: 20px;
+  margin: 28%;
+  padding: 25px;
   border: 1px solid aqua;
   width: 600px;
   height: 200px;
@@ -195,6 +194,7 @@ td {
   text-decoration: none;
   cursor: pointer;
 }
+
 
 /* Button if user is not logged in*/
 .buttonNotSignedIn {
