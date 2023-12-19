@@ -131,7 +131,7 @@ include('../includes/header.php'); // Einbindung des Headers
                 ?>
             </div>
         </div>
-
+        
         <?php
         $availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
         if ($availableCars>0){
@@ -165,6 +165,7 @@ include('../includes/header.php'); // Einbindung des Headers
             echo "</div>";
         }
         ?>
+    </div>
     </div>
 </body>
 
