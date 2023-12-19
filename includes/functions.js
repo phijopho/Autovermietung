@@ -23,7 +23,139 @@ function togglemenu() {
     }
 }
 
+// Modal-Box
+document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById("myModal");
+    var button = document.getElementById("button");
+    var closeBtn = document.getElementsByClassName("close")[0];
+  
+    // Open Modal-Box
+    button.addEventListener('click', function() {
+      modal.style.display = "block";
+    });
+  
+    // Close der Modal-Box
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = "none";
+    });
+  
+    // Close modal-Box when click anywhere
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+
+  //Backbutton Produktdetailseite
+window.addEventListener('scroll', function() {
+    var button = document.getElementById('scrollButton');
+    var scrollOffset = 20;
+
+    if (window.scrollY > scrollOffset) {
+        button.innerHTML = 'X'; 
+       
+    } else {
+        button.innerHTML = 'Zurück zur Produktübersicht'; 
+        
+    }
+});
+  
+
 // Homepage
+
+  //Crousel with prices and categories 
+  function cSlider() {
+    'use strict';
+
+    var $carousel = jQuery('.cslider');
+
+    if ($carousel.length > 0) {
+
+        // Variablen
+        var $carouselItem = $carousel.find('.cslider-item'),
+            $prev = $carousel.find('.cslider-prev'),
+            $next = $carousel.find('.cslider-next'),
+            itemLength = $carouselItem.length,
+            index = 0;
+
+
+        // Funktionen
+        function setIndex(i, add) {
+            if (i + add >= itemLength) {
+                return i + add - itemLength;
+            } else {
+                return i + add;
+            }
+        }
+
+        function setState(i) {
+            // Reset der Klassen
+            $carouselItem.attr('class', 'cslider-item')
+
+            // Zuweisung der Klassen
+            $carouselItem.eq(setIndex(i, 0)).addClass('cslider-item-first');
+            $carouselItem.eq(setIndex(i, 1)).addClass('cslider-item-previous');
+            $carouselItem.eq(setIndex(i, 2)).addClass('cslider-item-selected');
+            $carouselItem.eq(setIndex(i, 3)).addClass('cslider-item-next');
+            $carouselItem.eq(setIndex(i, 4)).addClass('cslider-item-last');
+
+
+        }
+
+        // Kontrollfelder
+        $next.on('click', function () {
+            index = index + 1;
+            if (index >= itemLength) {
+                index = 0;
+            }
+            setState(index);
+        });
+
+        $prev.on('click', function () {
+            if (index <= 0) {
+                index = itemLength;
+            }
+            index = index - 1;
+            setState(index);
+        });
+
+        // Starte Slider
+        setState(index);
+
+    }
+
+}
+
+// Shorthand for $( document ).ready()
+jQuery(function () {
+    cSlider();
+});
+
+// date filter: disallow return dates that are before selected pick up date
+function setMinReturnDate() {
+    var pickUpDate = document.getElementById("pickUpDate").value;
+    document.getElementById("returnDate").min = pickUpDate;
+}
+
+
+// Header
+// Scrollfunction 
+window.onscroll = function () {
+    scrollFunction();
+};
+
+//Change of padding when scroll
+function scrollFunction() {
+    var headerContainer = document.querySelector(".headercontainer");
+    if (document.documentElement.scrollTop > 30) {
+        headerContainer.style.padding = "0px 20px";
+
+    } else {
+        headerContainer.style.padding = "10px 10px";
+    }
+}
+
 // scroll to anker
 function scrollToAnchor() {
     var scrollLinks = document.querySelectorAll('.scroll-link');
@@ -49,25 +181,6 @@ if (window.location.pathname === '/Autovermietung/index.php') {
     document.addEventListener('DOMContentLoaded', function () {
         scrollToAnchor();
     });
-}
-
-
-
-// Header
-// Scrollfunction 
-window.onscroll = function () {
-    scrollFunction();
-};
-
-//Change of padding when scroll
-function scrollFunction() {
-    var headerContainer = document.querySelector(".headercontainer");
-    if (document.documentElement.scrollTop > 30) {
-        headerContainer.style.padding = "0px 20px";
-
-    } else {
-        headerContainer.style.padding = "10px 10px";
-    }
 }
 
 
@@ -126,51 +239,3 @@ function handleMouseLeave(event) {
         startCloseTimer(); 
 }
 }
-
-
-//Backbutton Produktdetailseite
-window.addEventListener('scroll', function() {
-    var button = document.getElementById('scrollButton');
-    var scrollOffset = 20;
-
-    if (window.scrollY > scrollOffset) {
-        button.innerHTML = 'X'; 
-       
-    } else {
-        button.innerHTML = 'Zurück zur Produktübersicht'; 
-        
-    }
-});
-
-// date filter: disallow return dates that are before selected pick up date
-function setMinReturnDate() {
-    var pickUpDate = document.getElementById("pickUpDate").value;
-    document.getElementById("returnDate").min = pickUpDate;
-}
-
-
-// JavaScript für die Modal-Funktionalität
-document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.getElementById("myModal");
-    var button = document.getElementById("button");
-    var closeBtn = document.getElementsByClassName("close")[0];
-  
-    // Open Modal-Box
-    button.addEventListener('click', function() {
-      modal.style.display = "block";
-    });
-  
-    // Close der Modal-Box
-    closeBtn.addEventListener('click', function() {
-      modal.style.display = "none";
-    });
-  
-    // Close modal-Box when click anywhere
-    window.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  });
-  
-
