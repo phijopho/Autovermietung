@@ -352,6 +352,7 @@ function getTotalPrice($price)
     // create new instance of class DateTime to convert session into a date
     $pickUpDate = new DateTime($_SESSION['pickUpDate']);
     $returnDate = new DateTime($_SESSION['returnDate']);
+    $returnDate->modify('+1 day'); // add one day to count the pick-up day as well
 
     $interval = $pickUpDate->diff($returnDate); // calculate difference between dates
     $numberOfDays = $interval->days; // get difference in number of days
