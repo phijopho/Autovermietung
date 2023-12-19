@@ -26,18 +26,25 @@ body {
     border-color: aqua;
 }
 
-/* style for location */
+/* style for location filter */
 .selectLocation {
-    height: 45px;
-    background-color: #aba6a1;
+    background: var(--dropdownBackground);
+    color: var(--dropdownColor);
+    font-family: var(--dropdownFontFamily);
+    font-weight: var(--dropdownFontWeight);
+    font-size: var(--dropdownFontSize);
+    border: var(--dropdownBorder);
+    outline: var(--dropdownBorder);
+    cursor: var(--dropdownCursor);
+    height: 46px;
     padding: 5px;
-    color: #2f2e2c;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    border: none;
-    outline: none;
-    border-radius: 15px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
+
+option {
+    background: var(--optionBackground);
+  }
 
 /* style for date picker */
 input[type="date"] {
@@ -49,7 +56,6 @@ input[type="date"] {
     font-weight: bold;
     border: none;
     outline: none;
-    border-radius: 15px;
 }
 
 /* style for calendar icon */
@@ -65,30 +71,47 @@ input[type="date"] {
     transition: transform .5s;
 }
 
+/* style for date arrow */
+.dateArrow {
+    color: var(--mainDark);
+    background-color: var(--mainMidDark);
+    font-size: 25px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* style for search button */
 input[type="submit"] {
     align-items: center;
     justify-content: center;
-    height: 40px;
+    height: 46px;
     width: 140px;
-    border-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
     border: none;
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background: var(--mainGradient);
     transition: .5s;
 }
 
 /* hover effects on search button */
 input[type="submit"]:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    width: 160px;
 }
 
 /* remove outline on search button */
 input[type="submit"]:focus {
     outline: none;
+}
+
+/* vertically align location, date and button */
+.selectLocation, input[type="date"], input[type="submit"] {
+    vertical-align: middle;
 }
 
 /* Background second section */
@@ -127,6 +150,13 @@ input[type="submit"]:focus {
     border-bottom: 2px;
     border-color: white;
     border-radius: 25px;
+}
+
+.formContainer {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
 }
 
 .section2 {
