@@ -13,30 +13,12 @@ ini_set('display_errors', 1);
     <?php
     include('../includes/htmlhead.php');
     ?>
-
     <!-- jquery range slider -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-        function validateDates() {
-            var pickUpDate = document.getElementById('pickUpDate').value;
-            var returnDate = document.getElementById('returnDate').value;
-
-            // Konvertiere die Strings zu Date-Objekten
-            var pickUpDateObj = new Date(pickUpDate);
-            var returnDateObj = new Date(returnDate);
-
-            // Überprüfe, ob das Rückgabedatum vor dem Abholdatum liegt
-            if (returnDateObj < pickUpDateObj) {
-                alert('Das Rückgabedatum kann nicht vor dem Abholdatum liegen!');
-                return false; // Verhindert das Absenden des Formulars
-            }
-
-            return true; // Erlaubt das Absenden des Formulars
-        }
-    </script>
-
+    <script src="includes/functions.js"></script>
+    
     <!-- sessions and variables -->
     <?php
         // Reset filters (except location and date)
@@ -225,7 +207,6 @@ ini_set('display_errors', 1);
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
     <link rel="stylesheet" href="css/styleProduktuebersicht.css">
-
 </head>
 
 <?php
@@ -252,12 +233,17 @@ include('../includes/header.php'); // include header
                 </div>
                 <div class="twoSidedBox">
                     <label for="pickUpDate">Abholung:</label>
-                    <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" id="pickUpDate" />
+                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate"/>
                 </div>
                 <div class="twoSidedBox">
                     <label for="returnDate">R&uuml;ckgabe:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate" onchange="validateDates()" />
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/>
                 </div>
+
+                <script>
+                    setMinReturnDate();
+                </script>
+
                 <div class="categoryBox">
                     <label for="category">Fahrzeugkategorie: </label><br>
                     <?php

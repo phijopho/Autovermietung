@@ -54,14 +54,17 @@ include('includes/header.php'); // include header
                         ?>
                     </select>
                     <label for="pickUpDate">Abholdatum:</label>
-                    <input type="date" name="pickUpDate" value="<?php echo $_SESSION['pickUpDate']; ?>" />
+                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate"/>
                     <label for="returnDate">R&uuml;ckgabedatum:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" /><br><br>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/><br><br>
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        setMinReturnDate();
+    </script>
     <div id="section2" class="section2">
         <div class="cslider">
             <div class="cslider-carousel">

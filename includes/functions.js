@@ -126,3 +126,9 @@ function handleMouseLeave(event) {
         startCloseTimer();
     }
 }
+
+// date filter: disallow return dates that are before selected pick up date
+function setMinReturnDate() {
+    var pickUpDate = document.getElementById("pickUpDate").value;
+    document.getElementById("returnDate").min = pickUpDate;
+}
