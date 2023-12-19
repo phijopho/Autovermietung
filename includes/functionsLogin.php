@@ -52,7 +52,7 @@ function displayLoginError()
 {
 ?>
     <div class="error">
-        <p class="textError"> Falscher Username oder falsches Passwort </p>
+        <p class="textError">Falscher Username oder falsches Passwort</p>
     </div>
 <?php
 }

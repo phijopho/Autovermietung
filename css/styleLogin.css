@@ -82,15 +82,16 @@ button {
     font-size: 20px;
     background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
     transition: width .5s;
+    margin-top: 15px;
 }
 
-/* hover effects on register button */
+/* hover effects on login button */
 button:hover {
     cursor: pointer;
     width: 200px;
 }
 
-/* remove outline on register button */
+/* remove outline on login button */
 button:focus {
     outline: none;
 }
@@ -98,9 +99,9 @@ button:focus {
 .error {
     height: 35px;
     line-height: 35px;
-    width: 450px;
+    width: 380px;
     border-radius: 10px;
-    margin: -25px auto -10px;
+    margin: -65px auto 10px;
     background-color: #ffbaba;
     text-align: center;
     display: flex;

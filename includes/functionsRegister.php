@@ -53,7 +53,12 @@ function displaySuccessMessage()
 {
 ?>
     <div class="success">
-        <p class="textSuccess"> Erfolgreich registriert, <a href="./pages/login.php" class="linkHere"> jetzt Anmelden! </a></p>
+        <p class="textSuccess">
+            Erfolgreich registriert,
+        </p>
+    </div>
+    <div class="success">
+        <a href="./pages/login.php" class="linkHere">hier klicken zum Anmelden!</a>
     </div>
 <?php
 }
@@ -63,7 +68,7 @@ function displayErrorMessage()
 ?>
     <div class="error">
         <p class="textError"> Der Username oder die Email ist bereits vergeben. </p>
-    </div> <?php
-        }
-
-            ?>
+    </div> 
+<?php
+}
+?>
