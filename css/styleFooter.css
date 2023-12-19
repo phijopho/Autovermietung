@@ -1,0 +1,93 @@
+footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
+  height: 410px;
+  background-color: #1a1818;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 0;
+}
+
+/*damit mehrere reihen im footer gebaut werden können*/
+.footer-row {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*für die einzelnen elemente im footer-row*/
+.footer-col {
+  flex: 1;
+  margin: 0 20px 0 0;
+  text-align: center;
+}
+
+
+a {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
+  text-decoration: none;
+  line-height: 2.5;
+}
+
+
+.h1Footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
+  color: #f7f2ef;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.h2Footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+/* Settings all icons on the bottom */
+.instagram {
+  width: 27px;
+  height: 27px;
+  padding-left: 0px;
+}
+
+.x {
+  width: 30px;
+  height: 30px;
+}
+
+.facebook {
+  width: 22px;
+  height: 22px;
+  margin-top: 0;
+}
+
+.instagram:hover,
+.x:hover,
+.facebook:hover {
+  transform: scale(1.2);
+}
+
+.zahlungsmethoden {
+  width: auto;
+  height: 20px;
+}
+
+.footer {
+  font-family: "Montserrat", sans-serif;
+  color: #f7f2ef;
+  height: 410px;
+  width: 100%;
+  background-color: #1a1818;
+  padding: 20px;
+  margin-bottom: 0;
+  z-index: -1;
+  float: left;
+  margin-top: 5%;
+  position: relative;
+}

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 </head>
+
 <body>
     <?php
     session_start();
@@ -10,4 +12,5 @@
     header("Location: ../index.php");
     ?>
 </body>
+
 </html>

@@ -37,7 +37,7 @@ function cSlider() {
         }
 
         // Kontrollfelder
-        $next.on('click', function() {
+        $next.on('click', function () {
             index = index + 1;
             if (index >= itemLength) {
                 index = 0;
@@ -45,7 +45,7 @@ function cSlider() {
             setState(index);
         });
 
-        $prev.on('click', function() {
+        $prev.on('click', function () {
             if (index <= 0) {
                 index = itemLength;
             }
@@ -61,6 +61,6 @@ function cSlider() {
 }
 
 // Shorthand for $( document ).ready()
-jQuery(function() {
+jQuery(function () {
     cSlider();
 });
