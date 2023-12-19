@@ -11,7 +11,7 @@
 
 <!--Userdaten updaten-->
 <?php
-include('../includes/header.php');
+include('../includes/header.php'); 
 include('db_connection.php');
 
 $userID = $_SESSION['User_ID'];
@@ -22,8 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updatedAge = $_POST['age'];
     $updatedEmail = $_POST['email'];
     $updatedUsername = $_POST['username'];
-    $updatedPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
+    $updatedPassword = $_POST['password'];
 
     $query = $conn->prepare("
         UPDATE user
@@ -53,6 +52,8 @@ $query->bindParam(':userID', $userID);
 $query->execute();
 
 $user = $query->fetch(PDO::FETCH_ASSOC);
+
+$conn = null;
 ?>
 
 <body>
@@ -61,19 +62,37 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
             <img src="./images/neonlightsrev.gif">
         </div>
 
-        <!--Boxen wo der User seine Daten einsehen und verändern kann-->
-        <form action="pages/meinProfil.php" method="post">
+        <!-- Boxen, wo der User seine Daten einsehen und verändern kann -->
+        <form action="pages/meinProfil.php" method="post" id="profilForm">
             <h1>Mein Profil</h1>
             <div class="inputbox">
-                <input type="text" name="firstName" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>">
-                <input type="text" name="lastName" required placeholder="Nachname" value="<?php echo $user['LastName']; ?>">
-                <input type="text" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>">
-                <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>">
-                <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>">
-                <input type="text" name="password" required placeholder="Neues Password">                <button type="submit">Bearbeiten</button>
+                <input type="text" name="firstName" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>" disabled>
+                <input type="text" name="lastName" required placeholder="Nachname" value="<?php echo $user['LastName']; ?>" disabled>
+                <input type="text" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>" disabled>
+                <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>" disabled>
+                <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>" disabled>
+                <input type="text" name="password" required placeholder="Neues Password" disabled>                
+                <button type="button" onclick="enableEditing()">Bearbeiten</button>
+                
             </div>
         </form>
     </div>
+
+    <!-- Bearbeiten Button | Beim Klicken Disabled entfernen und Text ändern -->
+    <script>
+        function enableEditing() {
+            var form = document.getElementById("profilForm");
+            var inputs = form.getElementsByTagName("input");
+
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].disabled = false;
+            }
+
+            var button = document.querySelector("button");
+            button.innerHTML = "Änderung abschicken";
+        }
+    </script>
+
 </body>
 <?php
 include('../includes/footer.html');
