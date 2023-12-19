@@ -239,4 +239,3 @@ function handleMouseLeave(event) {
         startCloseTimer(); 
 }
 }
-}
