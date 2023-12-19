@@ -33,6 +33,12 @@
   border-radius: 30px;
 }
 
+.pToggle {
+  margin-left: 30%;
+  margin-top: -1%;
+  margin-bottom: 1.5%;
+}
+
 .buttonToggle {
   background-color: #525252;
   color: aqua;

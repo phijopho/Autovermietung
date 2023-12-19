@@ -58,6 +58,7 @@ include('../includes/header.php'); // Einbindung des Headers
 
                 ?>
                 <!-- create button with triangle -->
+                <div class="pToggle"> Modellinformationen einblenden</div>
                 <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
 
                 <div class="desc" id="desc">
