@@ -39,8 +39,8 @@ include('includes/header.php'); // include header
     <div class="BackgroundKia">
         <div class="section1">
             <div class="containerBookingForm">
-                <form action="pages/produktuebersicht.php" method="post">
-                    <label for="location">Standort:</label>
+                <form action="pages/produktuebersicht.php" method="post" class="formContainer">
+                    <!-- <label for="location">Standort:</label> -->
                     <select class="selectLocation" id="location" name="location">
                         <?php //aus Datenbank ziehen, außer HH
                         foreach ($location as $city) {
@@ -53,17 +53,16 @@ include('includes/header.php'); // include header
                         $_SESSION['location'] = "Hamburg";
                         ?>
                     </select>
-                    <label for="pickUpDate">Abholdatum:</label>
                     <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate"/>
-                    <label for="returnDate">R&uuml;ckgabedatum:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/><br><br>
+                    <span class="dateArrow">&#8594;</span>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/>
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
             </div>
         </div>
     </div>
     <script>
-        setMinReturnDate();
+        setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
     </script>
     <div id="section2" class="section2">
         <div class="cslider">
