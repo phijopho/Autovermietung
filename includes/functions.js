@@ -24,28 +24,28 @@ function togglemenu() {
 }
 
 // Modal-Box
-document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.getElementById("myModal");
-    var button = document.getElementById("button");
-    var closeBtn = document.getElementsByClassName("close")[0];
+// document.addEventListener('DOMContentLoaded', function() {
+//     var modal = document.getElementById("myModal");
+//     var button = document.getElementById("button");
+//     var closeBtn = document.getElementsByClassName("close")[0];
   
-    // Open Modal-Box
-    button.addEventListener('click', function() {
-      modal.style.display = "block";
-    });
+//     // Open Modal-Box
+//     button.addEventListener('click', function() {
+//       modal.style.display = "block";
+//     });
   
-    // Close der Modal-Box
-    closeBtn.addEventListener('click', function() {
-      modal.style.display = "none";
-    });
+//     // Close der Modal-Box
+//     closeBtn.addEventListener('click', function() {
+//       modal.style.display = "none";
+//     });
   
-    // Close modal-Box when click anywhere
-    window.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  });
+//     // Close modal-Box when click anywhere
+//     window.addEventListener('click', function(event) {
+//       if (event.target === modal) {
+//         modal.style.display = "none";
+//       }
+//     });
+//   });
 
   //Backbutton Produktdetailseite
 window.addEventListener('scroll', function() {
@@ -237,5 +237,6 @@ function cancelCloseTimer() {
 function handleMouseLeave(event) {
     if (!event.relatedTarget || (event.relatedTarget !== document.getElementById('submenu') && !document.getElementById('submenu').contains(event.relatedTarget))) {
         startCloseTimer(); 
+}
 }
 }

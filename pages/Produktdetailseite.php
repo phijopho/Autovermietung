@@ -1,3 +1,4 @@
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -110,19 +111,28 @@ include('../includes/header.php'); // Einbindung des Headers
                 <h2> Zusammenfassung </h2><br>
                 <h3>Ihr ausgewählter Zeitraum: </h3>
                 <p><?php echo formatDate($_SESSION['pickUpDate']) ?> bis <?php echo formatDate($_SESSION['returnDate']) ?></p>
-                <h3> Standort des Fahrzeugs: </h3>
-                <p> <?php echo $_SESSION['location'] ?> </p>
+                <?php
+                    if($_SESSION['availableCarsModel']==0){
+                        echo "<h3> Standort: </h3>";
+                        echo "<p>";
+                            $locations=getCarLocations($_SESSION['carType_ID']); 
+                            echo implode(', ',$locations); 
+                        echo "</p>";
+                    } else {
+                        echo "<h3> Ihr ausgew&auml;hlter Standort: </h3>";
+                        echo "<p>".$_SESSION['location']."</p>";      
+                    }
+                ?>
                 <h3>Mindestalter: </h3>
                 <p> <?php $minAge = getCarProperty($_SESSION['carType_ID'], 'Min_Age');
                     echo $minAge; ?></p>
                 <h3>Preis pro Tag: <?php $price = getCarProperty($_SESSION['carType_ID'], 'Price');
                                     echo number_format($price, 2, ',', '.'); ?> &euro;</h3>
-                <br>
                 <h3>Gesamtpreis: <?php $totalPrice = getTotalPrice($price);
                                     echo number_format($totalPrice, 2, ',', '.') ?> &euro;</h3>
                 <?php
                 if ($_SESSION['availableCarsModel'] == 0) {
-                    echo "<p> Dieses Modell ist in " . $_SESSION['location'] . " im gew&ouml;hlten Zeitraum nicht verf&uuml;gbar. </p>";
+                    echo "<p> Dieses Modell ist in " . $_SESSION['location'] . " im gew&auml;hlten Zeitraum nicht verf&uuml;gbar. </p>";
                 } elseif ($_SESSION['availableCarsModel'] == 1) {
                     echo "<p> Von diesem Modell ist in " . $_SESSION['location'] . " nur noch 1 verf&uuml;gbar.</p>";
                 } else {
@@ -131,7 +141,7 @@ include('../includes/header.php'); // Einbindung des Headers
                 ?>
             </div>
         </div>
-
+        
         <?php
         $availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
         if ($availableCars>0){
@@ -142,21 +152,11 @@ include('../includes/header.php'); // Einbindung des Headers
                     echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
                     echo "</div>";
                 } else { ?>
-                     <button id="button" class="button">Jetzt Buchen</button>
-
-                    <!-- Modalbox -->
-                    <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <br>
-                        <h3>Ihre Buchung war erfolgreich </h3>
-                        <br>
-                        <p><a href="./pages/produktuebersicht.php">Zurück zur Produktübersicht </a></p>
-                        <p><a href="pages/meineBuchungen.php"> Meine Buchung ansehen </a></p>
-                        <br>
-                    </div>
-                    </div>
-                    </div> <?php
+                    <div class="divbutton">
+                        <form action="pages/meineBuchungen.php" method="post">
+                            <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
+                            <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
+                        </form> <?php
                 }
             } else {
                 echo "<div class='divbutton'>";
@@ -176,6 +176,7 @@ include('../includes/header.php'); // Einbindung des Headers
         }
         ?>
     </div>
+    </div>
 </body>
 
 <?php
@@ -183,3 +184,4 @@ include('../includes/footer.html');
 ?>
 
 </html>
+
