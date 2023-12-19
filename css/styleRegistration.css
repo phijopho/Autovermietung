@@ -75,6 +75,7 @@ input::placeholder {
 /* style for register button */
 button {
     margin-left: 50%;
+    margin-top: 15px;
     transform: translateX(-50%);
     height: 50px;
     width: 150px;
