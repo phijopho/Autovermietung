@@ -29,7 +29,7 @@ table {
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
-  background: #0096FF;
+  background: #525252;
   color: #fff;
   text-transform: uppercase;
   border-top: 1px;
@@ -38,6 +38,8 @@ table {
   text-transform: capitalize;
   border-radius: 0 0 0 0;
   border-radius: 20px 20px 0 0;
+  box-shadow: 0px 6px 8px 6px rgba(0, 0, 0, 0.2), 0 6px 7px 6px rgba(38, 38, 38, 0.495);  
+
 }
 
 .tile {
@@ -72,7 +74,7 @@ table {
 /*general settings for dd*/
 dt {
   font-family: "Oswald", sans-serif;
-  background: #0096FF;
+  background: #525252;
   color: #fff;
   text-transform: uppercase;
   border-top: 1px solid #222;
@@ -83,7 +85,7 @@ dt {
   transition: all 300ms;
   -webkit-transition: all 300ms;
   margin-left: 30px;
-
+  box-shadow: 0px 6px 8px 6px rgba(0, 0, 0, 0.2), 0 6px 7px 6px rgba(38, 38, 38, 0.495);  
 }
 
 
