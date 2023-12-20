@@ -26,11 +26,12 @@ ini_set('display_errors', 1);
     // echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
 
     ?>
+    <title>Produktdetails: <?php $model = getModel($_SESSION['carType_ID']); echo $model[0] . ' ' . $model[1]; ?></title>
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
     <link rel="stylesheet" href="css/styleFooter.css">
     <script src="includes/functions.js"></script>
-    <title>Produktdetails</title>
+    
 
 </head>
 
