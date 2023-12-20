@@ -39,6 +39,14 @@ include('../includes/header.php'); // include header
                 <input type="password" required placeholder="Password" name="password">
             </div>
             <button name="login">Login</button>
+
+            <div class="registerInfo">
+                Sie sind neu bei uns?&nbsp;
+                <a href="./pages/registration.php" class="registerLink">
+                    Hier klicken zum Registrieren!
+                </a>
+            </div>
+            
         </form>
     </div>
 </body>

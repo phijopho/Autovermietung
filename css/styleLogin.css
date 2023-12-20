@@ -113,6 +113,45 @@ button:focus {
     font-size: 16px;
 }
 
+/* style for registration info / link */
+.registerInfo {
+    width: 500px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 140px;
+    margin-top: 15px;
+}
+
+.registerLink {
+    text-decoration: none;
+    position: relative;
+}
+
+.registerLink:hover {
+    color: aqua;
+}
+
+.registerLink::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: aqua;
+    bottom: 10px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .4s ease-in-out;
+}
+
+.registerLink:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
 .gif1 {
     margin: 50px;
     margin-top: 210px;
