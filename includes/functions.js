@@ -23,6 +23,7 @@ function togglemenu() {
     }
 }
 
+
   //Backbutton Produktdetailseite
 window.addEventListener('scroll', function() {
     var button = document.getElementById('scrollButton');
@@ -197,11 +198,10 @@ document.addEventListener('DOMContentLoaded', function () {
 //Hovermenu closing slower
 let closeTimer;
 
-
 function handleMouseEnter() {
     document.getElementById('submenu').style.display = 'block';
+    cancelCloseTimer(); // Den Timer löschen, um das Schließen des Menüs zu verhindern
 }
-
 
 function startCloseTimer() {
     closeTimer = setTimeout(() => {
@@ -209,13 +209,25 @@ function startCloseTimer() {
     }, 800);
 }
 
-
 function cancelCloseTimer() {
     clearTimeout(closeTimer);
 }
 
 function handleMouseLeave(event) {
     if (!event.relatedTarget || (event.relatedTarget !== document.getElementById('submenu') && !document.getElementById('submenu').contains(event.relatedTarget))) {
-        startCloseTimer(); 
+        startCloseTimer();
+    }
 }
-}
+
+// Zusätzliche Logik, um das Untermenü erneut zu öffnen, wenn der Mauszeiger wieder darauf zeigt
+document.getElementById('submenu').addEventListener('mouseenter', () => {
+    cancelCloseTimer(); // Den Timer löschen, um das Schließen des Menüs zu verhindern
+});
+
+document.getElementById('submenu').addEventListener('mouseleave', () => {
+    startCloseTimer();
+});
+
+document.getElementById('menu').addEventListener('mouseleave', handleMouseLeave);
+document.getElementById('menu').addEventListener('mouseenter', handleMouseEnter);
+

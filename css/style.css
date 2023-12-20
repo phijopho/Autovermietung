@@ -116,6 +116,11 @@ ul {
     display: inline;
     margin: 3px;
     padding-left: 0px;
+    background: linear-gradient(to bottom, #525252, rgb(20, 20, 20));
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 6px 8px 0 rgba(142, 140, 140, 0.2), 0 6px 20px 0 rgba(94, 94, 94, 0.19);
+    
 }
 
 ul li {
@@ -137,7 +142,6 @@ ul li ul {
 }
 
 ul li ul li {
-    background: #525252;
     display: block;
     padding-bottom: 20px;
     padding-top: 10px;

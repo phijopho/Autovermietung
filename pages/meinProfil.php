@@ -71,7 +71,7 @@ $conn = null;
                 <input type="text" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>" disabled>
                 <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>" disabled>
                 <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>" disabled>
-                <input type="text" name="password" required placeholder="Neues Password" disabled>                
+                <input type="text" name="password" required placeholder="Aktuelles oder neues Passwort" disabled>                
                 <button type="submit" onclick="enableEditing()">Bearbeiten</button>
                 
             </div>

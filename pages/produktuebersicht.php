@@ -221,15 +221,24 @@ include('../includes/header.php'); // include header
                 <div class="itemBox">
                     <label for="location">Standort:</label><br>
                     <select class="customSelect" name="location">
-                    <?php 
-                    foreach ($location as $city) {
-                        if ($_SESSION['location'] == $city) {
-                            echo "<option value='$city' selected>$city</option>";
-                        } else {
-                            echo "<option value='$city'>$city</option>";
-                    }}
-                    ?>
-                </select>
+                        <?php 
+                        foreach ($location as $city) {
+                            if ($_SESSION['location'] == $city) {
+                                echo "<option value='$city' selected>$city</option>";
+                            } else {
+                                echo "<option value='$city'>$city</option>";
+                            }}
+
+
+                            foreach ($location as $city) {
+                            echo "<option value='$city' ";
+                            if (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city) {
+                            echo "selected";
+                            }
+                            echo ">$city</option>";
+                            }
+                            ?>
+                    </select>
                 </div>
                 <div class="twoSidedBox">
                     <label for="pickUpDate">Abholung:</label>
@@ -392,10 +401,7 @@ include('../includes/header.php'); // include header
 
         <div class="resultBox">
             <div class="topBox">
-                <?php
-                $_SESSION['totalAvailableCars'] = getAvailableCars(getAvailableCars());
-                ?>
-                <label for="available">Verf&uuml;gbare Fahrzeugmodelle: <?php echo $_SESSION['totalAvailableCars'] ?></label>
+                <label for="available">Verf&uuml;gbare Fahrzeuge: <?php echo getAvailableCars(); ?></label>
                 <div class="sortBox">
                     <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>" id="sortForm">
                         <label for="sort">Sortierung: </label>

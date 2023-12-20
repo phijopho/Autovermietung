@@ -67,14 +67,38 @@ include('../includes/header.php');
   <!--Booking data overview-->
   <article>
     <h1>Meine Buchungen</h1>
+ 
+  <table>
+  <tr>
+  <td>
+      <div class="tile">
+        <h3>Buchungs_ID</h3>
+      </div>
+    </td>
+    <td>
+    <td>
+      <div class="tile">
+        <h3>Buchungsdatum</h3>
+      </div>
+    </td>
+    <td>
+      <div class="tile">
+        <h3>Abholdatum</h3>
+      </div>
+    </td>
+    <td>
+      <div class="tile">
+        <h3>Rückgabedatum</h3>
+      </div>
+    </td>
+    <td>
+      <div class="tile">
+        <h3>Modell</h3>
+      </div>
+    </td>
+  </tr>
+</table>
 
-    <div class="onTopContainer">
-      <h3>Buchungs-ID</h3>
-      <h3>Buchungsdatum</h3>
-      <h3>Abholdatum</h3>
-      <h3>Rückgabedatum</h3>
-      <h3>Modell&nbsp;&nbsp;&nbsp;</h3>
-    </div>
 
     <dl id="ud_accordion">
       <?php
@@ -86,7 +110,7 @@ include('../includes/header.php');
             <p><?php echo $bookingInfo['BookingDate']; ?></p>
             <p><?php echo $bookingInfo['StartDate']; ?></p>
             <p><?php echo $bookingInfo['EndDate']; ?></p>
-            <p><?php echo $bookingInfo['Brand'] . " " . $bookingInfo['Model']; ?>&nbsp;&nbsp;&nbsp;</p>
+            <p><?php echo $bookingInfo['Brand'] . " " . $bookingInfo['Model']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
           </dt>
 
           <dd>
@@ -159,13 +183,15 @@ include('../includes/header.php');
         let html = '';
         bookings.forEach(booking => {
           html += `
+
         <dt>
-          <p>${booking['Rent_ID']}</p>
-          <p>${booking['BookingDate']}</p>
-          <p>${booking['StartDate']}</p>
-          <p>${booking['EndDate']}</p>
-          <p>${booking['Brand']} ${booking['Model']}&nbsp;&nbsp;&nbsp;</p>
+          <div class="box"><p>${booking['Rent_ID']}</p></div>
+          <div class="box"><p>${booking['BookingDate']}</p></div>
+          <div class="box"><p>${booking['StartDate']}</p></div>
+          <div class="box"><p>${booking['EndDate']}</p></div>
+          <div class="box"><p>${booking['Brand']} ${booking['Model']}</p></div>
         </dt>
+
         <dd>
           Abhol- und Rückgabeort: ${booking['CarLocation']}<br>
           Gesamtpreis der Buchung: ${booking['TotalPrice']} &euro;<br>
@@ -178,27 +204,30 @@ include('../includes/header.php');
 
       //Pagination links are updated
       function updatePagination() {
-        const paginationContainer = document.querySelector('.pagination-container'); //paginationContainer is only necessary for the positions on the website
-        paginationContainer.innerHTML = '';
+  const paginationContainer = document.querySelector('.pagination-container'); // paginationContainer is only necessary for the positions on the website
+  paginationContainer.innerHTML = '';
 
-        const totalGroups = Math.ceil(bookings.length / itemsPerPage); //Calculate total number of pages
+  const totalGroups = Math.ceil(bookings.length / itemsPerPage); // Calculate total number of pages
 
-        //A number is created for each page and a new HTML document is created for each page
-        for (let i = 1; i <= totalGroups; i++) {
-          const pageLink = document.createElement('a');
-          pageLink.href = '#';
-          pageLink.classList.add('pagination-link');
-          pageLink.textContent = i;
-          pageLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            currentPage = i;
-            displayBookings(currentPage); //When a number is clicked, the displayBookings function is called up
-            updatePagination();
-          });
+  // A number is created for each page and a new HTML document is created for each page
+  for (let i = 1; i <= totalGroups; i++) {
+    const pageLink = document.createElement('a');
+    pageLink.href = '#';
+    pageLink.classList.add('pagination-link');
+    pageLink.textContent = i;
+    if (i === currentPage) {
+      pageLink.classList.add('ud_active'); // Add the active class for the current page
+    }
+    pageLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      currentPage = i;
+      displayBookings(currentPage); // When a number is clicked, the displayBookings function is called up
+      updatePagination();
+    });
 
-          paginationContainer.appendChild(pageLink);
-        }
-      }
+    paginationContainer.appendChild(pageLink);
+  }
+}
 
       displayBookings(currentPage);
       updatePagination();

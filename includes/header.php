@@ -7,7 +7,7 @@
   <?php if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) { ?>
     <div class="divhover nav-link" onmouseleave="handleMouseLeave(event)">
       <ul>
-        <li onmouseenter="handleMouseEnter()">
+        <li style="background-color: #525252;" onmouseenter="handleMouseEnter()">
           <a>Hallo <?php echo $_SESSION["firstName"] ?> </a>
           <ul id="submenu" onmouseenter="cancelCloseTimer()" onmouseleave="startCloseTimer()">
             <li><a href="pages/meinProfil.php">Mein Profil</a></li>

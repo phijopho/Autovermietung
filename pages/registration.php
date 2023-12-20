@@ -26,12 +26,12 @@
             <?php register(); ?>
 
             <div class="inputbox">
-                <input type="text" required autofocus placeholder="Vorname*" name="firstName">
-                <input type="text" required placeholder="Nachname*" name="lastName">
+                <input type="text" required autofocus placeholder="Vorname*" maxlength="128" name="firstName">
+                <input type="text" required placeholder="Nachname*" maxlength="128" name="lastName">
                 <input type="number" required min="18" max="150" placeholder="Alter*" name="age">
-                <input type="email" required placeholder="Email*" name="email">
-                <input type="text" required placeholder="Username*" name="username"> <!-- maybe add pattern to disallow spaces -->
-                <input type="password" required placeholder="Password*" name="password">
+                <input type="email" required placeholder="Email*" maxlength="128" name="email">
+                <input type="text" required placeholder="Username*" maxlength="128" name="username" pattern="[A-Za-z0-9_.]+" title="Bitte verwende nur Buchstaben, Zahlen, Unterstriche und Punkte.">
+                <input type="password" required placeholder="Password*" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Großbuchstaben, 1x Kleinbuchstaben, 1x Zahl">
             </div>
             <button name="register">Registrieren</button>
         </form>

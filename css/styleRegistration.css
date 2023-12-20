@@ -13,13 +13,13 @@ form {
 /* headline with gradient underlining */
 h1 {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 40px;
 
     color: #f7f2ef;
     font-size: 45px;
 
-    background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    background-size: 50% 4px;
+    background-image: var(--mainGradient);
+    background-size: 42% 4px;
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
@@ -35,6 +35,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
 }
 
 /* style input boxes */
@@ -75,6 +76,7 @@ input::placeholder {
 /* style for register button */
 button {
     margin-left: 50%;
+    margin-top: 15px; 
     transform: translateX(-50%);
     height: 50px;
     width: 150px;
@@ -83,7 +85,7 @@ button {
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background: var(--mainGradient);
     transition: width .5s;
 }
 
@@ -98,12 +100,13 @@ button:focus {
     outline: none;
 }
 
+/* style for success and error messages */
 .error {
     height: 35px;
     line-height: 35px;
     width: 450px;
     border-radius: 10px;
-    margin: -25px auto -10px;
+    margin: -2px auto -25px;
     background-color: #ffbaba;
     text-align: center;
     display: flex;
@@ -112,11 +115,11 @@ button:focus {
 }
 
 .success {
-    height: 35px;
-    line-height: 35px;
-    width: 350px;
+    height: 45px;
+    line-height: 30px;
+    width: 275px;
     border-radius: 10px;
-    margin: -25px auto -10px;
+    margin: -5px auto -25px;
     background-color: #d3ffce;
     text-align: center;
     display: flex;
@@ -153,7 +156,7 @@ button:focus {
     height: 2px;
     border-radius: 2px;
     background-color: #004b23;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     transform-origin: right;
     transform: scaleX(0);
