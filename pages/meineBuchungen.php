@@ -24,7 +24,7 @@ include('../includes/header.php');
 
 <body>
   <?php
-  preventEnterIfLoggedOut(); 
+    preventEnterIfLoggedOut(); 
   ?>
 
   <?php
