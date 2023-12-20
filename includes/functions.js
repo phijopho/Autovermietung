@@ -33,12 +33,6 @@ function closeModal() {
 }
 
 
-
-// JavaScript-Funktion zum Schließen des Modals
-// function closeModal() {
-//     var modal = document.getElementById('myModal');
-//     modal.style.display = 'none';
-// }
 // Homepage
 
   //Crousel with prices and categories 
