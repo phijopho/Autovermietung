@@ -22,7 +22,9 @@ include('includes/header.php'); // include header
 ?>
 
 <body>
-
+    <?php 
+        displayLogoutSuccess();
+    ?>
     <!-- sessions and variables -->
     <?php
     $location = getCities();

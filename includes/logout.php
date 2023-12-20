@@ -7,9 +7,13 @@
 <body>
     <?php
     session_start();
-    session_unset();
-    session_destroy();
-    header("Location: ../index.php");
+        if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
+            session_unset();
+            session_destroy();
+            header("Location: ../index.php?loggedOut=1");
+        } else {
+            header("Location: ../index.php");
+        }
     ?>
 </body>
 

@@ -26,6 +26,31 @@ body {
     border-color: aqua;
 }
 
+/* logout success message */
+
+.logOutSuccess {
+    height: 50px;
+    line-height: 30px;
+    width: 270px;
+    border-radius: 15px;
+    margin: 50px auto -25px;
+    background-color: #d3ffce;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 18.5%;
+    transform: translate(-50%, -50%);
+}
+
+.textLogOutSuccess {
+    color: #004b23;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 /* style for location filter */
 .selectLocation {
     background: var(--dropdownBackground);

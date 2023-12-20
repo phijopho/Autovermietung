@@ -422,6 +422,21 @@ function preventEnterIfLoggedOut()
     }
 }
 
+// Logout Success message
+function displayLogoutSuccess()
+{
+    if (!(isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"]))) {
+        if (isset($_GET["loggedOut"]) && $_GET["loggedOut"] == 1)
+        {
+        ?>
+            <div class="logOutSuccess">
+                <p class="textLogOutSuccess">Erfolgreich abgemeldet!</p>
+            </div>
+        <?php
+        }
+    }
+}
+
 // Meine Buchungen
 function getUserID()
 { // username is unique and User_ID is assigned within the database logic so it must be deducted from the db
