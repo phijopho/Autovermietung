@@ -5,15 +5,79 @@
     font-weight: 700;
 }
 
-.AboutUsContainer {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 50px;
-
-    padding-bottom: 100px;
-    line-height: 2;
+p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
 }
 
-.blocksatz {
+h2 {
+    font-size: 20px;
+    font-weight: 450;
+    line-height: 40px;
+}
+
+.AboutUsContainer {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: url("../images/category images/hintergrund AboutUs.png");
+    background-size: cover; /* Das Bild wird so skaliert, dass es den gesamten Container abdeckt */
+    background-position: center; 
+    z-index: -1;
+}
+
+
+.heading {
+    width: 50%;
+    height: auto;
+    text-align: center;
+    float: top;
+    margin-left: 23%;
+    margin-top: 150px;
+    padding: 30px;
+    z-index: 1;
+    padding: 30px;
+    background-color: #1a1818;
+    border-radius: 30px;
+}
+
+.we {
+    width: 40%;
+    height: fit-content;
+    float: left;
+    margin-top: 3%;
+    margin-left: 10%;
+    z-index: 1;
+    padding: 50px;
+    background-color: #1a1818;
+    border-radius: 30px;
+}
+
+.why {
+    width: 40%;
     text-align: justify;
+    float: right;
+    margin-top: 10%;
+    margin-right: 10%; 
+    z-index: 1;
+    padding: 50px;
+    background-color: #1a1818;
+    border-radius: 30px; 
+}
+
+.thank {
+    width: 45%;
+   align-content: center;
+    text-align: center;
+    float: inline-start;
+    margin-top: 40px;
+    margin-left: 23%; 
+    z-index: 1000;
+    padding: 50px;
+    background-color: #1a1818;
+    border-radius: 30px;
+    
 }

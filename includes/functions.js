@@ -103,7 +103,6 @@ function setMinReturnDate() {
     document.getElementById("returnDate").min = pickUpDate;
 }
 
-
 // Header
 // Scrollfunction 
 window.onscroll = function () {
@@ -215,3 +214,18 @@ document.getElementById('submenu').addEventListener('mouseleave', () => {
 document.getElementById('menu').addEventListener('mouseleave', handleMouseLeave);
 document.getElementById('menu').addEventListener('mouseenter', handleMouseEnter);
 
+
+//meinProfil
+
+//my Profile button
+function enableEditing() {
+    var form = document.getElementById("profilForm");
+    var inputs = form.getElementsByTagName("input");
+
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].disabled = false;
+    }
+
+    var button = document.querySelector("button");
+    button.innerHTML = "Änderung abschicken";
+}

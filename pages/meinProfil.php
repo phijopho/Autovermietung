@@ -5,6 +5,7 @@
     <?php include('../includes/htmlhead.php') ?>
     <link rel="stylesheet" href="css/styleMeinProfil.css">
     <link rel="stylesheet" href="css/styleFooter.css">
+    <script src="includes/functions.js"></script>
     <title>Mein Profil</title>
 </head>
 
@@ -81,19 +82,7 @@ $conn = null;
     </div>
 
     <!-- Bearbeiten Button | Beim Klicken Disabled entfernen und Text ändern -->
-    <script>
-        function enableEditing() {
-            var form = document.getElementById("profilForm");
-            var inputs = form.getElementsByTagName("input");
 
-            for (var i = 0; i < inputs.length; i++) {
-                inputs[i].disabled = false;
-            }
-
-            var button = document.querySelector("button");
-            button.innerHTML = "Änderung abschicken";
-        }
-    </script>
 
 </body>
 <?php
