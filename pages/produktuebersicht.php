@@ -207,6 +207,7 @@ ini_set('display_errors', 1);
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
     <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
 </head>
 
 <?php
@@ -221,23 +222,26 @@ include('../includes/header.php'); // include header
                     <label for="location">Standort:</label><br>
                     <select class="customSelect" name="location">
                     <?php 
-                foreach ($location as $city) {
-                    if ($_SESSION['location'] == $city) {
-                        echo "<option value='$city' selected>$city</option>";
-                    } else {
-                        echo "<option value='$city'>$city</option>";
-                    }}
+                        foreach ($location as $city) {
+                            $cleanCity = strtolower(str_replace(' ', '-', $city));
+                            
+                            echo "<option value='$cleanCity' ";
+                            
+                            if ($_SESSION['location'] == $city || (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city)) {
+                                echo "selected";
+                                $_SESSION['location'] = $city; // Setze den ausgewählten Stadtwert in der Session
+                            } 
+                            
+                            echo ">$city</option>";
+                        }
 
+                        if (isset($_POST['selectedLocation'])) {
+                            $selectedCity = $_POST['selectedLocation'];
+                        }
 
-                    foreach ($location as $city) {
-                    echo "<option value='$city' ";
-                    if (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city) {
-                    echo "selected";
-                    }
-                    echo ">$city</option>";
-                    }
+                        $_SESSION['location'] = "Hamburg";
                     ?>
-                </select>
+                    </select>
                 </div>
                 <div class="twoSidedBox">
                     <label for="pickUpDate">Abholung:</label>
@@ -390,20 +394,14 @@ include('../includes/header.php'); // include header
                 <br>
                 <input class="filterButton" type="submit" value="Filtern" name="filter">
             </form>
-            <?php
-            if(isset($_POST['filter'])){ ?>
-                <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
-                    <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
-                </form>
-            <?php } ?>
+            <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
+                <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
+            </form>
         </div>
 
         <div class="resultBox">
             <div class="topBox">
-                <?php
-                $_SESSION['totalAvailableCars'] = getAvailableCars(getAvailableCars());
-                ?>
-                <label for="available">Verf&uuml;gbare Fahrzeugmodelle: <?php echo $_SESSION['totalAvailableCars'] ?></label>
+                <label for="available">Verf&uuml;gbare Fahrzeuge: <?php echo getAvailableCars(); ?></label>
                 <div class="sortBox">
                     <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>" id="sortForm">
                         <label for="sort">Sortierung: </label>
@@ -440,7 +438,11 @@ include('../includes/header.php'); // include header
         </div>
     </div>
 </body>
+
+<div class="footer">
 <?php
 include('../includes/footer.html'); // Einbinden des Footers
 ?>
+</div>
+
 </html>

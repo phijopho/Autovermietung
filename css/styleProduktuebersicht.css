@@ -15,7 +15,7 @@
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
-  position: fixed;
+  position: absolute;
   border-radius: 15px;
   /* transform: scaleY(0.9);
   transform-origin: top; */
@@ -477,11 +477,16 @@ input[type=range]::-moz-range-thumb {
 }
 
 .carDataBox {
-  max-width: 545px;
   line-height: 25px;
-  padding: 5px
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
+.minAgeTooYoungBox {
+  color:#dc2430;
+}
+ 
 /* Slider Track */
 .ui-slider {
   background: #f7f2ef;

@@ -104,7 +104,7 @@ function getResultsQuery()
     // vendor filter
     if (!empty($_SESSION['vendor']) && $_SESSION['vendor'] != 'all') {
         $stmt .= " AND Vendor.Abbreviation = '" . $_SESSION['vendor'] . "'";
-    }
+    }   
     // seats filter
     if (isset($_SESSION['seats'])) {
         $stmt .= " AND Seats >= " . $_SESSION['seats'];
@@ -160,61 +160,99 @@ function displayResults($stmt)
     if ($result->rowCount() > 0) {
         echo "<div class='resultWrapBox'>";
         // loop through each available result and display it
+        $hasUnavailableModels = false; // variable to see if the second while-loop needs to be executed
+        $hasAvailableModels = false;
         while ($row = $result->fetch()) {
             $carType_ID = $row['CarType_ID'];
             $availableCarsModel = getAvailableCarsForModel($carType_ID);
             if ($availableCarsModel > 0) {
+                $hasAvailableModels = true;
                 echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
-                echo "<div class='resultItemBox'>";
-                echo "<div class='modelBox'>";
-                // Use the getModel and showImage functions to display car information
-                $model = getModel($carType_ID);
-                echo "<label>" . $model[0] . " " . $model[1] . "</label>";
-                echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
-                echo "</div>";
-                showImage($carType_ID);
-                echo "<div class='carDataBox'>";
-                // Use the getPrice function to display car prices
-                $price = getCarProperty($carType_ID, 'Price');
-                echo "Preis pro Tag: " . $price . " &euro;<br>";
-                // Tage multiplizieren
-                echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
-                echo "</div>";
-                echo "</div>";
+                    echo "<div class='resultItemBox'>";
+                        echo "<div class='modelBox'>";
+                            // Use the getModel and showImage functions to display car information
+                            $model = getModel($carType_ID);
+                            echo "<label>" . $model[0] . " " . $model[1] . "</label>";
+                            echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
+                        echo "</div>";
+                        showImage($carType_ID);
+                        echo "<div class='carDataBox'>";
+                            echo "<div>";
+                                // Use the getPrice function to display car prices
+                                $price = getCarProperty($carType_ID, 'Price');
+                                echo "Preis pro Tag: " . $price . " &euro;<br>";
+                                echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
+                            echo "</div>";
+                            $minAge=getCarProperty($carType_ID, 'Min_Age');
+                            if (isset($_SESSION['User_ID'])){
+                                $userAge = getUserAge();
+                                if ($userAge < $minAge){
+                                    echo "<div class='minAgeTooYoungBox'>";
+                                } else {
+                                    echo "<div>";
+                                }
+                            } else {
+                                echo "<div>";  
+                            }
+                            echo "Mindestalter: ".$minAge;
+                            echo "</div>";  
+                        echo "</div>";
+                    echo "</div>";
                 echo "</a>";
-            }
+            } else {
+                $hasUnavailableModels=true;
+            } 
         }
-        // loop through each unavailable result and display it
-        echo "<div class='separatingBox'> Zu Ihren ausgew&auml;hlten Daten nicht verf&uuml;gbare Modelle: </div>";
-        $result = $conn->query($stmt);
-        while ($row = $result->fetch()) {
-            $carType_ID = $row['CarType_ID'];
-            $availableCarsModel = getAvailableCarsForModel($carType_ID);
-            if ($availableCarsModel == 0) {
-                echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
-                echo "<div class='resultItemBox'>";
-                echo "<div class='modelBox'>";
-                // Use the getModel and showImage functions to display car information
-                $model = getModel($carType_ID);
-                echo "<label>" . $model[0] . " " . $model[1] . "</label>";
-                echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
-                echo "</div>";
-                showImage($carType_ID);
-                echo "<div class='carDataBox'>";
-                // Use the getPrice function to display car prices
-                $price = getCarProperty($carType_ID, 'Price');
-                echo "Preis pro Tag: " . $price . " &euro;<br>";
-                // Tage multiplizieren
-                echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
-                echo "</div>";
-                echo "</div>";
-                echo "</a>";
+        if ($hasAvailableModels==false){
+            echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
+        }
+        // loop through each for the selected location or time unavailable result and display it
+        if($hasUnavailableModels==true){
+            $result = $conn->query($stmt);
+            echo "<div class='separatingBox'> Nicht verf&uuml;gbare Modelle: </div>";
+            while ($row = $result->fetch()) {
+                $carType_ID = $row['CarType_ID'];
+                $availableCarsModel = getAvailableCarsForModel($carType_ID);
+                if ($availableCarsModel == 0) {
+                    echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                        echo "<div class='resultItemBox'>";
+                            echo "<div class='modelBox'>";
+                                // Use the getModel and showImage functions to display car information
+                                $model = getModel($carType_ID);
+                                echo "<label>" . $model[0] . " " . $model[1] . "</label>";
+                                echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
+                            echo "</div>";
+                            showImage($carType_ID);
+                            echo "<div class='carDataBox'>";
+                                echo "<div>";
+                                    // Use the getPrice function to display car prices
+                                    $price = getCarProperty($carType_ID, 'Price');
+                                    echo "Preis pro Tag: " . $price . " &euro;<br>";
+                                    echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
+                                echo "</div>";
+                                $minAge=getCarProperty($carType_ID, 'Min_Age');
+                                if (isset($_SESSION['User_ID'])){
+                                    $userAge = getUserAge();
+                                    if ($userAge < $minAge){
+                                        echo "<div class='minAgeTooYoungBox'>";
+                                    } else {
+                                        echo "<div>";
+                                    }
+                                } else {
+                                    echo "<div>";  
+                                }
+                                echo "Mindestalter: ".$minAge;   
+                                echo "</div>";  
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</a>";
+                }
             }
         }
         echo "</div>";
-    } else {
-        echo "<p>Keine Ergebnisse gefunden.</p>";
-    }
+        } else {
+            echo "<p>Keine Ergebnisse gefunden.</p>";
+        }
 }
 
 // Availability
@@ -225,14 +263,56 @@ function getAvailableCars()
     $startDate = $_SESSION['pickUpDate'];
     $endDate = $_SESSION['returnDate'];
     $location = $_SESSION['location'];
+    $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
+
 
     $stmt = "SELECT COUNT(Car.Car_ID) AS AvailableCars
             FROM Car
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
             INNER JOIN Location ON Car.Location_ID = Location.Location_ID
             LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
+            JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID
             WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
                 AND Location.City = :location";
+    //category filter
+    $stmt .= " AND Type IN ('" . $categories . "')";
+    // vendor filter
+    if (!empty($_SESSION['vendor']) && $_SESSION['vendor'] != 'all') {
+        $stmt .= " AND Vendor.Abbreviation = '" . $_SESSION['vendor'] . "'";
+    }   
+    // seats filter
+    if (isset($_SESSION['seats'])) {
+        $stmt .= " AND Seats >= " . $_SESSION['seats'];
+    }
+    // doors filter
+    if (isset($_SESSION['doors'])) {
+        $stmt .= " AND Doors >= " . $_SESSION['doors'];
+    }
+    // age filter
+    if (isset($_SESSION['age'])) {
+        $stmt .= " AND Min_Age <= " . $_SESSION['age'];
+    }
+    // drive filter
+    if (isset($_SESSION['drive']) && $_SESSION['drive'] != 'all') {
+        $stmt .= " AND Drive = '" . $_SESSION['drive'] . "'";
+    }
+    // transmission filter
+    if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
+        $stmt .= " AND Gear = 'automatic'";
+    }
+    // ac filter
+    if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
+        $stmt .= " AND Air_Condition = 1";
+    }
+    // GPS filter
+    if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
+        $stmt .= " AND GPS = 1";
+    }
+    // Price filter
+    if (isset($_SESSION['minPrice']) or $_SESSION['maxPrice']) {
+        $stmt .= " AND Price BETWEEN '" . $_SESSION['minPrice'] . "' AND '" . $_SESSION['maxPrice'] . "'";
+    }
+
 
     // Bereiten Sie die Abfrage vor und führen Sie sie aus
     $stmt = $conn->prepare($stmt);
@@ -300,6 +380,7 @@ function getTotalPrice($price)
     // create new instance of class DateTime to convert session into a date
     $pickUpDate = new DateTime($_SESSION['pickUpDate']);
     $returnDate = new DateTime($_SESSION['returnDate']);
+    $returnDate->modify('+1 day'); // add one day to count the pick-up day as well
 
     $interval = $pickUpDate->diff($returnDate); // calculate difference between dates
     $numberOfDays = $interval->days; // get difference in number of days
@@ -336,11 +417,10 @@ function preventEnterIfLoggedIn()
 
 function preventEnterIfLoggedOut()
 {
-    if (!isset($_SESSION["firstName"]) && empty($_SESSION["firstName"])) {
+    if (!(isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"]))) {
         header("Location: ../index.php");
     }
 }
-
 
 // Meine Buchungen
 function getUserID()
@@ -438,6 +518,20 @@ function getAvailableCarIDs($carType_ID)
 }
 
 //Functions for Produktdetailseite
+function getCarLocations($CarType_ID){
+    include('dbConnection.php');
+    $stmt=$conn->query("SELECT City FROM Location
+    JOIN Car on Car.Location_ID=Location.Location_ID
+    JOIN CarType on CarType.CarType_ID=Car.CarType_ID
+    WHERE Car.CarType_ID=$CarType_ID");
+
+    $result=array();
+    while ($row = $stmt->fetch()) {
+        $result[] = $row['City'];
+    }
+    return $result;
+}
+
 function getCarInfo($carTypeID)
 {
     include('dbConnection.php');

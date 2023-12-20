@@ -14,12 +14,10 @@ form {
 h1 {
     text-align: center;
     margin-top: 40px;
-
     color: #f7f2ef;
     font-size: 45px;
-
     background-image: var(--mainGradient);
-    background-size: 42% 4px;
+    background-size: 41% 4px;
     background-position: bottom;
     background-repeat: no-repeat;
     line-height: 42px;
@@ -117,7 +115,7 @@ button:focus {
 .success {
     height: 45px;
     line-height: 30px;
-    width: 350px;
+    width: 275px;
     border-radius: 10px;
     margin: -5px auto -25px;
     background-color: #d3ffce;

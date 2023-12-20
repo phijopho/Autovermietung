@@ -13,7 +13,6 @@ function handleLogin()
 
     $username = $_POST["username"];
     $_SESSION['username'] = $username;
-    $_SESSION['User_ID'] = getUserID();
     $password = $_POST["password"];
 
     $existingUser = getUserByUsername($username);
@@ -23,6 +22,7 @@ function handleLogin()
         $checkPassword = password_verify($password, $passwordHash);
 
         if ($checkPassword) {
+            $_SESSION['User_ID'] = getUserID(); // if password correct add Session User ID 
             startSessionAndRedirect($existingUser[0]["FirstName"]);
         } else {
             displayLoginError(); //error if password wrong
@@ -45,7 +45,12 @@ function startSessionAndRedirect($firstName)
 {
     session_start();
     $_SESSION["firstName"] = $firstName;
-    header("Location: ../index.php");
+    // redirect to car details page if user came from there
+    if (isset($_SESSION['carType_ID_Login'])){
+        header("Location: ../pages/produktdetailseite.php?carType_ID=".$_SESSION['carType_ID_Login']);
+    } else {
+        header("Location: ../index.php");
+    }
 }
 
 function displayLoginError()

@@ -24,6 +24,103 @@ function togglemenu() {
 }
 
 // Homepage
+
+  //Crousel with prices and categories 
+  function cSlider() {
+    'use strict';
+
+    var $carousel = jQuery('.cslider');
+
+    if ($carousel.length > 0) {
+        var $carouselItem = $carousel.find('.cslider-item'),
+            $prev = $carousel.find('.cslider-prev'),
+            $next = $carousel.find('.cslider-next'),
+            itemLength = $carouselItem.length,
+            index = 0;
+
+        function setIndex(i, add) {
+            if (i + add >= itemLength) {
+                return i + add - itemLength;
+            } else {
+                return i + add;
+            }
+        }
+
+        function setState(i) {
+            $carouselItem.attr('class', 'cslider-item');
+            $carouselItem.eq(setIndex(i, 0)).addClass('cslider-item-first');
+            $carouselItem.eq(setIndex(i, 1)).addClass('cslider-item-previous');
+            $carouselItem.eq(setIndex(i, 2)).addClass('cslider-item-selected');
+            $carouselItem.eq(setIndex(i, 3)).addClass('cslider-item-next');
+            $carouselItem.eq(setIndex(i, 4)).addClass('cslider-item-last');
+        }
+
+        // Event-Handler für Schaltflächen
+        $next.on('click', function () {
+            clearInterval(autoScrollInterval);
+            index++;
+            if (index >= itemLength) {
+                index = 0;
+            }
+            setState(index);
+            autoScrollInterval = setInterval(autoScroll, 7000);
+        });
+
+        $prev.on('click', function () {
+            clearInterval(autoScrollInterval);
+            index--;
+            if (index < 0) {
+                index = itemLength - 1;
+            }
+            setState(index);
+            autoScrollInterval = setInterval(autoScroll, 7000);
+        });
+
+        // Starte Slider
+        setState(index);
+
+        // Automatisches Scrollen einrichten
+        var autoScrollInterval = setInterval(autoScroll, 4000);
+
+        function autoScroll() {
+            index++;
+            if (index >= itemLength) {
+                index = 0;
+            }
+            setState(index);
+        }
+    }
+}
+
+// Shorthand for $( document ).ready()
+jQuery(function () {
+    cSlider();
+});
+
+// date filter: disallow return dates that are before selected pick up date
+function setMinReturnDate() {
+    var pickUpDate = document.getElementById("pickUpDate").value;
+    document.getElementById("returnDate").min = pickUpDate;
+}
+
+
+// Header
+// Scrollfunction 
+window.onscroll = function () {
+    scrollFunction();
+};
+
+//Change of padding when scroll
+function scrollFunction() {
+    var headerContainer = document.querySelector(".headercontainer");
+    if (document.documentElement.scrollTop > 30) {
+        headerContainer.style.padding = "0px 20px";
+
+    } else {
+        headerContainer.style.padding = "10px 10px";
+    }
+}
+
 // scroll to anker
 function scrollToAnchor() {
     var scrollLinks = document.querySelectorAll('.scroll-link');
@@ -49,25 +146,6 @@ if (window.location.pathname === '/Autovermietung/index.php') {
     document.addEventListener('DOMContentLoaded', function () {
         scrollToAnchor();
     });
-}
-
-
-
-// Header
-// Scrollfunction 
-window.onscroll = function () {
-    scrollFunction();
-};
-
-//Change of padding when scroll
-function scrollFunction() {
-    var headerContainer = document.querySelector(".headercontainer");
-    if (document.documentElement.scrollTop > 30) {
-        headerContainer.style.padding = "0px 20px";
-
-    } else {
-        headerContainer.style.padding = "10px 10px";
-    }
 }
 
 
@@ -104,18 +182,16 @@ document.addEventListener('DOMContentLoaded', function () {
 //Hovermenu closing slower
 let closeTimer;
 
-
 function handleMouseEnter() {
     document.getElementById('submenu').style.display = 'block';
+    cancelCloseTimer(); // Den Timer löschen, um das Schließen des Menüs zu verhindern
 }
-
 
 function startCloseTimer() {
     closeTimer = setTimeout(() => {
         document.getElementById('submenu').style.display = 'none';
     }, 800);
 }
-
 
 function cancelCloseTimer() {
     clearTimeout(closeTimer);
@@ -127,8 +203,15 @@ function handleMouseLeave(event) {
     }
 }
 
-// date filter: disallow return dates that are before selected pick up date
-function setMinReturnDate() {
-    var pickUpDate = document.getElementById("pickUpDate").value;
-    document.getElementById("returnDate").min = pickUpDate;
-}
+// Zusätzliche Logik, um das Untermenü erneut zu öffnen, wenn der Mauszeiger wieder darauf zeigt
+document.getElementById('submenu').addEventListener('mouseenter', () => {
+    cancelCloseTimer(); // Den Timer löschen, um das Schließen des Menüs zu verhindern
+});
+
+document.getElementById('submenu').addEventListener('mouseleave', () => {
+    startCloseTimer();
+});
+
+document.getElementById('menu').addEventListener('mouseleave', handleMouseLeave);
+document.getElementById('menu').addEventListener('mouseenter', handleMouseEnter);
+
