@@ -24,6 +24,8 @@ h2 {
     padding-bottom: 100px;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-image: url("images/category images/hintergrund AboutUs.png");
+    background-size: cover;
 }
 
 .heading {
