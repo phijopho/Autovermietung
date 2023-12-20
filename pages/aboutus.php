@@ -18,6 +18,7 @@ include('../includes/header.php');
 
 <body>
     <div class="AboutUsContainer"> 
+        <div class="backgroundImage">
     <div class="heading">
     
             <h1 class="AboutUsUeberschrift" style="color: aqua;">About Us</h1>
@@ -43,9 +44,9 @@ include('../includes/header.php');
         </div>
         
         <div class="thank">
-            <h2><br><br><b style="color: aqua;">Vielen Dank</b>, dass Sie sich für <b style="color: aqua;"><em>SWIFT rentals</em></b> entschieden haben. Gemeinsam machen wir jede Fahrt zu einem unvergesslichen Erlebnis!</h2>
+            <h2><b style="color: aqua;">Vielen Dank</b>, dass Sie sich für <b style="color: aqua;"><em>SWIFT rentals</em></b> entschieden haben. Gemeinsam machen wir jede Fahrt zu einem unvergesslichen Erlebnis!</h2>
         </div>
-
+        </div>
     </div>
 </body>
 <?php
