@@ -51,20 +51,24 @@ a {
 
 /* Settings all icons on the bottom */
 .instagram {
-  width: 27px;
-  height: 27px;
+  width: 32px;
+  height: 32px;
   padding-left: 0px;
+  margin-right: 2px;
+  margin-bottom: -0.175px;
 }
 
 .x {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+  margin-bottom: -1.25px;
 }
 
 .facebook {
-  width: 22px;
-  height: 22px;
-  margin-top: 0;
+  width: 27px;
+  height: 27px;
+  margin-bottom: 3.75px;
+  margin-right: 1px;
 }
 
 .instagram:hover,
