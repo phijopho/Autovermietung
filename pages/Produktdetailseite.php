@@ -162,13 +162,13 @@ if ($availableCars > 0) {
                     <div class='modal-content'>
                         <span class='close' onclick='closeModal()'>&times;</span>
                         <br>
-                        <h3>Buchungsformular</h3>
+                        <h2>Buchung bestätigen</h2>
+                        <br>
                         <form id='bookingForm' action='pages/meineBuchungen.php' method='post'>
                             <input type='hidden' name='carType_ID' value='" . $_SESSION['carType_ID'] . "'>
-                            <input type='submit' class='buttonModal' value='Meine Buchung ansehen' name='addBooking'>
+                            <input type='submit' class='buttonModal' value='jetzt Buchen' name='addBooking'>
                         </form>
-                        <br>
-                        <p><a href='./pages/produktuebersicht.php'>Buchung abbrechen</a></p>
+                        <p><a href='./pages/produktuebersicht.php'> Buchung abbrechen</a></p>
                     </div>
                 </div>
                 ";

@@ -163,16 +163,15 @@ td {
 .buttonModal {
   border: none !important;
   height: 30px !important;
+  width: 100%;
   transform: scale(100%) !important;
   color: #f7f2ef !important;
-  padding: 0 15px !important;
-  border-radius: 20px !important;
-  line-height: 100% !important;
-  display: flex !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   cursor: pointer!important;
   transition: transform 0.5s ease !important;
   background-color: transparent;
+  font-family: "Montserrat", sans-serif !important;
+  align-content: center !important;
 }
 
 
@@ -193,6 +192,8 @@ td {
   color: aqua !important;
   transform: scale(1.1);
   background-color: transparent;
+  margin-left: none;
+  padding-left: none;
 }
 
 /* Modal Content */
