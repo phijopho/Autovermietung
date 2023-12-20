@@ -177,10 +177,11 @@ function displayResults($stmt)
                 echo "</div>";
                 showImage($carType_ID);
                 echo "<div class='carDataBox'>";
+                $minAge=getCarProperty($carType_ID, 'Min_Age');
+                echo "Mindestalter: ".$minAge."<br>";
                 // Use the getPrice function to display car prices
                 $price = getCarProperty($carType_ID, 'Price');
                 echo "Preis pro Tag: " . $price . " &euro;<br>";
-                // Tage multiplizieren
                 echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
                 echo "</div>";
                 echo "</div>";
@@ -210,10 +211,11 @@ function displayResults($stmt)
                     echo "</div>";
                     showImage($carType_ID);
                     echo "<div class='carDataBox'>";
+                    $minAge=getCarProperty($carType_ID, 'Min_Age');
+                    echo "Mindestalter: ".$minAge."<br>";
                     // Use the getPrice function to display car prices
                     $price = getCarProperty($carType_ID, 'Price');
                     echo "Preis pro Tag: " . $price . " &euro;<br>";
-                    // Tage multiplizieren
                     echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
                     echo "</div>";
                     echo "</div>";
