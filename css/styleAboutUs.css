@@ -24,9 +24,19 @@ h2 {
     padding-bottom: 100px;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-image: url("images/category images/hintergrund AboutUs.png");
-    background-size: cover;
+
+    /* Hintergrundbild hinzufügen */
+    background-image: url("../images/category images/hintergrund AboutUs.png");
+    background-size: cover; /* Das Bild wird so skaliert, dass es den gesamten Container abdeckt */
+    background-position: center; /* Positioniert das Bild in der Mitte des Containers */
+    background-color: rgba(15, 15, 15, 500); 
 }
+
+/* img {
+    width: 100%;
+    z-index: -1;
+    opacity: 50%;
+} */
 
 .heading {
     width: 50%;
@@ -34,6 +44,8 @@ h2 {
     float: top;
     margin-left: 23%;
     margin-top: 200px;
+    z-index: 1000;
+    opacity: 1;
 }
 
 .we {

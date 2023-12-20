@@ -17,7 +17,7 @@ include('../includes/header.php');
 ?>
 
 <body>
-    <div class="AboutUsContainer"> <!--Class to position text in the body -->
+    <div class="AboutUsContainer"> 
     <div class="heading">
     
             <h1 class="AboutUsUeberschrift" style="color: aqua;">About Us</h1>
