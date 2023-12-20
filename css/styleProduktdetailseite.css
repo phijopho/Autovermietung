@@ -1,6 +1,7 @@
-    /* Produktdetailseite */
+/* Produktdetailseite */
+
 /* Box which covers the entire Body */
-.divbody {​​
+.divbody {
   width: 90%;
   height: 850px;
   margin-top: 150px;
@@ -10,17 +11,19 @@
   border-image: linear-gradient(to bottom, aqua, #92FE9D) 1;
   z-index: 1000;
   background: #2f2e2c;
-}​​
+}
+
 /* Box which includes the Model and Pictureframe including details of selected car */
-.divgallery {​​
+.divgallery {
   float: left;
   width: 50%;
   height: fit-content;
   margin-left: 2%;
   margin-bottom: 5%;
-}​​
+}
+
 /* Box with Image and Imagedescription */
-.foto {​​
+.foto {
   border: none;
   float: left;
   width: 90%;
@@ -28,8 +31,9 @@
   height: 70%;
   background-color: #525252;
   border-radius: 30px;
-}​​
-.buttonToggle {​​
+}
+
+.buttonToggle {
   background-color: #525252;
   color: aqua;
   margin-left: 45%;
@@ -40,21 +44,44 @@
   font-weight: bold;
   opacity: 0.6;
   transition: 0.3s;
-}​​
-.buttonToggle:hover {​​
-  opacity: 1
-}​​
+}
 
-.rotated {​​
+.pToggle {
+  margin-left: 30%;
+  margin-top: -1%;
+  margin-bottom: 1.5%;
+}
+
+.buttonToggle {
+  background-color: #525252;
+  color: aqua;
+  margin-left: 45%;
+  margin-top: -1%;
+  border: none;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.buttonToggle:hover {
+  opacity: 1
+}
+
+
+.rotated {
   transform: rotate(180deg);
-}​​
+}
+
 /* Image Box */
-div.foto img {​​
+div.foto img {
   width: 100%;
   line-height: normal;
-}​​
+}
+
 /* Image descriptionbox */
-.desc {​​
+.desc {
   text-align: center;
   height: auto;
   border-bottom-left-radius: 30px;
@@ -65,32 +92,36 @@ div.foto img {​​
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}​​
+}
+
 
 /* Table which is included in the image description box */
 table,
 th,
-td {​​
+td {
   border: none;
   padding: 15px;
   text-align: left;
   width: 100%;
   color: #1a1818;
-}​​
+}
+
 /* Table Style */
-table {​​
+table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 50px;
   margin-bottom: 0%;
-}​​
+}
+
 /* Style of table header and table data */
 th,
-td {​​
+td {
   width: 30%;
-}​​
+}
+
 /* box on the right side with selected filters */
-.divinfo {​​
+.divinfo {
   float: left;
   width: 43%;
   text-align: left;
@@ -103,17 +134,19 @@ td {​​
   background-color: #525252;
   border-radius: 30px;
   align-content: center;
-}​​
+}
+
 /* Box for button */
-.divbutton {​​
+.divbutton {
   float: right;
   width: 40%;
   margin-right: 4.5%;
   margin-top: -2%;
   text-align: center;
-}​​
+}
+
 /* Button style if user is logged in and old enough to book the car */
-.button {​​
+.button {
   float: right;
   width: 25%;
   margin-right: 12%;
@@ -138,13 +171,15 @@ td {​​
   margin-left: 25%;
   cursor: pointer;
   transition: transform 0.5s ease;
-}​​
-.button:hover {​​
+}
+
+.button:hover {
   opacity: 1 !important;
   transform: scale(1.2);
-}​​
+}
+
 /* The Modal (background) */
-.modal {​​
+.modal {
   display: none;
   position: absolute;
   z-index: 1;
@@ -154,10 +189,12 @@ td {​​
   height: 100%;
   overflow: none;
   background-color: rgba(0, 0, 0, 0.561);
-}​​
+}
+
+
 
 /* Button if user is not logged in*/
-.buttonNotSignedIn {​​
+.buttonNotSignedIn {
   background: aqua;
   border: none;
   width: 45%;
@@ -178,9 +215,11 @@ td {​​
   margin-left: 25%;
   cursor: pointer;
   transition: transform 0.5s ease;
-}​​
+}
+
 /* If User is not Old enough: hover.buttonNotOldEnough */
-.buttonNotOldEnough {​​
+
+.buttonNotOldEnough {
   background-color: grey;
   border: none;
   width: 40%;
@@ -196,27 +235,33 @@ td {​​
   font-size: 16px;
   margin: 4px 2px;
   cursor: not-allowed;
-}​​
-a:hover.button {​​
+}
+
+a:hover.button {
   color: #1a1818;
   text-decoration: none;
   font-size: 16px;
   opacity: 100%;
-}​​
+}
+
 /* If User is not Old enough: buttonNotOldEnough*/
-a:hover.buttonNotOldEnough {​​
+
+a:hover.buttonNotOldEnough {
   color: #1a1818;
   text-decoration: none;
   font-size: 16px;
-}​​
+}
+
 /* Style of hover Button if user is not logged in */
-a:hover.buttonNotSignedIn {​​
+
+a:hover.buttonNotSignedIn {
   color: #1a1818;
   text-decoration: none;
   font-size: 16px;
   opacity: 100%;
-}​​
-.buttonBack {​​
+}
+
+.buttonBack {
   background: transparent;
   position: absolute;
   border: none;
@@ -237,198 +282,16 @@ a:hover.buttonNotSignedIn {​​
   margin-left: 25%;
   cursor: pointer;
   transition: transform 0.5s ease;
-}​​
-.buttonBack:hover {​​
+}
+
+.buttonBack:hover {
   opacity: 1 !important;
   transform: scale(1.1);
-}​​
-.buttonContainer {​​
+}
+
+.buttonContainer {
   width: 500px;
   position: relative;
   top: 120px;
   left: -60px;
-}​​
-/* ----------- */
-/* slider settings */
-.cslider {​​
-  background: radial-gradient(#484848, #272626);
-  color: #fff;
-  padding: 40px 20px 40px 20px;
-  position: relative;
-  height: 325px;
-  border-bottom: 3px solid aqua;
-  border-top: 3px solid green;
-  margin-bottom: 40px;
-}​​
-.cslider img {​​
-  height: auto;
-  max-width: 100%;
-  width: 100%;
-}​​
-.cslider h3,
-.cslider .h3,
-.cslider .p,
-.cslider a {​​
-  color: #fff;
-}​​
-.cslider-carousel {​​
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 144px;
-  margin: 0 auto;
-  max-width: 1400px;
-  padding-bottom: 44px;
-  position: relative;
-  z-index: 0;
-}​​
-.cslider-item {​​
-  left: 20%;
-  opacity: 0;
-  position: absolute;
-  text-align: center;
-  -webkit-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
-  -webkit-transition: opacity 150ms ease-in-out, width 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  transition: opacity 150ms ease-in-out, width 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  transition: opacity 150ms ease-in-out, width 300ms ease-in-out, transform 300ms ease-in-out, left 300ms ease-in-out;
-  transition: opacity 150ms ease-in-out, width 300ms ease-in-out, transform 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  width: 10%;
-  z-index: 0;
-}​​
-@media (min-width: 1200px) {​​
-  .cslider-item {​​
-      left: 5%;
-  }​​
-}​​
-.cslider-item img {​​
-  height: auto;
-  max-height: 315px;
-  max-width: 100%;
-  width: auto;
-}​​
-.cslider-item-selected {​​
-  opacity: 1;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
-  -webkit-transition: all 300ms ease-in-out, -webkit-transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
-  transition: all 300ms ease-in-out, -webkit-transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
-  transition: all 300ms ease-in-out, transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
-  transition: all 300ms ease-in-out, transform 300ms cubic-bezier(0.25, 0.75, 1, 1), -webkit-transform 300ms cubic-bezier(0.25, 0.75, 1, 1);
-  z-index: 2;
-}​​
-@media (min-width: 768px) {​​
-  .cslider-item-selected {​​
-      -webkit-transition: all 300ms ease-in-out;
-      transition: all 300ms ease-in-out;
-  }​​
-}​​
-@media (max-width: 575px) {​​
-  .cslider-item-selected {​​
-      width: 50%;
-  }​​
-}​​
-@media (min-width: 576px) {​​
-  .cslider-item-selected {​​
-      width: 40%;
-  }​​
-}​​
-.cslider-item-previous,
-.cslider-item-next {​​
-  opacity: 1;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  width: 20%;
-  z-index: 1;
-}​​
-.cslider-item-first,
-.cslider-item-last {​​
-  opacity: 1;
-  -webkit-transition: opacity 150ms ease-in-out 300ms, width 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  transition: opacity 150ms ease-in-out 300ms, width 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  transition: opacity 150ms ease-in-out 300ms, width 300ms ease-in-out, transform 300ms ease-in-out, left 300ms ease-in-out;
-  transition: opacity 150ms ease-in-out 300ms, width 300ms ease-in-out, transform 300ms ease-in-out, left 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  width: 10%;
-}​​
-@media (max-width: 575px) {​​
-  .cslider-item-previous,
-  .cslider-item-next {​​
-      opacity: 0;
-  }​​
-}​​
-@media (max-width: 1519px) {​​
-  .cslider-item-first,
-  .cslider-item-last {​​
-      opacity: 0;
-  }​​
-}​​
-.cslider-item-previous {​​
-  left: 20%;
-}​​
-.cslider-item-next {​​
-  left: 80%;
-}​​
-.cslider-item-first {​​
-  left: 20%;
-}​​
-@media (min-width: 1520px) {​​
-  .cslider-item-first {​​
-      left: 5%;
-  }​​
-}​​
-.cslider-item-last {​​
-  left: 80%;
-}​​
-@media (min-width: 1520px) {​​
-  .cslider-item-last {​​
-      left: 95%;
-  }​​
-}​​
-.cslider-text {​​
-  height: 0;
-  left: 0;
-  padding: 0;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  -webkit-transition: height 0ms ease-in-out 300ms, opacity 225ms ease-in-out;
-  transition: height 0ms ease-in-out 300ms, opacity 225ms ease-in-out;
-  right: 0;
-}​​
-.cslider-item-selected .cslider-text {​​
-  height: 150px;
-  padding: 0;
-  opacity: 1;
-  -webkit-transition: height 0ms, opacity 300ms ease-in-out 300ms;
-  transition: height 0ms, opacity 300ms ease-in-out 300ms;
-}​​
-.cslider-prev,
-.cslider-next {​​
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 4px 4px 0;
-  cursor: pointer;
-  display: block;
-  font-size: 0;
-  height: 28px;
-  margin-top: -14px;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  width: 28px;
-  z-index: 2;
-}​​
-.cslider-prev {​​
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-  left: 20px;
-}​​
-.cslider-next {​​
-  right: 20px;
-}​​
-<https://teams.microsoft.com/l/message/19:bcKAyvY4abIW8ANgeALTJ1Iv02I9Sv7T1S5A75-ZKHc1@thread.tacv2/1703069357368?tenantId=ff94ab65-01a8-411d-a1e8-453df69a2bb7&amp;groupId=20daf2f5-4e9c-4863-9106-248705c16dfc&amp;parentMessageId=1703066410983&amp;teamName=Projekt Autovermietung&amp;channelName=General&amp;createdTime=1703069357368&amp;allowXTenantAccess=false>
+}
