@@ -43,6 +43,11 @@ ini_set('display_errors', 1);
             $_SESSION['returnDate'] = $_POST['returnDate'];
         }
 
+        // if user comes from map
+        if (isset($_POST['selectedLocation'])) {
+            $_SESSION['location'] = $_POST['selectedLocation'];
+        }
+
 
         $location = getCities();
         $categories = selectDistinctColumn("Type", "CarType");
@@ -222,24 +227,12 @@ include('../includes/header.php'); // include header
                     <label for="location">Standort:</label><br>
                     <select class="customSelect" name="location">
                     <?php 
-                        foreach ($location as $city) {
-                            $cleanCity = strtolower(str_replace(' ', '-', $city));
-                            
-                            echo "<option value='$cleanCity' ";
-                            
-                            if ($_SESSION['location'] == $city || (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city)) {
-                                echo "selected";
-                                $_SESSION['location'] = $city; // Setze den ausgewählten Stadtwert in der Session
-                            } 
-                            
-                            echo ">$city</option>";
-                        }
-
-                        if (isset($_POST['selectedLocation'])) {
-                            $selectedCity = $_POST['selectedLocation'];
-                        }
-
-                        $_SESSION['location'] = "Hamburg";
+                    foreach ($location as $city) {
+                        if ($_SESSION['location'] == $city) {
+                            echo "<option value='$city' selected>$city</option>";
+                        } else {
+                            echo "<option value='$city'>$city</option>";
+                        }}                    
                     ?>
                     </select>
                 </div>
