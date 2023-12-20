@@ -57,6 +57,9 @@ $conn = null;
 ?>
 
 <body>
+    <?php
+        preventEnterIfLoggedOut(); 
+    ?>
     <div class="contentBox">
         <div class="gif1">
             <img src="./images/neonlightsrev.gif">
