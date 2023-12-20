@@ -245,11 +245,11 @@ include('../includes/header.php'); // include header
                 </div>
                 <div class="twoSidedBox">
                     <label for="pickUpDate">Abholung:</label>
-                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate"/>
+                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" onchange="setMinReturnDate()" id="pickUpDate" required/>
                 </div>
                 <div class="twoSidedBox">
                     <label for="returnDate">R&uuml;ckgabe:</label>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate" required/>
                 </div>
 
                 <script>
