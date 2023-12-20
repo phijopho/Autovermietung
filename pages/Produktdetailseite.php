@@ -143,55 +143,50 @@ include('../includes/header.php'); // Einbindung des Headers
         </div>
         
         <?php
-        $availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
-        if ($availableCars>0){
-            if (isset($_SESSION['User_ID'])) {
-                $UserAge = getUserAge();
-                if ($UserAge < $minAge) {
-                    echo "<div class='divbutton'>";
-                    echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
-                    echo "</div>";
-                } else { ?>
-                   <div class="divbutton">
-    <!-- Modal -->
-    <div id="myModal" class="modal" style="display: <?php echo isset($_POST['addBooking']) ? 'block' : 'none'; ?>">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <br>
-            <h3>Ihre Buchung war erfolgreich</h3>
-            <br>
-            <p><a href="./pages/produktuebersicht.php">Zurück zur Produktübersicht</a></p>
-            <p><a href="pages/meineBuchungen.php">Meine Buchung ansehen</a></p>
-            <br>
-        </div>
-    </div>
-
-    <form action="" method="post">
-        <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
-        <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
-    </form>
-</div>
-<?php
-                }
-            } else {
-                echo "<div class='divbutton'>";
-                echo "<a href='pages/login.php'>";
-                echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
-                echo "</a>";
-                echo "</div>";
-     ?>
-
-
-        <?php
-            }
+$availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
+if ($availableCars > 0) {
+    if (isset($_SESSION['User_ID'])) {
+        $UserAge = getUserAge();
+        if ($UserAge < $minAge) {
+            echo "<div class='divbutton'>";
+            echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
+            echo "</div>";
         } else {
             echo "<div class='divbutton'>";
-            echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
+            echo "<button class='button' onclick='displayModal()'>Jetzt Buchen</button>";
             echo "</div>";
+            echo "
+                <!-- Modal -->
+                <div id='myModal' class='modal' style='display: none;'>
+                    <div class='modal-content'>
+                        <span class='close' onclick='closeModal()'>&times;</span>
+                        <br>
+                        <h3>Buchungsformular</h3>
+                        <form id='bookingForm' action='pages/meineBuchungen.php' method='post'>
+                            <input type='hidden' name='carType_ID' value='" . $_SESSION['carType_ID'] . "'>
+                            <input type='submit' class='buttonModal' value='Meine Buchung ansehen' name='addBooking'>
+                        </form>
+                        <br>
+                        <p><a href='./pages/produktuebersicht.php'>Buchung abbrechen</a></p>
+                    </div>
+                </div>
+                ";
         }
-        ?>
-    </div>
-    </div>
+    } else {
+        echo "<div class='divbutton'>";
+        echo "<a href='pages/login.php'>";
+        echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
+        echo "</a>";
+        echo "</div>";
+    }
+} else {
+    echo "<div class='divbutton'>";
+    echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
+    echo "</div>";
+}
+?>
+</div>
+
 </body>
 
 <?php

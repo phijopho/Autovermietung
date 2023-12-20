@@ -24,17 +24,21 @@ function togglemenu() {
 }
 
  // JavaScript-Funktionen, um die Modal Box zu öffnen und zu schließen
-//  function openModal() {
-//     var modal = document.getElementById('myModal');
-//     modal.style.display = 'block';
-// }
+ function displayModal() {
+    document.getElementById('myModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
+}
+
 
 
 // JavaScript-Funktion zum Schließen des Modals
-function closeModal() {
-    var modal = document.getElementById('myModal');
-    modal.style.display = 'none';
-}
+// function closeModal() {
+//     var modal = document.getElementById('myModal');
+//     modal.style.display = 'none';
+// }
 // Homepage
 
   //Crousel with prices and categories 

@@ -158,10 +158,21 @@ td {
   transition: transform 0.5s ease;
 }
 
-.button:hover {
-  opacity: 1 !important;
-  transform: scale(1.2);
+.buttonModal {
+  border: none !important;
+  height: 30px !important;
+  transform: scale(100%) !important;
+  color: #f7f2ef !important;
+  padding: 0 15px !important;
+  border-radius: 20px !important;
+  line-height: 100% !important;
+  display: flex !important;
+  font-size: 16px !important;
+  cursor: pointer!important;
+  transition: transform 0.5s ease !important;
+  background-color: transparent;
 }
+
 
 /* The Modal (background) */
 .modal {
@@ -174,6 +185,12 @@ td {
   height: 100%;
   overflow: none;
   background-color: rgba(0, 0, 0, 0.561);
+}
+
+.buttonModal:hover {
+  color: aqua !important;
+  transform: scale(1.1);
+  background-color: transparent;
 }
 
 /* Modal Content */
