@@ -137,7 +137,7 @@ function scrollToAnchor() {
             var targetSection = document.getElementById(targetId);
             if (targetSection) {
                 var headerHeight = document.querySelector('.headerbox').offsetHeight;
-                var targetOffset = targetSection.offsetTop - headerHeight;
+                var targetOffset = targetSection.offsetTop ;
                 window.scrollTo({
                     top: targetOffset,
                     behavior: 'smooth'
@@ -146,6 +146,11 @@ function scrollToAnchor() {
         });
     });
 }
+
+
+
+
+
 
 // Initialisieren Sie die Scroll-Funktion nur, wenn sich die Seite auf der index.php befindet
 if (window.location.pathname === '/Autovermietung/index.php') {

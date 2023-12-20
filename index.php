@@ -57,12 +57,14 @@ include('includes/header.php'); // include header
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/>
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
+                <div id="section1"></div>
             </div>
         </div>
     </div>
     <script>
         setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
     </script>
+
     <div id="section2" class="section2">
         <div class="cslider">
             <div class="cslider-carousel">
