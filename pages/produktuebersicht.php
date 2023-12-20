@@ -394,12 +394,9 @@ include('../includes/header.php'); // include header
                 <br>
                 <input class="filterButton" type="submit" value="Filtern" name="filter">
             </form>
-            <?php
-            if(isset($_POST['filter'])){ ?>
-                <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
-                    <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
-                </form>
-            <?php } ?>
+            <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
+                <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
+            </form>
         </div>
 
         <div class="resultBox">
