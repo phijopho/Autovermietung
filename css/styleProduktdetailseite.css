@@ -89,6 +89,7 @@ div.foto img {
   padding: 10px 20px;
   color: #1a1818;
   background: linear-gradient(to bottom, #525252, rgb(18, 162, 162));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 1px 0 rgba(0, 0, 0, 0.19);
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
