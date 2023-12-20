@@ -55,9 +55,9 @@ include('includes/header.php'); // include header
                         $_SESSION['location'] = "Hamburg";
                         ?>
                     </select>
-                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate"/>
+                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate" required/>
                     <span class="dateArrow">&#8594;</span>
-                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate"/>
+                    <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate" required/>
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
             </div>
@@ -72,6 +72,7 @@ include('includes/header.php'); // include header
     <script>
         setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
     </script>
+
     <div class="section2">
         <div class="cslider">
             <div class="cslider-carousel">

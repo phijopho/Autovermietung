@@ -103,7 +103,6 @@ function setMinReturnDate() {
     document.getElementById("returnDate").min = pickUpDate;
 }
 
-
 // Header
 // Scrollfunction 
 window.onscroll = function () {
