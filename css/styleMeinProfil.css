@@ -17,7 +17,7 @@ form {
 
 /* headline with gradient underlining */
 h1 {
-    margin-bottom: 70px;
+    margin-top: 0px;
     text-align: center;
     color: #f7f2ef;
     font-size: 45px;
@@ -71,7 +71,7 @@ input::placeholder {
 
 /* style for bearbeiten button */
 button {
-    margin-top: 70px;
+    margin-top: 15px;
     margin-bottom: 50px;
     height: 50px;
     width: 150px;
