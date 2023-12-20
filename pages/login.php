@@ -20,6 +20,9 @@ include('../includes/header.php'); // include header
     <?php
     include('../includes/functionsLogin.php');
     preventEnterIfLoggedIn();
+    if(isset($_GET['carType_ID_Login'])){
+        $_SESSION['carType_ID_Login']=$_GET['carType_ID_Login'];
+    }
     ?>
     <div class="contentBox">
         <div class="gif1">

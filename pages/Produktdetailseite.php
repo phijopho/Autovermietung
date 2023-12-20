@@ -149,8 +149,7 @@ include('../includes/header.php'); // Einbindung des Headers
         </div>
 
         <?php
-        $availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
-        if ($availableCars > 0) {
+        if ($_SESSION['availableCarsModel'] > 0) {
             if (isset($_SESSION['User_ID'])) {
                 $UserAge = getUserAge();
                 if ($UserAge < $minAge) {
@@ -164,20 +163,20 @@ include('../includes/header.php'); // Einbindung des Headers
                             <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
                         </form>
                     </div> <?php
-                        }
-                    } else {
-                        echo "<div class='divbutton'>";
-                        echo "<a href='pages/login.php'>";
-                        echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
-                        echo "</a>";
-                        echo "</div>";
-                    }
-                } else {
-                    echo "<div class='divbutton'>";
-                    echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
-                    echo "</div>";
                 }
-                            ?>
+            } else {
+                echo "<div class='divbutton'>";
+                echo "<a href='pages/login.php?carType_ID_Login=".$_SESSION['carType_ID']."'>";
+                echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
+                echo "</a>";
+                echo "</div>";
+            }
+        } else {
+            echo "<div class='divbutton'>";
+            echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
+            echo "</div>";
+        }
+        ?>
 
     </div>
     <!-- <div id="section2" class="section2"> -->
