@@ -141,7 +141,7 @@ function scrollToAnchor() {
 }
 
 // Initialisieren Sie die Scroll-Funktion nur, wenn sich die Seite auf der index.php befindet
-if (window.location.pathname === '/Autovermietung/index.php') {
+if (window.location.pathname === '/Autovermietung/index.php' || window.location.pathname === '/Autovermietung/produktuebersicht.php') {
     document.addEventListener('DOMContentLoaded', function () {
         scrollToAnchor();
     });

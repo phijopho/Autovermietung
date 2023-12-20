@@ -1,4 +1,8 @@
-/* style Filter und Ergebnisse (variables are declared at bottom of style.css)  */
+/* style filter and results (variables are declared at bottom of style.css)  */
+html {
+  overflow-x:hidden;
+}
+
 .contentBox {
   min-height: 100vh;
   margin-bottom: -60px;
@@ -9,16 +13,13 @@
   width: 250px;
   height: fit-content;
   background-color: #272626;
-  margin-top: 120px;
-  /*  vorher 120 falls verschoben wenn fehler weg sind */
+  margin-top: 140px;
   margin-left: 20px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
   position: absolute;
   border-radius: 15px;
-  /* transform: scaleY(0.9);
-  transform-origin: top; */
 }
 
 .itemBox {
@@ -46,7 +47,7 @@ option {
   background: var(--optionBackground);
 }
 
-/* Date style */
+/* pickup / return date filter */
 .twoSidedBox {
   display: flex;
   justify-content: space-between;
@@ -378,8 +379,7 @@ input[type=range]::-moz-range-thumb {
 /* Result area: */
 .resultBox {
   float: left;
-  margin-top: 120px;
-  /* vorher 120 falls verschoben wird wenn fehler weg sind  */
+  margin-top: 140px;
   margin-left: 320px;
   width: 1330px;
 }
@@ -422,6 +422,8 @@ input[type=range]::-moz-range-thumb {
   flex-wrap: wrap;
   padding-left: 20px;
   padding-top: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .carLinkBox {
@@ -460,7 +462,7 @@ input[type=range]::-moz-range-thumb {
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  /* VERZÖGERUNG */
+  /* DELAY */
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s linear;
   -ms-transition: all 0.3s linear;
@@ -527,5 +529,39 @@ input[type=range]::-moz-range-thumb {
 
 /* Optional: Adjusting the margin for visual spacing */
 #slider-range {
+  margin-top: 10px;
+}
+
+.buttonUp {
+  background: transparent;
+  border: none;
+  height: 30px;
+  opacity: 0.7;
+  transform: scale(100%);
+  font-weight: 600;
+  color: #f7f2ef;
+  padding: 0 15px;
+  border-radius: 20px;
+  line-height: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  margin-left: 25%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.buttonUp:hover {
+  opacity: 1 !important;
+  transform: scale(1.1);
+}
+
+.buttonUpContainer {
+  width: 500px;
+  float: right;
+  margin-right: -90px;
   margin-top: 10px;
 }
