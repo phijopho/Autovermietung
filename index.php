@@ -58,6 +58,7 @@ include('includes/header.php'); // include header
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
             </div>
+            <!-- Anker for scrolling from header -->
             <div id="anker"></div>
         </div>
     </div>
