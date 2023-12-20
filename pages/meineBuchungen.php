@@ -204,27 +204,30 @@ include('../includes/header.php');
 
       //Pagination links are updated
       function updatePagination() {
-        const paginationContainer = document.querySelector('.pagination-container'); //paginationContainer is only necessary for the positions on the website
-        paginationContainer.innerHTML = '';
+  const paginationContainer = document.querySelector('.pagination-container'); // paginationContainer is only necessary for the positions on the website
+  paginationContainer.innerHTML = '';
 
-        const totalGroups = Math.ceil(bookings.length / itemsPerPage);//Calculate total number of pages
+  const totalGroups = Math.ceil(bookings.length / itemsPerPage); // Calculate total number of pages
 
-        //A number is created for each page and a new HTML document is created for each page
-        for (let i = 1; i <= totalGroups; i++) {
-          const pageLink = document.createElement('a');
-          pageLink.href = '#';
-          pageLink.classList.add('pagination-link');
-          pageLink.textContent = i;
-          pageLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            currentPage = i;
-            displayBookings(currentPage); //When a number is clicked, the displayBookings function is called up
-            updatePagination();
-          });
+  // A number is created for each page and a new HTML document is created for each page
+  for (let i = 1; i <= totalGroups; i++) {
+    const pageLink = document.createElement('a');
+    pageLink.href = '#';
+    pageLink.classList.add('pagination-link');
+    pageLink.textContent = i;
+    if (i === currentPage) {
+      pageLink.classList.add('ud_active'); // Add the active class for the current page
+    }
+    pageLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      currentPage = i;
+      displayBookings(currentPage); // When a number is clicked, the displayBookings function is called up
+      updatePagination();
+    });
 
-          paginationContainer.appendChild(pageLink);
-        }
-      }
+    paginationContainer.appendChild(pageLink);
+  }
+}
 
       displayBookings(currentPage);
       updatePagination();

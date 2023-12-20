@@ -29,7 +29,7 @@ table {
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
-  background: #00C9FF;
+  background: #0096FF;
   color: #fff;
   text-transform: uppercase;
   border-top: 1px;
@@ -69,19 +69,10 @@ table {
 }
 
 
-/*settings when element is clicked(active)*/
-.ud_active {
-  background: aqua;
-  color: black;
-  padding: 4% 0 4% 4%;
-  border-radius: 0 0 0 0;
-}
-
-
 /*general settings for dd*/
 dt {
   font-family: "Oswald", sans-serif;
-  background: #00C9FF;
+  background: #0096FF;
   color: #fff;
   text-transform: uppercase;
   border-top: 1px solid #222;
@@ -178,6 +169,5 @@ h1 {
 .ud_active {
   background: aqua;
   color: black;
-  padding: 4% 0 4% 4%;
-  border-radius: 0 0 0 0;
+  border-radius: px;
 }
