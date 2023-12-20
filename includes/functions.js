@@ -23,30 +23,6 @@ function togglemenu() {
     }
 }
 
-// Modal-Box
-// document.addEventListener('DOMContentLoaded', function() {
-//     var modal = document.getElementById("myModal");
-//     var button = document.getElementById("button");
-//     var closeBtn = document.getElementsByClassName("close")[0];
-  
-//     // Open Modal-Box
-//     button.addEventListener('click', function() {
-//       modal.style.display = "block";
-//     });
-  
-//     // Close der Modal-Box
-//     closeBtn.addEventListener('click', function() {
-//       modal.style.display = "none";
-//     });
-  
-//     // Close modal-Box when click anywhere
-//     window.addEventListener('click', function(event) {
-//       if (event.target === modal) {
-//         modal.style.display = "none";
-//       }
-//     });
-//   });
-
   //Backbutton Produktdetailseite
 window.addEventListener('scroll', function() {
     var button = document.getElementById('scrollButton');
@@ -71,16 +47,12 @@ window.addEventListener('scroll', function() {
     var $carousel = jQuery('.cslider');
 
     if ($carousel.length > 0) {
-
-        // Variablen
         var $carouselItem = $carousel.find('.cslider-item'),
             $prev = $carousel.find('.cslider-prev'),
             $next = $carousel.find('.cslider-next'),
             itemLength = $carouselItem.length,
             index = 0;
 
-
-        // Funktionen
         function setIndex(i, add) {
             if (i + add >= itemLength) {
                 return i + add - itemLength;
@@ -90,41 +62,49 @@ window.addEventListener('scroll', function() {
         }
 
         function setState(i) {
-            // Reset der Klassen
-            $carouselItem.attr('class', 'cslider-item')
-
-            // Zuweisung der Klassen
+            $carouselItem.attr('class', 'cslider-item');
             $carouselItem.eq(setIndex(i, 0)).addClass('cslider-item-first');
             $carouselItem.eq(setIndex(i, 1)).addClass('cslider-item-previous');
             $carouselItem.eq(setIndex(i, 2)).addClass('cslider-item-selected');
             $carouselItem.eq(setIndex(i, 3)).addClass('cslider-item-next');
             $carouselItem.eq(setIndex(i, 4)).addClass('cslider-item-last');
-
-
         }
 
-        // Kontrollfelder
+        // Event-Handler für Schaltflächen
         $next.on('click', function () {
-            index = index + 1;
+            clearInterval(autoScrollInterval);
+            index++;
             if (index >= itemLength) {
                 index = 0;
             }
             setState(index);
+            autoScrollInterval = setInterval(autoScroll, 7000);
         });
 
         $prev.on('click', function () {
-            if (index <= 0) {
-                index = itemLength;
+            clearInterval(autoScrollInterval);
+            index--;
+            if (index < 0) {
+                index = itemLength - 1;
             }
-            index = index - 1;
             setState(index);
+            autoScrollInterval = setInterval(autoScroll, 7000);
         });
 
         // Starte Slider
         setState(index);
 
-    }
+        // Automatisches Scrollen einrichten
+        var autoScrollInterval = setInterval(autoScroll, 4000);
 
+        function autoScroll() {
+            index++;
+            if (index >= itemLength) {
+                index = 0;
+            }
+            setState(index);
+        }
+    }
 }
 
 // Shorthand for $( document ).ready()

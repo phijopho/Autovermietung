@@ -1,4 +1,3 @@
-
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -7,6 +6,7 @@ ini_set('display_errors', 1);
 <html lang="en">
 
 <head>
+
     <?php include('../includes/htmlhead.php'); ?>
 
     <!-- sessions and variables -->
@@ -30,6 +30,11 @@ ini_set('display_errors', 1);
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
     <link rel="stylesheet" href="css/styleFooter.css">
     <script src="includes/functions.js"></script>
+    <link rel="stylesheet" href="css/styleHomepage.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="includes/karussell-slider.js"></script>
+    <!-- <link rel="stylesheet" href="css/styleHomepage.css"> -->
+
     <title>Produktdetails</title>
 
 </head>
@@ -104,6 +109,7 @@ include('../includes/header.php'); // Einbindung des Headers
                     </table>
                 </div>
             </div>
+
         </div>
         <div class="divinfo">
             <div class="divText">
@@ -131,10 +137,10 @@ include('../includes/header.php'); // Einbindung des Headers
                 ?>
             </div>
         </div>
-        
+
         <?php
         $availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
-        if ($availableCars>0){
+        if ($availableCars > 0) {
             if (isset($_SESSION['User_ID'])) {
                 $UserAge = getUserAge();
                 if ($UserAge < $minAge) {
@@ -146,27 +152,65 @@ include('../includes/header.php'); // Einbindung des Headers
                         <form action="pages/meineBuchungen.php" method="post">
                             <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
                             <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
-                        </form> <?php
+                        </form>
+                    </div> <?php
+                        }
+                    } else {
+                        echo "<div class='divbutton'>";
+                        echo "<a href='pages/login.php'>";
+                        echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
+                        echo "</a>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "<div class='divbutton'>";
+                    echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
+                    echo "</div>";
                 }
-            } else {
-                echo "<div class='divbutton'>";
-                echo "<a href='pages/login.php'>";
-                echo "<div class='buttonNotSignedIn'>Bitte anmelden</div>";
-                echo "</a>";
-                echo "</div>";
-     ?>
+                            ?>
 
+    </div>
+    <!-- <div id="section2" class="section2"> -->
+    <div class="cslider">
+        <div class="cslider-carousel">
+            <?php
+            // Überprüfen der Kategorie in der Session
+            $category = $carInfo['type'];
 
-        <?php
+            // SQL-Abfrage vorbereiten, um Autos der spezifischen Kategorie zu erhalten
+            $query = $conn->prepare("SELECT CarType_ID, Name, Image, Price FROM CarType WHERE Type = :category");
+            $query->bindParam(':category', $category);
+
+            // Abfrage ausführen
+            $query->execute();
+
+            // // Ergebnisse holen
+            // $result = $query->get_result();
+
+            // Karussellelemente dynamisch erstellen
+            while ($row = $query->fetch()) {
+                echo '<div class="cslider-item">';
+                echo "<a href='pages/produktdetailseite.php?carType_ID=" . $row['CarType_ID'] . "'>";
+                    showImage($row['CarType_ID']);
+                echo '<div class="cslider-text">';
+                    echo '<h2>' . $row['Name'] . '</h2>';
+                    echo '<p> ab ' . $row['Price'] . ' €</p>';
+                echo '</div>';
+                echo '</a>';
+                echo '</div>';
             }
-        } else {
-            echo "<div class='divbutton'>";
-            echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
-            echo "</div>";
-        }
-        ?>
+            ?>
+
+        </div>
+        <div class="cslider-controls">
+            <div class="cslider-prev"></div>
+            <div class="cslider-next"></div>
+        </div>
     </div>
-    </div>
+    <!-- </div> -->
+    <script>
+        cSlider();
+    </script>
 </body>
 
 <?php
@@ -174,4 +218,3 @@ include('../includes/footer.html');
 ?>
 
 </html>
-
