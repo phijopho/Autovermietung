@@ -173,3 +173,9 @@ h1 {
   color: black;
   border-radius: px;
 }
+
+.centerEcho {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
