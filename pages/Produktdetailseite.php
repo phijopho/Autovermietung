@@ -58,6 +58,7 @@ include('../includes/header.php'); // Einbindung des Headers
                 echo $carInfo['image'];
 
                 ?>
+                <div class="pToggle"> Modellinformationen einblenden</div>
                 <!-- create button with triangle -->
                 <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
 

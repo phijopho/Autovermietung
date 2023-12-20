@@ -46,6 +46,25 @@
   transition: 0.3s;
 }
 
+.pToggle {
+  margin-left: 30%;
+  margin-top: -1%;
+  margin-bottom: 1.5%;
+}
+
+.buttonToggle {
+  background-color: #525252;
+  color: aqua;
+  margin-left: 45%;
+  margin-top: -1%;
+  border: none;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
 .buttonToggle:hover {
   opacity: 1
 }
