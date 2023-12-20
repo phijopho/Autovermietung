@@ -407,7 +407,7 @@ function getPriceForCategory($category)
     }
 }
 
-// Login
+// login
 function preventEnterIfLoggedIn()
 {
     if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
@@ -419,6 +419,21 @@ function preventEnterIfLoggedOut()
 {
     if (!(isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"]))) {
         header("Location: ../index.php");
+    }
+}
+
+// logout success message
+function displayLogoutSuccess()
+{
+    if (!(isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"]))) {
+        if (isset($_GET["loggedOut"]) && $_GET["loggedOut"] == 1)
+        {
+        ?>
+            <div class="logOutSuccess">
+                <p class="textLogOutSuccess">Erfolgreich abgemeldet!</p>
+            </div>
+        <?php
+        }
     }
 }
 

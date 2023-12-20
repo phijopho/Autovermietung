@@ -19,6 +19,32 @@ body {
     height: 64vh;
     margin-top: 50px;
 }
+
+/* logout success message */
+
+.logOutSuccess {
+    height: 50px;
+    line-height: 30px;
+    width: 270px;
+    border-radius: 15px;
+    margin: 95px auto;
+    background-color: #d3ffce;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 18.5%;
+    transform: translate(-50%, -50%);
+}
+
+.textLogOutSuccess {
+    color: #004b23;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 /* style for location filter */
 .selectLocation {
     background: var(--dropdownBackground);
