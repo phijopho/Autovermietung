@@ -66,7 +66,7 @@ include('includes/header.php'); // include header
         </div>
     </div>
     <div class="call">
-        <h1>PREMIUM AUTOS MIETEN.<br>ECONOMY BEZAHLEN.</h1>
+        <h1>ECONOMY BEZAHLEN.<br>PREMIUM AUTOS MIETEN.</h1>
     </div>
 
     <script>
