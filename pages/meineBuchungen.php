@@ -23,7 +23,7 @@ include('../includes/header.php');
 
 
 <body>
-
+<?php preventEnterIfLoggedOut(); ?>
 
   <?php
   if (isset($_POST['addBooking'])) {
