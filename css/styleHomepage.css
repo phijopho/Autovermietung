@@ -17,13 +17,32 @@ body {
     justify-content: center;
     display: flex;
     height: 64vh;
-    /* border settings */
-    border-style: solid;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    border-bottom: 0px;
-    border-color: aqua;
+    margin-top: 50px;
+}
+
+/* logout success message */
+
+.logOutSuccess {
+    height: 50px;
+    line-height: 30px;
+    width: 270px;
+    border-radius: 15px;
+    margin: 95px auto;
+    background-color: #d3ffce;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 18.5%;
+    transform: translate(-50%, -50%);
+}
+
+.textLogOutSuccess {
+    color: #004b23;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* logout success message */
@@ -160,7 +179,7 @@ input[type="submit"]:focus {
 
 /* Booking Form  */
 .containerBookingForm {
-    margin-top: 149px;
+    margin-top: 159px;
     height: 250px;
     width: 1000px;
     justify-content: center;
@@ -398,13 +417,13 @@ input[type="submit"]:focus {
 /* ----------- */
 /* slider settings */
 .cslider {
-    background: radial-gradient(#418084, #272626);
+    background: radial-gradient(rgb(106, 106, 106),#000000, #272626);
     color: #fff;
-    padding: 80px 0px 40px 0px;
+    padding: 49px 0px 35px 0px;
     position: relative;
     height: 260px;
-    border-bottom: 3px solid aqua;
-    border-top: 3px solid aqua;
+    border-bottom: 4px solid white;
+    border-top: 4px solid white;
 }
 
 .cslider img {
@@ -613,4 +632,10 @@ input[type="submit"]:focus {
 
 .cslider-next {
     right: 20px;
+}
+.call {
+    text-align: center;
+    margin-top: -187px;
+    margin-bottom: 64px;
+     
 }

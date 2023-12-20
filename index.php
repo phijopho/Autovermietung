@@ -25,6 +25,7 @@ include('includes/header.php'); // include header
     <?php 
         displayLogoutSuccess();
     ?>
+    
     <!-- sessions and variables -->
     <?php
     $location = getCities();
@@ -64,6 +65,10 @@ include('includes/header.php'); // include header
             <div id="anker"></div>
         </div>
     </div>
+    <div class="call">
+        <h1>PREMIUM AUTOS MIETEN.<br>ECONOMY BEZAHLEN.</h1>
+    </div>
+
     <script>
         setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
     </script>
@@ -210,11 +215,13 @@ include('includes/header.php'); // include header
                 <div class="txtBox3">
                     <h1>230 Mietwagen</h1>
                 </div>
-                <a href="pages/aboutus.php">
                     <div class="txtBox4">
+                    <a href="pages/aboutus.php">
+
                         <h2>Erfahren Sie mehr</h2>
+                        </a>
+
                     </div>
-                </a>
 
             </div>
         </div>

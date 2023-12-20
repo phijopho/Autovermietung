@@ -407,7 +407,7 @@ function getPriceForCategory($category)
     }
 }
 
-// Login
+// login
 function preventEnterIfLoggedIn()
 {
     if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
@@ -422,7 +422,7 @@ function preventEnterIfLoggedOut()
     }
 }
 
-// Logout Success message
+// logout success message
 function displayLogoutSuccess()
 {
     if (!(isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"]))) {
