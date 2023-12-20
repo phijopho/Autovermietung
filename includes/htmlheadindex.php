@@ -14,3 +14,7 @@
 
 <!-- prelaod images -->
 <link rel="preload" href="images/Hintergrund.svg" as="image" />
+
+<?php
+session_start();
+?>
