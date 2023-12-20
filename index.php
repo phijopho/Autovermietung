@@ -3,9 +3,9 @@
 
 <head>
     <?php
-    include('includes/htmlhead.php');
+    include('includes/htmlheadindex.php');
     include('includes/dbConnection.php'); // connect database
-    include('./includes/functions.php');
+    include('includes/functions.php');
     ?>
     <title>Homepage</title>
     <!-- Einbinden der style.css -->
