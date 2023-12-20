@@ -168,27 +168,40 @@ function displayResults($stmt)
             if ($availableCarsModel > 0) {
                 $hasAvailableModels = true;
                 echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
-                echo "<div class='resultItemBox'>";
-                echo "<div class='modelBox'>";
-                // Use the getModel and showImage functions to display car information
-                $model = getModel($carType_ID);
-                echo "<label>" . $model[0] . " " . $model[1] . "</label>";
-                echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
-                echo "</div>";
-                showImage($carType_ID);
-                echo "<div class='carDataBox'>";
-                $minAge=getCarProperty($carType_ID, 'Min_Age');
-                echo "Mindestalter: ".$minAge."<br>";
-                // Use the getPrice function to display car prices
-                $price = getCarProperty($carType_ID, 'Price');
-                echo "Preis pro Tag: " . $price . " &euro;<br>";
-                echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
-                echo "</div>";
-                echo "</div>";
+                    echo "<div class='resultItemBox'>";
+                        echo "<div class='modelBox'>";
+                            // Use the getModel and showImage functions to display car information
+                            $model = getModel($carType_ID);
+                            echo "<label>" . $model[0] . " " . $model[1] . "</label>";
+                            echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
+                        echo "</div>";
+                        showImage($carType_ID);
+                        echo "<div class='carDataBox'>";
+                            echo "<div>";
+                                // Use the getPrice function to display car prices
+                                $price = getCarProperty($carType_ID, 'Price');
+                                echo "Preis pro Tag: " . $price . " &euro;<br>";
+                                echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
+                            echo "</div>";
+                            $minAge=getCarProperty($carType_ID, 'Min_Age');
+                            if (isset($_SESSION['User_ID'])){
+                                $userAge = getUserAge();
+                                if ($userAge < $minAge){
+                                    echo "<div class='minAgeTooYoungBox'>";
+                                } else {
+                                    echo "<div>";
+                                }
+                            } else {
+                                echo "<div>";  
+                            }
+                            echo "Mindestalter: ".$minAge;
+                            echo "</div>";  
+                        echo "</div>";
+                    echo "</div>";
                 echo "</a>";
             } else {
                 $hasUnavailableModels=true;
-            }
+            } 
         }
         if ($hasAvailableModels==false){
             echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
@@ -202,31 +215,44 @@ function displayResults($stmt)
                 $availableCarsModel = getAvailableCarsForModel($carType_ID);
                 if ($availableCarsModel == 0) {
                     echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
-                    echo "<div class='resultItemBox'>";
-                    echo "<div class='modelBox'>";
-                    // Use the getModel and showImage functions to display car information
-                    $model = getModel($carType_ID);
-                    echo "<label>" . $model[0] . " " . $model[1] . "</label>";
-                    echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
-                    echo "</div>";
-                    showImage($carType_ID);
-                    echo "<div class='carDataBox'>";
-                    $minAge=getCarProperty($carType_ID, 'Min_Age');
-                    echo "Mindestalter: ".$minAge."<br>";
-                    // Use the getPrice function to display car prices
-                    $price = getCarProperty($carType_ID, 'Price');
-                    echo "Preis pro Tag: " . $price . " &euro;<br>";
-                    echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
-                    echo "</div>";
-                    echo "</div>";
+                        echo "<div class='resultItemBox'>";
+                            echo "<div class='modelBox'>";
+                                // Use the getModel and showImage functions to display car information
+                                $model = getModel($carType_ID);
+                                echo "<label>" . $model[0] . " " . $model[1] . "</label>";
+                                echo "<label>Verf&uuml;gbar: " . $availableCarsModel . "</label>";
+                            echo "</div>";
+                            showImage($carType_ID);
+                            echo "<div class='carDataBox'>";
+                                echo "<div>";
+                                    // Use the getPrice function to display car prices
+                                    $price = getCarProperty($carType_ID, 'Price');
+                                    echo "Preis pro Tag: " . $price . " &euro;<br>";
+                                    echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
+                                echo "</div>";
+                                $minAge=getCarProperty($carType_ID, 'Min_Age');
+                                if (isset($_SESSION['User_ID'])){
+                                    $userAge = getUserAge();
+                                    if ($userAge < $minAge){
+                                        echo "<div class='minAgeTooYoungBox'>";
+                                    } else {
+                                        echo "<div>";
+                                    }
+                                } else {
+                                    echo "<div>";  
+                                }
+                                echo "Mindestalter: ".$minAge;   
+                                echo "</div>";  
+                            echo "</div>";
+                        echo "</div>";
                     echo "</a>";
                 }
             }
         }
         echo "</div>";
-    } else {
-        echo "<p>Keine Ergebnisse gefunden.</p>";
-    }
+        } else {
+            echo "<p>Keine Ergebnisse gefunden.</p>";
+        }
 }
 
 // Availability
