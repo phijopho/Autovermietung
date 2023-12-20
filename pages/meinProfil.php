@@ -69,14 +69,13 @@ $conn = null;
         <form action="pages/meinProfil.php" method="post" id="profilForm">
             <h1>Mein Profil</h1>
             <div class="inputbox">
-                <input type="text" name="firstName" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>" disabled>
-                <input type="text" name="lastName" required placeholder="Nachname" value="<?php echo $user['LastName']; ?>" disabled>
-                <input type="text" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>" disabled>
-                <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>" disabled>
-                <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>" disabled>
-                <input type="text" name="password" required placeholder="Aktuelles oder neues Passwort" disabled>                
+                <input type="text" name="firstName" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>" disabled maxlength="128">
+                <input type="text" name="lastName" required placeholder="Nachname" value="<?php echo $user['LastName']; ?>" disabled maxlength="128">
+                <input type="number" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>" disabled min="18" max="150">
+                <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>" disabled maxlength="128">
+                <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>" disabled maxlength="128" pattern="[A-Za-z0-9_.]+" title="Bitte verwende nur Buchstaben, Zahlen, Unterstriche und Punkte.">
+                <input type="password" name="password" required placeholder="Aktuelles oder neues Passwort" disabled pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Großbuchstaben, 1x Kleinbuchstaben, 1x Zahl">                
                 <button type="submit" onclick="enableEditing()">Bearbeiten</button>
-                
             </div>
         </form>
     </div>
