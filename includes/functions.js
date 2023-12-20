@@ -23,25 +23,9 @@ function togglemenu() {
     }
 }
 
-
-  //Backbutton Produktdetailseite
-window.addEventListener('scroll', function() {
-    var button = document.getElementById('scrollButton');
-    var scrollOffset = 20;
-
-    if (window.scrollY > scrollOffset) {
-        button.innerHTML = 'X'; 
-       
-    } else {
-        button.innerHTML = 'Zurück zur Produktübersicht'; 
-        
-    }
-});
-  
-
 // Homepage
 
-  //Crousel with prices and categories 
+  //Carousel with prices and categories 
   function cSlider() {
     'use strict';
 
@@ -92,10 +76,10 @@ window.addEventListener('scroll', function() {
             autoScrollInterval = setInterval(autoScroll, 7000);
         });
 
-        // Starte Slider
+        // Start Slider
         setState(index);
 
-        // Automatisches Scrollen einrichten
+        // Automatic scroll
         var autoScrollInterval = setInterval(autoScroll, 4000);
 
         function autoScroll() {
@@ -137,7 +121,7 @@ function scrollFunction() {
     }
 }
 
-// scroll to anker
+// scroll to anker and jump direct to anker when on different page
 function scrollToAnchor() {
     var scrollLinks = document.querySelectorAll('.scroll-link');
     scrollLinks.forEach(function (scrollLink) {
@@ -219,9 +203,9 @@ function handleMouseLeave(event) {
     }
 }
 
-// Zusätzliche Logik, um das Untermenü erneut zu öffnen, wenn der Mauszeiger wieder darauf zeigt
+// additional logic, to open submenu when pointer hovers again
 document.getElementById('submenu').addEventListener('mouseenter', () => {
-    cancelCloseTimer(); // Den Timer löschen, um das Schließen des Menüs zu verhindern
+    cancelCloseTimer(); 
 });
 
 document.getElementById('submenu').addEventListener('mouseleave', () => {

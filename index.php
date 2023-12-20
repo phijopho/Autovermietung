@@ -58,6 +58,8 @@ include('includes/header.php'); // include header
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
             </div>
+            <!-- Anker for scrolling from header -->
+            <div id="anker"></div>
         </div>
     </div>
     <div class="call">
@@ -67,7 +69,7 @@ include('includes/header.php'); // include header
     <script>
         setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
     </script>
-    <div id="section2" class="section2">
+    <div class="section2">
         <div class="cslider">
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
