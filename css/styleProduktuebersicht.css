@@ -531,3 +531,37 @@ input[type=range]::-moz-range-thumb {
 #slider-range {
   margin-top: 10px;
 }
+
+.buttonUp {
+  background: transparent;
+  border: none;
+  height: 30px;
+  opacity: 0.7;
+  transform: scale(100%);
+  font-weight: 600;
+  color: #f7f2ef;
+  padding: 0 15px;
+  border-radius: 20px;
+  line-height: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  margin-left: 25%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.buttonUp:hover {
+  opacity: 1 !important;
+  transform: scale(1.1);
+}
+
+.buttonUpContainer {
+  width: 500px;
+  float: right;
+  margin-right: -90px;
+  margin-top: 10px;
+}
