@@ -245,7 +245,7 @@ include('../includes/header.php'); // include header
                 </div>
                 <div class="twoSidedBox">
                     <label for="pickUpDate">Abholung:</label>
-                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" onchange="setMinReturnDate()" id="pickUpDate" required/>
+                    <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate" required/>
                 </div>
                 <div class="twoSidedBox">
                     <label for="returnDate">R&uuml;ckgabe:</label>
@@ -253,7 +253,7 @@ include('../includes/header.php'); // include header
                 </div>
 
                 <script>
-                    setMinReturnDate();
+                    setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
                 </script>
 
                 <div class="categoryBox">
