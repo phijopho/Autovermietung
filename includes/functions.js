@@ -23,45 +23,18 @@ function togglemenu() {
     }
 }
 
-// Modal-Box
-// document.addEventListener('DOMContentLoaded', function() {
-//     var modal = document.getElementById("myModal");
-//     var button = document.getElementById("button");
-//     var closeBtn = document.getElementsByClassName("close")[0];
-  
-//     // Open Modal-Box
-//     button.addEventListener('click', function() {
-//       modal.style.display = "block";
-//     });
-  
-//     // Close der Modal-Box
-//     closeBtn.addEventListener('click', function() {
-//       modal.style.display = "none";
-//     });
-  
-//     // Close modal-Box when click anywhere
-//     window.addEventListener('click', function(event) {
-//       if (event.target === modal) {
-//         modal.style.display = "none";
-//       }
-//     });
-//   });
+ // JavaScript-Funktionen, um die Modal Box zu öffnen und zu schließen
+//  function openModal() {
+//     var modal = document.getElementById('myModal');
+//     modal.style.display = 'block';
+// }
 
-  //Backbutton Produktdetailseite
-window.addEventListener('scroll', function() {
-    var button = document.getElementById('scrollButton');
-    var scrollOffset = 20;
 
-    if (window.scrollY > scrollOffset) {
-        button.innerHTML = 'X'; 
-       
-    } else {
-        button.innerHTML = 'Zurück zur Produktübersicht'; 
-        
-    }
-});
-  
-
+// JavaScript-Funktion zum Schließen des Modals
+function closeModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
 // Homepage
 
   //Crousel with prices and categories 
