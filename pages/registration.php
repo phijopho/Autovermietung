@@ -34,6 +34,13 @@
                 <input type="password" required placeholder="Password*" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Großbuchstaben, 1x Kleinbuchstaben, 1x Zahl">
             </div>
             <button name="register">Registrieren</button>
+
+            <div class="loginInfo">
+                Sie haben bereits ein Konto?&nbsp;
+                <a href="./pages/login.php" class="loginLink">
+                    Hier klicken zum Anmelden!
+                </a>
+            </div>
         </form>
         <div class="gif1">
             <img src="./images/neonlights.gif">
