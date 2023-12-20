@@ -7,7 +7,7 @@
     ?>
 
     <!-- html page specifics -->
-    <link rel="stylesheet" href="css/styleDatenschutz.css">
+    <link rel="stylesheet" href="css/styleAGBImpDat.css">
     <link rel="stylesheet" href="css/styleFooter.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">
@@ -18,8 +18,8 @@ include('../includes/header.php'); // Including the header
 ?>
 
 <body>
-    <div class="DatenschutzContainer"> <!--Class to position text in the body -->
-        <h1 class="DatenschutzUeberschrift"> Datenschutzerklärung </h1>
+    <div class="Container"> <!--Class to position text in the body -->
+        <h1 class="Ueberschrift"> Datenschutzerklärung </h1>
         <div class="blocksatz">
             <b>1. Allgemeine Angaben </b> <br>
 

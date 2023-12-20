@@ -1,10 +1,9 @@
-/* Datenschutz */
-/* Einstellungen für den Datenschutz container */
-.DatenschutzUeberschrift {
+.Ueberschrift {
     font-weight: 700;
+    font-size: 600;
 }
 
-.DatenschutzContainer {
+.Container {
     max-width: 900px;
     margin: 0 auto;
     margin-top: 170px;
@@ -16,6 +15,40 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
 }
 
+/* AGB's */
+.blocksatz {
+    text-align: justify;
+}
+
+
+/* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
+.AGBtext {
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+.AGBtext2 {
+    margin-left: 32px;
+}
+
+/* Impressum */
+/* Class to move the text under 1. + 2. etc. to the right */
+.ImpressumText {
+    margin-left: 20px;
+    margin-top: 0;
+}
+
+/* Class to move the text under 1.1 etc. further to the right */
+.ImpressumText2 {
+    margin-left: 30px;
+    margin-top: 0;
+}
+
+.blocksatz {
+    text-align: justify;
+}
+
+/* Datenschutz */
 /* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
 .DatenschutzText {
     margin-left: 20px;

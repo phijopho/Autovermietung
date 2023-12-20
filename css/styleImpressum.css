@@ -8,11 +8,13 @@
 .ImpressumContainer {
     max-width: 900px;
     margin: 0 auto;
-    padding: 50px;
-    margin-top: 70px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    margin-top: 170px;
+    margin-bottom: 100px;
+    padding: 10px 50px; 
     line-height: 2;
+    background-color: #272626;
+    border-radius: 15px; 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
 }
 
 /* Class to move the text under 1. + 2. etc. to the right */

@@ -7,7 +7,7 @@
     ?>
 
     <!-- html page specifics -->
-    <link rel="stylesheet" href="css/styleImpressum.css">
+    <link rel="stylesheet" href="css/styleAGBImpDat.css">
     <link rel="stylesheet" href="css/styleFooter.css">
     <title>SWIFT rentals</title>
     <base href="/Autovermietung/">
@@ -18,8 +18,8 @@ include('../includes/header.php'); // Including the header
 ?>
 
 <body>
-    <div class="ImpressumContainer"> <!--Class to position text in the body -->
-        <h1 class="ImpressumUeberschrift"> Impressum</h1>
+    <div class="Container"> <!--Class to position text in the body -->
+        <h1 class="Ueberschrift"> Impressum</h1>
 
         <b>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: </b> <br>
 

@@ -7,7 +7,7 @@
     ?>
 
     <!-- html page specifics -->
-    <link rel="stylesheet" href="css/styleAGB.css">
+    <link rel="stylesheet" href="css/styleAGBImpDat.css">
     <link rel="stylesheet" href="css/styleFooter.css">
     <title>SWIFT rentals</title>
 </head>
@@ -17,8 +17,8 @@ include('../includes/header.php'); // Including the header
 ?>
 
 <body>
-    <div class="AGBContainer"> <!--Class to position text in the body -->
-        <h1 class="AGBUeberschrift"> Allgemeine Geschäftsbedingungen </h1>
+    <div class="Container"> <!--Class to position text in the body -->
+        <h1 class="Ueberschrift"> Allgemeine Geschäftsbedingungen </h1>
         <div class="blocksatz">
             <b>1. Vertragsgegenstand </b> <br>
 
