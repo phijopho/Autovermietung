@@ -215,7 +215,7 @@ include('../includes/header.php'); // include header
 ?>
 
 <body>
-    <div class="contentBox">
+    <div id="Up" class="contentBox">
         <div class="filterBox">
             <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>" id="filter">
                 <div class="itemBox">
@@ -436,6 +436,9 @@ include('../includes/header.php'); // include header
             displayResults($stmt);
             ?>
         </div>
+    </div>
+    <div class="buttonUpContainer">
+    <a class="buttonUp" data-target="Up" href="pages/produktuebersicht.php#Up">Nach Oben <b>&uarr;</b></a>
     </div>
 </body>
 
