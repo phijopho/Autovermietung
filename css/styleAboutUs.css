@@ -26,7 +26,7 @@ h2 {
     overflow-x: hidden;
 
     /* Hintergrundbild hinzufügen */
-    background-image: url("../images/category images/hintergrund AboutUs.png");
+    background-image: url("../images/category images/Hintergrund AboutUs.jpg");
     background-size: cover; /* Das Bild wird so skaliert, dass es den gesamten Container abdeckt */
     background-position: center; /* Positioniert das Bild in der Mitte des Containers */
     background-color: rgba(15, 15, 15, 500); 
