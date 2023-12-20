@@ -23,6 +23,7 @@ include('../includes/header.php');
 
 
 <body>
+
   <?php
     preventEnterIfLoggedOut(); 
   ?>
@@ -63,50 +64,59 @@ include('../includes/header.php');
 
   $bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
 
-  $bookingInfos = array_reverse($bookingInfos); //To arrange bookings in descending order
+      if ($bookingInfos) {
+        $bookingInfos = array_reverse($bookingInfos); //To arrange bookings in descending order
+    } else {
+        $bookingInfos = array(); // Set it to an empty array if there are no bookings
+    }
   ?>
 
   <!--Booking data overview-->
   <article>
     <h1>Meine Buchungen</h1>
- 
-  <table>
-  <tr>
-  <td>
-      <div class="tile">
-        <h3>Buchungs_ID</h3>
+
+    <?php if (empty($bookingInfos)): ?>
+      <div class="centerEcho">
+        <p>Es sind keine Buchungen vorhanden.</p>
       </div>
-    </td>
+      <?php else: ?>
+        <?php foreach ($bookingInfos as $bookingInfo): ?>
+          
+    <table>
+    <tr>
     <td>
-    <td>
-      <div class="tile">
-        <h3>Buchungsdatum</h3>
-      </div>
-    </td>
-    <td>
-      <div class="tile">
-        <h3>Abholdatum</h3>
-      </div>
-    </td>
-    <td>
-      <div class="tile">
-        <h3>Rückgabedatum</h3>
-      </div>
-    </td>
-    <td>
-      <div class="tile">
-        <h3>Modell</h3>
-      </div>
-    </td>
-  </tr>
+        <div class="tile">
+          <h3>Buchungs_ID</h3>
+        </div>
+      </td>
+      <td>
+      <td>
+        <div class="tile">
+          <h3>Buchungsdatum</h3>
+        </div>
+      </td>
+      <td>
+        <div class="tile">
+          <h3>Abholdatum</h3>
+        </div>
+      </td>
+      <td>
+        <div class="tile">
+          <h3>Rückgabedatum</h3>
+        </div>
+      </td>
+      <td>
+        <div class="tile">
+          <h3>Modell</h3>
+        </div>
+      </td>
+    </tr>
+
+  <?php endforeach; ?>
+
 </table>
 
-
     <dl id="ud_accordion">
-      <?php
-      if (count($bookingInfos) > 0) {
-        foreach ($bookingInfos as $bookingInfo) {
-      ?>
           <dt>
             <p><?php echo $bookingInfo['Rent_ID']; ?></p>
             <p><?php echo $bookingInfo['BookingDate']; ?></p>
@@ -119,12 +129,6 @@ include('../includes/header.php');
             Abhol- und Rückgabeort: <?php echo $bookingInfo['CarLocation']; ?><br>
             Gesamtpreis der Buchung: <?php echo $bookingInfo['TotalPrice']; ?> &euro;<br>
           </dd>
-      <?php
-        }
-      } else {
-        echo "<br>Keine Buchungen vorhanden.";
-      }
-      ?>
     </dl>
 
     <div class="pagination-container">
@@ -137,6 +141,7 @@ include('../includes/header.php');
       }
       ?>
     </div>
+    <?php endif; ?>
   </article>
 
   <!--js code for accordion-->
