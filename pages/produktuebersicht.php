@@ -221,23 +221,26 @@ include('../includes/header.php'); // include header
                 <div class="itemBox">
                     <label for="location">Standort:</label><br>
                     <select class="customSelect" name="location">
-                        <?php 
+                    <?php 
                         foreach ($location as $city) {
-                            if ($_SESSION['location'] == $city) {
-                                echo "<option value='$city' selected>$city</option>";
-                            } else {
-                                echo "<option value='$city'>$city</option>";
-                            }}
-
-
-                            foreach ($location as $city) {
-                            echo "<option value='$city' ";
-                            if (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city) {
-                            echo "selected";
-                            }
+                            $cleanCity = strtolower(str_replace(' ', '-', $city));
+                            
+                            echo "<option value='$cleanCity' ";
+                            
+                            if ($_SESSION['location'] == $city || (isset($_POST['selectedLocation']) && $_POST['selectedLocation'] == $city)) {
+                                echo "selected";
+                                $_SESSION['location'] = $city; // Setze den ausgewählten Stadtwert in der Session
+                            } 
+                            
                             echo ">$city</option>";
-                            }
-                            ?>
+                        }
+
+                        if (isset($_POST['selectedLocation'])) {
+                            $selectedCity = $_POST['selectedLocation'];
+                        }
+
+                        $_SESSION['location'] = "Hamburg";
+                    ?>
                     </select>
                 </div>
                 <div class="twoSidedBox">
