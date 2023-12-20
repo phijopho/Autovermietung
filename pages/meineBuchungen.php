@@ -71,64 +71,62 @@ include('../includes/header.php');
     }
   ?>
 
-  <!--Booking data overview-->
-  <article>
-    <h1>Meine Buchungen</h1>
+<!--Booking data overview-->
+<article>
+  <h1>Meine Buchungen</h1>
 
-    <?php if (empty($bookingInfos)): ?>
-      <div class="centerEcho">
-        <p>Es sind keine Buchungen vorhanden.</p>
-      </div>
-      <?php else: ?>
-        <?php foreach ($bookingInfos as $bookingInfo): ?>
-          
+  <?php if (empty($bookingInfos)): ?>
+    <div class="centerEcho">
+      <p>Es sind keine Buchungen vorhanden.</p>
+    </div>
+  <?php else: ?>
+
     <table>
-    <tr>
-    <td>
-        <div class="tile">
-          <h3>Buchungs_ID</h3>
-        </div>
-      </td>
-      <td>
-      <td>
-        <div class="tile">
-          <h3>Buchungsdatum</h3>
-        </div>
-      </td>
-      <td>
-        <div class="tile">
-          <h3>Abholdatum</h3>
-        </div>
-      </td>
-      <td>
-        <div class="tile">
-          <h3>Rückgabedatum</h3>
-        </div>
-      </td>
-      <td>
-        <div class="tile">
-          <h3>Modell</h3>
-        </div>
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <div class="tile">
+            <h3>Buchungs_ID</h3>
+          </div>
+        </td>
+        <td>
+          <div class="tile">
+            <h3>Buchungsdatum</h3>
+          </div>
+        </td>
+        <td>
+          <div class="tile">
+            <h3>Abholdatum</h3>
+          </div>
+        </td>
+        <td>
+          <div class="tile">
+            <h3>Rückgabedatum</h3>
+          </div>
+        </td>
+        <td>
+          <div class="tile">
+            <h3>Modell</h3>
+          </div>
+        </td>
+      </tr>
 
-  <?php endforeach; ?>
-
-</table>
+    </table>
 
     <dl id="ud_accordion">
-          <dt>
-            <p><?php echo $bookingInfo['Rent_ID']; ?></p>
-            <p><?php echo $bookingInfo['BookingDate']; ?></p>
-            <p><?php echo $bookingInfo['StartDate']; ?></p>
-            <p><?php echo $bookingInfo['EndDate']; ?></p>
-            <p><?php echo $bookingInfo['Brand'] . " " . $bookingInfo['Model']; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-          </dt>
+      <?php foreach ($bookingInfos as $bookingInfo): ?>
+        <dt>
+          <div class="box"><p><?php echo $bookingInfo['Rent_ID']; ?></p></div>
+          <div class="box"><p><?php echo $bookingInfo['BookingDate']; ?></p></div>
+          <div class="box"><p><?php echo $bookingInfo['StartDate']; ?></p></div>
+          <div class="box"><p><?php echo $bookingInfo['EndDate']; ?></p></div>
+          <div class="box"><p><?php echo $bookingInfo['Brand'] . " " . $bookingInfo['Model']; ?></p></div>
+        </dt>
+        <dd>
+          Abhol- und Rückgabeort: <?php echo $bookingInfo['CarLocation']; ?><br>
+          Gesamtpreis der Buchung: <?php echo $bookingInfo['TotalPrice']; ?> &euro;<br>
+        </dd>
+      <?php endforeach; ?>
 
-          <dd>
-            Abhol- und Rückgabeort: <?php echo $bookingInfo['CarLocation']; ?><br>
-            Gesamtpreis der Buchung: <?php echo $bookingInfo['TotalPrice']; ?> &euro;<br>
-          </dd>
     </dl>
 
     <div class="pagination-container">
@@ -141,8 +139,11 @@ include('../includes/header.php');
       }
       ?>
     </div>
-    <?php endif; ?>
-  </article>
+
+  <?php endif; ?>
+</article>
+
+
 
   <!--js code for accordion-->
   <script>
