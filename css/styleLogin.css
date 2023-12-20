@@ -24,7 +24,6 @@ h1 {
     line-height: 42px;
 }
 
-
 /* align input boxes underneath each other */
 .inputbox {
     text-align: center;
@@ -101,7 +100,7 @@ button:focus {
     line-height: 35px;
     width: 380px;
     border-radius: 10px;
-    margin: -65px auto 10px;
+    margin: -5px auto 10px;
     background-color: #ffbaba;
     text-align: center;
     display: flex;
