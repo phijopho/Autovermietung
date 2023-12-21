@@ -9,8 +9,8 @@
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleAGBImpDat.css">
     <link rel="stylesheet" href="css/styleFooter.css">
-    <title>SWIFT rentals</title>
-    <base href="/Autovermietung/">
+    <title>Impressum</title>
+    <script src="includes/functions.js"></script>
 </head>
 
 <?php
