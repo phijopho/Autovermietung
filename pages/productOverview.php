@@ -274,6 +274,8 @@ include('../includes/header.php'); // include header
                         ?>
                     </select>
                 </div>
+
+                <!-- seats filter -->
                 <div class="itemBox">
                     <?php
                     $seats = selectMinAndMaxFromColumn("Seats", "CarType");
@@ -281,51 +283,61 @@ include('../includes/header.php'); // include header
                     if (isset($_SESSION['seats'])) {
                         $selectedSeats = $_SESSION['seats'];
                     }
+                    // code for label
                     echo "<input type='range' min='" . $seats['min'] . "' max='" . $seats['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedSeats . "' name='seats' id='seatsRange'>";
                     echo "Sitze: <output>" . $selectedSeats . "</output>+";
                     ?>
                 </div>
+
+                <!-- doors filter -->
                 <div class="itemBox">
                     <?php
                     $doors = selectMinAndMaxFromColumn("Doors", "CarType");
-                    $selectedDoors = 2;
+                    $selectedDoors = 2; // so all numbers of doors are shown
                     if (isset($_SESSION['doors'])) {
                         $selectedDoors = $_SESSION['doors'];
                     }
+                    // code for label
                     echo "<input type='range' min='" . $doors['min'] . "' max='" . $doors['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedDoors . "' name='doors' id='doorsRange'>";
                     echo "T&uuml;ren: <output>" . $selectedDoors . "</output>+";
                     ?>
                 </div>
+
+                <!-- age filter -->
                 <div class="itemBox">
                     <?php
                         $age = selectMinAndMaxFromColumn("Min_Age", "CarType");
                         if(isset($_SESSION['User_ID'])){
-                            $selectedAge=getUserAge();
+                            $selectedAge=getUserAge(); // set user age as age on filter if logged in
                         } else {
-                            $selectedAge = 25;
+                            $selectedAge = 25; // so all cars are available
                         }
                         if (isset($_SESSION['age'])) {
-                            $selectedAge = $_SESSION['age'];
+                            $selectedAge = $_SESSION['age']; // get user input
                         }
+                        // code for label
                         echo "<input type='range' min='" . $age['min'] . "' max='" . $age['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedAge . "' name='age' id='ageRange'>";
                         echo "Fahreralter: <output>" . $selectedAge . "</output>";
                     ?>
                 </div>
+
+                <!-- drive filter -->
                 <div class="itemBox">
                     <label for="drive">Antrieb:</label><br>
                     <select class="customSelect" name="drive">
                         <option value="all">Alle auswählen</option>
                         <?php
+                        // get drives from database and translate to German
                         $drives = selectDistinctColumn("Drive", "CarType");
                         foreach ($drives as $drive) {
-                            if ($_SESSION['drive'] == $drive) {
+                            if ($_SESSION['drive'] == $drive) { // select option from session
                                 if ($drive == 'Combuster') {
                                     $driveGerman = 'Verbrenner';
                                 } elseif ($drive == 'Electric') {
                                     $driveGerman = 'Elektro';
                                 }
                                 echo "<option value='$drive' selected>$driveGerman</option>";
-                            } else {
+                            } else { // other options (not selected)
                                 if ($drive == 'Combuster') {
                                     $driveGerman = 'Verbrenner';
                                 } elseif ($drive == 'Electric') {
