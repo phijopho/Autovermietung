@@ -167,7 +167,7 @@ function displayResults($stmt)
             $availableCarsModel = getAvailableCarsForModel($carType_ID);
             if ($availableCarsModel > 0) {
                 $hasAvailableModels = true;
-                echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                echo "<a href='pages/productDetails.php?carType_ID=$carType_ID'>";
                     echo "<div class='resultItemBox'>";
                         echo "<div class='modelBox'>";
                             // Use the getModel and showImage functions to display car information
@@ -214,7 +214,7 @@ function displayResults($stmt)
                 $carType_ID = $row['CarType_ID'];
                 $availableCarsModel = getAvailableCarsForModel($carType_ID);
                 if ($availableCarsModel == 0) {
-                    echo "<a href='pages/produktdetailseite.php?carType_ID=$carType_ID'>";
+                    echo "<a href='pages/productDetails.php?carType_ID=$carType_ID'>";
                         echo "<div class='resultItemBox'>";
                             echo "<div class='modelBox'>";
                                 // Use the getModel and showImage functions to display car information

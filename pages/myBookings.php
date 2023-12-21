@@ -12,7 +12,7 @@ ini_set('display_errors', 1);
 
   <!-- html page specifics -->
   <title>Meine Buchungen</title>
-  <link rel="stylesheet" href="css/styleMeineBuchungen.css">
+  <link rel="stylesheet" href="css/styleMyBookings.css">
   <link rel="stylesheet" href="css/styleFooter.css">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>

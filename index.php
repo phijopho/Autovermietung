@@ -41,7 +41,7 @@ include('includes/header.php'); // include header
     <div class="BackgroundKia">
         <div class="section1">
             <div class="containerBookingForm">
-                <form action="pages/produktuebersicht.php" method="post" class="formContainer">
+                <form action="pages/productOverview.php" method="post" class="formContainer">
                     <select class="selectLocation" id="location" name="location">
                         <?php //aus Datenbank ziehen, außer HH
                         foreach ($location as $city) {
@@ -77,7 +77,7 @@ include('includes/header.php'); // include header
             <div class="cslider-carousel">
                 <!-- Einheit 1 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php?carouselCategory=Limousine">
+                    <a href="pages/productOverview.php?carouselCategory=Limousine">
                         <img src="images/category images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Limousine</h2>
@@ -87,7 +87,7 @@ include('includes/header.php'); // include header
                 </div>
                 <!-- Einheit 2 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php?carouselCategory=Combi">
+                    <a href="pages/productOverview.php?carouselCategory=Combi">
                         <img src="images/category images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Combi</h2>
@@ -97,7 +97,7 @@ include('includes/header.php'); // include header
                 </div>
                 <!-- Einheit 3 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php?carouselCategory=Cabrio">
+                    <a href="pages/productOverview.php?carouselCategory=Cabrio">
                         <img src="images/category images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Cabrio</h2>
@@ -107,7 +107,7 @@ include('includes/header.php'); // include header
                 </div>
                 <!-- Einheit 4 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php?carouselCategory=SUV">
+                    <a href="pages/productOverview.php?carouselCategory=SUV">
                         <img src="images/category images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>SUV</h2>
@@ -117,7 +117,7 @@ include('includes/header.php'); // include header
                 </div>
                 <!-- Einheit 5 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php?carouselCategory=Mehrsitzer">
+                    <a href="pages/productOverview.php?carouselCategory=Mehrsitzer">
                         <img src="images/category images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Mehrsitzer</h2>
@@ -127,7 +127,7 @@ include('includes/header.php'); // include header
                 </div>
                 <!-- Einheit 6 -->
                 <div class="cslider-item">
-                    <a href="pages/produktuebersicht.php?carouselCategory=Coupe">
+                    <a href="pages/productOverview.php?carouselCategory=Coupe">
                         <img src="images/category images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Coupe</h2>
@@ -232,7 +232,7 @@ include('includes/header.php'); // include header
     function submitFormWithCity(city) {
         var form = document.createElement("form");
         form.method = "POST";
-        form.action = "http://localhost/Autovermietung/pages/produktuebersicht.php";
+        form.action = "http://localhost/Autovermietung/pages/productOverview.php";
 
         var input = document.createElement("input");
         input.type = "hidden";
