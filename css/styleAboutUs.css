@@ -9,7 +9,7 @@ html {
     font-weight: 700;
 }
 
-p {
+.text{
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
@@ -67,7 +67,7 @@ h2 {
     width: 40%;
     text-align: justify;
     float: right;
-    margin-top: 10%;
+    margin-top: 3%;
     margin-right: 10%; 
     z-index: 1;
     padding: 50px;
@@ -81,7 +81,7 @@ h2 {
     align-content: center;
     text-align: center;
     float: inline-start;
-    margin-top: 40px;
+    margin-top: 3%;
     margin-left: 23%; 
     z-index: 1000;
     padding: 50px;

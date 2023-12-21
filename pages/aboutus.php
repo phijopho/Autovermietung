@@ -32,14 +32,14 @@ include('../includes/header.php');
 
             <!--class to postion second box-->
             <div class="we">
-                <p><b style="color: aqua;">Wir, das sind Clara, Philipp, Felix, Brianna und Joshi,</b> <br> haben unsere Leidenschaft f&uuml;r Autos und unsere gemeinsame Vision von erstklassigem Service zusammengebracht, um <b style="color: aqua;">SWIFT rentals</b> zu gr&uuml;nden – eure bevorzugte Autovermietung.
+                <p class="text"><b style="color: aqua;">Wir, das sind Clara, Philipp, Felix, Brianna und Joshi,</b> <br> haben unsere Leidenschaft f&uuml;r Autos und unsere gemeinsame Vision von erstklassigem Service zusammengebracht, um <b style="color: aqua;">SWIFT rentals</b> zu gr&uuml;nden – eure bevorzugte Autovermietung.
 
                     Unsere Geschichte begann mit dem Wunsch, ein einzigartiges Erlebnis f&uuml;r unsere Kunden zu schaffen. Bei uns steht nicht nur das Fahrzeug im Mittelpunkt, sondern auch der Mensch hinter dem Lenkrad. Wir verstehen, dass jeder Kilometer, den Sie zur&uuml;cklegen, ein Teil Ihrer Reise ist, sei es gesch&auml;ftlich oder privat. Deshalb setzen wir alles daran, Ihnen nicht nur ein Auto, sondern ein rundum angenehmes Fahrerlebnis zu bieten.</p>
             </div>
 
             <!--class to postion third box-->
             <div class="why">
-                <p><b style="color: aqua;">Was uns auszeichnet?</b> <br>Neben unserem engagierten Team sind es unsere Werte: <b><em>Vertrauen, Zuverl&auml;ssigkeit und Kundenzufriedenheit</em></b>. Wir legen gro&szlig;en Wert darauf, transparente und faire Preise anzubieten, ohne dabei auf Qualit&auml;t zu verzichten. Jedes Mitglied unseres Teams ist bestrebt, Ihnen den besten Service zu bieten – von der Fahrzeugauswahl bis zur R&uuml;ckgabe.
+                <p class="text"><b style="color: aqua;">Was uns auszeichnet?</b> <br>Neben unserem engagierten Team sind es unsere Werte: <b><em>Vertrauen, Zuverl&auml;ssigkeit und Kundenzufriedenheit</em></b>. Wir legen gro&szlig;en Wert darauf, transparente und faire Preise anzubieten, ohne dabei auf Qualit&auml;t zu verzichten. Jedes Mitglied unseres Teams ist bestrebt, Ihnen den besten Service zu bieten – von der Fahrzeugauswahl bis zur R&uuml;ckgabe.
 
                     Unsere Flotte umfasst eine breite Palette von Fahrzeugen, angefangen bei kompakten Stadtautos bis hin zu ger&auml;umigen SUVs, um allen Ihren Anforderungen gerecht zu werden. Egal, ob Sie ein Wochenendausflug planen, gesch&auml;ftlich unterwegs sind oder einfach nur Ihre t&auml;glichen Wege zur&uuml;cklegen – wir haben das perfekte Fahrzeug f&uuml;r Sie.
 
