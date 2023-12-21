@@ -165,12 +165,12 @@ if ($availableCars > 0) {
                     <h3>Bitte best&auml;tigen Sie folgende Buchung: <br><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." f&uuml;r ".number_format($totalPrice, 2, ',', '.')." &euro;.   ";?></h3>
                     <br>
                     <form id='bookingForm' class="modalForm" action='pages/meineBuchungen.php' method='post'>
-                        <div class="buttonContainer">
+                        <div class="buttondiv">
                             <input type='hidden' name='carType_ID' value='<?php echo $_SESSION['carType_ID'] ?>'>
                             <input type='submit' class='buttonModal' value='Jetzt Buchen' name='addBooking'>
                         </div>
-                        <div class="cancelLink">
-                            <p><a href='./pages/produktuebersicht.php'>Buchung abbrechen</a></p>
+                        <div class="buttonModal">
+                            <a href='./pages/produktuebersicht.php'>Buchung abbrechen</a>
                         </div>
                     </form>                
                 </div>                
