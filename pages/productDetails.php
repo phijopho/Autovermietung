@@ -169,7 +169,7 @@ include('../includes/header.php'); // Einbindung des Headers
                                 <input type='submit' class='buttonModal' value='Jetzt Buchen' name='addBooking'>
                             </div>
                             <div class="buttonModal">
-                                <a href='./pages/productOverview.php'>Buchung abbrechen</a>
+                                <a href='./pages/productDetails.php'>Buchung abbrechen</a>
                             </div>
                         </form>                
                     </div>                
