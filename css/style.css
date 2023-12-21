@@ -74,6 +74,7 @@ a:hover {
 
 a:hover {
     color: var(--accentColor);
+    transition: .25s;
 }
 
 /* Underlined if hovered and active */
