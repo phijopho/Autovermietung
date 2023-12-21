@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Fragen und Antworten</title>
-
-  <link rel="stylesheet" href="../css/styleFAQ.css">
-  <link rel="stylesheet" href="../css/styleFooter.css">
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <?php
+    include('../includes/htmlhead.php')
+    ?>
+    
+    <!-- html page specifics -->
+    <link rel="stylesheet" href="css/styleFAQ.css">
+    <link rel="stylesheet" href="css/styleFooter.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Fragen und Antworten</title>
+    <script src="includes/functions.js"></script>
 </head>
-
-<?php
-include('../includes/htmlhead.php')
-?>
 
 <?php
 include('../includes/header.php'); // Including the header

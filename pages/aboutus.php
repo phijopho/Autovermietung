@@ -9,7 +9,8 @@
     <!-- html page specifics -->
     <link rel="stylesheet" href="css/styleAboutUs.css">
     <link rel="stylesheet" href="css/styleFooter.css">
-    <title>SWIFT rentals</title>
+    <title>Über uns</title>
+    <script src="includes/functions.js"></script>
 </head>
 
 <?php
