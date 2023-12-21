@@ -94,6 +94,12 @@ $bookingInfos = getBookingInfos($_SESSION['User_ID'], $perPage, $offset);
       } else {
         echo "<br>Keine Buchungen vorhanden.";
       }
+
+      if ($bookingInfos) {
+        $bookingInfos = array_reverse($bookingInfos); //To arrange bookings in descending order
+    } else {
+        $bookingInfos = array(); // Set it to an empty array if there are no bookings
+    }
     ?>
   </dl>
 
