@@ -340,10 +340,9 @@ function getAvailableCarsForModel($carType_ID)
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
             INNER JOIN Location ON Car.Location_ID = Location.Location_ID
             LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
-            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate <= :endDate AND Rental.EndDate >=     :startDate))
                 AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
 
-    // Bereiten Sie die Abfrage vor und f&uuml;hren Sie sie aus
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':startDate', $startDate);
     $stmt->bindParam(':endDate', $endDate);
