@@ -95,7 +95,7 @@ include('../includes/header.php'); // Including the header
             <b> 7. Datenschutz </b> <br>
 
             <div class="AGBtext">
-                Personenbezogene Daten werden gemäß unserer <a href="http://localhost/Autovermietung/pages/datenschutz.php">Datenschutzerklärung</a> behandelt. <br> <!--href um über den Hyperlink zu Datenschutz zu gelangen-->
+                Personenbezogene Daten werden gemäß unserer <a href="pages/datenschutz.php">Datenschutzerklärung</a> behandelt. <br> <!--href um über den Hyperlink zu Datenschutz zu gelangen-->
             </div>
 
             <br> <!--To add paragraph-->

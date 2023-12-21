@@ -1,8 +1,8 @@
 <div class="headercontainer">
   <div class="logobox"><a href="index.php"><img src="images/SWIFT.svg" alt="SWIFT logo"></a></div>
   <div class="headerbox"><a class="nav-link" href="./pages/productOverview.php">Auto mieten</a></div>
-  <div class="headerbox"><a class="nav-link scroll-link" data-target="anker" href="http://localhost/Autovermietung/index.php#anker">Preise</a></div>
-  <div class="headerbox"><a class="nav-link scroll-link" data-target="section3" href="http://localhost/Autovermietung/index.php#section3">Standorte</a></div>
+  <div class="headerbox"><a class="nav-link scroll-link" data-target="anker" href="index.php#anker">Preise</a></div>
+  <div class="headerbox"><a class="nav-link scroll-link" data-target="section3" href="index.php#section3">Standorte</a></div>
 
   <?php if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) { ?>
     <div class="divhover" onmouseleave="handleMouseLeave(event)">
