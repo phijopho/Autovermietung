@@ -191,7 +191,7 @@ input[type="submit"]:focus {
 
 .info {
 z-index: 10;
-text-align: right;
+float: right;
 background: transparent;
 font-size:x-small;
 }
