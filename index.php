@@ -199,7 +199,7 @@ include('includes/header.php'); // include header
                     </div>
 
                     <div class="pin koeln" onclick="submitFormWithCity('Koeln');">
-                        <span>Köln</span>
+                        <span>K&ouml;ln</span>
                     </div>
 
                     <div class="pin leipzig" onclick="submitFormWithCity('Leipzig');">
@@ -207,11 +207,11 @@ include('includes/header.php'); // include header
                     </div>
 
                     <div class="pin muenchen" onclick="submitFormWithCity('Muenchen');">
-                        <span>München</span>
+                        <span>M&uuml;nchen</span>
                     </div>
 
                     <div class="pin nuernberg" onclick="submitFormWithCity('Nuernberg');">
-                        <span>Nürnberg</span>
+                        <span>N&uuml;rnberg</span>
                     </div>
                 </div>
             </div>

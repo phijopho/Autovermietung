@@ -19,7 +19,7 @@ include('../includes/header.php'); // Including the header
 
 <body>
     <div class="Container"> <!--Class to position text in the body -->
-        <h1 class="Ueberschrift"> Datenschutzerklärung </h1>
+        <h1 class="Ueberschrift"> Datenschutzerkl&auml;rung </h1>
         <div class="blocksatz">
             <b>1. Allgemeine Angaben </b> <br>
 
@@ -28,7 +28,7 @@ include('../includes/header.php'); // Including the header
 
                 <div class="DatenschutzText2">
                     SWIFT rentals GmbH <br>
-                    Willy-Brandt-Straße 75, 20459 Hamburg <br>
+                    Willy-Brandt-Stra&szlig;e 75, 20459 Hamburg <br>
                     040 123456789 <br>
                     datenschutz@swiftrentals.de
                 </div>
@@ -37,7 +37,7 @@ include('../includes/header.php'); // Including the header
             <br> <!--To add paragraph-->
 
             <b>2. Datenerfassung beim Besuch unserer Website </b> <br>
-            Bei jedem Besuch unserer Website erfasst unser System automatisch technische Informationen, um eine reibungslose Verbindung und Nutzung zu gewährleisten. Zu diesen Informationen gehören:
+            Bei jedem Besuch unserer Website erfasst unser System automatisch technische Informationen, um eine reibungslose Verbindung und Nutzung zu gew&auml;hrleisten. Zu diesen Informationen geh&Ouml;ren:
 
             <div class="DatenschutzText">
                 <b>a) Automatische Datenverarbeitung: </b> <br>
@@ -52,19 +52,19 @@ include('../includes/header.php'); // Including the header
                 <b>b) Zwecke der Verarbeitung: </b> <br>
                 Die automatisch erfassten Daten dienen folgenden Zwecken: <br>
 
-                <div class="bulletPoint">&#9642; Gewährleistung eines reibungslosen Verbindungsaufbaus</div>
-                <div class="bulletPoint">&#9642; Gewährleistung einer komfortablen Nutzung unserer Website</div>
-                <div class="bulletPoint">&#9642; Auswertung der Systemsicherheit und -stabilität</div>
+                <div class="bulletPoint">&#9642; Gew&auml;hrleistung eines reibungslosen Verbindungsaufbaus</div>
+                <div class="bulletPoint">&#9642; Gew&auml;hrleistung einer komfortablen Nutzung unserer Website</div>
+                <div class="bulletPoint">&#9642; Auswertung der Systemsicherheit und -stabilit&auml;t</div>
                 <div class="bulletPoint">&#9642; Administrationszwecke</div>
 
 
             </div>
-            <br> <!--Um Absatz hinzuzufügen-->
+            <br> <!--Um Absatz hinzuzuf&uuml;gen-->
 
             <b> 3. Cookies </b> <br>
 
             <div class="DatenschutzText">
-                Unsere Website verwendet Cookies, um die Benutzererfahrung zu verbessern. Cookies sind kleine Textdateien, die auf dem Endgerät des Nutzers gespeichert werden. Sie enthalten keine persönlichen Informationen und können jederzeit vom Nutzer kontrolliert werden. Die Zustimmung zur Verwendung von Cookies kann jederzeit widerrufen werden.
+                Unsere Website verwendet Cookies, um die Benutzererfahrung zu verbessern. Cookies sind kleine Textdateien, die auf dem Endger&auml;t des Nutzers gespeichert werden. Sie enthalten keine pers&Ouml;nlichen Informationen und k&Ouml;nnen jederzeit vom Nutzer kontrolliert werden. Die Zustimmung zur Verwendung von Cookies kann jederzeit widerrufen werden.
             </div>
 
             <br> <!--To add paragraph-->
@@ -72,7 +72,7 @@ include('../includes/header.php'); // Including the header
             <b> 4. Rechte der betroffenen Personen </b> <br>
 
             <div class="DatenschutzText">
-                Nutzer haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Die Einwilligung zur Verarbeitung personenbezogener Daten kann jederzeit ohne Angabe von Gründen widerrufen werden, ohne dass die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung berührt wird.
+                Nutzer haben das Recht auf Auskunft, Berichtigung, L&Ouml;schung, Einschr&auml;nkung der Verarbeitung, Daten&uuml;bertragbarkeit und Widerspruch. Die Einwilligung zur Verarbeitung personenbezogener Daten kann jederzeit ohne Angabe von Gr&uuml;nden widerrufen werden, ohne dass die Rechtm&auml;&szlig;igkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung ber&uuml;hrt wird.
             </div>
 
             <br> <!--To add paragraph-->
@@ -80,16 +80,16 @@ include('../includes/header.php'); // Including the header
             <b> 5. Datenweitergabe an Dritte </b> <br>
 
             <div class="DatenschutzText">
-                Eine Übermittlung personenbezogener Daten an Dritte erfolgt nur, wenn dies zur Erfüllung des Vertragszwecks notwendig ist oder auf Grundlage gesetzlicher Bestimmungen. Externe Dienstleister erhalten Daten nur im Rahmen der Auftragsabwicklung.
+                Eine &Uuml;bermittlung personenbezogener Daten an Dritte erfolgt nur, wenn dies zur Erf&uuml;llung des Vertragszwecks notwendig ist oder auf Grundlage gesetzlicher Bestimmungen. Externe Dienstleister erhalten Daten nur im Rahmen der Auftragsabwicklung.
             </div>
 
-            <br> <!--Um Absatz hinzuzufügen-->
+            <br> <!--Um Absatz hinzuzuf&uuml;gen-->
 
-            <b>6. Stornierung und Änderungen </b> <br>
+            <b>6. Stornierung und &Auml;nderungen </b> <br>
 
             <div class="DatenschutzText">
-                6.1. Stornierungen sind gemäß den im Mietvertrag festgelegten Bedingungen möglich. <br>
-                6.2. Änderungen am Mietvertrag bedürfen der schriftlichen Zustimmung beider Vertragsparteien. <br>
+                6.1. Stornierungen sind gem&auml;&szlig; den im Mietvertrag festgelegten Bedingungen m&Ouml;glich. <br>
+                6.2. &Auml;nderungen am Mietvertrag bed&uuml;rfen der schriftlichen Zustimmung beider Vertragsparteien. <br>
             </div>
 
             <br> <!--To add paragraph-->
@@ -97,17 +97,17 @@ include('../includes/header.php'); // Including the header
             <b> 7. Datensicherheit </b> <br>
 
             <div class="DatenschutzText">
-                Die Sicherheit Ihrer personenbezogenen Daten ist uns wichtig. Wir setzen technische und organisatorische Maßnahmen ein, um Ihre Daten vor unberechtigtem Zugriff, Verlust oder Missbrauch zu schützen. Unsere Sicherheitsmaßnahmen werden regelmäßig überprüft und an den technologischen Fortschritt angepasst.
+                Die Sicherheit Ihrer personenbezogenen Daten ist uns wichtig. Wir setzen technische und organisatorische Ma&szlig;nahmen ein, um Ihre Daten vor unberechtigtem Zugriff, Verlust oder Missbrauch zu sch&uuml;tzen. Unsere Sicherheitsma&szlig;nahmen werden regelm&auml;&szlig;ig &uuml;berpr&uuml;ft und an den technologischen Fortschritt angepasst.
             </div>
 
             <br> <!--To add paragraph-->
 
-            <b> 8. Änderung der Datenschutzerklärung </b> <br>
+            <b> 8. &Auml;nderung der Datenschutzerkl&auml;rung </b> <br>
 
             <div class="DatenschutzText">
-                Diese Datenschutzerklärung wird regelmäßig überprüft und bei Bedarf aktualisiert, um den aktuellen rechtlichen Anforderungen gerecht zu werden. Änderungen werden auf unserer Website veröffentlicht, um Nutzer darüber zu informieren.
+                Diese Datenschutzerkl&auml;rung wird regelm&auml;&szlig;ig &uuml;berpr&uuml;ft und bei Bedarf aktualisiert, um den aktuellen rechtlichen Anforderungen gerecht zu werden. &Auml;nderungen werden auf unserer Website ver&Ouml;ffentlicht, um Nutzer dar&uuml;ber zu informieren.
 
-                Diese Datenschutzerklärung dient als allgemeine Orientierung und kann je nach individuellen Anforderungen angepasst werden. Bei Fragen stehen wir Ihnen gerne zur Verfügung.
+                Diese Datenschutzerkl&auml;rung dient als allgemeine Orientierung und kann je nach individuellen Anforderungen angepasst werden. Bei Fragen stehen wir Ihnen gerne zur Verf&uuml;gung.
             </div>
         </div>
     </div>

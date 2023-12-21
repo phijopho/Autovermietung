@@ -31,7 +31,7 @@
                 <input type="number" required min="18" max="150" placeholder="Alter*" name="age">
                 <input type="email" required placeholder="Email*" maxlength="128" name="email">
                 <input type="text" required placeholder="Username*" maxlength="128" name="username" pattern="[A-Za-z0-9_.]+" title="Bitte verwende nur Buchstaben, Zahlen, Unterstriche und Punkte.">
-                <input type="password" required placeholder="Password*" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Großbuchstaben, 1x Kleinbuchstaben, 1x Zahl">
+                <input type="password" required placeholder="Password*" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Gro&szlig;buchstaben, 1x Kleinbuchstaben, 1x Zahl">
             </div>
             <button name="register">Registrieren</button>
             

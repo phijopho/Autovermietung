@@ -64,32 +64,32 @@ include('../includes/header.php'); // Including the header
 
       <!--question 1-->
       <dt>
-        1. Wie alt muss ich sein, um ein Auto mieten zu können?
+        1. Wie alt muss ich sein, um ein Auto mieten zu k&Ouml;nnen?
       </dt>
 
       <dd>
-        In der Regel müssen Sie mindestens 18 Jahre alt sein, um ein Auto mieten zu können.
-        Für bestimmte Fahrzeugkategorien kann das Mindestalter jedoch höher sein.
+        In der Regel m&uuml;ssen Sie mindestens 18 Jahre alt sein, um ein Auto mieten zu k&Ouml;nnen.
+        F&uuml;r bestimmte Fahrzeugkategorien kann das Mindestalter jedoch h&Ouml;her sein.
       </dd>
 
 
       <!--question 2-->
       <dt>
-        2. Welche Dokumente benötige ich zur Anmietung eines Autos?
+        2. Welche Dokumente ben&Ouml;tige ich zur Anmietung eines Autos?
       </dt>
 
       <dd>
-        Sie benötigen einen gültigen Führerschein, einen Ausweis und oft auch eine Kreditkarte für eine Kaution, die vor Ort erhoben wird.
+        Sie ben&Ouml;tigen einen g&uuml;ltigen F&uuml;hrerschein, einen Ausweis und oft auch eine Kreditkarte f&uuml;r eine Kaution, die vor Ort erhoben wird.
       </dd>
 
 
       <!--question 3-->
       <dt>
-        3. Wie erfolgt die Bezahlung für die Automietung?
+        3. Wie erfolgt die Bezahlung f&uuml;r die Automietung?
       </dt>
 
       <dd>
-        Die Bezahlung kann durch folgende Bezahlmöglichkeiten erfolgen: Mastercard, Mastero, Cirrus, Visa, Klarna oder per SEPA-Lastschriftmandat.
+        Die Bezahlung kann durch folgende Bezahlm&Ouml;glichkeiten erfolgen: Mastercard, Mastero, Cirrus, Visa, Klarna oder per SEPA-Lastschriftmandat.
       </dd>
 
 
@@ -99,7 +99,7 @@ include('../includes/header.php'); // Including the header
       </dt>
 
       <dd>
-        Die Automiete enthält standartmäßig eine Haftpflichtversicherung. Zusätzliche Versicherungen können nicht gekauft werden.
+        Die Automiete enth&auml;lt standartm&auml;&szlig;ig eine Haftpflichtversicherung. Zus&auml;tzliche Versicherungen k&Ouml;nnen nicht gekauft werden.
       </dd>
 
 
@@ -109,7 +109,7 @@ include('../includes/header.php'); // Including the header
       </dt>
 
       <dd>
-        Nein, das ist nicht möglich. Abholung und Rückgabe erfolgt in der selben Stadt.
+        Nein, das ist nicht m&Ouml;glich. Abholung und R&uuml;ckgabe erfolgt in der selben Stadt.
       </dd>
 
 
@@ -119,21 +119,21 @@ include('../includes/header.php'); // Including the header
       </dt>
 
       <dd>
-        Die gängisten Tankoptionen sind: <br>
-        -"voll/voll" (Sie erhalten das Auto mit vollem Tank und müssen es genauso zurückgeben.) <br>
-        -"voll/leer" (Sie zahlen im Voraus für einen vollen Tank und können das Auto mit leerem Tank zurückgeben.) <br>
-        Wählen Sie die Option, die Ihren Bedürfnissen am besten entspricht.
+        Die g&auml;ngisten Tankoptionen sind: <br>
+        -"voll/voll" (Sie erhalten das Auto mit vollem Tank und m&uuml;ssen es genauso zur&uuml;ckgeben.) <br>
+        -"voll/leer" (Sie zahlen im Voraus f&uuml;r einen vollen Tank und k&Ouml;nnen das Auto mit leerem Tank zur&uuml;ckgeben.) <br>
+        W&auml;hlen Sie die Option, die Ihren Bed&uuml;rfnissen am besten entspricht.
       </dd>
 
 
       <!--question 7-->
       <dt>
-        7. Was passiert, wenn ich das Auto zu spät zurückgebe?
+        7. Was passiert, wenn ich das Auto zu sp&auml;t zur&uuml;ckgebe?
       </dt>
 
       <dd>
-        Verspätete Rückgaben können zusätzliche Gebühren nach sich ziehen.
-        Es ist wichtig das Auto rechtszeitig zurückzubringen.
+        Versp&auml;tete R&uuml;ckgaben k&Ouml;nnen zus&auml;tzliche Geb&uuml;hren nach sich ziehen.
+        Es ist wichtig das Auto rechtszeitig zur&uuml;ckzubringen.
       </dd>
 
 
@@ -143,17 +143,17 @@ include('../includes/header.php'); // Including the header
       </dt>
 
       <dd>
-        Nein, gibt es nicht. Wenn der Tank jedoch leer ist, müssen Sie sich eigenständig um die Tankbefüllung kümmern.
+        Nein, gibt es nicht. Wenn der Tank jedoch leer ist, m&uuml;ssen Sie sich eigenst&auml;ndig um die Tankbef&uuml;llung k&uuml;mmern.
       </dd>
 
 
       <!--question 9-->
       <dt>
-        9. Kann ich ein bestimmtes Auto-Modell wählen?
+        9. Kann ich ein bestimmtes Auto-Modell w&auml;hlen?
       </dt>
 
       <dd>
-        Die Autovermietung bietet die Möglichkeit ein bestimmtes Modell zu wählen, dies hängt jedoch von der Verfügbarkeit ab.
+        Die Autovermietung bietet die M&Ouml;glichkeit ein bestimmtes Modell zu w&auml;hlen, dies h&auml;ngt jedoch von der Verf&uuml;gbarkeit ab.
       </dd>
 
 
@@ -163,7 +163,7 @@ include('../includes/header.php'); // Including the header
       </dt>
 
       <dd>
-        Im Falle eines Unfalls informieren Sie sofort die Vermietung. Folgen Sie den Anweisungen des Vermieters und dokumentieren Sie den Unfall so gut wie möglich.
+        Im Falle eines Unfalls informieren Sie sofort die Vermietung. Folgen Sie den Anweisungen des Vermieters und dokumentieren Sie den Unfall so gut wie m&Ouml;glich.
       </dd>
     </dl>
 
@@ -171,7 +171,7 @@ include('../includes/header.php'); // Including the header
     <p>
       Haben Sie weitere Fragen? 
       <a href="http://localhost/Autovermietung/pages/contactForm.php" class="contactForm">
-        Hier klicken für unser Kontaktformular!
+        Hier klicken f&uuml;r unser Kontaktformular!
       </a>
     </p>
     

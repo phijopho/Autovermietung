@@ -17,6 +17,7 @@ include('db_connection.php');
 
 $userID = $_SESSION['User_ID'];
 
+// update user data
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updatedFirstName = $_POST['firstName'];
     $_SESSION['firstName'] = $updatedFirstName;
@@ -40,15 +41,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query->bindParam(':password', $updatedPassword);
     $query->bindParam(':userID', $userID);
 
-    // Update-Abfrage 
+    // Update query 
     if (!$query->execute()) {
         echo 'Fehler beim Aktualisieren des Benutzers: ' . implode(' ', $query->errorInfo());
         exit();
     }
-    //Message wenn User Daten geändert hat
+<<<<<<< Updated upstream
+    //Message wenn User Daten ge&auml;ndert hat
+    echo '<script>alert("Ihre Profildaten wurden erfolreich ge&auml;ndert!");</script>';
+=======
+    
+    //Message if user has changed data
     echo '<script>alert("Ihre Profildaten wurden erfolreich geändert!");</script>';
+>>>>>>> Stashed changes
 }
-
+//Execute prepared SQL query
 $query = $conn->prepare("SELECT * FROM user WHERE User_ID = :userID");
 $query->bindParam(':userID', $userID);
 $query->execute();
@@ -67,7 +74,11 @@ $conn = null;
             <img src="./images/neonlightsrev.gif">
         </div>
 
-        <!-- Boxen, wo der User seine Daten einsehen und verändern kann -->
+<<<<<<< Updated upstream
+        <!-- Boxen, wo der User seine Daten einsehen und ver&auml;ndern kann -->
+=======
+        <!-- Boxes where the user can view and change their data -->
+>>>>>>> Stashed changes
         <form action="pages/meinProfil.php" method="post" id="profilForm">
             <h1>Mein Profil</h1>
             <div class="inputbox">
@@ -76,15 +87,18 @@ $conn = null;
                 <input type="number" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>" disabled min="18" max="150">
                 <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>" disabled maxlength="128">
                 <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>" disabled maxlength="128" pattern="[A-Za-z0-9_.]+" title="Bitte verwende nur Buchstaben, Zahlen, Unterstriche und Punkte.">
-                <input type="password" name="password" required placeholder="Aktuelles oder neues Passwort" disabled pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Großbuchstaben, 1x Kleinbuchstaben, 1x Zahl">                
+                <input type="password" name="password" required placeholder="Aktuelles oder neues Passwort" disabled pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Gro&szlig;buchstaben, 1x Kleinbuchstaben, 1x Zahl">                
                 <button type="submit" onclick="enableEditing()">Bearbeiten</button>
             </div>
         </form>
     </div>
+<<<<<<< Updated upstream
 
-    <!-- Bearbeiten Button | Beim Klicken Disabled entfernen und Text ändern -->
+    <!-- Bearbeiten Button | Beim Klicken Disabled entfernen und Text &auml;ndern -->
 
 
+=======
+>>>>>>> Stashed changes
 </body>
 <?php
 include('../includes/footer.html');

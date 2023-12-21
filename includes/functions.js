@@ -64,7 +64,7 @@ function closeModal() {
             $carouselItem.eq(setIndex(i, 4)).addClass('cslider-item-last');
         }
 
-        // Event-Handler für Schaltflächen
+        // Event-Handler f&uuml;r Schaltfl&auml;chen
         $next.on('click', function () {
             clearInterval(autoScrollInterval);
             index++;
@@ -192,7 +192,7 @@ let closeTimer;
 
 function handleMouseEnter() {
     document.getElementById('submenu').style.display = 'block';
-    cancelCloseTimer(); // Den Timer löschen, um das Schließen des Menüs zu verhindern
+    cancelCloseTimer(); // Den Timer l&Ouml;schen, um das Schließen des Men&uuml;s zu verhindern
 }
 
 function startCloseTimer() {
@@ -240,11 +240,11 @@ function enableEditing() {
     var button = document.querySelector("button");
 
     if (!editingEnabled) {
-        button.innerHTML = "Änderung abschicken";
+        button.innerHTML = "&Auml;nderung abschicken";
         editingEnabled = true;
     } else {
         
-        if (button.innerHTML === "Änderung abschicken") {
+        if (button.innerHTML === "&Auml;nderung abschicken") {
            
             setTimeout(function () {
                 window.location = "/Autovermietung/index.php";
