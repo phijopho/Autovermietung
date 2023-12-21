@@ -51,19 +51,20 @@ a {
 
 /* Settings all icons on the bottom */
 .instagram {
-  width: 27px;
-  height: 27px;
+  width: 25px;
+  height: 25px;
   padding-left: 0px;
 }
 
 .x {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+  margin-left: 4.5px;
 }
 
 .facebook {
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   margin-top: 0;
 }
 
