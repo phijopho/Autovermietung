@@ -37,7 +37,7 @@ include('includes/header.php'); // include header
         $_SESSION['returnDate'] = $tomorrow;
     }
     ?>
-
+<div class="body">
     <div class="BackgroundKia">
         <div class="section1">
             <div class="containerBookingForm">
@@ -225,6 +225,7 @@ include('includes/header.php'); // include header
 
             </div>
         </div>
+    </div>
     </div>
 </body>
 
