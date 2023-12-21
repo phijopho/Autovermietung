@@ -189,6 +189,13 @@ input[type="submit"]:focus {
     height: fit-content;
 }
 
+.info {
+z-index: 10;
+text-align: right;
+background: transparent;
+font-size:x-small;
+}
+
 .section3 {
     /* margin-left: 120px; */
     height: fit-content;

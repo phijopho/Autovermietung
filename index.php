@@ -153,6 +153,7 @@ include('includes/header.php'); // include header
     <!-- Section 3 with interactive map and site information -->
     <div class="BackgroundAudi">
         <div class="section3" id="section3">
+        <div class="info">Diese Modelle stehen in der oben dargestellten Ausf&uuml;hrung m&ouml;glicherweise nicht zur Verf&uuml;gung.</div>
             <div class="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
