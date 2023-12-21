@@ -10,7 +10,7 @@
         <li style="background-color: #525252;" onmouseenter="handleMouseEnter()">
           <a>Hallo <?php echo $_SESSION["firstName"] ?> </a>
           <ul id="submenu" onmouseenter="cancelCloseTimer()" onmouseleave="startCloseTimer()">
-            <li><a href="pages/meinProfil.php">Mein Profil</a></li>
+            <li><a href="pages/myProfile.php">Mein Profil</a></li>
             <li><a href="pages/myBookings.php">Meine Buchungen</a></li>
             <li style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"><a href="./includes/logout.php">Abmelden</a></li>
           </ul>
