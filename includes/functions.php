@@ -474,7 +474,7 @@ function getBookingInfos($User_ID)
 {
     include('dbConnection.php');
     $stmt = $conn->query(
-        "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price,2) AS TotalPrice
+        "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price + CarType.Price,2) AS TotalPrice
     FROM Rental             
     JOIN Car ON Rental.Car_ID = Car.Car_ID             
     JOIN CarType ON Car.CarType_ID = CarType.CarType_ID             
