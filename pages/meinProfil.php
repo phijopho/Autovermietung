@@ -19,6 +19,7 @@ $userID = $_SESSION['User_ID'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updatedFirstName = $_POST['firstName'];
+    $_SESSION['firstName'] = $updatedFirstName;
     $updatedLastName = $_POST['lastName'];
     $updatedAge = $_POST['age'];
     $updatedEmail = $_POST['email'];
