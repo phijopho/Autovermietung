@@ -5,7 +5,7 @@
   <div class="headerbox"><a class="nav-link scroll-link" data-target="section3" href="http://localhost/Autovermietung/index.php#section3">Standorte</a></div>
 
   <?php if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) { ?>
-    <div class="divhover nav-link" onmouseleave="handleMouseLeave(event)">
+    <div class="divhover" onmouseleave="handleMouseLeave(event)">
       <ul>
         <li style="background-color: #525252;" onmouseenter="handleMouseEnter()">
           <a>Hallo <?php echo $_SESSION["firstName"] ?> </a>
