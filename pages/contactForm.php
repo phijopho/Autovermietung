@@ -30,7 +30,7 @@
     }
     ?>
 
-    <!--Daten für das Kontaktformular können hier eingetragen werden-->
+    <!--Entering the data into the contact form-->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="ft-form" method="POST" accept-charset="UTF-8">
         <div id="confirmation"></div>
         <h1> </h1>

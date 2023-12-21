@@ -18,7 +18,8 @@ include('../includes/header.php'); // Including the header
 ?>
 
 <body>
-    <div class="Container"> <!--Class to position text in the body -->
+    <!--Class to position text in the body -->
+    <div class="Container">
         <h1 class="Ueberschrift"> Allgemeine Geschäftsbedingungen </h1>
         <div class="blocksatz">
             <b>1. Vertragsgegenstand </b> <br>

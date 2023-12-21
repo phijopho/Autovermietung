@@ -15,13 +15,13 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
 }
 
-/* AGB's */
+/* AGB */
 .blocksatz {
     text-align: justify;
 }
 
 
-/* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
+/* Class to move the text under 1st + 2nd etc. to the right */
 .AGBtext {
     margin-left: 20px;
     margin-top: 0;
@@ -49,13 +49,13 @@
 }
 
 /* Datenschutz */
-/* Klasse um den Text unter 1. + 2. usw. nach rechts zu verschieben */
+/* Class to move the text under 1st + 2nd etc. to the right */
 .DatenschutzText {
     margin-left: 20px;
     margin-top: 0;
 }
 
-/* Klasse um den Text unter 1.1 etc. weiter nach rechts zu verschieben */
+/* Class to move the text under 1.1 etc. further to the right */
 .DatenschutzText2 {
     margin-left: 30px;
     margin-top: 0;

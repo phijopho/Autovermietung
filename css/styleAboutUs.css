@@ -1,9 +1,10 @@
 /* Style About us */
 
-/* Einstellungen für den About us container */
 html {
     overflow-x: hidden;
 }
+
+/*font settings*/
 .AboutUsUeberschrift {
     font-weight: 700;
 }
@@ -20,6 +21,7 @@ h2 {
     line-height: 40px;
 }
 
+/* settings for About us container */
 .AboutUsContainer {
     width: 100%;
     height: 100%;
@@ -27,11 +29,12 @@ h2 {
     overflow-y: scroll;
     overflow-x: hidden;
     background-image: url("../images/category images/hintergrund AboutUs.png");
-    background-size: cover; /* Das Bild wird so skaliert, dass es den gesamten Container abdeckt */
+    background-size: cover;
     background-position: center; 
     z-index: -1;
 }
 
+/*settings for first box*/
 .heading {
     width: 50%;
     height: auto;
@@ -46,6 +49,7 @@ h2 {
     border-radius: 30px;
 }
 
+/*settings for second box*/
 .we {
     width: 40%;
     height: fit-content;
@@ -58,6 +62,7 @@ h2 {
     border-radius: 30px;
 }
 
+/*settings for third box*/
 .why {
     width: 40%;
     text-align: justify;
@@ -70,6 +75,7 @@ h2 {
     border-radius: 30px; 
 }
 
+/*settings for fourth box*/
 .thank {
     width: 45%;
     align-content: center;
