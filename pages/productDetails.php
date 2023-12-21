@@ -44,6 +44,7 @@ include('../includes/header.php'); // Einbindung des Headers
     $model = getModel($_SESSION['carType_ID']);
 
     ?>
+    <!-- back to overview button -->
     <div class="buttonBackContainer">
         <a href="./pages/productOverview.php" class="buttonBack">Zur&uuml;ck zur Produkt&uuml;bersicht</a>
     </div>
@@ -58,10 +59,11 @@ include('../includes/header.php'); // Einbindung des Headers
                 echo $carInfo['image'];
 
                 ?>
+                <!-- text above toggle button -->
                 <div class="toggleText"> Modellinformationen einblenden</div>
-                <!-- create button with triangle -->
+                <!-- triangle button -->
                 <button class="buttonToggle" onclick="togglemenu()">&#9660;</button>
-
+                <!-- content of toggle menu -->
                 <div class="desc" id="desc">
                     <table>
                         <tr>
@@ -107,6 +109,7 @@ include('../includes/header.php'); // Einbindung des Headers
             </div>
 
         </div>
+        <!-- box on the right side with selected dates and prices -->
         <div class="divinfo">
             <div class="divText">
                 <h2> Zusammenfassung </h2><br>
@@ -132,38 +135,40 @@ include('../includes/header.php'); // Einbindung des Headers
                 <h3>Gesamtpreis: <?php $totalPrice = getTotalPrice($price);
                                     echo number_format($totalPrice, 2, ',', '.') ?> &euro;</h3>
                 <?php
-                if ($_SESSION['availableCarsModel'] == 0) {
-                    echo "<p> Dieses Modell ist in " . $_SESSION['location'] . " im gew&auml;hlten Zeitraum nicht verf&uuml;gbar. </p>";
-                } elseif ($_SESSION['availableCarsModel'] == 1) {
-                    echo "<p> Von diesem Modell ist in " . $_SESSION['location'] . " nur noch 1 verf&uuml;gbar.</p>";
-                } else {
-                    echo "<p>Von diesem Modell sind nur noch " . $_SESSION['availableCarsModel'] . " Autos in Ihrem gew&auml;hlten Zeitraum verf&uuml;gbar. </p>";
-                }
+                    if ($_SESSION['availableCarsModel'] == 0) {
+                        echo "<p> Dieses Modell ist in " . $_SESSION['location'] . " im gew&auml;hlten Zeitraum nicht verf&uuml;gbar. </p>";
+                    } elseif ($_SESSION['availableCarsModel'] == 1) {
+                        echo "<p> Von diesem Modell ist in " . $_SESSION['location'] . " nur noch 1 verf&uuml;gbar.</p>";
+                    } else {
+                        echo "<p>Von diesem Modell sind nur noch " . $_SESSION['availableCarsModel'] . " Autos in Ihrem gew&auml;hlten Zeitraum verf&uuml;gbar. </p>";
+                    }
                 ?>
             </div>
         </div>
 
+<!-- php and html for different buttons (if user is logged-in, not old enough or if user can book) -->
         <?php
-        if ($_SESSION['availableCarsModel'] > 0) {
-            if (isset($_SESSION['User_ID'])) {
-                $UserAge = getUserAge();
-                if ($UserAge < $minAge) {
-                    echo "<div class='divbutton'>";
-                    echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
-                    echo "</div>";
-                } else { ?>
+            if ($_SESSION['availableCarsModel'] > 0) {
+                if (isset($_SESSION['User_ID'])) {
+                    $UserAge = getUserAge();
+                    if ($UserAge < $minAge) {
+                        echo "<div class='divbutton'>";
+                        echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
+                        echo "</div>";
+                    } else { ?>
                 <div class='divbutton'>
                     <button class='button' onclick='displayModal()'>Jetzt Buchen</button>
                 </div>
             
-                <!-- Modal -->
+                <!-- Modalbox -->
                 <div id='myModal' class='modal' style='display: none;'>
                     <div class='modal-content'>
                         <span class='close' onclick='closeModal()'> <h1>&times; </h1></span>
                             <br>
-                                <h3 class="booking-title">Bitte bestätigen Sie folgende Buchung:</h3>
-                                <p class="booking-details"><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." für ".number_format($totalPrice, 2, ',', '.')." &euro;. ";?></p>
+                            <h3 class="booking-title">Bitte bestätigen Sie folgende Buchung:</h3>
+                            <p class="booking-details"><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." für ".number_format($totalPrice, 2, ',', '.')." &euro;. ";?></p>
                             <br>
+                        <!-- bookingform shown in modal -->
                         <form id='bookingForm' class="modalForm" action='pages/myBookings.php' method='post'>
                             <div class="buttondiv">
                                 <input type='hidden' name='carType_ID' value='<?php echo $_SESSION['carType_ID'] ?>'>
@@ -175,6 +180,7 @@ include('../includes/header.php'); // Einbindung des Headers
                         </form>                
                     </div>                
                 </div>
+                <!-- button if user is not signed in with redirect to login page -->
             <?php }
             } else {
                 echo "<div class='divbutton'>";
@@ -183,15 +189,15 @@ include('../includes/header.php'); // Einbindung des Headers
                 echo "</a>";
                 echo "</div>";
             }
+        // button if car is not available anymore
         } else {
             echo "<div class='divbutton'>";
             echo "<div class='buttonNotOldEnough'>Nicht verf&uuml;gbar</div>";
             echo "</div>";
         }
         ?>
-        
-
     </div>
+    <!-- slider with similar models to selected car. Always shows cars of the same Type -->
     <div class="similarModels">
         <h1 class="similarModels">Verwandte Autos zu dieser Buchung</h1>
     </div>
@@ -201,20 +207,20 @@ include('../includes/header.php'); // Einbindung des Headers
 
         <div class="cslider-carousel">
             <?php
-            // &Uuml;berpr&uuml;fen der Kategorie in der Session
+            // check category in session
             $category = $carInfo['type'];
 
-            // SQL-Abfrage vorbereiten, um Autos der spezifischen Kategorie zu erhalten
+            // prepare SQL-statemet, so select cars of a distinct type
             $query = $conn->prepare("SELECT CarType_ID, Name, Image, Price FROM CarType WHERE Type = :category");
             $query->bindParam(':category', $category);
 
-            // Abfrage ausf&uuml;hren
+            // execute SQL-statement
             $query->execute();
 
-            // // Ergebnisse holen
+            // // Get results
             // $result = $query->get_result();
 
-            // Karussellelemente dynamisch erstellen
+            // dynamic carousel, get model and price
             while ($row = $query->fetch()) {
                 $modelInfo = getModel($row['CarType_ID']);
                 echo '<div class="cslider-item">';
@@ -228,14 +234,13 @@ include('../includes/header.php'); // Einbindung des Headers
                 echo '</div>';
             }
             ?>
-
         </div>
+        <!-- prev. and next buttons within slider -->
         <div class="cslider-controls">
             <div class="cslider-prev"></div>
             <div class="cslider-next"></div>
         </div>
     </div>
-    <!-- </div> -->
     <script>
         cSlider();
     </script>

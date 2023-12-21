@@ -263,6 +263,13 @@ a:hover.buttonNotOldEnough {
   font-size: 16px;
 }
 
+a:hover.button {
+  color: #1a1818;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 100%;
+}
+
 /* Modal-Box */
 /* Modalbox background */
 .modal {
