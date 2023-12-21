@@ -33,7 +33,6 @@ ini_set('display_errors', 1);
     <link rel="stylesheet" href="css/styleProduktdetailseite.css">
     <link rel="stylesheet" href="css/styleFooter.css">
     <script src="includes/functions.js"></script>
-    <link rel="stylesheet" href="css/styleHomepage.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="includes/karussell-slider.js"></script>
     <!-- <link rel="stylesheet" href="css/styleHomepage.css"> -->
@@ -179,10 +178,16 @@ include('../includes/header.php'); // Einbindung des Headers
             echo "</div>";
         }
         ?>
+        
 
     </div>
+    <div class="similarModels">
+        <h1 class="similarModels">Verwandte Autos zu dieser Buchung</h1>
+    </div>
+    
     <!-- <div id="section2" class="section2"> -->
     <div class="cslider">
+
         <div class="cslider-carousel">
             <?php
             // Überprüfen der Kategorie in der Session
@@ -200,12 +205,13 @@ include('../includes/header.php'); // Einbindung des Headers
 
             // Karussellelemente dynamisch erstellen
             while ($row = $query->fetch()) {
+                $modelInfo = getModel($row['CarType_ID']);
                 echo '<div class="cslider-item">';
                 echo "<a href='pages/produktdetailseite.php?carType_ID=" . $row['CarType_ID'] . "'>";
                     showImage($row['CarType_ID']);
                 echo '<div class="cslider-text">';
-                    echo '<h2>' . $row['Name'] . '</h2>';
-                    echo '<p> ab ' . $row['Price'] . ' €</p>';
+                echo '<h2>' . htmlspecialchars($modelInfo[0]) . ' ' . htmlspecialchars($modelInfo[1]) . '</h2>';
+                echo '<p> ab ' . $row['Price'] . ' €</p>';
                 echo '</div>';
                 echo '</a>';
                 echo '</div>';
