@@ -1,5 +1,5 @@
-// Produktdetailseite toggle Menu 
-
+// Product Detail page
+//toggle Menu 
 window.onload = function () {
     var fotoHeight = document.querySelector('.foto').clientHeight;
     var gallery = document.querySelector('.divgallery');
@@ -34,8 +34,8 @@ function closeModal() {
 
 // Homepage
 
-  //Carousel with prices and categories 
-  function cSlider() {
+//Carousel with prices and categories 
+function cSlider() {
     'use strict';
 
     var $carousel = jQuery('.cslider');
@@ -149,7 +149,7 @@ function scrollToAnchor() {
     });
 }
 
-// Initialisieren Sie die Scroll-Funktion nur, wenn sich die Seite auf der index.php befindet
+// start scroll funktion if user is on page: index.php
 if (window.location.pathname === '/Autovermietung/index.php' || window.location.pathname === '/Autovermietung/productOverview.php') {
     document.addEventListener('DOMContentLoaded', function () {
         scrollToAnchor();
@@ -161,7 +161,7 @@ if (window.location.pathname === '/Autovermietung/index.php' || window.location.
 document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // add 'active'-class bbsed on current url
+    // add 'active'-class based on current url
     function setActiveLink() {
         const currentUrl = window.location.href;
         navLinks.forEach(link => {
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setActiveLink();
 });
 
-//Hovermenu closing slower
+//Hovermenu is closing slower when pointer leaves text
 let closeTimer;
 
 function handleMouseEnter() {
