@@ -4,13 +4,6 @@ body {
     overflow-x: hidden;
 }
 
-.body {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
 /* First Section  */
 .BackgroundKia {
     /* backround settings */
