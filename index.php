@@ -3,14 +3,16 @@
 
 <head>
     <?php
-    include('includes/htmlheadindex.php');
-    include('includes/dbConnection.php'); // connect database
+    // Include necessary PHP files
+    include('includes/htmlheadindex.php'); 
+    include('includes/dbConnection.php'); // connect to database
     include('./includes/functions.php');
     ?>
     <title>Homepage</title>
-    <!-- Einbinden der style.css -->
+    <!-- external CSS files for styling --> 
     <link rel="stylesheet" href="css/styleHomepage.css">
     <link rel="stylesheet" href="css/styleFooter.css">
+     <!-- jQuery library for Carousel functionality -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="includes/functions.js"></script>
 </head>
@@ -37,13 +39,16 @@ include('includes/header.php'); // include header
         $_SESSION['returnDate'] = $tomorrow;
     }
     ?>
-
+    <!-- Section 1 with booking form -->
     <div class="BackgroundKia">
         <div class="section1">
             <div class="containerBookingForm">
+                 <!-- Booking form -->
                 <form action="pages/productOverview.php" method="post" class="formContainer">
+                    <!-- Location selection dropdown -->
                     <select class="selectLocation" id="location" name="location">
-                        <?php //aus Datenbank ziehen, außer HH
+                        <?php 
+                        // Populate options from the database, excluding Hamburg
                         foreach ($location as $city) {
                             if ($_SESSION['location'] == $city) {
                                 echo "<option value='$city' selected>$city</option>";
@@ -54,28 +59,31 @@ include('includes/header.php'); // include header
                         $_SESSION['location'] = "Hamburg";
                         ?>
                     </select>
+                    <!-- Date pickers for pick-up and return dates -->
                     <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate" required/>
                     <span class="dateArrow">&#8594;</span>
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate" required/>
+                     <!-- Search button -->
                     <input type="submit" value="Suchen" name="quickSearch">
                 </form>
             </div>
-            <!-- Anker for scrolling from header -->
+            <!-- Anchor for smooth scrolling from header -->
             <div id="anker"></div>
         </div>
     </div>
+    <!-- Promotional call-to-action section -->
     <div class="call">
         <h1>ECONOMY BEZAHLEN.<br>PREMIUM AUTOS MIETEN.</h1>
     </div>
-
+    <!-- JavaScript to set minimum return date -->
     <script>
         setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
     </script>
-
+    <!-- Section 2 with Car category slider  -->
     <div class="section2">
         <div class="cslider">
             <div class="cslider-carousel">
-                <!-- Einheit 1 -->
+                <!-- Item 1 -->
                 <div class="cslider-item">
                     <a href="pages/productOverview.php?carouselCategory=Limousine">
                         <img src="images/category images/limousine_aqua.png" alt="Slider Image" />
@@ -85,7 +93,7 @@ include('includes/header.php'); // include header
                         </div>
                     </a>
                 </div>
-                <!-- Einheit 2 -->
+                <!-- Item 2 -->
                 <div class="cslider-item">
                     <a href="pages/productOverview.php?carouselCategory=Combi">
                         <img src="images/category images/combi_aqua.png" alt="Slider Image" />
@@ -95,7 +103,7 @@ include('includes/header.php'); // include header
                         </div>
                     </a>
                 </div>
-                <!-- Einheit 3 -->
+                <!-- Item 3 -->
                 <div class="cslider-item">
                     <a href="pages/productOverview.php?carouselCategory=Cabrio">
                         <img src="images/category images/cabrio_aqua.png" alt="Slider Image" />
@@ -105,7 +113,7 @@ include('includes/header.php'); // include header
                         </div>
                     </a>
                 </div>
-                <!-- Einheit 4 -->
+                <!-- Item 4 -->
                 <div class="cslider-item">
                     <a href="pages/productOverview.php?carouselCategory=SUV">
                         <img src="images/category images/suv_aqua.png" alt="Slider Image" />
@@ -115,7 +123,7 @@ include('includes/header.php'); // include header
                         </div>
                     </a>
                 </div>
-                <!-- Einheit 5 -->
+                <!-- Item 5 -->
                 <div class="cslider-item">
                     <a href="pages/productOverview.php?carouselCategory=Mehrsitzer">
                         <img src="images/category images/mehrsitzer_aqua.png" alt="Slider Image" />
@@ -125,7 +133,7 @@ include('includes/header.php'); // include header
                         </div>
                     </a>
                 </div>
-                <!-- Einheit 6 -->
+                <!-- Item 6 -->
                 <div class="cslider-item">
                     <a href="pages/productOverview.php?carouselCategory=Coupe">
                         <img src="images/category images/coupe_aqua.png" alt="Slider Image" />
@@ -136,18 +144,20 @@ include('includes/header.php'); // include header
                     </a>
                 </div>
             </div>
+            <!-- Carousel controls -->
             <div class="cslider-controls">
                 <div class="cslider-prev"></div>
                 <div class="cslider-next"></div>
             </div>
         </div>
     </div>
+    <!-- Section 3 with interactive map and site information -->
     <div class="BackgroundAudi">
         <div class="section3" id="section3">
             <div class="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
-
+                    <!-- Map pins with onclick event to submit form with selected city -->
                     <div class="pin hamburg" onclick="submitFormWithCity('Hamburg');">
                         <span>Hamburg</span>
                     </div>
@@ -205,6 +215,7 @@ include('includes/header.php'); // include header
                     </div>
                 </div>
             </div>
+            <!-- About Us section with brief site statistics and a link to learn more -->
             <div class="aboutUs">
                 <div class="txtBox1">
                     <h1>14 Standorte</h1>
@@ -228,6 +239,7 @@ include('includes/header.php'); // include header
     </div>
 </body>
 
+<!-- JavaScript function to submit form with selected city from the map -->
 <script>
     function submitFormWithCity(city) {
         var form = document.createElement("form");
@@ -246,6 +258,7 @@ include('includes/header.php'); // include header
 </script>
 
 <?php
+// Include the footer component
 include('includes/footer.html');
 ?>
 
