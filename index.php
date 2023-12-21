@@ -48,7 +48,7 @@ include('includes/header.php'); // include header
                     <!-- Location selection dropdown -->
                     <select class="selectLocation" id="location" name="location">
                         <?php 
-                        // Populate options from the database, excluding Hamburg
+                        // Populate options from the database
                         foreach ($location as $city) {
                             if ($_SESSION['location'] == $city) {
                                 echo "<option value='$city' selected>$city</option>";
@@ -56,7 +56,6 @@ include('includes/header.php'); // include header
                                 echo "<option value='$city'>$city</option>";
                             }
                         }
-                        $_SESSION['location'] = "Hamburg";
                         ?>
                     </select>
                     <!-- Date pickers for pick-up and return dates -->

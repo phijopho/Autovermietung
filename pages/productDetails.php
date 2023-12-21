@@ -19,12 +19,6 @@ ini_set('display_errors', 1);
     } else {
         echo "Ungültige Abfrage";
     }
-
-    // checks
-    // echo "<br><br><br><br><br><br>";
-    // echo "CarType_ID from Session: ".$_SESSION['carType_ID'];
-    // echo "<br>Available Cars for this model from Session: ".$_SESSION['availableCarsModel'];
-
     ?>
     
     <title>Produktdetails: <?php $model = getModel($_SESSION['carType_ID']); echo $model[0] . ' ' . $model[1]; ?></title>
@@ -158,13 +152,29 @@ include('../includes/header.php'); // Einbindung des Headers
                     echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
                     echo "</div>";
                 } else { ?>
-                    <div class="divbutton">
-                        <form action="pages/myBookings.php" method="post">
-                            <input type="hidden" name="carType_ID" value="<?php echo $_SESSION['carType_ID']; ?>">
-                            <input type="submit" class="button" value="Jetzt Buchen" name="addBooking">
-                        </form>
-                    </div> <?php
-                }
+                <div class='divbutton'>
+                    <button class='button' onclick='displayModal()'>Jetzt Buchen</button>
+                </div>
+            
+                <!-- Modal -->
+                <div id='myModal' class='modal' style='display: none;'>
+                    <div class='modal-content'>
+                        <span class='close' onclick='closeModal()'>&times;</span>
+                        <br>
+                        <h3>Bitte best&auml;tigen Sie folgende Buchung: <br><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." f&uuml;r ".number_format($totalPrice, 2, ',', '.')." &euro;.   ";?></h3>
+                        <br>
+                        <form id='bookingForm' class="modalForm" action='pages/myBookings.php' method='post'>
+                            <div class="buttondiv">
+                                <input type='hidden' name='carType_ID' value='<?php echo $_SESSION['carType_ID'] ?>'>
+                                <input type='submit' class='buttonModal' value='Jetzt Buchen' name='addBooking'>
+                            </div>
+                            <div class="buttonModal">
+                                <a href='./pages/productOverview.php'>Buchung abbrechen</a>
+                            </div>
+                        </form>                
+                    </div>                
+                </div>
+            <?php }
             } else {
                 echo "<div class='divbutton'>";
                 echo "<a href='pages/login.php?carType_ID_Login=".$_SESSION['carType_ID']."'>";

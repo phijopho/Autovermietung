@@ -23,6 +23,15 @@ function togglemenu() {
     }
 }
 
+// function for modal box
+function displayModal() {
+    document.getElementById('myModal').style.display = 'block';
+}
+ 
+function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
+}
+
 // Homepage
 
   //Carousel with prices and categories 
@@ -243,5 +252,3 @@ function enableEditing() {
         }
     }
 }
-
-
