@@ -211,7 +211,7 @@ ini_set('display_errors', 1);
     ?>
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleProductOverview.css">
     <link rel="stylesheet" href="css/styleFooter.css">
 </head>
 
@@ -316,7 +316,7 @@ include('../includes/header.php'); // include header
                             $selectedAge = $_SESSION['age'];
                         }
                         echo "<input type='range' min='" . $age['min'] . "' max='" . $age['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedAge . "' name='age' id='ageRange'>";
-                        echo "Alter: <output>" . $selectedAge . "</output>+";
+                        echo "Fahreralter: <output>" . $selectedAge . "</output>";
                     ?>
                 </div>
                 <div class="itemBox">
@@ -431,7 +431,7 @@ include('../includes/header.php'); // include header
         </div>
     </div>
     <div class="buttonUpContainer">
-    <a class="buttonUp" data-target="Up" href="pages/produktuebersicht.php#Up">Nach Oben  <b>&uarr;</b></a>
+    <a class="buttonUp" data-target="Up" href="pages/productOverview.php#Up">Nach Oben  <b>&uarr;</b></a>
     </div>
 </body>
 

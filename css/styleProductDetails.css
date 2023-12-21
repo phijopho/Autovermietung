@@ -300,14 +300,12 @@ a:hover.buttonNotSignedIn {
 /* slider settings */
 .cslider {
 
-  background: radial-gradient(#484848, #272626);
+  background: radial-gradient(#6ca0c1, #3a3a3a);
   color: #fff;
-  padding: 40px 20px 40px 20px;
+  padding: 60px 20px 0px 0px;
   position: relative;
-  height: 325px;
-  border-bottom: 3px solid var(--accentColor);
-  border-top: 3px solid green;
-  margin-bottom: 40px;
+  height: 375px;  
+  margin-top: -21px;
 }
 
 .cslider img {
@@ -506,4 +504,10 @@ a:hover.buttonNotSignedIn {
 
 .cslider-next {
   right: 20px;
+}
+.similarModels {
+  text-align: center;
+  background: #525252;
+  margin-top: -150px;
+  
 }

@@ -165,7 +165,7 @@ include('../includes/header.php'); // Including the header
       </dd>
     </dl>
 
-    <p>Haben Sie noch weitere Fragen? Nutzen Sie unser <a href="http://localhost/Autovermietung/pages/kontaktformular.php">Kontaktformular</a></p>
+    <p>Haben Sie noch weitere Fragen? Nutzen Sie unser <a href="http://localhost/Autovermietung/pages/contactForm.php">Kontaktformular</a></p>
   </article>
 
 </body>
