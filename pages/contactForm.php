@@ -26,11 +26,11 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Display confirmation message
-        echo '<script>alert("Vielen Dank für Ihre Anfrage! Wir werden uns bald mit Ihnen in Verbindung setzen.");</script>';
+        echo '<script>alert("Vielen Dank f&uuml;r Ihre Anfrage! Wir werden uns bald mit Ihnen in Verbindung setzen.");</script>';
     }
     ?>
 
-    <!--Daten für das Kontaktformular können hier eingetragen werden-->
+    <!--Daten f&uuml;r das Kontaktformular k&Ouml;nnen hier eingetragen werden-->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="ft-form" method="POST" accept-charset="UTF-8">
         <div id="confirmation"></div>
         <h1> </h1>

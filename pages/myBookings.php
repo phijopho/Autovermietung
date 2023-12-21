@@ -51,7 +51,7 @@ include('../includes/header.php');
     $stmt->execute();
     header('Location: ' . $_SERVER['PHP_SELF']);
 
-    echo "<br>Buchung erfolgreich hinzugefügt!";
+    echo "<br>Buchung erfolgreich hinzugef&uuml;gt!";
   }
 
   // Pagination
@@ -100,7 +100,7 @@ include('../includes/header.php');
         </td>
         <td>
           <div class="tile">
-            <h3>Rückgabedatum</h3>
+            <h3>R&uuml;ckgabedatum</h3>
           </div>
         </td>
         <td>
@@ -122,7 +122,7 @@ include('../includes/header.php');
           <div class="box"><p><?php echo $bookingInfo['Brand'] . " " . $bookingInfo['Model']; ?></p></div>
         </dt>
         <dd>
-          Abhol- und Rückgabeort: <?php echo $bookingInfo['CarLocation']; ?><br>
+          Abhol- und R&uuml;ckgabeort: <?php echo $bookingInfo['CarLocation']; ?><br>
           Gesamtpreis der Buchung: <?php echo $bookingInfo['TotalPrice']; ?> &euro;<br>
         </dd>
       <?php endforeach; ?>
@@ -171,7 +171,7 @@ include('../includes/header.php');
 
 
 
-    // code für pagination site switch
+    // code f&uuml;r pagination site switch
     document.addEventListener("DOMContentLoaded", function() {
       const itemsPerPage = 5; //Number of elements to be displayed on a page
       const bookings = <?php echo json_encode($bookingInfos); ?>; //Booking info will be filled
@@ -201,7 +201,7 @@ include('../includes/header.php');
         </dt>
 
         <dd>
-          Abhol- und Rückgabeort: ${booking['CarLocation']}<br>
+          Abhol- und R&uuml;ckgabeort: ${booking['CarLocation']}<br>
           Gesamtpreis der Buchung: ${booking['TotalPrice']} &euro;<br>
         </dd>
       `;

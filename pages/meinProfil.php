@@ -45,8 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Fehler beim Aktualisieren des Benutzers: ' . implode(' ', $query->errorInfo());
         exit();
     }
-    //Message wenn User Daten geändert hat
-    echo '<script>alert("Ihre Profildaten wurden erfolreich geändert!");</script>';
+    //Message wenn User Daten ge&auml;ndert hat
+    echo '<script>alert("Ihre Profildaten wurden erfolreich ge&auml;ndert!");</script>';
 }
 
 $query = $conn->prepare("SELECT * FROM user WHERE User_ID = :userID");
@@ -67,7 +67,7 @@ $conn = null;
             <img src="./images/neonlightsrev.gif">
         </div>
 
-        <!-- Boxen, wo der User seine Daten einsehen und verändern kann -->
+        <!-- Boxen, wo der User seine Daten einsehen und ver&auml;ndern kann -->
         <form action="pages/meinProfil.php" method="post" id="profilForm">
             <h1>Mein Profil</h1>
             <div class="inputbox">
@@ -76,13 +76,13 @@ $conn = null;
                 <input type="number" name="age" required placeholder="Alter" value="<?php echo $user['Age']; ?>" disabled min="18" max="150">
                 <input type="email" name="email" required placeholder="Email" value="<?php echo $user['EMail']; ?>" disabled maxlength="128">
                 <input type="text" name="username" required placeholder="Username" value="<?php echo $user['Username']; ?>" disabled maxlength="128" pattern="[A-Za-z0-9_.]+" title="Bitte verwende nur Buchstaben, Zahlen, Unterstriche und Punkte.">
-                <input type="password" name="password" required placeholder="Aktuelles oder neues Passwort" disabled pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Großbuchstaben, 1x Kleinbuchstaben, 1x Zahl">                
+                <input type="password" name="password" required placeholder="Aktuelles oder neues Passwort" disabled pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="Mindestens 8x Zeichen, 1x Gro&szlig;buchstaben, 1x Kleinbuchstaben, 1x Zahl">                
                 <button type="submit" onclick="enableEditing()">Bearbeiten</button>
             </div>
         </form>
     </div>
 
-    <!-- Bearbeiten Button | Beim Klicken Disabled entfernen und Text ändern -->
+    <!-- Bearbeiten Button | Beim Klicken Disabled entfernen und Text &auml;ndern -->
 
 
 </body>

@@ -17,7 +17,7 @@ ini_set('display_errors', 1);
         // Availabe Cars of that type
         $_SESSION['availableCarsModel'] = getAvailableCarsForModel($_SESSION['carType_ID']);
     } else {
-        echo "Ungültige Abfrage";
+        echo "Ung&uuml;ltige Abfrage";
     }
     ?>
     
@@ -45,7 +45,7 @@ include('../includes/header.php'); // Einbindung des Headers
 
     ?>
     <div class="buttonContainer">
-        <a href="./pages/productOverview.php" class="buttonBack">Zurück zur Produktübersicht</a>
+        <a href="./pages/productOverview.php" class="buttonBack">Zur&uuml;ck zur Produkt&uuml;bersicht</a>
     </div>
     <br>
     <div class="divbody">
@@ -89,7 +89,7 @@ include('../includes/header.php'); // Einbindung des Headers
                             </td>
                         </tr>
                         <tr>
-                            <th>Anzahl Türen</th>
+                            <th>Anzahl T&uuml;ren</th>
                             <td>
                                 <?php
                                 echo $carInfo['doors'];
@@ -110,7 +110,7 @@ include('../includes/header.php'); // Einbindung des Headers
         <div class="divinfo">
             <div class="divText">
                 <h2> Zusammenfassung </h2><br>
-                <h3>Ihr ausgewählter Zeitraum: </h3>
+                <h3>Ihr ausgew&auml;hlter Zeitraum: </h3>
                 <p><?php echo formatDate($_SESSION['pickUpDate']) ?> bis <?php echo formatDate($_SESSION['returnDate']) ?></p>
                 <?php
                     if($_SESSION['availableCarsModel']==0){
@@ -137,7 +137,7 @@ include('../includes/header.php'); // Einbindung des Headers
                 } elseif ($_SESSION['availableCarsModel'] == 1) {
                     echo "<p> Von diesem Modell ist in " . $_SESSION['location'] . " nur noch 1 verf&uuml;gbar.</p>";
                 } else {
-                    echo "<p>Von diesem Modell sind nur noch " . $_SESSION['availableCarsModel'] . " Autos in Ihrem gewählten Zeitraum verfügbar. </p>";
+                    echo "<p>Von diesem Modell sind nur noch " . $_SESSION['availableCarsModel'] . " Autos in Ihrem gew&auml;hlten Zeitraum verf&uuml;gbar. </p>";
                 }
                 ?>
             </div>
@@ -200,14 +200,14 @@ include('../includes/header.php'); // Einbindung des Headers
 
         <div class="cslider-carousel">
             <?php
-            // Überprüfen der Kategorie in der Session
+            // &Uuml;berpr&uuml;fen der Kategorie in der Session
             $category = $carInfo['type'];
 
             // SQL-Abfrage vorbereiten, um Autos der spezifischen Kategorie zu erhalten
             $query = $conn->prepare("SELECT CarType_ID, Name, Image, Price FROM CarType WHERE Type = :category");
             $query->bindParam(':category', $category);
 
-            // Abfrage ausführen
+            // Abfrage ausf&uuml;hren
             $query->execute();
 
             // // Ergebnisse holen
