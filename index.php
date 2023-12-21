@@ -198,7 +198,7 @@ include('includes/header.php'); // include header
                     </div>
 
                     <div class="pin koeln" onclick="submitFormWithCity('Koeln');">
-                        <span>K&Ouml;ln</span>
+                        <span>K&ouml;ln</span>
                     </div>
 
                     <div class="pin leipzig" onclick="submitFormWithCity('Leipzig');">
