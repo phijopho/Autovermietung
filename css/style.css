@@ -1,25 +1,25 @@
 /* settings for font and background */
 body {
-    font-family: "Montserrat", sans-serif;
-    color: #f7f2ef;
+    font-family: var(--fontFamily);
+    color: var(--mainLight);
     margin: 0;
     padding: 0;
-    background-color: #2f2e2c;
+    background-color: var(--mainDark);
     scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
-    color: #f7f2ef;
+    color: var(--mainLight);
 }
 
 a:hover {
-    color: aqua;
+    color: var(--accentColor);
 }
 
 /* Header: */
 .headercontainer {
-    background-color: #525252;
+    background-color: var(--mainBackgroundColor);
     position: fixed;
     padding: 10px;
     top: 0;
@@ -32,7 +32,7 @@ a:hover {
     align-items: center;
     z-index: 100;
     transition: padding 0.2s ease;
-    border-bottom: 2px solid aqua;
+    border-bottom: 2px solid var(--accentColor);
 }
 
 .logobox {
@@ -65,7 +65,7 @@ a:hover {
 
 .divhover a {
     text-decoration: none;
-    color: #f7f2ef;
+    color: var(--mainLight);
     font-size: 17px;
     padding: 15px;
     font-size: 16px;
@@ -73,19 +73,19 @@ a:hover {
 }
 
 a:hover {
-    color: aqua;
+    color: var(--accentColor);
 }
 
 /* Underlined if hovered and active */
 .headerbox {
     overflow: hidden;
-    background-color: #525252;
+    background-color: var(--mainBackgroundColor);
 }
 
 .headerbox a {
     float: left;
     display: block;
-    color: #f7f2ef;
+    color: var(--mainLight);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -94,29 +94,29 @@ a:hover {
 }
 
 .headerbox a:hover {
-    border-bottom: 3px solid aqua;
-    background-color: #525252;
-    color: aqua;
+    border-bottom: 3px solid var(--accentColor);
+    background-color: var(--mainBackgroundColor);
+    color: var(--accentColor);
 }
 
 .headerbox a.active {
-    border-bottom: 3px solid aqua;
-    color: aqua;
+    border-bottom: 3px solid var(--accentColor);
+    color: var(--accentColor);
 }
 
 .active {
     font-weight: medium;
     /* Adjusted font weight */
-    color: aqua;
-    border-bottom: 3px solid aqua;
-    background-color: #525252;
+    color: var(--accentColor);
+    border-bottom: 3px solid var(--accentColor);
+    background-color: var(--mainBackgroundColor);
 }
 
 ul {
     display: inline;
     margin: 3px;
     padding-left: 0px;
-    background: linear-gradient(to bottom, #525252, rgb(20, 20, 20));
+    background: linear-gradient(to bottom, var(--mainBackgroundColor), rgb(20, 20, 20));
     border-bottom-left-radius: 20px; 
     border-bottom-right-radius: 20px;
     box-shadow: 0 6px 8px 0 rgba(142, 140, 140, 0.2), 0 6px 20px 0 rgba(94, 94, 94, 0.19);
@@ -128,7 +128,7 @@ ul li {
 }
 
 ul li:hover {
-    background: #525252;
+    background: var(--mainBackgroundColor);
 }
 
 ul li:hover ul {
@@ -169,7 +169,7 @@ ul li ul li a {
     font-weight: 300;
     padding-left: 50px;
     padding-right: 50px;
-    border-top: 2px solid aqua;
+    border-top: 2px solid var(--accentColor);
 }
 
 /* Copyright mit Firmenname einfügen */
@@ -216,15 +216,17 @@ ul li ul li a {
 /* variables */
 :root {
     /* colors */
-    --mainLight: #f7f2ef;
+    --mainLight: #F7F2EF;
     --mainMidLight: #e7e3e2;
     --mainMidDark: #aba6a1;
     --mainDark: #2f2e2c;
     --mainBackgroundColor: #525252;
+    --accentColor: aqua;
     /* font family */
     --fontFamily: "Montserrat", sans-serif;
     /* gradient for various buttons and underlinings throughout whole website */
     --mainGradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    --secondaryGradient: linear-gradient(90deg, #7b4397, #dc2430);
 
     /* produktuebersicht */
     --filterSecondaryColor: #cccccc;
@@ -234,7 +236,7 @@ ul li ul li a {
     --height: 23px;
     --background-size: cover;
     --transition: all .25s ease-in-out;
-    --checkedAndHoverColor: aqua;
+    --checkedAndHoverColor: var(--accentColor);
 
     /* file paths for category checkbox icons to keep "styleProduktuebersicht" cleaner */
     /* limousine */
@@ -281,7 +283,7 @@ ul li ul li a {
     --trackBackground: var(--filterSecondaryColor);
     --trackHeight: 10px;
     --trackBorderRadius: 10px;
-    --buttonBackground: aqua;
+    --buttonBackground: var(--accentColor);
     --buttonHeight: 20px;
     --buttonWidth: 10px;
     --buttonMargin: calc((var(--trackHeight) / 2) - (var(--buttonHeight) / 2));

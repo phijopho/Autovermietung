@@ -193,7 +193,7 @@
 
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
-    <link rel="stylesheet" href="css/styleProduktuebersicht.css">
+    <link rel="stylesheet" href="css/styleProductOverview.css">
     <link rel="stylesheet" href="css/styleFooter.css">
 </head>
 
@@ -423,7 +423,7 @@ include('../includes/header.php'); // include header
         </div>
     </div>
     <div class="buttonUpContainer">
-    <a class="buttonUp" data-target="Up" href="pages/produktuebersicht.php#Up">Nach Oben  <b>&uarr;</b></a>
+    <a class="buttonUp" data-target="Up" href="pages/productOverview.php#Up">Nach Oben  <b>&uarr;</b></a>
     </div>
 </body>
 

@@ -29,7 +29,7 @@ table {
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
-  background: #525252;
+  background: var(--mainBackgroundColor);
   color: #fff;
   text-transform: uppercase;
   border-top: 1px;
@@ -74,7 +74,7 @@ table {
 /*general settings for dd*/
 dt {
   font-family: "Oswald", sans-serif;
-  background: #525252;
+  background: var(--mainBackgroundColor);
   color: #fff;
   text-transform: uppercase;
   border-top: 1px solid #222;
@@ -91,7 +91,7 @@ dt {
 
 /*when you hover over the elements*/
 dt:hover {
-  background: aqua;
+  background: var(--accentColor);
   color: black;
 }
 
@@ -136,9 +136,9 @@ dt:last-child {
 h1 {
   text-align: center;
   margin-top: 200px;
-  color: #f7f2ef;
+  color: var(--mainLight);
   font-size: 45px;
-  background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background-image: var(--mainGradient);
   background-size: 34.5% 4px;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -163,13 +163,13 @@ h1 {
 
 /*when you hover over each dt element*/
 .pagination-link:hover{
-  background-color: aqua;
+  background-color: var(--accentColor);
   color: black;
 }
 
 
 .ud_active {
-  background: aqua;
+  background: var(--accentColor);
   color: black;
   border-radius: px;
 }

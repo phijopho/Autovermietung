@@ -47,7 +47,7 @@ function startSessionAndRedirect($firstName)
     $_SESSION["firstName"] = $firstName;
     // redirect to car details page if user came from there
     if (isset($_SESSION['carType_ID_Login'])){
-        header("Location: ../pages/produktdetailseite.php?carType_ID=".$_SESSION['carType_ID_Login']);
+        header("Location: ../pages/productDetails.php?carType_ID=".$_SESSION['carType_ID_Login']);
     } else {
         header("Location: ../index.php");
     }
