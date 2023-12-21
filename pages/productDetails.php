@@ -44,7 +44,7 @@ include('../includes/header.php'); // Einbindung des Headers
     $model = getModel($_SESSION['carType_ID']);
 
     ?>
-    <div class="buttonContainer">
+    <div class="buttonBackContainer">
         <a href="./pages/productOverview.php" class="buttonBack">Zur&uuml;ck zur Produkt&uuml;bersicht</a>
     </div>
     <br>
@@ -159,16 +159,17 @@ include('../includes/header.php'); // Einbindung des Headers
                 <!-- Modal -->
                 <div id='myModal' class='modal' style='display: none;'>
                     <div class='modal-content'>
-                        <span class='close' onclick='closeModal()'>&times;</span>
-                        <br>
-                        <h3>Bitte best&auml;tigen Sie folgende Buchung: <br><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." f&uuml;r ".number_format($totalPrice, 2, ',', '.')." &euro;.   ";?></h3>
-                        <br>
+                        <span class='close' onclick='closeModal()'> <h1>&times; </h1></span>
+                            <br>
+                                <h3 class="booking-title">Bitte bestätigen Sie folgende Buchung:</h3>
+                                <p class="booking-details"><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." für ".number_format($totalPrice, 2, ',', '.')." &euro;. ";?></p>
+                            <br>
                         <form id='bookingForm' class="modalForm" action='pages/myBookings.php' method='post'>
                             <div class="buttondiv">
                                 <input type='hidden' name='carType_ID' value='<?php echo $_SESSION['carType_ID'] ?>'>
                                 <input type='submit' class='buttonModal' value='Jetzt Buchen' name='addBooking'>
                             </div>
-                            <div class="buttonModal">
+                            <div class="buttonModalLink">
                                 <a href='./pages/productDetails.php'>Buchung abbrechen</a>
                             </div>
                         </form>                
