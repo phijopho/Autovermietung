@@ -7,10 +7,10 @@
   margin-top: 150px;
   margin-bottom: 10%;
   margin-left: 5%;
-  border: 2px solid aqua;
-  border-image: linear-gradient(to bottom, aqua, #92FE9D) 1;
+  border: 2px solid var(--accentColor);
+  border-image: linear-gradient(to bottom, var(--accentColor), #92FE9D) 1;
   z-index: 1000;
-  background: #2f2e2c;
+  background: var(--mainDark);
 }
 
 /* Box which includes the Model and Pictureframe including details of selected car */
@@ -29,13 +29,13 @@
   width: 90%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 70%;
-  background-color: #525252;
+  background-color: var(--mainBackgroundColor);
   border-radius: 30px;
 }
 
 .buttonToggle {
-  background-color: #525252;
-  color: aqua;
+  background-color: var(--mainBackgroundColor);
+  color: var(--accentColor);
   margin-left: 45%;
   margin-top: -1%;
   border: none;
@@ -53,8 +53,8 @@
 }
 
 .buttonToggle {
-  background-color: #525252;
-  color: aqua;
+  background-color: var(--mainBackgroundColor);
+  color: var(--accentColor);
   margin-left: 45%;
   margin-top: -1%;
   border: none;
@@ -88,7 +88,7 @@ div.foto img {
   border-bottom-right-radius: 30px;
   padding: 10px 20px;
   color: #1a1818;
-  background: linear-gradient(to bottom, #525252, rgb(18, 162, 162));
+  background: linear-gradient(to bottom, var(--mainBackgroundColor), rgb(18, 162, 162));
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 1px 0 rgba(0, 0, 0, 0.19);
   opacity: 0;
   overflow: hidden;
@@ -132,7 +132,7 @@ td {
   margin-top: 5.5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 5%;
-  background-color: #525252;
+  background-color: var(--mainBackgroundColor);
   border-radius: 30px;
   align-content: center;
 }
@@ -152,7 +152,7 @@ td {
   width: 25%;
   margin-right: 12%;
   margin-top: -2%;
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background: var(--mainGradient);
   border: none;
   width: 45%;
   height: 60px;
@@ -196,7 +196,7 @@ td {
 
 /* Button if user is not logged in*/
 .buttonNotSignedIn {
-  background: aqua;
+  background: var(--accentColor);
   border: none;
   width: 45%;
   height: 60px;
@@ -270,7 +270,7 @@ a:hover.buttonNotSignedIn {
   opacity: 0.7;
   transform: scale(100%);
   font-weight: 600;
-  color: #f7f2ef;
+  color: var(--mainLight);
   padding: 0 15px;
   border-radius: 20px;
   line-height: 100%;
@@ -305,7 +305,7 @@ a:hover.buttonNotSignedIn {
   padding: 40px 20px 40px 20px;
   position: relative;
   height: 325px;
-  border-bottom: 3px solid aqua;
+  border-bottom: 3px solid var(--accentColor);
   border-top: 3px solid green;
   margin-bottom: 40px;
 }
