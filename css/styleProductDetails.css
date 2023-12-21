@@ -545,7 +545,6 @@ a:hover.buttonNotSignedIn {
 .similarModels {
   text-align: center;
   background: transparent;
-  /* margin-top: -150px; */
   margin-bottom: -100px;
   color: var(--mainLight);
 }
