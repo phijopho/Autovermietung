@@ -10,7 +10,7 @@ footer {
 
 /*damit mehrere reihen im footer gebaut werden können*/
 .footer-row {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
 }
