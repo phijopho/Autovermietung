@@ -393,7 +393,7 @@ include('../includes/header.php'); // include header
 
                 <!-- price filter -->
                 <div class="itemBox">
-                    <input type="text" id="amount" name="amount">
+                    <input type="text" id="amount" name="amount" disabled>
                     <div id="slider-range"></div>
                     <input type="hidden" name="minPrice" id="minPrice">
                     <input type="hidden" name="maxPrice" id="maxPrice">

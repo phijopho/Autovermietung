@@ -1,6 +1,9 @@
 /* Style About us */
 
 /* Einstellungen für den About us container */
+html {
+    overflow-x: hidden;
+}
 .AboutUsUeberschrift {
     font-weight: 700;
 }
@@ -28,7 +31,6 @@ h2 {
     background-position: center; 
     z-index: -1;
 }
-
 
 .heading {
     width: 50%;
@@ -70,7 +72,7 @@ h2 {
 
 .thank {
     width: 45%;
-   align-content: center;
+    align-content: center;
     text-align: center;
     float: inline-start;
     margin-top: 40px;
@@ -79,5 +81,4 @@ h2 {
     padding: 50px;
     background-color: #1a1818;
     border-radius: 30px;
-    
 }
