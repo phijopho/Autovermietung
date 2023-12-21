@@ -192,7 +192,44 @@ td {
   background-color: rgba(0, 0, 0, 0.561);
 }
 
+/* Modal Content */
+.modal-content {
+  background-color: #1a1818;
+  margin: 28%;
+  padding: 25px;
+  border: 1px solid aqua;
+  width: 600px;
+  height: 200px;
+}
 
+.modalForm {
+  display: flex !important; 
+  justify-content: space-between !important;
+}
+
+.buttondiv {
+  padding-top: 5px !important; 
+}
+
+.buttonModal {
+  border: none !important;
+  transform: scale(100%) !important;
+  color: #f7f2ef !important;
+  font-size: 18px !important;
+  cursor: pointer !important;
+  transition: transform 0.5s ease !important;
+  background-color: transparent !important;
+  font-family: "Montserrat", sans-serif !important;
+  align-content: center !important;
+}
+
+.buttonModal:hover {
+  color: aqua !important;
+  transform: scale(1.1) !important;
+  background-color: transparent !important;
+  margin-left: none !important;
+  padding-left: none !important;
+}
 
 /* Button if user is not logged in*/
 .buttonNotSignedIn {
@@ -219,7 +256,6 @@ td {
 }
 
 /* If User is not Old enough: hover.buttonNotOldEnough */
-
 .buttonNotOldEnough {
   background-color: grey;
   border: none;
