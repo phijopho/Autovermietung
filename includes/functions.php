@@ -487,9 +487,9 @@ function getBookingInfos($User_ID)
     while ($row = $stmt->fetch()) {
         $result[] = array(
             'Rent_ID' => $row['Rent_ID'],
-            'BookingDate' => $row['BookingDate'],
-            'StartDate' => $row['StartDate'],
-            'EndDate' => $row['EndDate'],
+            'BookingDate' => formatDate($row['BookingDate']),
+            'StartDate' => formatDate($row['StartDate']),
+            'EndDate' => formatDate($row['EndDate']),
             'Brand' => $row['Brand'],
             'Model' => $row['Model'],
             'CarLocation' => $row['CarLocation'],
