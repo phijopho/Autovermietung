@@ -18,7 +18,8 @@ include('../includes/header.php'); // Including the header
 ?>
 
 <body>
-    <div class="Container"> <!--Class to position text in the body -->
+    <!--Class to position text in the body -->
+    <div class="Container">
         <h1 class="Ueberschrift"> Impressum</h1>
 
         <b>Verantwortlich f&uuml;r den Inhalt nach § 55 Abs. 2 RStV: </b> <br>

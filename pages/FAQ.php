@@ -56,13 +56,13 @@ include('../includes/header.php'); // Including the header
 
 
 <body>
-  <!--Buchungsdaten &Uuml;bersicht-->
+  <!--FAQ questions-->
   <article>
     <h1>Fragen und Antworten</h1>
 
     <dl id="ud_accordion">
 
-      <!--Frage 1-->
+      <!--question 1-->
       <dt>
         1. Wie alt muss ich sein, um ein Auto mieten zu k&Ouml;nnen?
       </dt>
@@ -73,7 +73,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 2-->
+      <!--question 2-->
       <dt>
         2. Welche Dokumente ben&Ouml;tige ich zur Anmietung eines Autos?
       </dt>
@@ -83,7 +83,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 3-->
+      <!--question 3-->
       <dt>
         3. Wie erfolgt die Bezahlung f&uuml;r die Automietung?
       </dt>
@@ -93,7 +93,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 4-->
+      <!--question 4-->
       <dt>
         4. Welche Versicherungen sind im Mietpreis enthalten?
       </dt>
@@ -103,7 +103,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 5-->
+      <!--question 5-->
       <dt>
         5. Kann ich das gemietete Auto in einer anderen Stadt abgeben?
       </dt>
@@ -113,7 +113,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 6-->
+      <!--question 6-->
       <dt>
         6. Wie funktioniert die Tankregelung?
       </dt>
@@ -126,7 +126,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 7-->
+      <!--question 7-->
       <dt>
         7. Was passiert, wenn ich das Auto zu sp&auml;t zur&uuml;ckgebe?
       </dt>
@@ -137,7 +137,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 8-->
+      <!--question 8-->
       <dt>
         8. Gibt es eine Kilometerbegrenzung?
       </dt>
@@ -147,7 +147,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 9-->
+      <!--question 9-->
       <dt>
         9. Kann ich ein bestimmtes Auto-Modell w&auml;hlen?
       </dt>
@@ -157,7 +157,7 @@ include('../includes/header.php'); // Including the header
       </dd>
 
 
-      <!--Frage 10-->
+      <!--question 10-->
       <dt>
         10. Was muss ich bei einem Unfall tun?
       </dt>
@@ -167,6 +167,7 @@ include('../includes/header.php'); // Including the header
       </dd>
     </dl>
 
+    <!--link to contactForm-->
     <p>
       Haben Sie weitere Fragen? 
       <a href="http://localhost/Autovermietung/pages/contactForm.php" class="contactForm">
