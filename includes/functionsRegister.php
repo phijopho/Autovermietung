@@ -49,6 +49,7 @@ function addUserToDatabase($firstName, $lastName, $age, $email, $username, $pass
     $stmt->execute();
 }
 
+// success message
 function displaySuccessMessage()
 {
 ?>
@@ -63,6 +64,7 @@ function displaySuccessMessage()
 <?php
 }
 
+// error message
 function displayErrorMessage()
 {
 ?>

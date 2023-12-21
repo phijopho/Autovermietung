@@ -46,14 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Fehler beim Aktualisieren des Benutzers: ' . implode(' ', $query->errorInfo());
         exit();
     }
-<<<<<<< Updated upstream
-    //Message wenn User Daten ge&auml;ndert hat
-    echo '<script>alert("Ihre Profildaten wurden erfolreich ge&auml;ndert!");</script>';
-=======
     
     //Message if user has changed data
     echo '<script>alert("Ihre Profildaten wurden erfolreich geändert!");</script>';
->>>>>>> Stashed changes
 }
 //Execute prepared SQL query
 $query = $conn->prepare("SELECT * FROM user WHERE User_ID = :userID");
