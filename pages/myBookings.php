@@ -81,6 +81,7 @@ include('../includes/header.php');
     </div>
   <?php else: ?>
 
+    <!--table with headlines-->
     <table>
       <tr>
         <td>
@@ -112,6 +113,7 @@ include('../includes/header.php');
 
     </table>
 
+    <!--bring booking infos in accordion-->
     <dl id="ud_accordion">
       <?php foreach ($bookingInfos as $bookingInfo): ?>
         <dt>
