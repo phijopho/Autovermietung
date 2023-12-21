@@ -14,7 +14,7 @@ form {
 h1 {
     text-align: center;
     margin-top: 40px;
-    color: #f7f2ef;
+    color: var(--mainLight);
     font-size: 45px;
     background-image: var(--mainGradient);
     background-size: 41% 4px;
@@ -43,9 +43,9 @@ input {
     padding: 0px 20px;
     border-radius: 15px;
     border: none;
-    background-color: #aba6a1;
-    box-shadow: 2px 2px 4px #2f2e2c;
-    color: #f7f2ef;
+    background-color: var(--mainMidDark);
+    box-shadow: 2px 2px 4px var(--mainDark);
+    color: var(--mainLight);
     font-size: 18px;
     transition: 0.5s;
     display: flex;
@@ -66,7 +66,7 @@ input:focus {
 
 /* color for placeholder text of input box */
 input::placeholder {
-    color: #2f2e2c;
+    color: var(--mainDark);
 }
 
 /* style for register button */
@@ -79,7 +79,7 @@ button {
     border-radius: 25px;
     border: none;
     font-weight: bold;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fontFamily);
     font-size: 20px;
     background: var(--mainGradient);
     transition: width .5s;
@@ -181,7 +181,7 @@ button:focus {
 }
 
 .loginLink:hover {
-    color: aqua;
+    color: var(--accentColor);
 }
 
 .loginLink::before {
@@ -190,7 +190,7 @@ button:focus {
     width: 100%;
     height: 2px;
     border-radius: 2px;
-    background-color: aqua;
+    background-color: var(--accentColor);
     bottom: 10px;
     left: 0;
     transform-origin: right;

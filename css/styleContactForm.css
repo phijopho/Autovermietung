@@ -14,10 +14,10 @@ form {
 /* headline with gradient underlining */
 /*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
 h1 {
-    color: #f7f2ef;
+    color: var(--mainLight);
     font-size: 45px;
 
-    background-image: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background-image: var(--mainGradient);
     background-size: 100% 4px;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -40,9 +40,9 @@ input {
     padding: 0px 10px;
     border-radius: 15px;
     border: none;
-    background-color: #aba6a1;
-    box-shadow: 2px 2px 4px #2f2e2c;
-    color: #f7f2ef;
+    background-color: var(--mainMidDark);
+    box-shadow: 2px 2px 4px var(--mainDark);
+    color: var(--mainLight);
     font-size: 18px;
     transition: 0.5s;
 }
@@ -61,7 +61,7 @@ input:focus {
 
 /* color for placeholder text of input box */
 input::placeholder {
-    color: #2f2e2c;
+    color: var(--mainDark);
 }
 
 /* style for login button */
@@ -73,9 +73,9 @@ button {
     border-radius: 25px;
     border: none;
     font-weight: bold;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fontFamily);
     font-size: 20px;
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background: var(--mainGradient);
     transition: width .5s;
 }
 

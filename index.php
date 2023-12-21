@@ -237,6 +237,7 @@ include('includes/header.php'); // include header
             </div>
         </div>
     </div>
+    </div>
 </body>
 
 <!-- JavaScript function to submit form with selected city from the map -->

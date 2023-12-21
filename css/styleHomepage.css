@@ -2,7 +2,13 @@ body {
     height: fit-content;
     scroll-behavior: smooth;
     overflow-x: hidden;
+}
 
+.body {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 /* First Section  */
@@ -70,12 +76,12 @@ option {
 /* style for date picker */
 input[type="date"] {
     height: 16px;
-    background-color: #aba6a1;
+    background-color: var(--mainMidDark);
     padding-left: 30px;
     padding-right: 15px;
     height: 46px;
-    color: #2f2e2c;
-    font-family: "Montserrat", sans-serif;
+    color: var(--mainDark);
+    font-family: var(--fontFamily);
     font-weight: bold;
     border: none;
     outline: none;
@@ -85,7 +91,7 @@ input[type="date"] {
 
 /* style for calendar icon */
 ::-webkit-calendar-picker-indicator {
-    background-color: #F7F2EF;
+    background-color: var(--mainLight);
     padding: 5px;
     border-radius: 15px;
     cursor: pointer;
@@ -117,7 +123,7 @@ input[type="submit"] {
     border-bottom-right-radius: 25px;
     border: none;
     font-weight: bold;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fontFamily);
     font-size: 18px;
     background: var(--mainGradient);
     transition: .5s;
@@ -157,7 +163,7 @@ input[type="submit"]:focus {
     position: relative;
     height: 500px;
     border-bottom: 0px;
-    border-color: aqua;
+    border-color: var(--accentColor);
 }
 
 /* Booking Form  */
@@ -168,7 +174,7 @@ input[type="submit"]:focus {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #F7F2EF;
+    color: var(--mainLight);
     /* background: rgba(14, 14, 14, 0.58); */
     padding: 20px;
     /* border settings*/
@@ -191,7 +197,7 @@ input[type="submit"]:focus {
 }
 
 .section3 {
-    margin-left: 120px;
+    /* margin-left: 120px; */
     height: fit-content;
     width: 100%;
 }
@@ -291,7 +297,7 @@ input[type="submit"]:focus {
 
 .pin::before {
     content: '';
-    background-color: aqua;
+    background-color: var(--accentColor);
     position: absolute;
     top: 47%;
     left: 47%; 
@@ -309,11 +315,11 @@ input[type="submit"]:focus {
     left: 1.5em;
     top: 50%;
     transform: translateY(-50%);
-    background-color: aqua;
+    background-color: var(--accentColor);
     border-radius: 3em;
     padding: 0.3em 0.6em;
     font-size: 13px;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fontFamily);
     font-weight: 500;
     color: black;
 }

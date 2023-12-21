@@ -1,11 +1,3 @@
-<?php
-// show error messages
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-//  session_unset();
-//  session_destroy();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,16 +35,16 @@ ini_set('display_errors', 1);
             $_SESSION['returnDate'] = $_POST['returnDate'];
         }
 
-        // if user comes from map
+        // if user comes from map on homepage
         if (isset($_POST['selectedLocation'])) {
             $_SESSION['location'] = $_POST['selectedLocation'];
         }
 
-
+        // get results from databank
         $location = getCities();
         $categories = selectDistinctColumn("Type", "CarType");
 
-        //category checkbox filter
+        // category checkbox filter
         $checkedCategories = array();
 
         // if user chose category via carousel on homepage
@@ -91,6 +83,7 @@ ini_set('display_errors', 1);
         if (isset($_POST['filter'])) {
             $_SESSION['vendor'] = $_POST['vendor'];
         }
+
         // seats slider filter
         if (isset($_POST['filter'])) {
             $_SESSION['seats'] = $_POST['seats'];
@@ -142,6 +135,7 @@ ini_set('display_errors', 1);
         }
         ?>
 
+        <!-- JS for price range slider -->
         <script>
             <?php
             // price range filter
@@ -164,17 +158,18 @@ ini_set('display_errors', 1);
                 $_SESSION['maxPrice'] = $maxPrice;
             }
             ?>
+
             $(function() {
                 $("#slider-range").slider({
                     range: true,
-                    min: 0,
-                    max: 1000,
-                    values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>],
+                    min: 0, // assign start-value
+                    max: 1000, // assign end-value
+                    values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>], // assign chosen range
                     slide: function(event, ui) {
-                        $("#amount").val("Preisspanne: " + ui.values[0] + " € - " + ui.values[1] + " €");
+                        $("#amount").val("Preisspanne: " + ui.values[0] + " € - " + ui.values[1] + " €"); // create slider text
                         // update hidden fields
-                        $("#minPrice").val(ui.values[0]);
-                        $("#maxPrice").val(ui.values[1]);
+                        $("#minPrice").val(ui.values[0]); // update min
+                        $("#maxPrice").val(ui.values[1]); // update max
                     }
                 });
                 // initialize hidden fields
@@ -194,21 +189,8 @@ ini_set('display_errors', 1);
         if (isset($_POST["sort"])) {
             $_SESSION["sort"] = $_POST["sort"];
         }
-
-        // Checks:
-        // echo "<br><br><br><br><br><br><br>";
-        // $stmt=getAvailableCarsQuery();
-        // $availableCars=getAvailableCars($stmt);
-        // echo $stmt." -> ".$availableCars;
-
-        // echo getResultsQuery();
-        // echo "Session Categories: ";
-        // print_r($_SESSION['categories']);
-        // echo "<br> Checked Categories: ";
-        // echo var_dump($_SESSION['checkedCategories']);
-        // echo "<br> Session:";
-        // print_r($_SESSION);
     ?>
+
     <!-- html page specifics -->
     <title>Unsere Flotte</title>
     <link rel="stylesheet" href="css/styleProductOverview.css">
@@ -222,24 +204,29 @@ include('../includes/header.php'); // include header
 <body>
     <div id="Up" class="contentBox">
         <div class="filterBox">
+            <!-- create filters in filterbox -->
             <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>" id="filter">
                 <div class="itemBox">
+                    <!-- location filter -->
                     <label for="location">Standort:</label><br>
                     <select class="customSelect" name="location">
                     <?php 
+                    // create dropdown with values from database
                     foreach ($location as $city) {
-                        if ($_SESSION['location'] == $city) {
-                            echo "<option value='$city' selected>$city</option>";
+                        if ($_SESSION['location'] == $city) { 
+                            echo "<option value='$city' selected>$city</option>"; // select value from session
                         } else {
-                            echo "<option value='$city'>$city</option>";
+                            echo "<option value='$city'>$city</option>"; // for not selected options
                         }}                    
                     ?>
                     </select>
                 </div>
+                <!-- pick-up date filter -->
                 <div class="twoSidedBox">
                     <label for="pickUpDate">Abholung:</label>
                     <input type="date" name="pickUpDate" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $_SESSION['pickUpDate']; ?>" oninput="setMinReturnDate()" id="pickUpDate" required/>
                 </div>
+                <!-- return date filter -->
                 <div class="twoSidedBox">
                     <label for="returnDate">R&uuml;ckgabe:</label>
                     <input type="date" name="returnDate" value="<?php echo $_SESSION['returnDate']; ?>" id="returnDate" required/>
@@ -249,10 +236,12 @@ include('../includes/header.php'); // include header
                     setMinReturnDate(); // calling function on page load to avoid irregular return date when pick up date isnt changed
                 </script>
 
+                <!-- category filter -->
                 <div class="categoryBox">
                     <label for="category">Fahrzeugkategorie: </label><br>
                     <?php
                     foreach ($categories as $category) {
+                        // create checkboxes with values from database and add icons for car-categories
                         echo "<div class='checkbox-container'>";
                         if (in_array($category, $_SESSION['checkedCategories'])) {
                             echo "<input type='checkbox' id=" . $category . " name=" . $category . " value='" . $category . "' checked>";
@@ -266,15 +255,18 @@ include('../includes/header.php'); // include header
                     }
                     ?>
                 </div>
+
+                <!-- vendor filter -->
                 <div class="itemBox">
                     <label for="vendor">Hersteller:</label><br>
                     <select class="customSelect" name="vendor">
                         <option value="all">Alle auswählen</option>
                         <?php
+                        // create dropdown with values from database
                         $vendors = selectColumn("Abbreviation", "Vendor");
                         foreach ($vendors as $vendor) {
                             if ($_SESSION['vendor'] == $vendor) {
-                                echo "<option value='$vendor' selected>$vendor</option>";
+                                echo "<option value='$vendor' selected>$vendor</option>"; // select option from session
                             } else {
                                 echo "<option value='$vendor'>$vendor</option>";
                             }
@@ -282,6 +274,8 @@ include('../includes/header.php'); // include header
                         ?>
                     </select>
                 </div>
+
+                <!-- seats filter -->
                 <div class="itemBox">
                     <?php
                     $seats = selectMinAndMaxFromColumn("Seats", "CarType");
@@ -289,51 +283,61 @@ include('../includes/header.php'); // include header
                     if (isset($_SESSION['seats'])) {
                         $selectedSeats = $_SESSION['seats'];
                     }
+                    // code for label
                     echo "<input type='range' min='" . $seats['min'] . "' max='" . $seats['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedSeats . "' name='seats' id='seatsRange'>";
                     echo "Sitze: <output>" . $selectedSeats . "</output>+";
                     ?>
                 </div>
+
+                <!-- doors filter -->
                 <div class="itemBox">
                     <?php
                     $doors = selectMinAndMaxFromColumn("Doors", "CarType");
-                    $selectedDoors = 2;
+                    $selectedDoors = 2; // so all numbers of doors are shown
                     if (isset($_SESSION['doors'])) {
                         $selectedDoors = $_SESSION['doors'];
                     }
+                    // code for label
                     echo "<input type='range' min='" . $doors['min'] . "' max='" . $doors['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedDoors . "' name='doors' id='doorsRange'>";
                     echo "T&uuml;ren: <output>" . $selectedDoors . "</output>+";
                     ?>
                 </div>
+
+                <!-- age filter -->
                 <div class="itemBox">
                     <?php
                         $age = selectMinAndMaxFromColumn("Min_Age", "CarType");
                         if(isset($_SESSION['User_ID'])){
-                            $selectedAge=getUserAge();
+                            $selectedAge=getUserAge(); // set user age as age on filter if logged in
                         } else {
-                            $selectedAge = 25;
+                            $selectedAge = 25; // so all cars are available
                         }
                         if (isset($_SESSION['age'])) {
-                            $selectedAge = $_SESSION['age'];
+                            $selectedAge = $_SESSION['age']; // get user input
                         }
+                        // code for label
                         echo "<input type='range' min='" . $age['min'] . "' max='" . $age['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedAge . "' name='age' id='ageRange'>";
                         echo "Fahreralter: <output>" . $selectedAge . "</output>";
                     ?>
                 </div>
+
+                <!-- drive filter -->
                 <div class="itemBox">
                     <label for="drive">Antrieb:</label><br>
                     <select class="customSelect" name="drive">
                         <option value="all">Alle auswählen</option>
                         <?php
+                        // get drives from database and translate to German
                         $drives = selectDistinctColumn("Drive", "CarType");
                         foreach ($drives as $drive) {
-                            if ($_SESSION['drive'] == $drive) {
+                            if ($_SESSION['drive'] == $drive) { // select option from session
                                 if ($drive == 'Combuster') {
                                     $driveGerman = 'Verbrenner';
                                 } elseif ($drive == 'Electric') {
                                     $driveGerman = 'Elektro';
                                 }
                                 echo "<option value='$drive' selected>$driveGerman</option>";
-                            } else {
+                            } else { // other options (not selected)
                                 if ($drive == 'Combuster') {
                                     $driveGerman = 'Verbrenner';
                                 } elseif ($drive == 'Electric') {
