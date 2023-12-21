@@ -152,3 +152,32 @@ h1 {
 p {
   text-align: center;
 }
+
+/* link to contact form */
+.contactForm {
+  text-decoration: none;
+  position: relative;
+}
+
+.contactForm:hover {
+  color: var(--accentColor);
+}
+
+.contactForm::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--accentColor);
+  bottom: 0px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .4s ease-in-out;
+}
+
+.contactForm:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
