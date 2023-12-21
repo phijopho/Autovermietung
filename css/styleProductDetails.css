@@ -1,3 +1,38 @@
+/* button back to product overview */
+.buttonBack {
+  background: transparent;
+  position: absolute;
+  border: none;
+  height: 30px;
+  opacity: 0.7;
+  transform: scale(100%);
+  font-weight: 600;
+  color: var(--mainLight);
+  padding: 0 15px;
+  border-radius: 20px;
+  line-height: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  margin-left: 25%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.buttonBack:hover {
+  opacity: 1 !important;
+  transform: scale(1.1);
+}
+
+.buttonBackContainer {
+  width: 500px;
+  position: relative;
+  top: 120px;
+  left: -60px;
+}
 /* Box which covers the entire Body */
 .divbody {
   width: 90%;
@@ -200,9 +235,12 @@ a:hover.buttonNotSignedIn {
 
 /* If User is not Old enough: hover.buttonNotOldEnough */
 .buttonNotOldEnough {
+  float: right;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
   background-color: grey;
-  border: none;
-  width: 100%;
+  width: 60%;
   opacity: 50%;
   transform: scale(150%);
   font-weight: 600;
@@ -213,8 +251,9 @@ a:hover.buttonNotSignedIn {
   text-decoration: none;
   display: flex;
   font-size: 16px;
-  margin: 4px 2px;
-  cursor: not-allowed !important;
+  margin-right: 50%;
+  margin-top: -2%;
+  cursor: not-allowed;
 }
 
 /* If User is not Old enough and hovers on button */
@@ -224,13 +263,11 @@ a:hover.buttonNotOldEnough {
   font-size: 16px;
 }
 
-
-
-
-/* The Modal (background) */
+/* Modal-Box */
+/* Modalbox background */
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
@@ -243,32 +280,69 @@ a:hover.buttonNotOldEnough {
 /* Modal Content */
 .modal-content {
   background-color: #1a1818;
-  margin: 28%;
-  padding: 25px;
+  margin-top: 20%;
+  margin-left: 35%;
+  padding: 20px;
   border: 1px solid aqua;
   width: 600px;
-  height: 200px;
+  height: 325px;
+  text-align: center;
 }
 
+/* Modal-Box style for <span> with X to close modal */
+.close {
+  cursor: pointer;
+  float: right;
+}
+
+/* h1 style for X to close modal */
+.close h1 {
+font-weight: 500;
+margin-top: -10px;
+}
+
+/* style <h3> */
+.booking-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 60px;
+}
+
+/* style <p> */
+.booking-details {
+  font-size: 22px; 
+  margin-top: 40px;
+}
+
+/* Style for <form> in modal */
 .modalForm {
-  display: flex !important; 
-  justify-content: space-between !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Box for buttons within the bookingform*/
 .buttondiv {
-  padding-top: 5px !important; 
+  padding-top: 5px !important;
+  width: 100%; 
+  height: 50px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
 }
 
+/* style button "Jetzt Buchen" in bookingform */
 .buttonModal {
+  width: 50% !important;
   border: none !important;
   transform: scale(100%) !important;
   color: #f7f2ef !important;
-  font-size: 18px !important;
+  font-size: 20px !important;
   cursor: pointer !important;
   transition: transform 0.5s ease !important;
   background-color: transparent !important;
   font-family: "Montserrat", sans-serif !important;
-  align-content: center !important;
 }
 
 .buttonModal:hover {
@@ -279,46 +353,39 @@ a:hover.buttonNotOldEnough {
   padding-left: none !important;
 }
 
-
-
-.buttonBack {
-  background: transparent;
-  position: absolute;
-  border: none;
-  height: 30px;
-  opacity: 0.7;
-  transform: scale(100%);
-  font-weight: 600;
-  color: var(--mainLight);
-  padding: 0 15px;
-  border-radius: 20px;
-  line-height: 100%;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
+/* style button "Buchung abbrechen" in bookingform */
+.buttonModalLink {
+  width: 80% !important;
+  height: 50px !important;
+  border: none !important;
+  color: #f7f2ef !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  transition: transform 0.5s ease !important;
+  background-color: transparent !important;
+  font-family: "Montserrat", sans-serif !important;
   display: flex;
-  font-size: 16px;
-  margin-left: 25%;
-  cursor: pointer;
-  transition: transform 0.5s ease;
+  justify-content: center; 
+  align-items: center; 
 }
 
-.buttonBack:hover {
-  opacity: 1 !important;
-  transform: scale(1.1);
+.buttonModalLink:hover {
+  color: aqua !important;
+  background-color: transparent !important;
+  margin-left: none !important;
+  padding-left: none !important;
 }
 
-.buttonContainer {
-  width: 500px;
-  position: relative;
-  top: 120px;
-  left: -60px;
+/* slider heading "Verwandte Autos zu dieser Buchung" */
+.similarModels {
+  text-align: center;
+  background: transparent;
+  margin-bottom: -100px;
+  color: var(--mainLight);
 }
-/* ----------- */
-/* slider settings */
+
+/* slider box */
 .cslider {
-
   background: linear-gradient(to bottom,#2f2e2c, #6b6b6b);
   color: var(--mainLight);
   padding: 200px 20px 0px 0px;
@@ -334,11 +401,12 @@ a:hover.buttonNotOldEnough {
   width: 100%;
 }
 
+/* text style  */
 .cslider h3,
 .cslider .h3,
 .cslider .p,
 .cslider a {
-  color: #fff;
+  color: var(--mainLight);
 }
 
 .cslider-carousel {
@@ -396,6 +464,7 @@ a:hover.buttonNotOldEnough {
   z-index: 2;
 }
 
+/* Media query for similar cars shown in slider, and speed of transition */
 @media (min-width: 768px) {
   .cslider-item-selected {
       -webkit-transition: all 300ms ease-in-out;
@@ -403,6 +472,7 @@ a:hover.buttonNotOldEnough {
   }
 }
 
+/* adjust slider size to min screen sizes if responsive design is used */
 @media (max-width: 575px) {
   .cslider-item-selected {
       width: 50%;
@@ -415,6 +485,22 @@ a:hover.buttonNotOldEnough {
   }
 }
 
+/* adjust slider size to max screen size if responsive design is used */
+@media (max-width: 575px) {
+  .cslider-item-previous,
+  .cslider-item-next {
+      opacity: 0;
+  }
+}
+
+@media (max-width: 1680px) {
+  .cslider-item-first,
+  .cslider-item-last {
+      opacity: 0;
+  }
+}
+
+/* Transition and sizing of previous an next shown cars */
 .cslider-item-previous,
 .cslider-item-next {
   opacity: 1;
@@ -424,6 +510,7 @@ a:hover.buttonNotOldEnough {
   z-index: 1;
 }
 
+/* Transition and sizing of first and last car within the slider */
 .cslider-item-first,
 .cslider-item-last {
   opacity: 1;
@@ -434,22 +521,7 @@ a:hover.buttonNotOldEnough {
   width: 10%;
 }
 
-@media (max-width: 575px) {
-
-  .cslider-item-previous,
-  .cslider-item-next {
-      opacity: 0;
-  }
-}
-
-@media (max-width: 1519px) {
-
-  .cslider-item-first,
-  .cslider-item-last {
-      opacity: 0;
-  }
-}
-
+/*  positioning of all shown cars */
 .cslider-item-previous {
   left: 20%;
 }
@@ -462,6 +534,7 @@ a:hover.buttonNotOldEnough {
   left: 20%;
 }
 
+/* min width for first item shown */
 @media (min-width: 1520px) {
   .cslider-item-first {
       left: 5%;
@@ -472,12 +545,14 @@ a:hover.buttonNotOldEnough {
   left: 80%;
 }
 
+/* min width for last item shown */
 @media (min-width: 1520px) {
   .cslider-item-last {
       left: 95%;
   }
 }
 
+/* subtext of car when centered */
 .cslider-text {
   height: 0;
   left: 0;
@@ -498,9 +573,9 @@ a:hover.buttonNotOldEnough {
   transition: height 0ms, opacity 300ms ease-in-out 300ms;
 }
 
+/* prev. and next button */
 .cslider-prev,
 .cslider-next {
-  border-color: #fff;
   border-style: solid;
   border-width: 0 4px 4px 0;
   cursor: pointer;
@@ -524,10 +599,4 @@ a:hover.buttonNotOldEnough {
 
 .cslider-next {
   right: 20px;
-}
-.similarModels {
-  text-align: center;
-  background: transparent;
-  margin-bottom: -100px;
-  color: var(--mainLight);
 }
