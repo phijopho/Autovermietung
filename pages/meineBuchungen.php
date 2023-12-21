@@ -29,6 +29,7 @@ include('../includes/header.php');
   if (isset($_POST['addBooking'])) {
     $carTypeId = $_POST['carType_ID'];
 
+    // pick random car from available cars for this model
     $availableCarIDs = getAvailableCarIDs($carTypeId);
     if ($availableCarIDs > 1) {
       $randomIndex = array_rand($availableCarIDs);

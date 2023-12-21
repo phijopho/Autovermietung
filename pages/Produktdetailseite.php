@@ -148,31 +148,34 @@ $availableCars = getAvailableCarsForModel($_SESSION['carType_ID']);
 if ($availableCars > 0) {
     if (isset($_SESSION['User_ID'])) {
         $UserAge = getUserAge();
-        if ($UserAge < $minAge) {
+        if ($UserAge < $minAge) { ?>
             echo "<div class='divbutton'>";
             echo "<div class='buttonNotOldEnough'>Altersbeschr&auml;nkung</div>";
             echo "</div>";
-        } else {
-            echo "<div class='divbutton'>";
-            echo "<button class='button' onclick='displayModal()'>Jetzt Buchen</button>";
-            echo "</div>";
-            echo "
-                <!-- Modal -->
-                <div id='myModal' class='modal' style='display: none;'>
-                    <div class='modal-content'>
-                        <span class='close' onclick='closeModal()'>&times;</span>
-                        <br>
-                        <h2>Buchung bestätigen</h2>
-                        <br>
-                        <form id='bookingForm' action='pages/meineBuchungen.php' method='post'>
-                            <input type='hidden' name='carType_ID' value='" . $_SESSION['carType_ID'] . "'>
-                            <input type='submit' class='buttonModal' value='jetzt Buchen' name='addBooking'>
-                        </form>
-                        <p><a href='./pages/produktuebersicht.php'> Buchung abbrechen</a></p>
-                    </div>
-                </div>
-                ";
-        }
+        <?php } else { ?>
+            <div class='divbutton'>
+            <button class='button' onclick='displayModal()'>Jetzt Buchen</button>
+            </div>
+            
+            <!-- Modal -->
+            <div id='myModal' class='modal' style='display: none;'>
+                <div class='modal-content'>
+                    <span class='close' onclick='closeModal()'>&times;</span>
+                    <br>
+                    <h3>Bitte best&auml;tigen Sie folgende Buchung: <br><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." f&uuml;r ".number_format($totalPrice, 2, ',', '.')." &euro;.   ";?></h3>
+                    <br>
+                    <form id='bookingForm' class="modalForm" action='pages/meineBuchungen.php' method='post'>
+                        <div class="buttonContainer">
+                            <input type='hidden' name='carType_ID' value='<?php echo $_SESSION['carType_ID'] ?>'>
+                            <input type='submit' class='buttonModal' value='Jetzt Buchen' name='addBooking'>
+                        </div>
+                        <div class="cancelLink">
+                            <p><a href='./pages/produktuebersicht.php'>Buchung abbrechen</a></p>
+                        </div>
+                    </form>                
+                </div>                
+            </div>
+        <?php } 
     } else {
         echo "<div class='divbutton'>";
         echo "<a href='pages/login.php'>";

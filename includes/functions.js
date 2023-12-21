@@ -23,8 +23,8 @@ function togglemenu() {
     }
 }
 
- // JavaScript-Funktionen, um die Modal Box zu öffnen und zu schließen
- function displayModal() {
+// JavaScript-Funktionen, um die Modal Box zu öffnen und zu schließen
+function displayModal() {
     document.getElementById('myModal').style.display = 'block';
 }
 
