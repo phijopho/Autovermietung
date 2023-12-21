@@ -4,6 +4,7 @@
 <head>
     <?php
     include('../includes/htmlhead.php');
+    include('../includes/functionsLogin.php');
     ?>
 
     <!-- html page specifics -->
@@ -12,14 +13,10 @@
     <title>Anmelden</title>
 </head>
 
-<?php
-include('../includes/header.php'); // include header
-?>
+<?php include('../includes/header.php'); ?>
 
 <body>
     <?php
-    include('../includes/functionsLogin.php');
-
     preventEnterIfLoggedIn();
 
     // get Car Type ID if user comes from Car Details page
@@ -64,8 +61,6 @@ include('../includes/header.php'); // include header
     </div>
 </body>
 
-<?php
-include('../includes/footer.html');
-?>
+<?php include('../includes/footer.html'); ?>
 
 </html>
