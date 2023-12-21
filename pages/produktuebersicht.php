@@ -316,7 +316,7 @@ include('../includes/header.php'); // include header
                             $selectedAge = $_SESSION['age'];
                         }
                         echo "<input type='range' min='" . $age['min'] . "' max='" . $age['max'] . "' oninput='this.nextElementSibling.value = this.value' class='slider' value='" . $selectedAge . "' name='age' id='ageRange'>";
-                        echo "Alter: <output>" . $selectedAge . "</output>+";
+                        echo "Fahreralter: <output>" . $selectedAge . "</output>";
                     ?>
                 </div>
                 <div class="itemBox">
