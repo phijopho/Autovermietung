@@ -426,6 +426,7 @@ font-size:x-small;
 .cslider .p,
 .cslider a {
     color: #fff;
+    height: 80px;
 }
 
 .cslider-carousel {
@@ -466,7 +467,7 @@ font-size:x-small;
 
 .cslider-item img {
     height: auto;
-    max-height: 315px;
+    max-height: 230px;
     max-width: 100%;
     width: auto;
 }
@@ -588,7 +589,7 @@ font-size:x-small;
 }
 
 .cslider-item-selected .cslider-text {
-    height: 150px;
+    height: 80px;
     padding: 0;
     opacity: 1;
     -webkit-transition: height 0ms, opacity 300ms ease-in-out 300ms;
