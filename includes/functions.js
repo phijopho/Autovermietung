@@ -218,6 +218,8 @@ document.getElementById('menu').addEventListener('mouseenter', handleMouseEnter)
 //meinProfil
 
 //my Profile button
+var editingEnabled = false;
+
 function enableEditing() {
     var form = document.getElementById("profilForm");
     var inputs = form.getElementsByTagName("input");
@@ -227,5 +229,19 @@ function enableEditing() {
     }
 
     var button = document.querySelector("button");
-    button.innerHTML = "Änderung abschicken";
+
+    if (!editingEnabled) {
+        button.innerHTML = "Änderung abschicken";
+        editingEnabled = true;
+    } else {
+        
+        if (button.innerHTML === "Änderung abschicken") {
+           
+            setTimeout(function () {
+                window.location = "/Autovermietung/index.php";
+            }, 500);
+        }
+    }
 }
+
+

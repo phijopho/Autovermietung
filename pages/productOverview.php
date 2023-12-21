@@ -349,39 +349,49 @@ include('../includes/header.php'); // include header
                         ?>
                     </select>
                 </div>
+
+                <!-- transmission filter -->
                 <div class="twoSidedBox">
                     <label for="transmission">Nur Automatik</label>
                     <label class="switch">
                         <input type="checkbox" name="transmission" <?php
-                                                                    if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
-                                                                        echo 'checked';
-                                                                    }
-                                                                    ?>>
+                            if (isset($_SESSION['transmission']) && $_SESSION['transmission'] == 'on') {
+                                echo 'checked';
+                            } 
+                            ?>>
                         <span class="sliderRound"></span>
                     </label>
                 </div>
+
+                <!-- ac filter -->
                 <div class="twoSidedBox">
                     <label for="AC">Klima</label>
                     <label class="switch">
-                        <input type="checkbox" name="ac" <?php
-                                                            if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
-                                                                echo 'checked';
-                                                            }
-                                                            ?>>
+                        <input type="checkbox" name="ac" 
+                            <?php
+                                if (isset($_SESSION['ac']) && $_SESSION['ac'] == 'on') {
+                                    echo 'checked';
+                                }
+                            ?>>
                         <span class="sliderRound"></span>
                     </label>
                 </div>
+
+                <!-- gps filter -->
                 <div class="twoSidedBox">
                     <label for="gps">GPS</label>
                     <label class="switch">
-                        <input type="checkbox" name="gps" <?php
-                                                            if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
-                                                                echo 'checked';
-                                                            }
-                                                            ?>>
+                        <input type="checkbox" name="gps" 
+                            <?php
+                                if (isset($_SESSION['gps']) && $_SESSION['gps'] == 'on') {
+                                    echo 'checked';
+                                }
+                            ?>>
                         <span class="sliderRound"></span>
                     </label>
                 </div>
+
+                <!-- price filter -->
                 <div class="itemBox">
                     <input type="text" id="amount" name="amount">
                     <div id="slider-range"></div>
@@ -389,35 +399,46 @@ include('../includes/header.php'); // include header
                     <input type="hidden" name="maxPrice" id="maxPrice">
                 </div>
                 <br>
+
+                <!-- submit filters button -->
                 <input class="filterButton" type="submit" value="Filtern" name="filter">
             </form>
+
+            <!-- revert filters except location and dates -->
             <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
                 <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
             </form>
         </div>
 
+        <!-- result area -->
         <div class="resultBox">
             <div class="topBox">
+                <!-- show availabe cars -->
                 <label for="available">Verf&uuml;gbare Fahrzeuge: <?php echo getAvailableCars(); ?></label>
+                <!-- create sort -->
                 <div class="sortBox">
                     <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>" id="sortForm">
                         <label for="sort">Sortierung: </label>
-                        <select class="customSelect" name="sort" onchange="submitForm()">
-                            <option value="alphabetic" <?php
-                                                        if ($_SESSION['sort'] == 'alphabetic') {
-                                                            echo "selected";
-                                                        }
-                                                        ?>>Alphabetisch</option>
-                            <option value="priceAscending" <?php
-                                                            if ($_SESSION['sort'] == 'priceAscending') {
-                                                                echo "selected";
-                                                            }
-                                                            ?>>Preis aufsteigend</option>
-                            <option value="priceDescending" <?php
-                                                            if ($_SESSION['sort'] == 'priceDescending') {
-                                                                echo "selected";
-                                                            }
-                                                            ?>>Preis absteigend</option>
+                        <select class="customSelect" name="sort" onchange="submitForm()"> // use JS to update website immediately when new sort is chosen
+                            <option value="alphabetic" 
+                            <?php
+                                if ($_SESSION['sort'] == 'alphabetic') {
+                                    echo "selected";
+                                }
+                            ?>
+                            >Alphabetisch</option>
+                            <option value="priceAscending" 
+                            <?php
+                                if ($_SESSION['sort'] == 'priceAscending') {
+                                    echo "selected";
+                                }
+                            ?>>Preis aufsteigend</option>
+                            <option value="priceDescending" 
+                            <?php
+                                if ($_SESSION['sort'] == 'priceDescending') {
+                                    echo "selected";
+                                }
+                            ?>>Preis absteigend</option>
                         </select>
                     </form>
                     <!-- Use JS event handler to submit form whenever sort is changed -->
@@ -429,11 +450,13 @@ include('../includes/header.php'); // include header
                 </div>
             </div>
             <?php
-            $stmt = getResultsQuery();
-            displayResults($stmt);
+            // use functions from functions.php to fill result area with filtered cars
+            $stmt = getResultsQuery(); // get sql statement for results
+            displayResults($stmt); // display results
             ?>
         </div>
     </div>
+    <!-- create button to scroll to top -->
     <div class="buttonUpContainer">
     <a class="buttonUp" data-target="Up" href="pages/productOverview.php#Up">Nach Oben  <b>&uarr;</b></a>
     </div>
