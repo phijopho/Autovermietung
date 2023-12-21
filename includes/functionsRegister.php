@@ -19,13 +19,13 @@ function register()
 // check if user is already registered
 function userExists($username, $email)
 {
-    // search database with prepared statement to see if submitted username or email from form is already in database
+    // search in database with prepared statement to see if submitted username or email from form is already in database
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM User WHERE Username=:username OR Email=:email");
     $stmt->bindParam(":username", $username);
     $stmt->bindParam(":email", $email);
     $stmt->execute();
-    return $stmt->fetchColumn(); // return value of next column in database if found (true). otherwise, meaning user isnt registered, return false
+    return $stmt->fetchColumn(); // return value of next column in database if a result was found (true). otherwise, meaning user isnt registered, return false
 }
 
 // registration handler
