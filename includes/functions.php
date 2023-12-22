@@ -286,7 +286,7 @@ function getAvailableCars()
             INNER JOIN Location ON Car.Location_ID = Location.Location_ID
             LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
             JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID
-            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate =< :endDate AND Rental.EndDate => :startDate))
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate <= :endDate AND Rental.EndDate >= :startDate))
                 AND Location.City = :location";
 
     //category filter
