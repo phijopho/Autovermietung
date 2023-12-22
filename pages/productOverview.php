@@ -13,7 +13,7 @@
     
     <!-- sessions and variables -->
     <?php
-        // Reset filters (except location and date)
+        // Reset filters (except location and date) if the reset button is clicked.
         if (isset($_POST['resetButton'])) {
             unsetSessions();
         }
