@@ -1,5 +1,6 @@
 <?php
-// Filterung
+// filters
+// Clear session variables except location and date
 function unsetSessions()
 {
     if (isset($_POST['resetButton'])) {
@@ -17,6 +18,7 @@ function unsetSessions()
     }
 }
 
+// Get a list of cities from the database
 function getCities()
 {
     include('dbConnection.php');
@@ -27,28 +29,8 @@ function getCities()
     return $location;
 }
 
-function selectDistinctColumn($column, $table)
-{
-    include('dbConnection.php');
-    $result = array();
-    $stmt = $conn->query("SELECT DISTINCT $column FROM $table");
-    while ($row = $stmt->fetch()) {
-        $array[] = $row[$column];
-    }
-    return $array;
-}
-
-function selectMinAndMaxFromColumn($column, $table)
-{
-    include('dbConnection.php');
-    $result = array();
-    $stmt = $conn->query("SELECT MIN($column), MAX($column) FROM $table");
-    $row = $stmt->fetch();
-    $result['min'] = $row['MIN(' . $column . ')'];
-    $result['max'] = $row['MAX(' . $column . ')'];
-    return $result;
-}
-
+// Reusable database functions for retrieving values from a specified column 
+// Select values from a column in the database 
 function selectColumn($column, $table)
 {
     include('dbConnection.php');
@@ -60,6 +42,31 @@ function selectColumn($column, $table)
     return $result;
 }
 
+// Select distinct values from a column in the database
+function selectDistinctColumn($column, $table)
+{
+    include('dbConnection.php');
+    $result = array();
+    $stmt = $conn->query("SELECT DISTINCT $column FROM $table");
+    while ($row = $stmt->fetch()) {
+        $array[] = $row[$column];
+    }
+    return $array;
+}
+
+// Select the minimum and maximum values from a column in the database
+function selectMinAndMaxFromColumn($column, $table)
+{
+    include('dbConnection.php');
+    $result = array();
+    $stmt = $conn->query("SELECT MIN($column), MAX($column) FROM $table");
+    $row = $stmt->fetch();
+    $result['min'] = $row['MIN(' . $column . ')'];
+    $result['max'] = $row['MAX(' . $column . ')'];
+    return $result;
+}
+
+// Display car images
 function showImage($CarType_ID)
 {
     include('dbConnection.php');
@@ -78,12 +85,11 @@ function showImage($CarType_ID)
     }
 }
 
-function getModel($CarType_ID)
-{
+// Get car model information
+function getModel($CarType_ID){
     include('dbConnection.php');
-    $getModel = $conn->prepare("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = :CarTypeIdent");
-    $getModel->bindParam(':CarTypeIdent', $CarType_ID);
-    $getModel->execute();
+    $getModel = $conn->query("SELECT Vendor.Abbreviation AS Brand, CarType.Name AS Model FROM CarType JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID WHERE CarType.CarType_ID = $CarType_ID");
+    // no prepared statement needed since there is no user input
     while ($row = $getModel->fetch()) {
         $model[] = $row['Brand'];
         $model[] = $row['Model'];
@@ -91,7 +97,7 @@ function getModel($CarType_ID)
     return $model;
 }
 
-// pickUpDate and returnDate hinzuf&uuml;gen (mit gebuchten Autos verkn&uuml;pfen)
+// get sql statement for displaying results
 function getResultsQuery()
 {
     include('dbConnection.php');
@@ -151,22 +157,25 @@ function getResultsQuery()
     return $stmt;
 }
 
+// Display search results
 function displayResults($stmt)
 {
     include('dbConnection.php');
+
     // execute the SQL statement
     $result = $conn->query($stmt);
+
     // check if there are results
     if ($result->rowCount() > 0) {
         echo "<div class='resultWrapBox'>";
+
+        $noAvailableCars = false; // variable to see if the second while-loop needs to be executed
+
         // loop through each available result and display it
-        $hasUnavailableModels = false; // variable to see if the second while-loop needs to be executed
-        $hasAvailableModels = false;
         while ($row = $result->fetch()) {
             $carType_ID = $row['CarType_ID'];
             $availableCarsModel = getAvailableCarsForModel($carType_ID);
             if ($availableCarsModel > 0) {
-                $hasAvailableModels = true;
                 echo "<a href='pages/productDetails.php?carType_ID=$carType_ID'>";
                     echo "<div class='resultItemBox'>";
                         echo "<div class='modelBox'>";
@@ -178,18 +187,19 @@ function displayResults($stmt)
                         showImage($carType_ID);
                         echo "<div class='carDataBox'>";
                             echo "<div>";
-                                // Use the getPrice function to display car prices
+                                // Use the getCarProperty and getTotalPrice functions to display car prices
                                 $price = getCarProperty($carType_ID, 'Price');
                                 echo "Preis pro Tag: " . $price . " &euro;<br>";
                                 echo "Preis f&uuml;r den gew&auml;hlten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
                             echo "</div>";
+                            // see if the user is old enough for this car, if not change font color of min age to red
                             $minAge=getCarProperty($carType_ID, 'Min_Age');
                             if (isset($_SESSION['User_ID'])){
                                 $userAge = getUserAge();
                                 if ($userAge < $minAge){
-                                    echo "<div class='minAgeTooYoungBox'>";
+                                    echo "<div class='minAgeTooYoungBox'>"; // font in red as warning
                                 } else {
-                                    echo "<div>";
+                                    echo "<div>"; // normal font
                                 }
                             } else {
                                 echo "<div>";  
@@ -200,14 +210,11 @@ function displayResults($stmt)
                     echo "</div>";
                 echo "</a>";
             } else {
-                $hasUnavailableModels=true;
+                $noAvailableCars=true;
             } 
         }
-        if ($hasAvailableModels==false){
-            echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
-        }
-        // loop through each for the selected location or time unavailable result and display it
-        if($hasUnavailableModels==true){
+        // loop through each for the selected location or time unavailable result and display it with same logix as above
+        if($noAvailableCars==true){
             $result = $conn->query($stmt);
             echo "<div class='separatingBox'> Nicht verf&uuml;gbare Modelle: </div>";
             while ($row = $result->fetch()) {
@@ -256,16 +263,18 @@ function displayResults($stmt)
 }
 
 // Availability
+// get all available cars
 function getAvailableCars()
 {
     include('dbConnection.php');
 
+    // Retrieve session variables
     $startDate = $_SESSION['pickUpDate'];
     $endDate = $_SESSION['returnDate'];
     $location = $_SESSION['location'];
     $categories = implode("', '", $_SESSION['categories']);  // put elements of array in string 
 
-
+    // Build the SQL query to count available cars
     $stmt = "SELECT COUNT(Car.Car_ID) AS AvailableCars
             FROM Car
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
@@ -274,6 +283,7 @@ function getAvailableCars()
             JOIN Vendor ON CarType.Vendor_ID = Vendor.Vendor_ID
             WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
                 AND Location.City = :location";
+
     //category filter
     $stmt .= " AND Type IN ('" . $categories . "')";
     // vendor filter
@@ -314,7 +324,7 @@ function getAvailableCars()
     }
 
 
-    // Bereiten Sie die Abfrage vor und f&uuml;hren Sie sie aus
+    // Prepare and execute the query
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':startDate', $startDate);
     $stmt->bindParam(':endDate', $endDate);
@@ -327,6 +337,7 @@ function getAvailableCars()
     return $row['AvailableCars'];
 }
 
+// Function to get available cars for a specific car type
 function getAvailableCarsForModel($carType_ID)
 {
     include('dbConnection.php');
@@ -335,6 +346,7 @@ function getAvailableCarsForModel($carType_ID)
     $endDate = $_SESSION['returnDate'];
     $location = $_SESSION['location'];
 
+    // Build the SQL query to count available cars
     $stmt = "SELECT COUNT(Car.Car_ID) AS AvailableCarsForModel
             FROM Car
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
@@ -342,7 +354,8 @@ function getAvailableCarsForModel($carType_ID)
             LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
             WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate <= :endDate AND Rental.EndDate >=     :startDate))
                 AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
-
+    
+    // Prepare and execute the query
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':startDate', $startDate);
     $stmt->bindParam(':endDate', $endDate);
@@ -356,7 +369,7 @@ function getAvailableCarsForModel($carType_ID)
     return $row['AvailableCarsForModel'];
 }
 
-
+// Function to format a date into German date
 function formatDate($date)
 {
     $newDate = date('d.m.Y', strtotime($date));
@@ -364,6 +377,7 @@ function formatDate($date)
 }
 
 // Car Details
+// Function to get a car property by car type ID and column name
 function getCarProperty($CarType_ID, $column)
 {
     include('dbConnection.php');
@@ -374,6 +388,7 @@ function getCarProperty($CarType_ID, $column)
     return $result;
 }
 
+// Function to calculate the total price when price is already pulled from database
 function getTotalPrice($price)
 {
     // create new instance of class DateTime to convert session into a date
@@ -388,7 +403,8 @@ function getTotalPrice($price)
     return $totalPrice;
 }
 
-// Carusel
+// Carousel
+// Function to get the minimum price for a car category
 function getPriceForCategory($category)
 {
     include('dbConnection.php');
@@ -407,6 +423,7 @@ function getPriceForCategory($category)
 }
 
 // login
+// Function to prevent entering certain pages if the user is logged in
 function preventEnterIfLoggedIn()
 {
     if (isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"])) {
@@ -414,6 +431,7 @@ function preventEnterIfLoggedIn()
     }
 }
 
+// Function to prevent entering certain pages if the user is logged out
 function preventEnterIfLoggedOut()
 {
     if (!(isset($_SESSION["firstName"]) && !empty($_SESSION["firstName"]))) {
@@ -436,7 +454,8 @@ function displayLogoutSuccess()
     }
 }
 
-// Meine Buchungen
+// My bookings
+// function to retrieve user id from db 
 function getUserID()
 { // username is unique and User_ID is assigned within the database logic so it must be deducted from the db
     include('dbConnection.php');
@@ -448,6 +467,7 @@ function getUserID()
     return $row['User_ID'];
 }
 
+// Function to get user age
 function getUserAge()
 {
     include('dbConnection.php');
@@ -458,6 +478,7 @@ function getUserAge()
     return $row['Age'];
 }
 
+// Function to get the number of bookings for a user
 function getNumberOfBookings()
 {
     include('dbConnection.php');
@@ -469,11 +490,12 @@ function getNumberOfBookings()
     return $row['COUNT(Rental.User_ID)'];
 }
 
+// Function to get booking information for a user
 function getBookingInfos($User_ID)
 {
     include('dbConnection.php');
     $stmt = $conn->query(
-        "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price + CarType.Price,2) AS TotalPrice
+        "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price + CarType.Price,2) AS TotalPrice 
     FROM Rental             
     JOIN Car ON Rental.Car_ID = Car.Car_ID             
     JOIN CarType ON Car.CarType_ID = CarType.CarType_ID             
@@ -498,14 +520,17 @@ function getBookingInfos($User_ID)
     return $result;
 }
 
+// Function to get available car IDs for a specific car type to select a random one from it later
 function getAvailableCarIDs($carType_ID)
 {
     include('dbConnection.php');
 
+    // Retrieve session variables
     $startDate = $_SESSION['pickUpDate'];
     $endDate = $_SESSION['returnDate'];
     $location = $_SESSION['location'];
 
+    // Build the SQL query to get available car IDs for a specific car type
     $stmt = "SELECT Car.Car_ID AS AvailableCarIDs
             FROM Car
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
@@ -514,7 +539,7 @@ function getAvailableCarIDs($carType_ID)
             WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
                 AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
 
-    // Bereiten Sie die Abfrage vor und f&uuml;hren Sie sie aus
+    // Prepare and execute the query
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':startDate', $startDate);
     $stmt->bindParam(':endDate', $endDate);
@@ -531,7 +556,8 @@ function getAvailableCarIDs($carType_ID)
     return $IDs;
 }
 
-//Functions for Produktdetailseite
+// Functions for Productdetails
+// show car locations to display when car is not available for filtered location 
 function getCarLocations($CarType_ID){
     include('dbConnection.php');
     $stmt=$conn->query("SELECT City FROM Location
@@ -546,20 +572,23 @@ function getCarLocations($CarType_ID){
     return $result;
 }
 
+// function to retrieve car infos
 function getCarInfo($carTypeID)
 {
     include('dbConnection.php');
-    // Funktion zur Umwandlung von 0/1 in "Nein"/"Ja"
+    // Function to convert 0/1 to "Nein"/"Ja"
     function booleanToJaNein($value)
     {
         return $value == 1 ? 'Ja' : 'Nein';
     }
 
-    // Funktion zur Umwandlung von 'gear' (Getriebe) in 'Manuell' oder 'Automatik'
+    // Function to convert 'gear' to 'Manuell' or 'Automatik'
     function gearToText($value)
     {
         return $value == 'manually' ? 'Manuell' : 'Automatik';
     }
+
+    // save infos to two-dimensional array
     $carInfo = [
         'image' => showImage($carTypeID),
         'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
@@ -573,6 +602,7 @@ function getCarInfo($carTypeID)
     return $carInfo;
 }
 
+// Function to select a specific column from a table by car type ID
 function selectSpecificColumn($column, $table, $carTypeID)
 {
     include('dbConnection.php');
