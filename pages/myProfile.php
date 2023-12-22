@@ -69,12 +69,8 @@ $conn = null;
             <img src="./images/neonlightsrev.gif">
         </div>
 
-<<<<<<< Updated upstream
         <!-- Boxen, wo der User seine Daten einsehen und ver&auml;ndern kann -->
-=======
-        <!-- Boxes where the user can view and change their data -->
->>>>>>> Stashed changes
-        <form action="pages/meinProfil.php" method="post" id="profilForm">
+        <form action="pages/myProfile.php" method="post" id="profilForm">
             <h1>Mein Profil</h1>
             <div class="inputbox">
                 <input type="text" name="firstName" required placeholder="Vorname" value="<?php echo $user['FirstName']; ?>" disabled maxlength="128">
@@ -87,13 +83,10 @@ $conn = null;
             </div>
         </form>
     </div>
-<<<<<<< Updated upstream
 
     <!-- Bearbeiten Button | Beim Klicken Disabled entfernen und Text &auml;ndern -->
 
 
-=======
->>>>>>> Stashed changes
 </body>
 <?php
 include('../includes/footer.html');
