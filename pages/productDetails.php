@@ -165,7 +165,7 @@ include('../includes/header.php'); // Einbindung des Headers
                         <span class='close' onclick='closeModal()'> <h1>&times; </h1></span>
                             <br>
                             <h3 class="booking-title">Bitte bestätigen Sie folgende Buchung:</h3>
-                            <p class="booking-details"><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." für ".number_format($totalPrice, 2, ',', '.')." &euro;. ";?></p>
+                            <p class="booking-details"><?php echo $model[0]." ".$model[1]." vom ".formatDate($_SESSION['pickUpDate'])." bis ".formatDate($_SESSION['returnDate'])." <br> für ".number_format($totalPrice, 2, ',', '.')." &euro;. ";?></p>
                             <br>
                         <!-- bookingform shown in modal -->
                         <form id='bookingForm' class="modalForm" action='pages/myBookings.php' method='post'>
