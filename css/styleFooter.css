@@ -8,15 +8,14 @@ footer {
   margin-bottom: 0;
 }
 
-
-/*so that several rows can be built in the footer*/
+/*damit mehrere reihen im footer gebaut werden können*/
 .footer-row {
   margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
 }
 
-//*for the individual elements in the footer row*/
+/*für die einzelnen elemente im footer-row*/
 .footer-col {
   flex: 1;
   margin: 0 20px 0 0;
@@ -24,7 +23,6 @@ footer {
 }
 
 
-/*fonts*/
 a {
   font-family: var(--fontFamily);
   color: var(--mainLight);
@@ -81,7 +79,6 @@ a {
   height: 20px;
 }
 
-/*footer class for ProductOverview page*/
 .footer {
   font-family: var(--fontFamily);
   color: var(--mainLight);

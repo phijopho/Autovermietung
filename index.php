@@ -156,7 +156,7 @@ include('includes/header.php'); // include header
         <span class="info">Diese Modelle stehen in der oben dargestellten Ausf&uuml;hrung m&ouml;glicherweise nicht zur Verf&uuml;gung.</span>
             <div class="map-container">
                 <div class="ger-map">
-                    <img src="images/Deutschlandkarte.png" alt="map">
+                    <img src="images/image-2.png" alt="map">
                     <!-- Map pins with onclick event to submit form with selected city -->
                     <div class="pin hamburg" onclick="submitFormWithCity('Hamburg');">
                         <span>Hamburg</span>
