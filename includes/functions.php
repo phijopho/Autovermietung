@@ -465,7 +465,7 @@ function getUserID()
 { // username is unique and User_ID is assigned within the database logic so it must be deducted from the db
     include('dbConnection.php');
     $username = $_SESSION['username'];
-    $stmt = $conn->prepare("SELECT User_ID FROM User WHERE Username=:username");
+    $stmt = $conn->prepare("SELECT User_ID FROM User WHERE Username=:username"); // prepared statement needed because username is a text input field where user can write something in
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $row = $stmt->fetch();
