@@ -166,14 +166,14 @@
                     max: 1000, // assign end-value
                     values: [<?php echo $minPrice; ?>, <?php echo $maxPrice; ?>], // assign chosen range
                     slide: function(event, ui) {
-                        $("#amount").val("Preisspanne: " + ui.values[0] + " € - " + ui.values[1] + " €"); // create slider text
+                        $("#amount").val("Tagespreis: " + ui.values[0] + " € - " + ui.values[1] + " €"); // create slider text
                         // update hidden fields
                         $("#minPrice").val(ui.values[0]); // update min
                         $("#maxPrice").val(ui.values[1]); // update max
                     }
                 });
                 // initialize hidden fields
-                $("#amount").val("Preisspanne: " + $("#slider-range").slider("values", 0) + " € - " + $("#slider-range").slider("values", 1) + " €");
+                $("#amount").val("Tagespreis: " + $("#slider-range").slider("values", 0) + " € - " + $("#slider-range").slider("values", 1) + " €");
                 $("#minPrice").val($("#slider-range").slider("values", 0));
                 $("#maxPrice").val($("#slider-range").slider("values", 1));
             });
