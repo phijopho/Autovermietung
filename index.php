@@ -88,7 +88,7 @@ include('includes/header.php'); // include header
                         <img src="images/category images/limousine_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Limousine</h2>
-                            <p> ab <?php echo getPriceForCategory('Limousine'); ?> &euro;</p>
+                            <p> ab <?php echo getPriceForCategory('Limousine'); ?> &euro; pro Tag</p>
                         </div>
                     </a>
                 </div>
@@ -98,7 +98,7 @@ include('includes/header.php'); // include header
                         <img src="images/category images/combi_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Combi</h2>
-                            <p> ab <?php echo getPriceForCategory('Combi'); ?> &euro;</p>
+                            <p> ab <?php echo getPriceForCategory('Combi'); ?> &euro; pro Tag</p>
                         </div>
                     </a>
                 </div>
@@ -108,7 +108,7 @@ include('includes/header.php'); // include header
                         <img src="images/category images/cabrio_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Cabrio</h2>
-                            <p> ab <?php echo getPriceForCategory('Cabrio'); ?> &euro;</p>
+                            <p> ab <?php echo getPriceForCategory('Cabrio'); ?> &euro; pro Tag</p>
                         </div>
                     </a>
                 </div>
@@ -118,7 +118,7 @@ include('includes/header.php'); // include header
                         <img src="images/category images/suv_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>SUV</h2>
-                            <p> ab <?php echo getPriceForCategory('SUV'); ?> &euro;</p>
+                            <p> ab <?php echo getPriceForCategory('SUV'); ?> &euro; pro Tag</p>
                         </div>
                     </a>
                 </div>
@@ -128,7 +128,7 @@ include('includes/header.php'); // include header
                         <img src="images/category images/mehrsitzer_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Mehrsitzer</h2>
-                            <p> ab <?php echo getPriceForCategory('Mehrsitzer'); ?> &euro;</p>
+                            <p> ab <?php echo getPriceForCategory('Mehrsitzer'); ?> &euro; pro Tag</p>
                         </div>
                     </a>
                 </div>
@@ -138,7 +138,7 @@ include('includes/header.php'); // include header
                         <img src="images/category images/coupe_aqua.png" alt="Slider Image" />
                         <div class="cslider-text">
                             <h2>Coupe</h2>
-                            <p> ab <?php echo getPriceForCategory('Coupe'); ?> &euro;</p>
+                            <p> ab <?php echo getPriceForCategory('Coupe'); ?> &euro; pro Tag</p>
                         </div>
                     </a>
                 </div>
