@@ -169,7 +169,7 @@ function displayResults($stmt)
     if ($result->rowCount() > 0) {
         echo "<div class='resultWrapBox'>";
 
-        $noAvailableCars = false; // variable to see if the second while-loop needs to be executed
+        $hasUnavailableModels = false; // variable to see if the second while-loop needs to be executed
         $hasAvailableModels = false; // variable to see if no cars match user filters
 
         // loop through each available result and display it
@@ -212,14 +212,14 @@ function displayResults($stmt)
                     echo "</div>";
                 echo "</a>";
             } else {
-                $noAvailableCars=true;
+                $hasUnavailableModels=true;
             } 
         }
         if ($hasAvailableModels==false){
             echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
         }
         // loop through each for the selected location or time unavailable result and display it with same logix as above
-        if($noAvailableCars==true){
+        if($hasUnavailableModels==true){
             $result = $conn->query($stmt);
             echo "<div class='separatingBox'> Nicht verf&uuml;gbare Modelle: </div>";
             while ($row = $result->fetch()) {
