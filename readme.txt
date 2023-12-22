@@ -17,7 +17,7 @@ Um das Projekt einzurichten, folgen Sie diesen Schritten:
 
 1. Installieren Sie XAMPP und starten Sie den Apache-Webserver sowie MySQL.
 2. Importieren Sie die bereitgestellte SQL-Datei in Ihre MySQL-Datenbank.
-3. Platzieren Sie das Projektverzeichnis im `htdocs`-Ordner von XAMPP.
+3. Platzieren Sie das Projektverzeichnis im `htdocs`-Ordner von XAMPP und nennen Sie es "Autovermietung".
 4. Öffnen Sie Ihren Browser und navigieren Sie zu `http://localhost/Autovermietung/index.php`.
 
 ## Empfohlene Browser
@@ -26,6 +26,7 @@ Die Anwendung wurde für die besten Ergebnisse in folgenden Browsern getestet:
 
 - Google Chrome
 - Opera
+- Safari
 
 ## Bildschirmauflösung
 
