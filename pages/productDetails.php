@@ -210,7 +210,7 @@ include('../includes/header.php'); // Einbindung des Headers
             $category = $carInfo['type'];
 
             // prepare SQL-statemet, so select cars of a distinct type
-            $query = $conn->prepare("SELECT CarType_ID, Name, Image, Price FROM CarType WHERE Type = :category");
+            $query = $conn->prepare("SELECT CarType_ID, Name, Image, ROUND(Price,0) AS Price FROM CarType WHERE Type = :category");
             $query->bindParam(':category', $category);
 
             // execute SQL-statement
@@ -224,7 +224,7 @@ include('../includes/header.php'); // Einbindung des Headers
                     showImage($row['CarType_ID']);
                 echo '<div class="cslider-text">';
                 echo '<h2>' . htmlspecialchars($modelInfo[0]) . ' ' . htmlspecialchars($modelInfo[1]) . '</h2>';
-                echo '<p> ab ' . $row['Price'] . ' €</p>';
+                echo '<p> ab ' . $row['Price'] . ' € pro Tag</p>';
                 echo '</div>';
                 echo '</a>';
                 echo '</div>';

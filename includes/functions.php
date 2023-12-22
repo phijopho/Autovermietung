@@ -413,16 +413,16 @@ function getTotalPrice($price)
 function getPriceForCategory($category)
 {
     include('dbConnection.php');
-    $stmt = $conn->prepare("SELECT MIN(Price) FROM CarType WHERE Type =:category");
+    $stmt = $conn->prepare("SELECT ROUND(MIN(Price),0) AS Price FROM CarType WHERE Type =:category");
     $stmt->bindParam(':category', $category);
     $stmt->execute();
     $row = $stmt->fetch();
 
     if ($row) {
-        // Wenn ein Ergebnis vorhanden ist, gib den Preis zur&uuml;ck
-        return $row['MIN(Price)'];
+        // if there is a price return it
+        return $row['Price'];
     } else {
-        // Wenn kein Ergebnis vorhanden ist, gib einen Hinweis zur&uuml;ck
+        // display info if no price available
         return "Preis nicht verf&uuml;gbar";
     }
 }
