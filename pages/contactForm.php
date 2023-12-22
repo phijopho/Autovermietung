@@ -26,7 +26,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Display confirmation message
-        echo '<script>alert("Vielen Dank f&uuml;r Ihre Anfrage! Wir werden uns bald mit Ihnen in Verbindung setzen.");</script>';
+        echo '<script>alert("Vielen Dank f\u00FCr Ihre Anfrage! Wir werden uns bald mit Ihnen in Verbindung setzen.");</script>';
     }
     ?>
 
