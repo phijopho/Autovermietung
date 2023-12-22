@@ -27,6 +27,7 @@ Die Anwendung wurde für die besten Ergebnisse in folgenden Browsern getestet:
 - Google Chrome
 - Opera
 - Safari
+- DuckDuckGo
 
 ## Bildschirmauflösung
 
