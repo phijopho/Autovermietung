@@ -37,16 +37,17 @@ function closeModal() {
 //Carousel with prices and categories 
 function cSlider() {
     'use strict';
-
+    // Selects the carousel element with the class 'cslider'
     var $carousel = jQuery('.cslider');
-
+    // Checks if the carousel element exists
     if ($carousel.length > 0) {
+        // Defines variables for carousel items and navigation buttons
         var $carouselItem = $carousel.find('.cslider-item'),
             $prev = $carousel.find('.cslider-prev'),
             $next = $carousel.find('.cslider-next'),
             itemLength = $carouselItem.length,
             index = 0;
-
+        // Function to set the index for carousel items
         function setIndex(i, add) {
             if (i + add >= itemLength) {
                 return i + add - itemLength;
@@ -54,7 +55,7 @@ function cSlider() {
                 return i + add;
             }
         }
-
+        // Function to set the state of the carousel based on the index
         function setState(i) {
             $carouselItem.attr('class', 'cslider-item');
             $carouselItem.eq(setIndex(i, 0)).addClass('cslider-item-first');
@@ -64,7 +65,7 @@ function cSlider() {
             $carouselItem.eq(setIndex(i, 4)).addClass('cslider-item-last');
         }
 
-        // Event-Handler f&uuml;r Schaltfl&auml;chen
+        // Event handler for the "Next" button
         $next.on('click', function () {
             clearInterval(autoScrollInterval);
             index++;
@@ -74,7 +75,7 @@ function cSlider() {
             setState(index);
             autoScrollInterval = setInterval(autoScroll, 7000);
         });
-
+        // Event handler for the "Previous" button
         $prev.on('click', function () {
             clearInterval(autoScrollInterval);
             index--;
