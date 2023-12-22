@@ -70,7 +70,9 @@ function selectMinAndMaxFromColumn($column, $table)
 function showImage($CarType_ID)
 {
     include('dbConnection.php');
-    $image = $conn->query("SELECT Image FROM CarType WHERE CarType_ID=$CarType_ID");
+    $image = $conn->prepare("SELECT Image FROM CarType WHERE CarType_ID=:CarTypeIdent");
+    $image->bindParam(':CarTypeIdent', $CarType_ID);
+    $image->execute();
 
     if ($image->rowCount() > 0) {
         echo "<div class='pictureBox'>";
@@ -168,14 +170,12 @@ function displayResults($stmt)
         echo "<div class='resultWrapBox'>";
 
         $noAvailableCars = false; // variable to see if the second while-loop needs to be executed
-        $hasAvailableModels = false; // variable to see if no cars match user filters
 
         // loop through each available result and display it
         while ($row = $result->fetch()) {
             $carType_ID = $row['CarType_ID'];
             $availableCarsModel = getAvailableCarsForModel($carType_ID);
             if ($availableCarsModel > 0) {
-                $hasAvailableModels = true;
                 echo "<a href='pages/productDetails.php?carType_ID=$carType_ID'>";
                     echo "<div class='resultItemBox'>";
                         echo "<div class='modelBox'>";
@@ -212,9 +212,6 @@ function displayResults($stmt)
             } else {
                 $noAvailableCars=true;
             } 
-        }
-        if ($hasAvailableModels==false){
-            echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
         }
         // loop through each for the selected location or time unavailable result and display it with same logix as above
         if($noAvailableCars==true){
@@ -411,7 +408,9 @@ function getTotalPrice($price)
 function getPriceForCategory($category)
 {
     include('dbConnection.php');
-    $stmt = $conn->query("SELECT MIN(Price) FROM CarType WHERE Type=$category");
+    $stmt = $conn->prepare("SELECT MIN(Price) FROM CarType WHERE Type =:category");
+    $stmt->bindParam(':category', $category);
+    $stmt->execute();
     $row = $stmt->fetch();
 
     if ($row) {
@@ -461,7 +460,7 @@ function getUserID()
 { // username is unique and User_ID is assigned within the database logic so it must be deducted from the db
     include('dbConnection.php');
     $username = $_SESSION['username'];
-    $stmt = $conn->prepare("SELECT User_ID FROM User WHERE Username=:username"); // prepared statement needed because username is a text input field where user can write something in
+    $stmt = $conn->prepare("SELECT User_ID FROM User WHERE Username=:username");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $row = $stmt->fetch();
@@ -472,7 +471,7 @@ function getUserID()
 function getUserAge()
 {
     include('dbConnection.php');
-    $stmt = $conn->query("SELECT Age FROM User WHERE USER_ID=:user_id");
+    $stmt = $conn->prepare("SELECT Age FROM User WHERE USER_ID=:user_id");
     $stmt->bindParam('user_id', $_SESSION['User_ID']);
     $stmt->execute();
     $row = $stmt->fetch();
