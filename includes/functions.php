@@ -597,11 +597,11 @@ function getCarInfo($carTypeID)
     $carInfo = [
         'image' => showImage($carTypeID),
         'type' => selectSpecificColumn('Type', 'CarType', $carTypeID),
-        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)), // Umwandlung von 'gear'
+        'gear' => gearToText(selectSpecificColumn('Gear', 'CarType', $carTypeID)), 
         'seats' => selectSpecificColumn('Seats', 'CarType', $carTypeID),
-        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)), // Umwandlung von 'gps'
+        'gps' => booleanToJaNein(selectSpecificColumn('GPS', 'CarType', $carTypeID)), 
         'doors' => selectSpecificColumn('Doors', 'CarType', $carTypeID),
-        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)) // Umwandlung von 'airCondition'
+        'airCondition' => booleanToJaNein(selectSpecificColumn('Air_Condition', 'CarType', $carTypeID)) 
     ];
 
     return $carInfo;
