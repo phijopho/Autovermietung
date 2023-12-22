@@ -1,13 +1,17 @@
 /* style filter and results (variables are declared at bottom of style.css)  */
+/* Prevent horizontal overflow */
 html {
   overflow-x:hidden;
 }
 
+/* Container for the main content */
 .contentBox {
   min-height: 100vh;
   margin-bottom: -60px;
 }
 
+/* Filter Box Styles */
+/* Container for filtering options */
 .filterBox {
   float: left;
   width: 250px;
@@ -22,6 +26,8 @@ html {
   border-radius: 15px;
 }
 
+/* Individual Filter Styles */
+/* normal Container for each item */
 .itemBox {
   height: fit-content;
   padding-top: 10px;
@@ -43,17 +49,19 @@ html {
   border-radius: 7px;
 }
 
+/* Styling for dropdown options */
 option {
   background: var(--optionBackground);
 }
 
-/* pickup / return date filter */
+/* pickup / return date filter: box for two elements that are sprwad out within box */
 .twoSidedBox {
   display: flex;
   justify-content: space-between;
   padding-top: 12px;
 }
 
+/* Styling for date input fields */
 input[type="date"] {
   background: var(--dropdownBackground);
   color: var(--dropdownColor);
@@ -69,7 +77,7 @@ input[type="date"] {
   text-align: center;
 }
 
-/* category section */
+/* Container for categories */
 .categoryBox {
   padding-top: 15px;
 }
@@ -85,12 +93,13 @@ input[type="date"] {
   display: none;
 }
 
+/* Styling for category labels */
 .categoryLabel {
   cursor: pointer;
 }
 
-/* style if not checked for each category */
-/* ps: i couldnt find any way to make the following feel less redundant, sorry */
+/* Styles for unchecked categories */
+/* Limousine category */
 .iconCheckboxLimousine {
   display: var(--display);
   width: var(--width);
@@ -100,6 +109,7 @@ input[type="date"] {
   background-size: var(--background-size);
 }
 
+/* Combi category */
 .iconCheckboxCombi {
   display: var(--display);
   width: var(--width);
@@ -109,6 +119,7 @@ input[type="date"] {
   background-size: var(--background-size);
 }
 
+/* Cabrio category */
 .iconCheckboxCabrio {
   display: var(--display);
   width: var(--width);
@@ -118,6 +129,7 @@ input[type="date"] {
   background-size: var(--background-size);
 }
 
+/* SUV category */
 .iconCheckboxSUV {
   display: var(--display);
   width: var(--width);
@@ -127,6 +139,7 @@ input[type="date"] {
   background-size: var(--background-size);
 }
 
+/* Mehrsitzer category */
 .iconCheckboxMehrsitzer {
   display: var(--display);
   width: var(--width);
@@ -136,6 +149,7 @@ input[type="date"] {
   background-size: var(--background-size);
 }
 
+/* Coupe category */
 .iconCheckboxCoupe {
   display: var(--display);
   width: var(--width);
@@ -145,13 +159,14 @@ input[type="date"] {
   background-size: var(--background-size);
 }
 
-/* change color of category name if checked */
+/* Styles for checked categories */
+/* Change color of category label if checked */
 .checkbox-container input:checked+.categoryLabel {
   color: var(--checkedAndHoverColor);
   transition: var(--transition);
 }
 
-/* style if checked for each category */
+/* Styling for checked checkboxes within each category */
 .checkbox-container input:checked+.categoryLabel .iconCheckboxLimousine {
   background: var(--limousineChecked);
   background-size: var(--background-size);
@@ -220,7 +235,7 @@ input[type="date"] {
 }
 
 /* Toggle */
-/* The switch - the box around the slider */
+/* Container for toggle switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -235,7 +250,7 @@ input[type="date"] {
   height: 0;
 }
 
-/* The slider */
+/* Slider for toggle switch */
 .sliderRound {
   position: absolute;
   cursor: pointer;
@@ -249,6 +264,7 @@ input[type="date"] {
   border-radius: 30px;
 }
 
+/* Slider knob for toggle switch */
 .sliderRound:before {
   position: absolute;
   content: "";
@@ -262,21 +278,25 @@ input[type="date"] {
   border-radius: 50%;
 }
 
+/* Styling for checked toggle switch */
 input:checked+.sliderRound {
   background-color: var(--accentColor);
 }
 
+/* Styling for focused toggle switch */
 input:focus+.sliderRound {
   box-shadow: 0 0 1px var(--accentColor);
 }
 
+/* Move slider knob to the right when checked */
 input:checked+.sliderRound:before {
   -webkit-transform: translateX(35px);
   -ms-transform: translateX(35px);
   transform: translateX(35px);
 }
 
-/* slider for "sitze", "türen", "alter" */
+/* Range Slider Styles (for "sitze," "türen," "alter") */
+/* Styling for range sliders */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -285,15 +305,14 @@ input[type="range"] {
   width: 100%
 }
 
-/* slider track */
-/* chrome, safari, edge, opera, chromium browsers */
+/* Slider track styles (for Chrome, Safari, Edge, Opera, Chromium browsers) */
 input[type="range"]::-webkit-slider-runnable-track {
   background: var(--trackBackground);
   height: var(--trackHeight);
   border-radius: var(--trackBorderRadius);
 }
 
-/* firefox */
+/* Slider track styles (for Firefox) */
 input[type="range"]::-moz-range-track {
   background: var(--trackBackground);
   height: var(--trackHeight);
@@ -311,6 +330,7 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: var(--buttonMargin);
 }
 
+/* Slider button styles (for Firefox) */
 input[type=range]::-moz-range-thumb {
   border: none;
   background: var(--buttonBackground);
@@ -324,6 +344,50 @@ input[type=range]::-moz-range-thumb {
   font-family: var(--fontFamily);
   font-size: 16px;
   color: var(--mainLight);
+}
+
+/* Slider Track for price range slider*/
+.ui-slider {
+  background: var(--mainLight);
+  height: 10px;
+  border-radius: 5px;
+}
+
+/* Slider Handle */
+.ui-slider-handle {
+  background: #007bff;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: none;
+}
+
+/* Slider Handle beim Drücken */
+.ui-slider-handle:active {
+  background: var(--accentColor);
+}
+
+/* Active Range (Zwischenraum) */
+.ui-slider-range {
+  background: var(--accentColor);
+}
+
+/* Box where amount is shown*/
+#amount {
+  width: 250px;
+  color: var(--mainLight);
+  /* font-weight: bold; */
+  border: 0;
+  background: transparent;
+  font-family: var(--fontFamily);
+  font-size: 16px;
+  /* Schriftgröße auf 16px erhöht */
+}
+
+/* Adjusting the margin for visual spacing */
+#slider-range {
+  margin-top: 10px;
 }
 
 /* filter button */
@@ -365,18 +429,19 @@ input[type=range]::-moz-range-thumb {
   margin-bottom: -10px;
 }
 
-/* hover effects on filter button */
+/* hover effects on reset button */
 .resetButton:hover {
   cursor: pointer;
   width: 170px;
 }
 
-/* remove outline on filter button */
+/* remove outline on reset button */
 .resetButton:focus {
   outline: none;
 }
 
 /* Result area: */
+/* Container for search results */
 .resultBox {
   float: left;
   margin-top: 140px;
@@ -384,6 +449,7 @@ input[type=range]::-moz-range-thumb {
   width: 1330px;
 }
 
+/* Container for the top section of results */
 .topBox {
   padding: 1%;
   display: flex;
@@ -396,11 +462,13 @@ input[type=range]::-moz-range-thumb {
   border-top-right-radius: 15px;
 }
 
+/* Container for sorting options */
 .sortBox {
   display: flex;
   justify-content: space-between;
 }
 
+/* Separator between available and unavailable car types */
 .separatingBox {
   font-weight: 500;
   font-size: large;
@@ -415,6 +483,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* Show Cars Area */
+/* Container for displaying cars */
 .resultWrapBox {
   background-color: #272626;
   max-width: 1330px;
@@ -426,10 +495,7 @@ input[type=range]::-moz-range-thumb {
   border-bottom-right-radius: 15px;
 }
 
-.carLinkBox {
-  float: left;
-}
-
+/* Container for individual result items */
 .resultItemBox {
   float: left;
   background-color: var(--mainBackgroundColor);
@@ -439,6 +505,7 @@ input[type=range]::-moz-range-thumb {
   border-radius: 5px;
 }
 
+/* Container for car model information */
 .modelBox {
   width: 98%;
   padding: 5px;
@@ -446,6 +513,7 @@ input[type=range]::-moz-range-thumb {
   justify-content: space-between;
 }
 
+/* Container for car pictures */
 .pictureBox {
   border-top: 3px solid var(--mainDark);
   border-bottom: 3px solid var(--mainDark);
@@ -453,6 +521,7 @@ input[type=range]::-moz-range-thumb {
   text-align: center;
 }
 
+/* Styles for car images */
 .pictureBox img {
   max-width: 630px;
   max-height: 200px;
@@ -470,6 +539,7 @@ input[type=range]::-moz-range-thumb {
   transition: all 0.3s linear;
 }
 
+/* Scale effect on hover for car images */
 .pictureBox img:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
@@ -478,6 +548,7 @@ input[type=range]::-moz-range-thumb {
   transform: scale(1.1);
 }
 
+/* Container for car data */
 .carDataBox {
   line-height: 25px;
   padding: 5px;
@@ -485,54 +556,12 @@ input[type=range]::-moz-range-thumb {
   justify-content: space-between;
 }
 
+/* Style for a warning message for minimum age too young */
 .minAgeTooYoungBox {
   color:#dc2430;
 }
- 
-/* Slider Track */
-.ui-slider {
-  background: var(--mainLight);
-  height: 10px;
-  border-radius: 5px;
-}
 
-/* Slider Handle */
-.ui-slider-handle {
-  background: #007bff;
-  border: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  outline: none;
-}
-
-/* Slider Handle beim Drücken */
-.ui-slider-handle:active {
-  background: var(--accentColor);
-}
-
-/* Active Range (Zwischenraum) */
-.ui-slider-range {
-  background: var(--accentColor);
-}
-
-/* Input Box */
-#amount {
-  width: 250px;
-  color: var(--mainLight);
-  /* font-weight: bold; */
-  border: 0;
-  background: transparent;
-  font-family: var(--fontFamily);
-  font-size: 16px;
-  /* Schriftgröße auf 16px erhöht */
-}
-
-/* Optional: Adjusting the margin for visual spacing */
-#slider-range {
-  margin-top: 10px;
-}
-
+/* Styling for the "Button Up" element */
 .buttonUp {
   background: transparent;
   border: none;
@@ -555,11 +584,13 @@ input[type=range]::-moz-range-thumb {
   transition: transform 0.5s ease;
 }
 
+/* Hover effect for the "Button Up" element */
 .buttonUp:hover {
   opacity: 1 !important;
   transform: scale(1.1);
 }
 
+/* Container for the "Button Up" element */
 .buttonUpContainer {
   width: 500px;
   float: right;
