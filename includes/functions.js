@@ -11,7 +11,7 @@ function togglemenu() {
     var button = document.querySelector('.buttonToggle');
 
     // show table on click when not visible
-    if (table.style.opacity == '0') {
+    if (table.style.opacity == '' || table.style.opacity == '0') {
         table.style.opacity = '1.0';
         table.style.maxHeight = '100%';
         button.classList.add('rotated');
