@@ -387,7 +387,6 @@ margin-top: -10px;
 .similarModels {
   text-align: center;
   background: transparent;
-  margin-bottom: -100px;
   color: var(--mainLight);
 }
 
@@ -399,7 +398,6 @@ margin-top: -10px;
   position: relative;
   height: 375px;  
   margin-top: 10px;
-  z-index: -1;
 }
 
 .cslider img {

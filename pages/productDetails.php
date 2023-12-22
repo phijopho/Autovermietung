@@ -216,9 +216,6 @@ include('../includes/header.php'); // Einbindung des Headers
             // execute SQL-statement
             $query->execute();
 
-            // // Get results
-            // $result = $query->get_result();
-
             // dynamic carousel, get model and price
             while ($row = $query->fetch()) {
                 $modelInfo = getModel($row['CarType_ID']);
