@@ -28,7 +28,6 @@ ini_set('display_errors', 1);
     <link rel="stylesheet" href="css/styleFooter.css">
     <script src="includes/functions.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="includes/karussell-slider.js"></script>
     <!-- <link rel="stylesheet" href="css/styleHomepage.css"> -->
 
 

@@ -245,7 +245,7 @@ include('includes/header.php'); // include header
     function submitFormWithCity(city) {
         var form = document.createElement("form");
         form.method = "POST";
-        form.action = "http://localhost/Autovermietung/pages/productOverview.php";
+        form.action = "pages/productOverview.php";
 
         var input = document.createElement("input");
         input.type = "hidden";

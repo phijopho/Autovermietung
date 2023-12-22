@@ -170,7 +170,7 @@ include('../includes/header.php'); // Including the header
     <!--link to contactForm-->
     <p>
       Haben Sie weitere Fragen? 
-      <a href="http://localhost/Autovermietung/pages/contactForm.php" class="contactForm">
+      <a href="pages/contactForm.php" class="contactForm">
         Hier klicken f&uuml;r unser Kontaktformular!
       </a>
     </p>
