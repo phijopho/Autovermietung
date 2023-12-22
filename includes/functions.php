@@ -565,7 +565,7 @@ function getAvailableCarIDs($carType_ID)
 // show car locations to display when car is not available for filtered location 
 function getCarLocations($CarType_ID){
     include('dbConnection.php');
-    $stmt=$conn->query("SELECT City FROM Location
+    $stmt=$conn->query("SELECT DISTINCT City FROM Location
     JOIN Car on Car.Location_ID=Location.Location_ID
     JOIN CarType on CarType.CarType_ID=Car.CarType_ID
     WHERE Car.CarType_ID=$CarType_ID");
