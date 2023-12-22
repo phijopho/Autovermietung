@@ -115,7 +115,11 @@ include('../includes/header.php');
 
     <!--bring booking infos in accordion-->
     <dl id="ud_accordion">
-      <?php foreach ($bookingInfos as $bookingInfo): ?>
+      <?php usort($bookingInfos, function ($a, $b) {
+          return $b['Rent_ID'] - $a['Rent_ID'];
+          });
+      
+      foreach ($bookingInfos as $bookingInfo): ?>
         <dt>
           <div class="box"><p><?php echo $bookingInfo['Rent_ID']; ?></p></div>
           <div class="box"><p><?php echo $bookingInfo['BookingDate']; ?></p></div>
