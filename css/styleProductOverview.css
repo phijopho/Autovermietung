@@ -518,6 +518,7 @@ input[type=range]::-moz-range-thumb {
 
 /* Input Box */
 #amount {
+  width: 250px;
   color: var(--mainLight);
   /* font-weight: bold; */
   border: 0;

@@ -260,7 +260,7 @@ include('../includes/header.php'); // include header
                 <div class="itemBox">
                     <label for="vendor">Hersteller:</label><br>
                     <select class="customSelect" name="vendor">
-                        <option value="all">Alle auswählen</option>
+                        <option value="all">Alle ausw&auml;hlen</option>
                         <?php
                         // create dropdown with values from database
                         $vendors = selectColumn("Abbreviation", "Vendor");
@@ -325,7 +325,7 @@ include('../includes/header.php'); // include header
                 <div class="itemBox">
                     <label for="drive">Antrieb:</label><br>
                     <select class="customSelect" name="drive">
-                        <option value="all">Alle auswählen</option>
+                        <option value="all">Alle ausw&auml;hlen</option>
                         <?php
                         // get drives from database and translate to German
                         $drives = selectDistinctColumn("Drive", "CarType");
@@ -393,7 +393,7 @@ include('../includes/header.php'); // include header
 
                 <!-- price filter -->
                 <div class="itemBox">
-                    <input type="text" id="amount" name="amount">
+                    <input type="text" id="amount" name="amount" disabled>
                     <div id="slider-range"></div>
                     <input type="hidden" name="minPrice" id="minPrice">
                     <input type="hidden" name="maxPrice" id="maxPrice">
@@ -406,7 +406,7 @@ include('../includes/header.php'); // include header
 
             <!-- revert filters except location and dates -->
             <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
-                <input class="resetButton" type="submit" value="Filter zurücksetzen" name="resetButton">
+                <input class="resetButton" type="submit" value="Filter zur&uuml;cksetzen" name="resetButton">
             </form>
         </div>
 

@@ -1,5 +1,4 @@
-/* style registration page */
-
+/* style login page */
 /* style form box */
 form {
     float: left;
@@ -68,7 +67,7 @@ input::placeholder {
     color: var(--mainDark);
 }
 
-/* style for register button */
+/* style for login button */
 button {
     margin-left: 50%;
     transform: translateX(-50%);
@@ -95,6 +94,7 @@ button:focus {
     outline: none;
 }
 
+/* error message box */
 .error {
     height: 35px;
     line-height: 35px;
@@ -108,12 +108,13 @@ button:focus {
     justify-content: center;
 }
 
+/* error message text */
 .textError {
     color: #a70000;
     font-size: 16px;
 }
 
-/* style for registration info / link */
+/* style for info to registration */
 .registerInfo {
     width: 500px;
     text-align: center;
@@ -124,6 +125,7 @@ button:focus {
     margin-top: 15px;
 }
 
+/* style and hover animation for link to registration */
 .registerLink {
     text-decoration: none;
     position: relative;
@@ -152,6 +154,7 @@ button:focus {
     transform: scaleX(1);
 }
 
+/* style for background gif */
 .gif1 {
     margin: 50px;
     margin-top: 210px;

@@ -1,5 +1,4 @@
 /* style registration page */
-
 /* style form box */
 form {
     float: left;
@@ -96,7 +95,7 @@ button:focus {
     outline: none;
 }
 
-/* style for success and error messages */
+/* error message box */
 .error {
     height: 35px;
     line-height: 35px;
@@ -110,6 +109,13 @@ button:focus {
     justify-content: center;
 }
 
+/* error message text */
+.textError {
+    color: #a70000;
+    font-size: 16px;
+}
+
+/* success message box */
 .success {
     height: 45px;
     line-height: 30px;
@@ -123,17 +129,13 @@ button:focus {
     justify-content: center;
 }
 
-.textError {
-    color: #a70000;
-    font-size: 16px;
-}
-
+/* success message text */
 .textSuccess {
     color: #004b23;
     font-size: 16px;
 }
 
-/* style and hover animation for login link */
+/* style and hover animation for "jetzt anmelden" link */
 .linkHere {
     text-decoration: none;
     color: #004b23;
@@ -164,7 +166,7 @@ button:focus {
     transform: scaleX(1);
 }
 
-/* style for login info / link */
+/* style for info to login */
 .loginInfo {
     width: 500px;
     text-align: center;
@@ -175,6 +177,7 @@ button:focus {
     margin-top: 15px;
 }
 
+/* style and hover animation for link to login */
 .loginLink {
     text-decoration: none;
     position: relative;
@@ -203,12 +206,12 @@ button:focus {
     transform: scaleX(1);
 }
 
+/* style for background gif  */
 .gif1 {
     margin: 50px;
     margin-top: 210px;
     width: 45%;
     float: left;
-
 }
 
 .gif1 img {

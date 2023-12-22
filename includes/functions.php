@@ -91,7 +91,7 @@ function getModel($CarType_ID)
     return $model;
 }
 
-// pickUpDate and returnDate hinzufügen (mit gebuchten Autos verknüpfen)
+// pickUpDate and returnDate hinzuf&uuml;gen (mit gebuchten Autos verkn&uuml;pfen)
 function getResultsQuery()
 {
     include('dbConnection.php');
@@ -181,7 +181,7 @@ function displayResults($stmt)
                                 // Use the getPrice function to display car prices
                                 $price = getCarProperty($carType_ID, 'Price');
                                 echo "Preis pro Tag: " . $price . " &euro;<br>";
-                                echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
+                                echo "Preis f&uuml;r den gew&auml;hlten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
                             echo "</div>";
                             $minAge=getCarProperty($carType_ID, 'Min_Age');
                             if (isset($_SESSION['User_ID'])){
@@ -228,7 +228,7 @@ function displayResults($stmt)
                                     // Use the getPrice function to display car prices
                                     $price = getCarProperty($carType_ID, 'Price');
                                     echo "Preis pro Tag: " . $price . " &euro;<br>";
-                                    echo "Preis für den gewählten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
+                                    echo "Preis f&uuml;r den gew&auml;hlten Zeitraum: " . getTotalPrice($price) . " &euro;<br>";
                                 echo "</div>";
                                 $minAge=getCarProperty($carType_ID, 'Min_Age');
                                 if (isset($_SESSION['User_ID'])){
@@ -314,7 +314,7 @@ function getAvailableCars()
     }
 
 
-    // Bereiten Sie die Abfrage vor und führen Sie sie aus
+    // Bereiten Sie die Abfrage vor und f&uuml;hren Sie sie aus
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':startDate', $startDate);
     $stmt->bindParam(':endDate', $endDate);
@@ -340,10 +340,9 @@ function getAvailableCarsForModel($carType_ID)
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
             INNER JOIN Location ON Car.Location_ID = Location.Location_ID
             LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
-            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate <= :endDate AND Rental.EndDate >=     :startDate))
                 AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
 
-    // Bereiten Sie die Abfrage vor und führen Sie sie aus
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':startDate', $startDate);
     $stmt->bindParam(':endDate', $endDate);
@@ -399,11 +398,11 @@ function getPriceForCategory($category)
     $row = $stmt->fetch();
 
     if ($row) {
-        // Wenn ein Ergebnis vorhanden ist, gib den Preis zurück
+        // Wenn ein Ergebnis vorhanden ist, gib den Preis zur&uuml;ck
         return $row['MIN(Price)'];
     } else {
-        // Wenn kein Ergebnis vorhanden ist, gib einen Hinweis zurück
-        return "Preis nicht verfügbar";
+        // Wenn kein Ergebnis vorhanden ist, gib einen Hinweis zur&uuml;ck
+        return "Preis nicht verf&uuml;gbar";
     }
 }
 
@@ -474,7 +473,7 @@ function getBookingInfos($User_ID)
 {
     include('dbConnection.php');
     $stmt = $conn->query(
-        "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price,2) AS TotalPrice
+        "SELECT Rental.Rent_ID, Rental.BookingDate, Rental.StartDate, Rental.EndDate, Vendor.Abbreviation AS Brand, CarType.Name AS Model, Location.City AS CarLocation, ROUND(DATEDIFF(Rental.EndDate, Rental.StartDate) * CarType.Price + CarType.Price,2) AS TotalPrice
     FROM Rental             
     JOIN Car ON Rental.Car_ID = Car.Car_ID             
     JOIN CarType ON Car.CarType_ID = CarType.CarType_ID             
@@ -515,7 +514,7 @@ function getAvailableCarIDs($carType_ID)
             WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate < :endDate AND Rental.EndDate > :startDate))
                 AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
 
-    // Bereiten Sie die Abfrage vor und führen Sie sie aus
+    // Bereiten Sie die Abfrage vor und f&uuml;hren Sie sie aus
     $stmt = $conn->prepare($stmt);
     $stmt->bindParam(':startDate', $startDate);
     $stmt->bindParam(':endDate', $endDate);

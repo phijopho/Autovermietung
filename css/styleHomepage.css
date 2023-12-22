@@ -189,6 +189,13 @@ input[type="submit"]:focus {
     height: fit-content;
 }
 
+.info {
+z-index: 10;
+float: right;
+background: transparent;
+font-size:x-small;
+}
+
 .section3 {
     /* margin-left: 120px; */
     height: fit-content;
@@ -419,6 +426,7 @@ input[type="submit"]:focus {
 .cslider .p,
 .cslider a {
     color: #fff;
+    height: 80px;
 }
 
 .cslider-carousel {
@@ -459,7 +467,7 @@ input[type="submit"]:focus {
 
 .cslider-item img {
     height: auto;
-    max-height: 315px;
+    max-height: 230px;
     max-width: 100%;
     width: auto;
 }
@@ -581,7 +589,7 @@ input[type="submit"]:focus {
 }
 
 .cslider-item-selected .cslider-text {
-    height: 150px;
+    height: 80px;
     padding: 0;
     opacity: 1;
     -webkit-transition: height 0ms, opacity 300ms ease-in-out 300ms;

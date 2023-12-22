@@ -1,5 +1,5 @@
-// Produktdetailseite toggle Menu 
-
+// Product Detail page
+//toggle Menu 
 window.onload = function () {
     var fotoHeight = document.querySelector('.foto').clientHeight;
     var gallery = document.querySelector('.divgallery');
@@ -23,10 +23,19 @@ function togglemenu() {
     }
 }
 
+// function for modal box
+function displayModal() {
+    document.getElementById('myModal').style.display = 'block';
+}
+ 
+function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
+}
+
 // Homepage
 
-  //Carousel with prices and categories 
-  function cSlider() {
+//Carousel with prices and categories 
+function cSlider() {
     'use strict';
 
     var $carousel = jQuery('.cslider');
@@ -55,7 +64,7 @@ function togglemenu() {
             $carouselItem.eq(setIndex(i, 4)).addClass('cslider-item-last');
         }
 
-        // Event-Handler für Schaltflächen
+        // Event-Handler f&uuml;r Schaltfl&auml;chen
         $next.on('click', function () {
             clearInterval(autoScrollInterval);
             index++;
@@ -140,7 +149,7 @@ function scrollToAnchor() {
     });
 }
 
-// Initialisieren Sie die Scroll-Funktion nur, wenn sich die Seite auf der index.php befindet
+// start scroll funktion if user is on page: index.php
 if (window.location.pathname === '/Autovermietung/index.php' || window.location.pathname === '/Autovermietung/productOverview.php') {
     document.addEventListener('DOMContentLoaded', function () {
         scrollToAnchor();
@@ -152,7 +161,7 @@ if (window.location.pathname === '/Autovermietung/index.php' || window.location.
 document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // add 'active'-class bbsed on current url
+    // add 'active'-class based on current url
     function setActiveLink() {
         const currentUrl = window.location.href;
         navLinks.forEach(link => {
@@ -178,12 +187,12 @@ document.addEventListener('DOMContentLoaded', function () {
     setActiveLink();
 });
 
-//Hovermenu closing slower
+//Hovermenu is closing slower when pointer leaves text
 let closeTimer;
 
 function handleMouseEnter() {
     document.getElementById('submenu').style.display = 'block';
-    cancelCloseTimer(); // Den Timer löschen, um das Schließen des Menüs zu verhindern
+    cancelCloseTimer(); // Den Timer l&Ouml;schen, um das Schließen des Men&uuml;s zu verhindern
 }
 
 function startCloseTimer() {
@@ -231,11 +240,11 @@ function enableEditing() {
     var button = document.querySelector("button");
 
     if (!editingEnabled) {
-        button.innerHTML = "Änderung abschicken";
+        button.innerHTML = "&Auml;nderung abschicken";
         editingEnabled = true;
     } else {
         
-        if (button.innerHTML === "Änderung abschicken") {
+        if (button.innerHTML === "&Auml;nderung abschicken") {
            
             setTimeout(function () {
                 window.location = "/Autovermietung/index.php";
@@ -243,5 +252,3 @@ function enableEditing() {
         }
     }
 }
-
-

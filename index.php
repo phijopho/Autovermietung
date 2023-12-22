@@ -48,7 +48,7 @@ include('includes/header.php'); // include header
                     <!-- Location selection dropdown -->
                     <select class="selectLocation" id="location" name="location">
                         <?php 
-                        // Populate options from the database, excluding Hamburg
+                        // Populate options from the database
                         foreach ($location as $city) {
                             if ($_SESSION['location'] == $city) {
                                 echo "<option value='$city' selected>$city</option>";
@@ -56,7 +56,6 @@ include('includes/header.php'); // include header
                                 echo "<option value='$city'>$city</option>";
                             }
                         }
-                        $_SESSION['location'] = "Hamburg";
                         ?>
                     </select>
                     <!-- Date pickers for pick-up and return dates -->
@@ -154,6 +153,7 @@ include('includes/header.php'); // include header
     <!-- Section 3 with interactive map and site information -->
     <div class="BackgroundAudi">
         <div class="section3" id="section3">
+        <span class="info">Diese Modelle stehen in der oben dargestellten Ausf&uuml;hrung m&ouml;glicherweise nicht zur Verf&uuml;gung.</span>
             <div class="map-container">
                 <div class="ger-map">
                     <img src="images/Deutschlandkarte.png" alt="map">
@@ -199,7 +199,7 @@ include('includes/header.php'); // include header
                     </div>
 
                     <div class="pin koeln" onclick="submitFormWithCity('Koeln');">
-                        <span>Köln</span>
+                        <span>K&ouml;ln</span>
                     </div>
 
                     <div class="pin leipzig" onclick="submitFormWithCity('Leipzig');">
@@ -207,11 +207,11 @@ include('includes/header.php'); // include header
                     </div>
 
                     <div class="pin muenchen" onclick="submitFormWithCity('Muenchen');">
-                        <span>München</span>
+                        <span>M&uuml;nchen</span>
                     </div>
 
                     <div class="pin nuernberg" onclick="submitFormWithCity('Nuernberg');">
-                        <span>Nürnberg</span>
+                        <span>N&uuml;rnberg</span>
                     </div>
                 </div>
             </div>

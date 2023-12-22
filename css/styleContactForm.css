@@ -12,7 +12,6 @@ form {
 }
 
 /* headline with gradient underlining */
-/*wenn h1 aktviert ist, kollabiert der footer. problem suchen!*/
 h1 {
     color: var(--mainLight);
     font-size: 45px;
