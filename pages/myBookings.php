@@ -67,7 +67,7 @@ include('../includes/header.php');
       if ($bookingInfos) {
         $bookingInfos = array_reverse($bookingInfos); //To arrange bookings in descending order
     } else {
-        $bookingInfos = array(); // Set it to an empty array if there are no bookings
+        $bookingInfos = array(); //empty array if there are no bookings
     }
   ?>
 
