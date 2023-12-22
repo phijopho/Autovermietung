@@ -169,7 +169,7 @@ function displayResults($stmt)
     if ($result->rowCount() > 0) {
         echo "<div class='resultWrapBox'>";
 
-        $noAvailableCars = false; // variable to see if the second while-loop needs to be executed
+        $hasUnavailableModels = false; // variable to see if the second while-loop needs to be executed
         $hasAvailableModels = false; // variable to see if no cars match user filters
 
         // loop through each available result and display it
@@ -212,14 +212,14 @@ function displayResults($stmt)
                     echo "</div>";
                 echo "</a>";
             } else {
-                $noAvailableCars=true;
+                $hasUnavailableModels=true;
             } 
         }
         if ($hasAvailableModels==false){
             echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
         }
         // loop through each for the selected location or time unavailable result and display it with same logix as above
-        if($noAvailableCars==true){
+        if($hasUnavailableModels==true){
             $result = $conn->query($stmt);
             echo "<div class='separatingBox'> Nicht verf&uuml;gbare Modelle: </div>";
             while ($row = $result->fetch()) {
@@ -357,7 +357,7 @@ function getAvailableCarsForModel($carType_ID)
             INNER JOIN CarType ON Car.CarType_ID = CarType.CarType_ID
             INNER JOIN Location ON Car.Location_ID = Location.Location_ID
             LEFT JOIN Rental ON Car.Car_ID = Rental.Car_ID
-            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate <= :endDate AND Rental.EndDate >= :startDate))
+            WHERE (Rental.Rent_ID IS NULL OR NOT (Rental.StartDate <= :endDate AND Rental.EndDate >= d:startDate))
                 AND Location.City = :location AND CarType.CarType_ID = :carType_ID";
     
     // Prepare and execute the query
