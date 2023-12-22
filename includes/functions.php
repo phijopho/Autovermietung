@@ -170,12 +170,14 @@ function displayResults($stmt)
         echo "<div class='resultWrapBox'>";
 
         $noAvailableCars = false; // variable to see if the second while-loop needs to be executed
+        $hasAvailableModels = false; // variable to see if no cars match user filters
 
         // loop through each available result and display it
         while ($row = $result->fetch()) {
             $carType_ID = $row['CarType_ID'];
             $availableCarsModel = getAvailableCarsForModel($carType_ID);
             if ($availableCarsModel > 0) {
+                $hasAvailableModels = true;
                 echo "<a href='pages/productDetails.php?carType_ID=$carType_ID'>";
                     echo "<div class='resultItemBox'>";
                         echo "<div class='modelBox'>";
@@ -212,6 +214,9 @@ function displayResults($stmt)
             } else {
                 $noAvailableCars=true;
             } 
+        }
+        if ($hasAvailableModels==false){
+            echo "<p>Keine Modelle f&uuml;r Ihre Filterung verf&uuml;gbar.</p>";
         }
         // loop through each for the selected location or time unavailable result and display it with same logix as above
         if($noAvailableCars==true){
